@@ -993,7 +993,7 @@
             _classCallCheck(this, PreviewAttachmentsComponent);
 
             this.previewAttachmentsList = [];
-            this.displayedColumns = '';
+            this.displayedColumns = "";
           }
 
           _createClass(PreviewAttachmentsComponent, [{
@@ -1002,8 +1002,12 @@
           }, {
             key: "ngAfterViewInit",
             value: function ngAfterViewInit() {
-              this.dataSource.paginator = this.paginator;
-              this.dataSource.sort = this.sort;
+              console.log(this.dataSource);
+
+              if (this.dataSource) {
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+              }
             }
           }, {
             key: "viewFormOrMaterial",
@@ -9580,7 +9584,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " CLEARANCE");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " CLEARANCE ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -9606,7 +9610,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " PENDING FORM");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " PENDING FORM ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -9632,7 +9636,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SEND CLEARANCE OR TOA");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SEND CLEARANCE OR TOA ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -10416,7 +10420,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", i_r85 == null ? null : i_r85.typeOfRationale == null ? null : i_r85.typeOfRationale.rationale, "");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", i_r85 == null ? null : i_r85.typeOfRationale == null ? null : i_r85.typeOfRationale.rationale, " ");
         }
       }
 
@@ -10574,7 +10578,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -10670,7 +10674,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST FOR COMPLIANCE");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST FOR COMPLIANCE ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -10686,7 +10690,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SUBMIT COMPLIANCE");
+          _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SUBMIT COMPLIANCE ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         }
@@ -11286,12 +11290,13 @@
             value: function getAttachmentDocuments() {
               var _this41 = this;
 
-              console.log("apForm", this.s2Application.applicationForm);
+              console.log("apForm", this.s2Application.applicationForm, _shared__WEBPACK_IMPORTED_MODULE_7__["ENDPOINTS"].attachmentDocumentByAppFormReference + this.s2Application.applicationForm.appFormReference);
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_7__["ENDPOINTS"].attachmentDocumentByAppFormReference + this.s2Application.applicationForm.appFormReference).subscribe(function (res) {
                 _this41.attachmentDocuments = res.responseData.data;
                 _this41.originalAttachmentDocuments = _this41.attachmentDocuments.originalAttachmentDocuments;
                 _this41.revisionAttachmentDocuments = _this41.attachmentDocuments.revisionAttachmentDocuments;
                 _this41.complianceAttachmentDocuments = _this41.attachmentDocuments.complianceAttachmentDocuments;
+                console.log(_this41.originalAttachmentDocuments);
 
                 if (_this41.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_7__["USER_ROLES"].ROLE_APPLICANT && _this41.s1Application.externalStatus === _shared__WEBPACK_IMPORTED_MODULE_7__["APPLICATION_STATUS"].SAVED) {
                   _this41.materialInformation.originalAttachmentDocuments = _this41.attachmentDocuments.originalAttachmentDocuments;
@@ -11880,7 +11885,7 @@
 
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "td", 1);
 
-              _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, " Reference Code: ");
+              _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, "Reference Code:");
 
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -11952,7 +11957,7 @@
 
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "td", 1);
 
-              _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](25, " Status: ");
+              _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](25, "Status:");
 
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 
@@ -12332,7 +12337,7 @@
 
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
 
-              _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("s1Application", ctx.s1Application)("labelMainDocument", "Support Document")("isAscUser", ctx.isAscUser)("s2Appplication", ctx.s2Application)("complianceAttachmentDocuments", ctx.complianceAttachmentDocuments)("s2SupportAttchmentDocuments", ctx.originalAttachmentDocuments)("s2DocObservable", ctx.s2OriginalAttachmentObservable)("applicationStage", ctx.applicationStage)("S2SupportDoc", true);
+              _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("s1Application", ctx.s1Application)("labelMainDocument", "Support Document")("isAscUser", ctx.isAscUser)("s2Appplication", ctx.s2Application)("complianceAttachmentDocuments", ctx.complianceAttachmentDocuments)("s2SupportAttchmentDocuments", ctx.s2OriginalAttachmentDocuments)("s2DocObservable", ctx.s2OriginalAttachmentObservable)("applicationStage", ctx.applicationStage)("S2SupportDoc", true);
 
               _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
 
@@ -15251,6 +15256,7 @@
             this.originalAttachmentDocuments = [];
             this.revisionAttachmentDocuments = [];
             this.complianceAttachmentDocuments = [];
+            this.s2SupportAttchmentDocuments = [];
             this.s2DocObservable = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
             this.s2SupportDocument = {};
             this.S2SupportDoc = false;
@@ -15310,6 +15316,7 @@
             value: function ngOnInit() {
               var _this57 = this;
 
+              console.log(this.s2SupportAttchmentDocuments);
               this.id = Number(this.route.snapshot.paramMap.get("id"));
               this.currentUser = this.dataStorage.getUserAccount();
               this.setFormValidator();
@@ -15319,12 +15326,14 @@
                   _this57.s2Appplication = res.value;
                 } else if (res.type === "document") {
                   console.log("s2 document", res.value);
-                  _this57.s2SupportDocument = res.value.filter(function (r) {
+                  _this57.s2SupportDocument = _this57.s2SupportAttchmentDocuments.filter(function (r) {
                     return r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE;
                   })[_this57.s1Application.hasNoSupportingDocs ? 0 : 1];
                 }
               });
-              console.log("S2222 => ", this.s2SupportAttchmentDocuments);
+              setTimeout(function () {
+                console.log("S2222 => ", _this57.s2SupportAttchmentDocuments);
+              }, 5000);
             }
           }, {
             key: "validateDeleteBtn",
@@ -29062,7 +29071,7 @@
 
               _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-              _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (ctx.isAdmin || ctx.isSuperAdmin || ctx.isApplicant || ctx.isAdSpecialist) && ctx.previewAttachmentsList.length);
+              _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (ctx.isAdmin || ctx.isSuperAdmin || ctx.isAdSpecialist) && ctx.previewAttachmentsList.length || ctx.isApplicant && (ctx.s1Application == null ? null : ctx.s1Application.paymentStatus) === "PAID");
 
               _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
 
@@ -34351,9 +34360,9 @@
               var endpoint = "";
 
               if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_AD_SPECIALIST) {
-                endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm + "/custom/search?assignedAdSpecialistId=".concat(this.currentUser.id, "&page=").concat(this.currentPage, "&size=").concat(this.pageSize);
+                endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm + "/adspe-retrieve-reassign?assignedAdSpecialist_Id=".concat(this.currentUser.id, "&page=").concat(this.currentPage, "&size=").concat(this.pageSize);
               } else {
-                endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm + "/custom/search?assignedScreenerId=".concat(this.currentUser.id, "&page=").concat(this.currentPage, "&size=").concat(this.pageSize);
+                endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm + "/screener-retrieve-reassign?assignedScreener_Id=".concat(this.currentUser.id, "&page=").concat(this.currentPage, "&size=").concat(this.pageSize);
               }
 
               this.spinner.show();
@@ -35182,7 +35191,9 @@
                   _this158.s2Application.externalStatus = "SAVED";
                   console.log("View S2:", _this158.data.s2Application);
 
-                  _this158.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, _this158.s2Application).subscribe(function (res) {
+                  _this158.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, {
+                    applicationForm: _this158.s2Application.applicationForm
+                  }).subscribe(function (res) {
                     console.log(res);
 
                     _this158.router.navigate(["asc/page/application/s2/update", res.responseData.data.id]);

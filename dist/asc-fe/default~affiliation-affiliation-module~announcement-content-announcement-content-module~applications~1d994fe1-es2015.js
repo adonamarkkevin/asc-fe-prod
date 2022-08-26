@@ -312,24 +312,25 @@ let RequestForSpecialClearingComponent = /*@__PURE__*/ (() => {
             this.applicationRequest.tagLine = this.s1Application.tagLine;
             this.applicationRequest.applicationForm = this.s1Application;
         }
-        onApproveOrDisapprove(status = 'APPROVED') {
-            const displayStatus = status === 'APPROVED' ? 'approve' : 'disapprove';
+        onApproveOrDisapprove(status = "APPROVED") {
+            const displayStatus = status === "APPROVED" ? "approve" : "disapprove";
             sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
                 text: `Are you sure you want to ${displayStatus} this application?`,
-                icon: 'question',
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
             }).then((result) => {
                 if (result.value) {
-                    const endpointExtension = status === 'APPROVED' ? '/approve' : '/disapprove';
+                    const endpointExtension = status === "APPROVED" ? "/approve" : "/disapprove";
                     // this.s1Application.actionDate = new Date();
                     this.s1Application.actionBy = this.currentUser.username;
-                    this.apiService.save(`${_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests}${endpointExtension}/${this.applicationRequest.id}`, this.applicationRequest)
+                    this.apiService
+                        .save(`${_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests}${endpointExtension}/${this.applicationRequest.id}`, this.applicationRequest)
                         .subscribe((res) => {
                         this.sweetAlertService.customSuccessMessage(`Application successfully ${status.toLowerCase()}.`);
-                        this.router.navigate(['asc/page/application/s2/special']);
+                        this.router.navigate(["asc/page/application/s2/special"]);
                     }, (err) => {
                         err.error.message = _shared__WEBPACK_IMPORTED_MODULE_3__["ERROR_MESSAGES"].under_maintenance;
                         this.sweetAlertService.error(err);
@@ -341,17 +342,19 @@ let RequestForSpecialClearingComponent = /*@__PURE__*/ (() => {
         }
         submitRequest() {
             sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
-                text: 'Are you sure you want to submit request?',
-                icon: 'question',
+                text: "Are you sure you want to submit request?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
             }).then((result) => {
                 if (result.value) {
-                    this.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests, this.applicationRequest).subscribe((res) => {
-                        this.sweetAlertService.customSuccessMessage('Request has been submit successfully.');
-                        this.router.navigate(['asc/page/application/s2/special']);
+                    this.apiService
+                        .save(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests, this.applicationRequest)
+                        .subscribe((res) => {
+                        this.sweetAlertService.customSuccessMessage("Request has been submit successfully.");
+                        this.router.navigate(["asc/page/application/s2/special"]);
                         this.dialogRef.close();
                     }, (err) => {
                         err.error.message = _shared__WEBPACK_IMPORTED_MODULE_3__["ERROR_MESSAGES"].under_maintenance;
@@ -363,26 +366,30 @@ let RequestForSpecialClearingComponent = /*@__PURE__*/ (() => {
         }
         proceedToS2() {
             sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
-                text: 'Are you sure you want to apply this application to S2?',
-                icon: 'question',
+                text: "Are you sure you want to apply this application to S2?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
             }).then((result) => {
                 if (result.value) {
                     this.s2Application.specialClearing = true;
                     this.s2Application.applicationRequest = this.applicationRequest;
                     this.s2Application.applicationForm = this.s1Application;
                     this.s2Application.submissionType = _shared__WEBPACK_IMPORTED_MODULE_3__["SUBMISSION_TYPE"].ORIGINAL; // this.s2Application.applicationForm.submissionType;
-                    this.s2Application.internalStatus = 'SAVED';
-                    this.s2Application.externalStatus = 'SAVED';
-                    console.log('View S2:', this.s2Application);
-                    this.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].s2ApplicationFormPresentorSave, this.s2Application).subscribe((res) => {
-                        this.router.navigate(['asc/page/application/s2/update', res.responseData.data.id]);
+                    this.s2Application.internalStatus = "SAVED";
+                    this.s2Application.externalStatus = "SAVED";
+                    console.log("View S2:", this.s2Application);
+                    this.apiService
+                        .save(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].s2ApplicationFormPresentorSave, this.s2Application)
+                        .subscribe((res) => {
+                        this.router.navigate([
+                            "asc/page/application/s2/update",
+                            res.responseData.data.id,
+                        ]);
                         this.dialogRef.close();
-                    }, (err) => {
-                    });
+                    }, (err) => { });
                 }
             });
         }

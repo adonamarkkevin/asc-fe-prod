@@ -526,13 +526,15 @@ let PreviewAttachmentsComponent = /*@__PURE__*/ (() => {
     class PreviewAttachmentsComponent {
         constructor() {
             this.previewAttachmentsList = [];
-            this.displayedColumns = '';
+            this.displayedColumns = "";
         }
-        ngOnInit() {
-        }
+        ngOnInit() { }
         ngAfterViewInit() {
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
+            console.log(this.dataSource);
+            if (this.dataSource) {
+                this.dataSource.paginator = this.paginator;
+                this.dataSource.sort = this.sort;
+            }
         }
         viewFormOrMaterial(attachmentUrl) {
             if (attachmentUrl) {
@@ -5387,7 +5389,7 @@ function AddS2ApplicationComponent_button_37_Template(rf, ctx) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "i", 32);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "open_in_new");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " CLEARANCE");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " CLEARANCE ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
 }
@@ -5399,7 +5401,7 @@ function AddS2ApplicationComponent_button_38_Template(rf, ctx) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "i", 32);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "open_in_new");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " PENDING FORM");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " PENDING FORM ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
 }
@@ -5411,7 +5413,7 @@ function AddS2ApplicationComponent_button_39_Template(rf, ctx) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "i", 32);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "send");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SEND CLEARANCE OR TOA");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SEND CLEARANCE OR TOA ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
 }
@@ -5836,7 +5838,7 @@ function AddS2ApplicationComponent_div_114_div_4_div_3_Template(rf, ctx) {
     if (rf & 2) {
         const i_r85 = ctx.$implicit;
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", i_r85 == null ? null : i_r85.typeOfRationale == null ? null : i_r85.typeOfRationale.rationale, "");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", i_r85 == null ? null : i_r85.typeOfRationale == null ? null : i_r85.typeOfRationale.rationale, " ");
     }
 }
 function AddS2ApplicationComponent_div_114_div_4_Template(rf, ctx) {
@@ -5933,7 +5935,7 @@ function AddS2ApplicationComponent_button_121_div_2_Template(rf, ctx) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "i", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "verified");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
 }
@@ -5988,7 +5990,7 @@ function AddS2ApplicationComponent_button_122_div_2_Template(rf, ctx) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "i", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "fact_check");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST FOR COMPLIANCE");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " FORWARD TO AD SPECIALIST FOR COMPLIANCE ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
 }
@@ -5998,7 +6000,7 @@ function AddS2ApplicationComponent_button_122_div_3_Template(rf, ctx) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "i", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "fact_check");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SUBMIT COMPLIANCE");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](3, " SUBMIT COMPLIANCE ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     }
 }
@@ -6500,7 +6502,8 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
             });
         }
         getAttachmentDocuments() {
-            console.log("apForm", this.s2Application.applicationForm);
+            console.log("apForm", this.s2Application.applicationForm, _shared__WEBPACK_IMPORTED_MODULE_7__["ENDPOINTS"].attachmentDocumentByAppFormReference +
+                this.s2Application.applicationForm.appFormReference);
             this.apiService
                 .findAll(_shared__WEBPACK_IMPORTED_MODULE_7__["ENDPOINTS"].attachmentDocumentByAppFormReference +
                 this.s2Application.applicationForm.appFormReference)
@@ -6509,6 +6512,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 this.originalAttachmentDocuments = this.attachmentDocuments.originalAttachmentDocuments;
                 this.revisionAttachmentDocuments = this.attachmentDocuments.revisionAttachmentDocuments;
                 this.complianceAttachmentDocuments = this.attachmentDocuments.complianceAttachmentDocuments;
+                console.log(this.originalAttachmentDocuments);
                 if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_7__["USER_ROLES"].ROLE_APPLICANT &&
                     this.s1Application.externalStatus === _shared__WEBPACK_IMPORTED_MODULE_7__["APPLICATION_STATUS"].SAVED) {
                     this.materialInformation.originalAttachmentDocuments = this.attachmentDocuments.originalAttachmentDocuments;
@@ -6991,7 +6995,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "table");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "tr");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](4, "td", 1);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, " Reference Code: ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](5, "Reference Code:");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](6, "td", 2);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "span");
@@ -7025,7 +7029,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](23, "tr");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "td", 1);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](25, " Status: ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](25, "Status:");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "td", 2);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](27, "span");
@@ -7216,7 +7220,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("expanded", true);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("s1Application", ctx.s1Application)("labelMainDocument", "Support Document")("isAscUser", ctx.isAscUser)("s2Appplication", ctx.s2Application)("complianceAttachmentDocuments", ctx.complianceAttachmentDocuments)("s2SupportAttchmentDocuments", ctx.originalAttachmentDocuments)("s2DocObservable", ctx.s2OriginalAttachmentObservable)("applicationStage", ctx.applicationStage)("S2SupportDoc", true);
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("s1Application", ctx.s1Application)("labelMainDocument", "Support Document")("isAscUser", ctx.isAscUser)("s2Appplication", ctx.s2Application)("complianceAttachmentDocuments", ctx.complianceAttachmentDocuments)("s2SupportAttchmentDocuments", ctx.s2OriginalAttachmentDocuments)("s2DocObservable", ctx.s2OriginalAttachmentObservable)("applicationStage", ctx.applicationStage)("S2SupportDoc", true);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.isApplicant);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
@@ -8763,6 +8767,7 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
             this.originalAttachmentDocuments = [];
             this.revisionAttachmentDocuments = [];
             this.complianceAttachmentDocuments = [];
+            this.s2SupportAttchmentDocuments = [];
             this.s2DocObservable = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
             this.s2SupportDocument = {};
             this.S2SupportDoc = false;
@@ -8808,6 +8813,7 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
                 (hasMain && this.s1Application.hasNoSupportingDocs));
         }
         ngOnInit() {
+            console.log(this.s2SupportAttchmentDocuments);
             this.id = Number(this.route.snapshot.paramMap.get("id"));
             this.currentUser = this.dataStorage.getUserAccount();
             this.setFormValidator();
@@ -8818,10 +8824,12 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
                 }
                 else if (res.type === "document") {
                     console.log("s2 document", res.value);
-                    this.s2SupportDocument = res.value.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1];
+                    this.s2SupportDocument = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1];
                 }
             });
-            console.log("S2222 => ", this.s2SupportAttchmentDocuments);
+            setTimeout(() => {
+                console.log("S2222 => ", this.s2SupportAttchmentDocuments);
+            }, 5000);
         }
         validateDeleteBtn() {
             if (this.currentUser.accountType === "APPLICANT" &&
@@ -17563,7 +17571,7 @@ let AddS1ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (ctx.s1Application == null ? null : ctx.s1Application.externalStatus) != undefined && !ctx.isApplicant);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-                _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (ctx.isAdmin || ctx.isSuperAdmin || ctx.isApplicant || ctx.isAdSpecialist) && ctx.previewAttachmentsList.length);
+                _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", (ctx.isAdmin || ctx.isSuperAdmin || ctx.isAdSpecialist) && ctx.previewAttachmentsList.length || ctx.isApplicant && (ctx.s1Application == null ? null : ctx.s1Application.paymentStatus) === "PAID");
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](3);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.s1Application.internalStatus == undefined || ctx.s1Application.internalStatus == "SAVED" || (ctx.s1Application == null ? null : ctx.s1Application.formType) === "MULTIPLE" || ctx.specialApplicationType.includes(ctx.s1Application == null ? null : ctx.s1Application.applicationType == null ? null : ctx.s1Application.applicationType.description == null ? null : ctx.s1Application.applicationType.description.toUpperCase()));
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
@@ -20683,12 +20691,12 @@ let ListS1ApplicationComponent = /*@__PURE__*/ (() => {
             if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_AD_SPECIALIST) {
                 endpoint =
                     _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm +
-                        `/custom/search?assignedAdSpecialistId=${this.currentUser.id}&page=${this.currentPage}&size=${this.pageSize}`;
+                        `/adspe-retrieve-reassign?assignedAdSpecialist_Id=${this.currentUser.id}&page=${this.currentPage}&size=${this.pageSize}`;
             }
             else {
                 endpoint =
                     _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm +
-                        `/custom/search?assignedScreenerId=${this.currentUser.id}&page=${this.currentPage}&size=${this.pageSize}`;
+                        `/screener-retrieve-reassign?assignedScreener_Id=${this.currentUser.id}&page=${this.currentPage}&size=${this.pageSize}`;
             }
             this.spinner.show();
             this.apiService.findAll(endpoint).subscribe((res) => {
@@ -21367,7 +21375,9 @@ let ListS1Dialog = /*@__PURE__*/ (() => {
                     this.s2Application.externalStatus = "SAVED";
                     console.log("View S2:", this.data.s2Application);
                     this.apiService
-                        .save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, this.s2Application)
+                        .save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, {
+                        applicationForm: this.s2Application.applicationForm,
+                    })
                         .subscribe((res) => {
                         console.log(res);
                         this.router.navigate([

@@ -619,26 +619,27 @@
             }
           }, {
             key: "getAvailableReferenceCode",
-            value: function getAvailableReferenceCode() {
-              var _this3 = this;
+            value: function getAvailableReferenceCode() {// if (refCode) {
+              //   this.apiService
+              //     .findByParam(ENDPOINTS.availableReferenceCode, refCode)
+              //     .subscribe((res) => {
+              //       console.log(res);
+              //     });
+              // } else {
+              //   this.apiService
+              //     .findAll(ENDPOINTS.availableReferenceCode)
+              //     .subscribe((res) => {
+              //       console.log(res);
+              //       this.availableReferenceCodeList = res;
+              //     });
+              // }
 
               var refCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-
-              if (refCode) {
-                this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].availableReferenceCode, refCode).subscribe(function (res) {
-                  console.log(res);
-                });
-              } else {
-                this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].availableReferenceCode).subscribe(function (res) {
-                  console.log(res);
-                  _this3.availableReferenceCodeList = res;
-                });
-              }
             }
           }, {
             key: "saveOrUpdate",
             value: function saveOrUpdate() {
-              var _this4 = this;
+              var _this3 = this;
 
               var _a;
 
@@ -650,12 +651,45 @@
               this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparationORNumberCheck, this.orPreparation.officialReceiptNo).subscribe(function (isExisting) {
                 var _a;
 
-                if (isExisting.responseData.data && !((_a = _this4.orPreparation) === null || _a === void 0 ? void 0 : _a.id)) {
-                  _this4.sweetAlertService.customErrorMessage(isExisting.responseMessage);
+                if (isExisting.responseData.data && !((_a = _this3.orPreparation) === null || _a === void 0 ? void 0 : _a.id)) {
+                  _this3.sweetAlertService.customErrorMessage(isExisting.responseMessage);
                 } else {
                   // this.orPreparation.setTotalAmounts(this.totalAmounts);
                   // console.log('orPreparation')
-                  _this4.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparation, "/submit"), Object.assign(Object.assign({}, _this4.orPreparation), _this4.totalAmounts)).subscribe(function (res) {
+                  _this3.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparation, "/submit"), Object.assign(Object.assign({}, _this3.orPreparation), _this3.totalAmounts)).subscribe(function (res) {
+                    if (res !== undefined) {
+                      _this3.sweetAlertService.success(res);
+                    }
+                  }, function (err) {
+                    _this3.sweetAlertService.error(err);
+                  }, function () {
+                    _this3.resetFormValidator();
+
+                    _this3.getList();
+                  });
+                }
+              }, function (err) {
+                return _this3.sweetAlertService.error(err);
+              });
+            }
+          }, {
+            key: "cancel",
+            value: function cancel() {
+              var _this4 = this;
+
+              sweetalert2__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
+                text: "Are you sure you want to cancel this Official Receipt Preparation?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm"
+              }).then(function (result) {
+                if (result.value) {
+                  _this4.orPreparation = _this4.formListComponent.elementObject;
+                  _this4.orPreparation.officialReceiptReferences = null;
+
+                  _this4.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparation, "/cancel"), _this4.orPreparation).subscribe(function (res) {
                     if (res !== undefined) {
                       _this4.sweetAlertService.success(res);
                     }
@@ -667,79 +701,46 @@
                     _this4.getList();
                   });
                 }
-              }, function (err) {
-                return _this4.sweetAlertService.error(err);
-              });
-            }
-          }, {
-            key: "cancel",
-            value: function cancel() {
-              var _this5 = this;
-
-              sweetalert2__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
-                text: "Are you sure you want to cancel this Official Receipt Preparation?",
-                icon: "question",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Confirm"
-              }).then(function (result) {
-                if (result.value) {
-                  _this5.orPreparation = _this5.formListComponent.elementObject;
-                  _this5.orPreparation.officialReceiptReferences = null;
-
-                  _this5.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparation, "/cancel"), _this5.orPreparation).subscribe(function (res) {
-                    if (res !== undefined) {
-                      _this5.sweetAlertService.success(res);
-                    }
-                  }, function (err) {
-                    _this5.sweetAlertService.error(err);
-                  }, function () {
-                    _this5.resetFormValidator();
-
-                    _this5.getList();
-                  });
-                }
               });
             }
           }, {
             key: "getOrPreparation",
             value: function getOrPreparation() {
-              var _this6 = this;
+              var _this5 = this;
 
               console.log("get:: =>");
               this.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].officialReceipt, this.formListComponent.idForUpdate).subscribe(function (res) {
                 if (res) {
-                  _this6.orPreparation = res.responseData.data;
+                  _this5.orPreparation = res.responseData.data;
                   console.log("OR PREP => ", res);
-                  _this6.totalAmounts.totalSales = _this6.orPreparation.totalSales;
-                  _this6.totalAmounts.totalAmountDue = _this6.orPreparation.totalAmountDue;
-                  _this6.totalAmounts.totalVat = _this6.orPreparation.totalVat;
-                  _this6.totalAmounts.totalWithholdingtax = _this6.orPreparation.totalWithholdingtax;
+                  _this5.totalAmounts.totalSales = _this5.orPreparation.totalSales;
+                  _this5.totalAmounts.totalAmountDue = _this5.orPreparation.totalAmountDue;
+                  _this5.totalAmounts.totalVat = _this5.orPreparation.totalVat;
+                  _this5.totalAmounts.totalWithholdingtax = _this5.orPreparation.totalWithholdingtax;
 
-                  var company = _this6.companyList.find(function (company) {
-                    return company.companyName === _this6.orPreparation.companyName;
+                  var company = _this5.companyList.find(function (company) {
+                    return company.companyName === _this5.orPreparation.companyName;
                   });
 
-                  _this6.selectedCompanyId = company.id;
-                  _this6.selectedCompany = company;
+                  _this5.selectedCompanyId = company.id;
+                  _this5.selectedCompany = company;
 
-                  _this6.getAvailableReferenceCodeList();
+                  _this5.getAvailableReferenceCodeList();
 
-                  _this6.orPreparationForm.get("totalAmount").setValue(_this6.totalAmounts.totalSales);
+                  _this5.orPreparationForm.get("totalAmount").setValue(_this5.totalAmounts.totalSales);
 
-                  _this6.officialReceiptReferenceList = _this6.orPreparation.officialReceiptReferences;
+                  _this5.officialReceiptReferenceList = _this5.orPreparation.officialReceiptReferences;
 
-                  _this6.officialReceiptReferenceList.filter(function (or) {
-                    _this6.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparationRefCodeCheck, or.reference).subscribe(function (paymentDtls) {
+                  _this5.officialReceiptReferenceList.filter(function (or) {
+                    _this5.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].orPreparationRefCodeCheck, or.reference).subscribe(function (paymentDtls) {
                       var _a;
 
                       var appForm = (_a = paymentDtls === null || paymentDtls === void 0 ? void 0 : paymentDtls.responseData) === null || _a === void 0 ? void 0 : _a.data[0];
 
-                      _this6.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].paymentDetailsByAppformId, appForm.id).subscribe(function (payment) {
+                      _this5.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].paymentDetailsByAppformId, appForm.id).subscribe(function (payment) {
                         var _a;
 
-                        _this6.totalAmts.push((_a = payment === null || payment === void 0 ? void 0 : payment.responseData) === null || _a === void 0 ? void 0 : _a.data);
+                        _this5.totalAmts.push((_a = payment === null || payment === void 0 ? void 0 : payment.responseData) === null || _a === void 0 ? void 0 : _a.data);
                       });
                     });
                   });
@@ -749,15 +750,15 @@
           }, {
             key: "getCompanyList",
             value: function getCompanyList() {
-              var _this7 = this;
+              var _this6 = this;
 
               this.isGettingCompanies = true;
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].activeCompanies).subscribe(function (res) {
-                _this7.companyList = res.responseData.data; // .filter((company) => !this.notInSelection.includes(company.status));
+                _this6.companyList = res.responseData.data; // .filter((company) => !this.notInSelection.includes(company.status));
 
-                _this7.isGettingCompanies = false;
+                _this6.isGettingCompanies = false;
               }, function (err) {
-                _this7.isGettingCompanies = false;
+                _this6.isGettingCompanies = false;
               });
             }
           }, {
@@ -801,15 +802,15 @@
           }, {
             key: "getTypeOfMedium",
             value: function getTypeOfMedium() {
-              var _this8 = this;
+              var _this7 = this;
 
               this.typeOfMediumList = [];
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].typeOfMediumSingleMedia).subscribe(function (singleMediaList) {
-                _this8.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].typeOfMediumMultiMediaMoving).subscribe(function (multimediaMovingList) {
-                  _this8.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].typeOfMediumMultiMediaMoving).subscribe(function (multimediaStaticList) {
-                    _this8.typeOfMediumList = [].concat(_toConsumableArray(singleMediaList.responseData.data), _toConsumableArray(multimediaMovingList.responseData.data), _toConsumableArray(multimediaStaticList.responseData.data));
+                _this7.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].typeOfMediumMultiMediaMoving).subscribe(function (multimediaMovingList) {
+                  _this7.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].typeOfMediumMultiMediaMoving).subscribe(function (multimediaStaticList) {
+                    _this7.typeOfMediumList = [].concat(_toConsumableArray(singleMediaList.responseData.data), _toConsumableArray(multimediaMovingList.responseData.data), _toConsumableArray(multimediaStaticList.responseData.data));
                     var key = "id";
-                    _this8.typeOfMediumList = _toConsumableArray(new Map(_this8.typeOfMediumList.map(function (item) {
+                    _this7.typeOfMediumList = _toConsumableArray(new Map(_this7.typeOfMediumList.map(function (item) {
                       return [item[key], item];
                     })).values());
                   });
@@ -848,11 +849,11 @@
           }, {
             key: "getAvailableReferenceCodeList",
             value: function getAvailableReferenceCodeList() {
-              var _this9 = this;
+              var _this8 = this;
 
               if (this.selectedCompanyId && this.orPreparation.typeOfMedium && this.orPreparation.filedBirForm) {
                 this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].availableReferenceCodeByCompany + "/" + this.selectedCompanyId + "/type-of-medium/" + this.orPreparation.typeOfMedium.description + "/file-bir-form/" + this.orPreparation.filedBirForm.toString()).subscribe(function (res) {
-                  _this9.availableReferenceCodeList = res;
+                  _this8.availableReferenceCodeList = res;
                 });
               }
             }
@@ -1258,7 +1259,7 @@
 
               _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
 
-              _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.orPreparationReference.reference)("disabled", !ctx.selectedCompanyId || !ctx.orPreparation.typeOfMedium)("compareWith", ctx.compareList);
+              _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.orPreparationReference.reference)("disabled", !ctx.selectedCompanyId || !ctx.orPreparation.typeOfMedium || !ctx.orPreparation.filedBirForm)("compareWith", ctx.compareList);
 
               _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 

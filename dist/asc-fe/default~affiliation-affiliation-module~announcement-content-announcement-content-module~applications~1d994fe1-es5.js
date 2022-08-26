@@ -581,25 +581,25 @@
             value: function onApproveOrDisapprove() {
               var _this = this;
 
-              var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'APPROVED';
-              var displayStatus = status === 'APPROVED' ? 'approve' : 'disapprove';
+              var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "APPROVED";
+              var displayStatus = status === "APPROVED" ? "approve" : "disapprove";
               sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
                 text: "Are you sure you want to ".concat(displayStatus, " this application?"),
-                icon: 'question',
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  var endpointExtension = status === 'APPROVED' ? '/approve' : '/disapprove'; // this.s1Application.actionDate = new Date();
+                  var endpointExtension = status === "APPROVED" ? "/approve" : "/disapprove"; // this.s1Application.actionDate = new Date();
 
                   _this.s1Application.actionBy = _this.currentUser.username;
 
                   _this.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests).concat(endpointExtension, "/").concat(_this.applicationRequest.id), _this.applicationRequest).subscribe(function (res) {
                     _this.sweetAlertService.customSuccessMessage("Application successfully ".concat(status.toLowerCase(), "."));
 
-                    _this.router.navigate(['asc/page/application/s2/special']);
+                    _this.router.navigate(["asc/page/application/s2/special"]);
                   }, function (err) {
                     err.error.message = _shared__WEBPACK_IMPORTED_MODULE_3__["ERROR_MESSAGES"].under_maintenance;
 
@@ -616,18 +616,18 @@
               var _this2 = this;
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
-                text: 'Are you sure you want to submit request?',
-                icon: 'question',
+                text: "Are you sure you want to submit request?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
                   _this2.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests, _this2.applicationRequest).subscribe(function (res) {
-                    _this2.sweetAlertService.customSuccessMessage('Request has been submit successfully.');
+                    _this2.sweetAlertService.customSuccessMessage("Request has been submit successfully.");
 
-                    _this2.router.navigate(['asc/page/application/s2/special']);
+                    _this2.router.navigate(["asc/page/application/s2/special"]);
 
                     _this2.dialogRef.close();
                   }, function (err) {
@@ -646,12 +646,12 @@
               var _this3 = this;
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
-                text: 'Are you sure you want to apply this application to S2?',
-                icon: 'question',
+                text: "Are you sure you want to apply this application to S2?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
                   _this3.s2Application.specialClearing = true;
@@ -659,12 +659,12 @@
                   _this3.s2Application.applicationForm = _this3.s1Application;
                   _this3.s2Application.submissionType = _shared__WEBPACK_IMPORTED_MODULE_3__["SUBMISSION_TYPE"].ORIGINAL; // this.s2Application.applicationForm.submissionType;
 
-                  _this3.s2Application.internalStatus = 'SAVED';
-                  _this3.s2Application.externalStatus = 'SAVED';
-                  console.log('View S2:', _this3.s2Application);
+                  _this3.s2Application.internalStatus = "SAVED";
+                  _this3.s2Application.externalStatus = "SAVED";
+                  console.log("View S2:", _this3.s2Application);
 
                   _this3.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].s2ApplicationFormPresentorSave, _this3.s2Application).subscribe(function (res) {
-                    _this3.router.navigate(['asc/page/application/s2/update', res.responseData.data.id]);
+                    _this3.router.navigate(["asc/page/application/s2/update", res.responseData.data.id]);
 
                     _this3.dialogRef.close();
                   }, function (err) {});

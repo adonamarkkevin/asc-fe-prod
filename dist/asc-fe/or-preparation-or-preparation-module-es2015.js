@@ -350,21 +350,20 @@ let OrPreparationComponent = /*@__PURE__*/ (() => {
             console.log("total amounts : ", this.totalAmounts);
         }
         getAvailableReferenceCode(refCode = "") {
-            if (refCode) {
-                this.apiService
-                    .findByParam(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].availableReferenceCode, refCode)
-                    .subscribe((res) => {
-                    console.log(res);
-                });
-            }
-            else {
-                this.apiService
-                    .findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].availableReferenceCode)
-                    .subscribe((res) => {
-                    console.log(res);
-                    this.availableReferenceCodeList = res;
-                });
-            }
+            // if (refCode) {
+            //   this.apiService
+            //     .findByParam(ENDPOINTS.availableReferenceCode, refCode)
+            //     .subscribe((res) => {
+            //       console.log(res);
+            //     });
+            // } else {
+            //   this.apiService
+            //     .findAll(ENDPOINTS.availableReferenceCode)
+            //     .subscribe((res) => {
+            //       console.log(res);
+            //       this.availableReferenceCodeList = res;
+            //     });
+            // }
         }
         saveOrUpdate() {
             var _a;
@@ -751,7 +750,7 @@ let OrPreparationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.typeOfMediumList);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-                _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.orPreparationReference.reference)("disabled", !ctx.selectedCompanyId || !ctx.orPreparation.typeOfMedium)("compareWith", ctx.compareList);
+                _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.orPreparationReference.reference)("disabled", !ctx.selectedCompanyId || !ctx.orPreparation.typeOfMedium || !ctx.orPreparation.filedBirForm)("compareWith", ctx.compareList);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx.availableReferenceCodeList);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
