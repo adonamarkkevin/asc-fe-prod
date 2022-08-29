@@ -7,11 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! E:\asc\asc-frontend\src\polyfills.ts */"hN/g");
-=======
-module.exports = __webpack_require__(/*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\src\polyfills.ts */"hN/g");
->>>>>>> 53dc5baaa640736d2cc27f9eee7c34fe4a9274c2
 
 
 /***/ }),

@@ -431,12 +431,8 @@ let OrPreparationComponent = /*@__PURE__*/ (() => {
                 .subscribe((res) => {
                 if (res) {
                     this.orPreparation = res.responseData.data;
-<<<<<<< HEAD
                     this.orPreparation.filedBirForm = (this.orPreparation.filedBirForm.toString());
                     console.log("OR PREP => ", this.orPreparation);
-=======
-                    console.log("OR PREP => ", res);
->>>>>>> 53dc5baaa640736d2cc27f9eee7c34fe4a9274c2
                     this.totalAmounts.totalSales = this.orPreparation.totalSales;
                     this.totalAmounts.totalAmountDue = this.orPreparation.totalAmountDue;
                     this.totalAmounts.totalVat = this.orPreparation.totalVat;

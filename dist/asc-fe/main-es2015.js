@@ -24,24 +24,7 @@ class TypeOfDocument {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\src\main.ts */"zUnb");
-
-
-/***/ }),
-
-/***/ "0Kn2":
-/*!**********************************************!*\
-  !*** ./src/app/core/models/country.model.ts ***!
-  \**********************************************/
-/*! exports provided: Country */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Country", function() { return Country; });
-class Country {
-}
-
+module.exports = __webpack_require__(/*! E:\asc\asc-frontend\src\main.ts */"zUnb");
 
 
 /***/ }),

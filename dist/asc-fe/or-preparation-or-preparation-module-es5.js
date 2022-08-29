@@ -712,12 +712,8 @@
               this.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].officialReceipt, this.formListComponent.idForUpdate).subscribe(function (res) {
                 if (res) {
                   _this5.orPreparation = res.responseData.data;
-<<<<<<< HEAD
                   _this5.orPreparation.filedBirForm = _this5.orPreparation.filedBirForm.toString();
                   console.log("OR PREP => ", _this5.orPreparation);
-=======
-                  console.log("OR PREP => ", res);
->>>>>>> 53dc5baaa640736d2cc27f9eee7c34fe4a9274c2
                   _this5.totalAmounts.totalSales = _this5.orPreparation.totalSales;
                   _this5.totalAmounts.totalAmountDue = _this5.orPreparation.totalAmountDue;
                   _this5.totalAmounts.totalVat = _this5.orPreparation.totalVat;
