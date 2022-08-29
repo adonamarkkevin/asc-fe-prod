@@ -745,7 +745,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       __webpack_require__(
-      /*! E:\asc\asc-frontend\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */
+      /*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\node_modules\@angular-devkit\build-angular\src\angular-cli-files\models\es5-polyfills.js */
       "mRIq");
 
       __webpack_require__(
@@ -753,7 +753,7 @@
       "R0gw");
 
       module.exports = __webpack_require__(
-      /*! E:\asc\asc-frontend\src\polyfills.ts */
+      /*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\src\polyfills.ts */
       "hN/g");
       /***/
     },
@@ -2941,7 +2941,9 @@
             };
         }
 
-        return function () {
+        return function
+          /* ...args */
+        () {
           return fn.apply(that, arguments);
         };
       };
@@ -3095,7 +3097,9 @@
         var fn = aFunction(this);
         var partArgs = slice.call(arguments, 1);
 
-        var boundFunction = function bound() {
+        var boundFunction = function
+          /* args... */
+        bound() {
           var args = partArgs.concat(slice.call(arguments));
           return this instanceof boundFunction ? construct(fn, args.length, args) : fn.apply(that, args);
         };
@@ -7801,7 +7805,9 @@
         stat: true,
         forced: ISNT_GENERIC
       }, {
-        of: function of() {
+        of: function
+          /* ...args */
+        of() {
           var index = 0;
           var argumentsLength = arguments.length;
           var result = new (typeof this == 'function' ? this : Array)(argumentsLength);
