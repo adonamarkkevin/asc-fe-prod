@@ -2692,7 +2692,7 @@ const environment = {
     environment: 'PROD',
     production: true,
     ASC_API: 'http://18.136.32.45:9095/asc/',
-    websocketUri: 'http://18.136.32.45:9095:3000'
+    websocketUri: 'http://asconlineapp.com'
 };
 
 
@@ -4206,7 +4206,7 @@ let AppComponent = /*@__PURE__*/ (() => {
             });
         }
         ngOnInit() {
-            console.log(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENV"].currentEnv, ' - OASC v2.1.1');
+            console.log(_shared_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENV"].currentEnv, ' - OASC v2.1.2');
             this.currentUser = this.dataStorage.getUserAccount();
             this.title = 'ASC Online System';
         }

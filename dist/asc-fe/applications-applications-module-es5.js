@@ -35191,7 +35191,7 @@
                   _this158.s2Application.externalStatus = "SAVED";
                   console.log("View S2:", _this158.data.s2Application);
 
-                  _this158.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, _this158.s2Application.applicationForm).subscribe(function (res) {
+                  _this158.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, _this158.s2Application).subscribe(function (res) {
                     console.log(res);
 
                     _this158.router.navigate(["asc/page/application/s2/update", res.responseData.data.id]);

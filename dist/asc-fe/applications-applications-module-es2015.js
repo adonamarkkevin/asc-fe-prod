@@ -21375,7 +21375,7 @@ let ListS1Dialog = /*@__PURE__*/ (() => {
                     this.s2Application.externalStatus = "SAVED";
                     console.log("View S2:", this.data.s2Application);
                     this.apiService
-                        .save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, this.s2Application.applicationForm)
+                        .save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, this.s2Application)
                         .subscribe((res) => {
                         console.log(res);
                         this.router.navigate([
