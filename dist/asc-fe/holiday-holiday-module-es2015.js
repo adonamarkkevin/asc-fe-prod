@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /***/ }),
 
 /***/ "EepS":
@@ -31,19 +32,24 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HolidayComponent", function() { return HolidayComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_holiday_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./holiday.component.html */ "Izj/");
-/* harmony import */ var _holiday_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./holiday.component.scss */ "ev7J");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/table */ "+0xr");
-/* harmony import */ var _fragments__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fragments */ "3swC");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/table */ "+0xr");
+/* harmony import */ var _fragments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fragments */ "3swC");
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared */ "M0ag");
+/* harmony import */ var app_core_models_holiday_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! app/core/models/holiday.model */ "lflh");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "PSD3");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @services */ "dJ3e");
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @shared */ "M0ag");
-/* harmony import */ var app_core_models_holiday_model__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! app/core/models/holiday.model */ "lflh");
-/* harmony import */ var app_core_services_date_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! app/core/services/date.service */ "HMc/");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! sweetalert2 */ "PSD3");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var app_core_services_date_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! app/core/services/date.service */ "HMc/");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/form-field */ "kmnG");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/select */ "d3UM");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/input */ "qFsG");
+/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/datepicker */ "iadO");
+/* harmony import */ var _fragments_form_action_buttons_form_action_buttons_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../fragments/form-action-buttons/form-action-buttons.component */ "TPGS");
+/* harmony import */ var _fragments_form_list_form_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../../fragments/form-list/form-list.component */ "DeKZ");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/core */ "FKr1");
 
 
 
@@ -56,144 +62,252 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let HolidayComponent = class HolidayComponent {
-    constructor(apiService, formBuilder, sweetAlertService, dateService) {
-        this.apiService = apiService;
-        this.formBuilder = formBuilder;
-        this.sweetAlertService = sweetAlertService;
-        this.dateService = dateService;
-        this.displayedColumns = [
-            "holidayName",
-            "holidayDate",
-            "holidayType",
-            "status",
-        ];
-        this.statusList = [..._shared__WEBPACK_IMPORTED_MODULE_8__["STATUSES"]];
-        this.holidayTypeList = [..._shared__WEBPACK_IMPORTED_MODULE_8__["HOLIDAY_TYPE"]];
-        this.holiday = new app_core_models_holiday_model__WEBPACK_IMPORTED_MODULE_9__["Holiday"]();
-        this.holidayList = [];
-        this.disabledWeekEnds = (d) => {
-            const day = (d || new Date()).getDay();
-            if (this.holiday.holidayType === "WEEKEND") {
-                return day === 0 || day === 6;
-            }
-            return day !== 0 && day !== 6;
-        };
+
+
+
+
+
+
+
+function HolidayComponent_mat_option_15_Template(rf, ctx) {
+    if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
-    ngOnInit() {
-        this.getList();
-        this.setFormValidator();
+    if (rf & 2) {
+        const i_r3 = ctx.$implicit;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", i_r3.type);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", i_r3 == null ? null : i_r3.type == null ? null : i_r3.type.replaceAll("_", " "), " ");
     }
-    getList() {
-        this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_8__["ENDPOINTS"].holidays).subscribe((res) => {
-            this.holidayList = res.responseData.data;
-            this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](res.responseData.data);
-            this.dataSource.paginator = this.formListComponent.paginator;
-            this.dataSource.sort = this.formListComponent.sort;
-        });
+}
+function HolidayComponent_mat_option_33_Template(rf, ctx) {
+    if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
-    save() {
-        this.holiday.holidayDate = this.dateService.setDate(this.holiday.holidayDate);
-        this.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_8__["ENDPOINTS"].holidays, this.holiday).subscribe((res) => {
-            if (res !== undefined) {
-                this.sweetAlertService.success(res);
-            }
-        }, (err) => {
-            this.sweetAlertService.error(err);
-        }, () => {
-            this.resetFormValidator(), this.getList();
-        });
+    if (rf & 2) {
+        const i_r4 = ctx.$implicit;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", i_r4.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", i_r4.status, " ");
     }
-    getHoliday() {
-        this.apiService
-            .findById(_shared__WEBPACK_IMPORTED_MODULE_8__["ENDPOINTS"].holidays, this.formListComponent.idForUpdate)
-            .subscribe((res) => {
-            if (res) {
-                this.holiday = res.responseData.data;
-                console.log(res);
-            }
-        });
-    }
-    update() {
-        this.holiday.holidayDate = this.dateService.setDate(this.holiday.holidayDate);
-        this.apiService.update(_shared__WEBPACK_IMPORTED_MODULE_8__["ENDPOINTS"].holidays, this.holiday).subscribe((res) => {
-            if (res !== undefined) {
-                this.sweetAlertService.success(res);
-            }
-        }, (err) => {
-            this.sweetAlertService.error(err);
-        }, () => {
-            this.resetFormValidator();
+}
+let HolidayComponent = /*@__PURE__*/ (() => {
+    class HolidayComponent {
+        constructor(apiService, formBuilder, sweetAlertService, dateService) {
+            this.apiService = apiService;
+            this.formBuilder = formBuilder;
+            this.sweetAlertService = sweetAlertService;
+            this.dateService = dateService;
+            this.displayedColumns = [
+                "holidayName",
+                "holidayDate",
+                "holidayType",
+                "status",
+            ];
+            this.statusList = [..._shared__WEBPACK_IMPORTED_MODULE_4__["STATUSES"]];
+            this.holidayTypeList = [..._shared__WEBPACK_IMPORTED_MODULE_4__["HOLIDAY_TYPE"]];
+            this.holiday = new app_core_models_holiday_model__WEBPACK_IMPORTED_MODULE_5__["Holiday"]();
+            this.holidayList = [];
+            this.disabledWeekEnds = (d) => {
+                const day = (d || new Date()).getDay();
+                if (this.holiday.holidayType === "WEEKEND") {
+                    return day === 0 || day === 6;
+                }
+                return day !== 0 && day !== 6;
+            };
+        }
+        ngOnInit() {
             this.getList();
-        });
+            this.setFormValidator();
+        }
+        getList() {
+            this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].holidays).subscribe((res) => {
+                this.holidayList = res.responseData.data;
+                this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](res.responseData.data);
+                this.dataSource.paginator = this.formListComponent.paginator;
+                this.dataSource.sort = this.formListComponent.sort;
+            });
+        }
+        save() {
+            this.holiday.holidayDate = this.dateService.setDate(this.holiday.holidayDate);
+            this.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].holidays, this.holiday).subscribe((res) => {
+                if (res !== undefined) {
+                    this.sweetAlertService.success(res);
+                }
+            }, (err) => {
+                this.sweetAlertService.error(err);
+            }, () => {
+                this.resetFormValidator(), this.getList();
+            });
+        }
+        getHoliday() {
+            this.apiService
+                .findById(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].holidays, this.formListComponent.idForUpdate)
+                .subscribe((res) => {
+                if (res) {
+                    this.holiday = res.responseData.data;
+                    console.log(res);
+                }
+            });
+        }
+        update() {
+            this.holiday.holidayDate = this.dateService.setDate(this.holiday.holidayDate);
+            this.apiService.update(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].holidays, this.holiday).subscribe((res) => {
+                if (res !== undefined) {
+                    this.sweetAlertService.success(res);
+                }
+            }, (err) => {
+                this.sweetAlertService.error(err);
+            }, () => {
+                this.resetFormValidator();
+                this.getList();
+            });
+        }
+        setFormValidator() {
+            this.holiday.status = _shared__WEBPACK_IMPORTED_MODULE_4__["COMMON_FUNCTION"].ACTIVE;
+            this.holidayForm = this.formBuilder.group({
+                holidayName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+                holidayDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+                holidayType: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+                status: [""],
+            });
+        }
+        resetFormValidator() {
+            this.holiday = new app_core_models_holiday_model__WEBPACK_IMPORTED_MODULE_5__["Holiday"]();
+            this.holiday.status = _shared__WEBPACK_IMPORTED_MODULE_4__["COMMON_FUNCTION"].ACTIVE;
+            this.holidayForm.markAsUntouched();
+            this.holidayForm.markAsPristine();
+        }
+        delete() {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
+                text: "Are you sure you want to delete this holiday?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
+            }).then((result) => {
+                if (result.value) {
+                    this.apiService
+                        .deleteById(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].holidays, this.holiday.id)
+                        .subscribe(() => {
+                        this.sweetAlertService.customSuccessMessage("Holiday successfully deleted.");
+                        this.resetFormValidator();
+                        this.getList();
+                    });
+                }
+            });
+        }
     }
-    setFormValidator() {
-        this.holiday.status = _shared__WEBPACK_IMPORTED_MODULE_8__["COMMON_FUNCTION"].ACTIVE;
-        this.holidayForm = this.formBuilder.group({
-            holidayName: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            holidayDate: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            holidayType: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required],
-            status: [""],
-        });
-    }
-    resetFormValidator() {
-        this.holiday = new app_core_models_holiday_model__WEBPACK_IMPORTED_MODULE_9__["Holiday"]();
-        this.holiday.status = _shared__WEBPACK_IMPORTED_MODULE_8__["COMMON_FUNCTION"].ACTIVE;
-        this.holidayForm.markAsUntouched();
-        this.holidayForm.markAsPristine();
-    }
-    delete() {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_11___default.a.fire({
-            text: "Are you sure you want to delete this holiday?",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Confirm",
-        }).then((result) => {
-            if (result.value) {
-                this.apiService
-                    .deleteById(_shared__WEBPACK_IMPORTED_MODULE_8__["ENDPOINTS"].holidays, this.holiday.id)
-                    .subscribe(() => {
-                    this.sweetAlertService.customSuccessMessage("Holiday successfully deleted.");
-                    this.resetFormValidator();
-                    this.getList();
-                });
+    HolidayComponent.ɵfac = function HolidayComponent_Factory(t) { return new (t || HolidayComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_7__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_7__["SweetAlertService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](app_core_services_date_service__WEBPACK_IMPORTED_MODULE_8__["DateService"])); };
+    HolidayComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HolidayComponent, selectors: [["app-holiday"]], viewQuery: function HolidayComponent_Query(rf, ctx) {
+            if (rf & 1) {
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_fragments__WEBPACK_IMPORTED_MODULE_3__["FormListComponent"], true);
             }
-        });
-    }
-};
-HolidayComponent.ctorParameters = () => [
-    { type: _services__WEBPACK_IMPORTED_MODULE_7__["ApiService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_7__["SweetAlertService"] },
-    { type: app_core_services_date_service__WEBPACK_IMPORTED_MODULE_10__["DateService"] }
-];
-HolidayComponent.propDecorators = {
-    formListComponent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_fragments__WEBPACK_IMPORTED_MODULE_6__["FormListComponent"],] }]
-};
-HolidayComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: "app-holiday",
-        template: _raw_loader_holiday_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_holiday_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], HolidayComponent);
+            if (rf & 2) {
+                var _t;
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.formListComponent = _t.first);
+            }
+        }, decls: 37, vars: 14, consts: [[1, "container-fluid"], [1, "row"], [1, "col-md-12", "title"], [3, "formGroup"], ["appearance", "outline", 1, "col-md-6"], [1, "required-field"], ["name", "holidayType", "formControlName", "holidayType", 3, "ngModel", "ngModelChange"], [3, "value", 4, "ngFor", "ngForOf"], ["appearance", "outline", 1, "col-md-8"], ["matInput", "", "name", "holidayName", "formControlName", "holidayName", 3, "ngModel", "ngModelChange"], ["appearance", "outline", 1, "col-md-4"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "holidayDate", "formControlName", "holidayDate", 3, "matDatepicker", "matDatepickerFilter", "ngModel", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn", "disabled", "false"], ["holidayDate", ""], ["name", "status", "formControlName", "status", 3, "ngModel", "ngModelChange"], [3, "childObject", "childForm", "saveFunction", "updateFunction", "cancelFunction", "deleteFunction"], [3, "dataSource", "displayedColumns", "selectInListFunction"], [3, "value"]], template: function HolidayComponent_Template(rf, ctx) {
+            if (rf & 1) {
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Holiday ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "hr");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "form", 3);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "mat-form-field", 4);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Holiday Type ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "mat-select", 6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function HolidayComponent_Template_mat_select_ngModelChange_14_listener($event) { return ctx.holiday.holidayType = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, HolidayComponent_mat_option_15_Template, 2, 2, "mat-option", 7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "mat-form-field", 8);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Holiday Name ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "input", 9);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function HolidayComponent_Template_input_ngModelChange_21_listener($event) { return ctx.holiday.holidayName = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "mat-form-field", 10);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](24, "Holiday Date");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "input", 11);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function HolidayComponent_Template_input_ngModelChange_25_listener($event) { return ctx.holiday.holidayDate = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "mat-datepicker-toggle", 12);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](27, "mat-datepicker", 13, 14);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "mat-form-field", 10);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Status");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "mat-select", 15);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function HolidayComponent_Template_mat_select_ngModelChange_32_listener($event) { return ctx.holiday.status = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](33, HolidayComponent_mat_option_33_Template, 2, 2, "mat-option", 7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "app-form-action-buttons", 16);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("saveFunction", function HolidayComponent_Template_app_form_action_buttons_saveFunction_34_listener() { return ctx.save(); })("updateFunction", function HolidayComponent_Template_app_form_action_buttons_updateFunction_34_listener() { return ctx.update(); })("cancelFunction", function HolidayComponent_Template_app_form_action_buttons_cancelFunction_34_listener() { return ctx.resetFormValidator(); })("deleteFunction", function HolidayComponent_Template_app_form_action_buttons_deleteFunction_34_listener() { return ctx.delete(); });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](35, "br");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "app-form-list", 17);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("selectInListFunction", function HolidayComponent_Template_app_form_list_selectInListFunction_36_listener() { return ctx.getHoliday(); });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            }
+            if (rf & 2) {
+                const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](28);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.holidayForm);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.holiday.holidayType);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.holidayTypeList);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.holiday.holidayName);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("matDatepicker", _r1)("matDatepickerFilter", ctx.disabledWeekEnds)("ngModel", ctx.holiday.holidayDate);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("for", _r1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.holiday.status);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.statusList);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("childObject", ctx.holiday)("childForm", ctx.holidayForm);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", ctx.dataSource)("displayedColumns", ctx.displayedColumns);
+            }
+        }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatLabel"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatFormField"], _angular_material_select__WEBPACK_IMPORTED_MODULE_10__["MatSelect"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgForOf"], _angular_material_input__WEBPACK_IMPORTED_MODULE_12__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_13__["MatDatepickerInput"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_13__["MatDatepickerToggle"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_9__["MatSuffix"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_13__["MatDatepicker"], _fragments_form_action_buttons_form_action_buttons_component__WEBPACK_IMPORTED_MODULE_14__["FormActionButtonsComponent"], _fragments_form_list_form_list_component__WEBPACK_IMPORTED_MODULE_15__["FormListComponent"], _angular_material_core__WEBPACK_IMPORTED_MODULE_16__["MatOption"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGFnZXMvbWFpbnRlbmFuY2UvaG9saWRheS9ob2xpZGF5LmNvbXBvbmVudC5zY3NzIn0= */"] });
+    return HolidayComponent;
+})();
 
 
-
-/***/ }),
-
-/***/ "Izj/":
-/*!****************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/pages/maintenance/holiday/holiday.component.html ***!
-  \****************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form>\r\n    <div class=\"container-fluid\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-12 title\">\r\n          <mat-label>\r\n            Holiday\r\n          </mat-label>\r\n        </div>\r\n      </div>\r\n      <hr>\r\n\r\n      <form [formGroup]=\"holidayForm\">\r\n        <div class=\"row\">\r\n          <mat-form-field class=\"col-md-6\" appearance=\"outline\">\r\n            <mat-label>Holiday Type <span class=\"required-field\">*</span></mat-label>\r\n            <mat-select [(ngModel)]=\"holiday.holidayType\" name=\"holidayType\" formControlName=\"holidayType\">\r\n              <mat-option *ngFor=\"let i of holidayTypeList\" [value]=\"i.type\">\r\n                {{i?.type?.replaceAll('_',' ')}}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-8\" appearance=\"outline\">\r\n            <mat-label>Holiday Name <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"holiday.holidayName\" name=\"holidayName\" formControlName=\"holidayName\">\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-4\" appearance=\"outline\">\r\n              <mat-label>Holiday Date</mat-label>\r\n              <input matInput placeholder=\"Date\" [matDatepicker]=\"holidayDate\"\r\n                  [matDatepickerFilter]=\"disabledWeekEnds\" readonly [(ngModel)]=\"holiday.holidayDate\"\r\n                  name=\"holidayDate\" formControlName=\"holidayDate\">\r\n              <mat-datepicker-toggle matSuffix [for]=\"holidayDate\"></mat-datepicker-toggle>\r\n              <mat-datepicker color=\"warn\" #holidayDate disabled=\"false\"></mat-datepicker>\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-4\" appearance=\"outline\">\r\n            <mat-label>Status</mat-label>\r\n            <mat-select [(ngModel)]=\"holiday.status\" name=\"status\" formControlName=\"status\">\r\n              <mat-option *ngFor=\"let i of statusList\" [value]=\"i.status\">\r\n                {{i.status}}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n        </div>\r\n      </form>\r\n\r\n      <app-form-action-buttons [childObject]=\"holiday\" [childForm]=\"holidayForm\" (saveFunction)=\"save()\"\r\n        (updateFunction)=\"update()\" (cancelFunction)=\"resetFormValidator()\" (deleteFunction)=\"delete()\"></app-form-action-buttons>\r\n      <br>\r\n      <app-form-list [dataSource]=\"dataSource\" [displayedColumns]=\"displayedColumns\"\r\n        (selectInListFunction)=\"getHoliday()\"></app-form-list>\r\n\r\n    </div>\r\n  </form>\r\n");
 
 /***/ }),
 
@@ -207,10 +321,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HolidayRoutingModule", function() { return HolidayRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _holiday_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./holiday.component */ "EepS");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _holiday_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./holiday.component */ "EepS");
+
 
 
 
@@ -218,32 +332,19 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _holiday_component__WEBPACK_IMPORTED_MODULE_3__["HolidayComponent"]
+        component: _holiday_component__WEBPACK_IMPORTED_MODULE_2__["HolidayComponent"]
     }
 ];
-let HolidayRoutingModule = class HolidayRoutingModule {
-};
-HolidayRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], HolidayRoutingModule);
+let HolidayRoutingModule = /*@__PURE__*/ (() => {
+    class HolidayRoutingModule {
+    }
+    HolidayRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: HolidayRoutingModule });
+    HolidayRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function HolidayRoutingModule_Factory(t) { return new (t || HolidayRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
+    return HolidayRoutingModule;
+})();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](HolidayRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] }); })();
 
 
-
-/***/ }),
-
-/***/ "ev7J":
-/*!**************************************************************************!*\
-  !*** ./src/app/modules/pages/maintenance/holiday/holiday.component.scss ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGFnZXMvbWFpbnRlbmFuY2UvaG9saWRheS9ob2xpZGF5LmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
@@ -257,15 +358,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HolidayModule", function() { return HolidayModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _holiday_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./holiday-routing.module */ "Rcoy");
-/* harmony import */ var app_modules_fragments_fragments_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! app/modules/fragments/fragments.module */ "7Tf7");
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared */ "M0ag");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var _holiday_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./holiday.component */ "EepS");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _holiday_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./holiday-routing.module */ "Rcoy");
+/* harmony import */ var app_modules_fragments_fragments_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! app/modules/fragments/fragments.module */ "7Tf7");
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared */ "M0ag");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _holiday_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./holiday.component */ "EepS");
 
 
 
@@ -275,23 +375,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let HolidayModule = class HolidayModule {
-};
-HolidayModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [
-            _holiday_component__WEBPACK_IMPORTED_MODULE_8__["HolidayComponent"]
-        ],
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _holiday_routing_module__WEBPACK_IMPORTED_MODULE_3__["HolidayRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-            _shared__WEBPACK_IMPORTED_MODULE_5__["AngularMaterialModule"],
-            app_modules_fragments_fragments_module__WEBPACK_IMPORTED_MODULE_4__["FragmentsModule"],
-        ]
-    })
-], HolidayModule);
+let HolidayModule = /*@__PURE__*/ (() => {
+    class HolidayModule {
+    }
+    HolidayModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: HolidayModule });
+    HolidayModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function HolidayModule_Factory(t) { return new (t || HolidayModule)(); }, imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _holiday_routing_module__WEBPACK_IMPORTED_MODULE_2__["HolidayRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                _shared__WEBPACK_IMPORTED_MODULE_4__["AngularMaterialModule"],
+                app_modules_fragments_fragments_module__WEBPACK_IMPORTED_MODULE_3__["FragmentsModule"],
+            ]] });
+    return HolidayModule;
+})();
+(function () {
+    (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](HolidayModule, { declarations: [_holiday_component__WEBPACK_IMPORTED_MODULE_7__["HolidayComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+            _holiday_routing_module__WEBPACK_IMPORTED_MODULE_2__["HolidayRoutingModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+            _shared__WEBPACK_IMPORTED_MODULE_4__["AngularMaterialModule"],
+            app_modules_fragments_fragments_module__WEBPACK_IMPORTED_MODULE_3__["FragmentsModule"]] });
+})();
 
 
 

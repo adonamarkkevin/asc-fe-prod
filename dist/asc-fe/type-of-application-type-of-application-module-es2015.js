@@ -19,31 +19,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/***/ }),
-
-/***/ "4Xm8":
-/*!**************************************************************************************************!*\
-  !*** ./src/app/modules/pages/maintenance/type-of-application/type-of-application.component.scss ***!
-  \**************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGFnZXMvbWFpbnRlbmFuY2UvdHlwZS1vZi1hcHBsaWNhdGlvbi90eXBlLW9mLWFwcGxpY2F0aW9uLmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "G3MP":
-/*!****************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/pages/maintenance/type-of-application/type-of-application.component.html ***!
-  \****************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br>\r\n<form>\r\n    <div class=\"container-fluid\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-12 title\">\r\n          <mat-label>\r\n             Type of Application\r\n          </mat-label>\r\n        </div>\r\n      </div>\r\n      <hr>\r\n\r\n      <form [formGroup]=\"typeOfApplicationForm\">\r\n        <div class=\"row\">\r\n\r\n          <mat-form-field class=\"col-md-4\" appearance=\"outline\">\r\n            <mat-label>Description <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"typeOfApplication.description\" name=\"description\" formControlName=\"description\">\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-4\" appearance=\"outline\">\r\n            <mat-label>Sequence Number <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"typeOfApplication.sequenceNo\" name=\"sequenceNo\" formControlName=\"sequenceNo\">\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-4\" appearance=\"outline\" *ngIf=\"typeOfApplication.id\">\r\n            <mat-label>Status</mat-label>\r\n            <mat-select [(ngModel)]=\"typeOfApplication.status\" name=\"status\" formControlName=\"status\">\r\n              <mat-option *ngFor=\"let i of statusList\" [value]=\"i.status\">\r\n                {{i.status}}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-6\" appearance=\"outline\">\r\n            <mat-label>Clearing Release Time <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"typeOfApplication.clearingReleaseTime\" name=\"clearingReleaseTime\"\r\n              formControlName=\"clearingReleaseTime\">\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-6\" appearance=\"outline\">\r\n            <mat-label>Decision Release Time <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"typeOfApplication.decisionReleaseTime\" name=\"decisionReleaseTime\"\r\n              formControlName=\"decisionReleaseTime\">\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-6\" appearance=\"outline\">\r\n            <mat-label>Submission Start Time <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"typeOfApplication.submissionStartTime\" name=\"submissionStartTime\"\r\n              formControlName=\"submissionStartTime\">\r\n          </mat-form-field>\r\n\r\n          <mat-form-field class=\"col-md-6\" appearance=\"outline\">\r\n            <mat-label>Submission End Time <span class=\"required-field\">*</span></mat-label>\r\n            <input matInput [(ngModel)]=\"typeOfApplication.submissionEndTime\" name=\"submissionEndTime\"\r\n              formControlName=\"submissionEndTime\">\r\n          </mat-form-field>\r\n\r\n        </div>\r\n      </form>\r\n\r\n      <app-form-action-buttons [childObject]=\"typeOfApplication\" [childForm]=\"typeOfApplicationForm\" (saveFunction)=\"save()\"\r\n        (updateFunction)=\"update()\" (cancelFunction)=\"resetFormValidator()\" (deleteFunction)=\"delete()\"></app-form-action-buttons>\r\n        <br>\r\n        <app-form-list [dataSource]=\"dataSource\" [displayedColumns]=\"displayedColumns\"\r\n          (selectInListFunction)=\"getTypeOfApplication()\"></app-form-list>\r\n    </div>\r\n  </form>\r\n");
 
 /***/ }),
 
@@ -57,15 +32,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeOfApplicationModule", function() { return TypeOfApplicationModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _type_of_application_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./type-of-application-routing.module */ "ncxP");
-/* harmony import */ var _type_of_application_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./type-of-application.component */ "ws1B");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @shared */ "M0ag");
-/* harmony import */ var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../fragments/fragments.module */ "7Tf7");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _type_of_application_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./type-of-application-routing.module */ "ncxP");
+/* harmony import */ var _type_of_application_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./type-of-application.component */ "ws1B");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shared */ "M0ag");
+/* harmony import */ var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../fragments/fragments.module */ "7Tf7");
 
 
 
@@ -75,21 +49,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let TypeOfApplicationModule = class TypeOfApplicationModule {
-};
-TypeOfApplicationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_type_of_application_component__WEBPACK_IMPORTED_MODULE_4__["TypeOfApplicationComponent"]],
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _type_of_application_routing_module__WEBPACK_IMPORTED_MODULE_3__["TypeOfApplicationRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-            _shared__WEBPACK_IMPORTED_MODULE_7__["AngularMaterialModule"],
-            _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_8__["FragmentsModule"]
-        ]
-    })
-], TypeOfApplicationModule);
+let TypeOfApplicationModule = /*@__PURE__*/ (() => {
+    class TypeOfApplicationModule {
+    }
+    TypeOfApplicationModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: TypeOfApplicationModule });
+    TypeOfApplicationModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function TypeOfApplicationModule_Factory(t) { return new (t || TypeOfApplicationModule)(); }, imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _type_of_application_routing_module__WEBPACK_IMPORTED_MODULE_2__["TypeOfApplicationRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+                _shared__WEBPACK_IMPORTED_MODULE_6__["AngularMaterialModule"],
+                _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]
+            ]] });
+    return TypeOfApplicationModule;
+})();
+(function () {
+    (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](TypeOfApplicationModule, { declarations: [_type_of_application_component__WEBPACK_IMPORTED_MODULE_3__["TypeOfApplicationComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+            _type_of_application_routing_module__WEBPACK_IMPORTED_MODULE_2__["TypeOfApplicationRoutingModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"],
+            _shared__WEBPACK_IMPORTED_MODULE_6__["AngularMaterialModule"],
+            _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]] });
+})();
 
 
 
@@ -105,10 +86,10 @@ TypeOfApplicationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeOfApplicationRoutingModule", function() { return TypeOfApplicationRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _type_of_application_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./type-of-application.component */ "ws1B");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _type_of_application_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./type-of-application.component */ "ws1B");
+
 
 
 
@@ -116,17 +97,17 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _type_of_application_component__WEBPACK_IMPORTED_MODULE_3__["TypeOfApplicationComponent"]
+        component: _type_of_application_component__WEBPACK_IMPORTED_MODULE_2__["TypeOfApplicationComponent"]
     }
 ];
-let TypeOfApplicationRoutingModule = class TypeOfApplicationRoutingModule {
-};
-TypeOfApplicationRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], TypeOfApplicationRoutingModule);
+let TypeOfApplicationRoutingModule = /*@__PURE__*/ (() => {
+    class TypeOfApplicationRoutingModule {
+    }
+    TypeOfApplicationRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: TypeOfApplicationRoutingModule });
+    TypeOfApplicationRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function TypeOfApplicationRoutingModule_Factory(t) { return new (t || TypeOfApplicationRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
+    return TypeOfApplicationRoutingModule;
+})();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](TypeOfApplicationRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] }); })();
 
 
 
@@ -142,18 +123,22 @@ TypeOfApplicationRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeOfApplicationComponent", function() { return TypeOfApplicationComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_type_of_application_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./type-of-application.component.html */ "G3MP");
-/* harmony import */ var _type_of_application_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./type-of-application.component.scss */ "4Xm8");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/table */ "+0xr");
-/* harmony import */ var _fragments__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fragments */ "3swC");
-/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @models */ "sKXY");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @services */ "dJ3e");
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @shared */ "M0ag");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! sweetalert2 */ "PSD3");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/table */ "+0xr");
+/* harmony import */ var _fragments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fragments */ "3swC");
+/* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @models */ "sKXY");
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared */ "M0ag");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! sweetalert2 */ "PSD3");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @services */ "dJ3e");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/form-field */ "kmnG");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/input */ "qFsG");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _fragments_form_action_buttons_form_action_buttons_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../fragments/form-action-buttons/form-action-buttons.component */ "TPGS");
+/* harmony import */ var _fragments_form_list_form_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../fragments/form-list/form-list.component */ "DeKZ");
+/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/select */ "d3UM");
+/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/core */ "FKr1");
 
 
 
@@ -165,122 +150,276 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let TypeOfApplicationComponent = class TypeOfApplicationComponent {
-    constructor(apiService, formBuilder, sweetAlertService) {
-        this.apiService = apiService;
-        this.formBuilder = formBuilder;
-        this.sweetAlertService = sweetAlertService;
-        this.displayedColumns = ['description', 'clearingReleaseTime', 'decisionReleaseTime', 'submissionStartTime', 'submissionEndTime'];
-        this.statusList = [..._shared__WEBPACK_IMPORTED_MODULE_9__["STATUSES"]];
-        this.typeOfApplication = new _models__WEBPACK_IMPORTED_MODULE_7__["TypeOfApplication"]();
-        this.typeOfApplicationList = [];
-        this.formTypeList = [..._shared__WEBPACK_IMPORTED_MODULE_9__["FORM_TYPE"]];
+
+
+
+
+
+
+function TypeOfApplicationComponent_mat_form_field_22_mat_option_4_Template(rf, ctx) {
+    if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-option", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
-    ;
-    ngOnInit() {
-        this.getList();
-        this.setFormValidator();
+    if (rf & 2) {
+        const i_r2 = ctx.$implicit;
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", i_r2.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", i_r2.status, " ");
     }
-    getList() {
-        this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_9__["ENDPOINTS"].applicationType).subscribe((res) => {
-            console.log(res.responseData.data);
-            this.typeOfApplicationList = res.responseData.data;
-            this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](res.responseData.data);
-            this.dataSource.paginator = this.formListComponent.paginator;
-            this.dataSource.sort = this.formListComponent.sort;
-        });
+}
+function TypeOfApplicationComponent_mat_form_field_22_Template(rf, ctx) {
+    if (rf & 1) {
+        const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "mat-form-field", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Status");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "mat-select", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_mat_form_field_22_Template_mat_select_ngModelChange_3_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.typeOfApplication.status = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, TypeOfApplicationComponent_mat_form_field_22_mat_option_4_Template, 2, 2, "mat-option", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     }
-    save() {
-        this.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_9__["ENDPOINTS"].applicationType, this.typeOfApplication).subscribe((res) => {
-            if (res !== undefined) {
-                this.sweetAlertService.success(res);
-            }
-        }, (err) => {
-            this.sweetAlertService.error(err);
-        }, () => {
-            this.resetFormValidator(),
-                this.getList();
-        });
+    if (rf & 2) {
+        const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r0.typeOfApplication.status);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.statusList);
     }
-    getTypeOfApplication() {
-        this.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_9__["ENDPOINTS"].applicationType, this.formListComponent.idForUpdate).subscribe((res) => {
-            if (res) {
-                this.typeOfApplication = res.responseData.data;
-            }
-        });
-    }
-    update() {
-        // this.typeOfApplication.modifiedBy = "J. Dela Cruz";
-        this.apiService.update(_shared__WEBPACK_IMPORTED_MODULE_9__["ENDPOINTS"].applicationType, this.typeOfApplication).subscribe((res) => {
-            if (res !== undefined) {
-                this.sweetAlertService.success(res);
-            }
-        }, (err) => {
-            this.sweetAlertService.error(err);
-        }, () => {
-            this.resetFormValidator();
+}
+let TypeOfApplicationComponent = /*@__PURE__*/ (() => {
+    class TypeOfApplicationComponent {
+        constructor(apiService, formBuilder, sweetAlertService) {
+            this.apiService = apiService;
+            this.formBuilder = formBuilder;
+            this.sweetAlertService = sweetAlertService;
+            this.displayedColumns = ['description', 'clearingReleaseTime', 'decisionReleaseTime', 'submissionStartTime', 'submissionEndTime'];
+            this.statusList = [..._shared__WEBPACK_IMPORTED_MODULE_5__["STATUSES"]];
+            this.typeOfApplication = new _models__WEBPACK_IMPORTED_MODULE_4__["TypeOfApplication"]();
+            this.typeOfApplicationList = [];
+            this.formTypeList = [..._shared__WEBPACK_IMPORTED_MODULE_5__["FORM_TYPE"]];
+        }
+        ;
+        ngOnInit() {
             this.getList();
-        });
-    }
-    setFormValidator() {
-        formType: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]();
-        this.typeOfApplication.status = _shared__WEBPACK_IMPORTED_MODULE_9__["COMMON_FUNCTION"].ACTIVE;
-        this.typeOfApplicationForm = this.formBuilder.group({
-            // formType: ['', Validators.required],
-            clearingReleaseTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-            decisionReleaseTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-            description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-            sequenceNo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-            status: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-            submissionEndTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-            submissionStartTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]],
-        });
-    }
-    resetFormValidator() {
-        this.typeOfApplication = new _models__WEBPACK_IMPORTED_MODULE_7__["TypeOfApplication"]();
-        this.typeOfApplication.status = _shared__WEBPACK_IMPORTED_MODULE_9__["COMMON_FUNCTION"].ACTIVE;
-        this.typeOfApplicationForm.markAsUntouched();
-        this.typeOfApplicationForm.markAsPristine();
-    }
-    compareFormType(value, selected) {
-        if (value && selected) {
-            return value.description === selected;
+            this.setFormValidator();
+        }
+        getList() {
+            this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].applicationType).subscribe((res) => {
+                console.log(res.responseData.data);
+                this.typeOfApplicationList = res.responseData.data;
+                this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"](res.responseData.data);
+                this.dataSource.paginator = this.formListComponent.paginator;
+                this.dataSource.sort = this.formListComponent.sort;
+            });
+        }
+        save() {
+            this.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].applicationType, this.typeOfApplication).subscribe((res) => {
+                if (res !== undefined) {
+                    this.sweetAlertService.success(res);
+                }
+            }, (err) => {
+                this.sweetAlertService.error(err);
+            }, () => {
+                this.resetFormValidator(),
+                    this.getList();
+            });
+        }
+        getTypeOfApplication() {
+            this.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].applicationType, this.formListComponent.idForUpdate).subscribe((res) => {
+                if (res) {
+                    this.typeOfApplication = res.responseData.data;
+                }
+            });
+        }
+        update() {
+            // this.typeOfApplication.modifiedBy = "J. Dela Cruz";
+            this.apiService.update(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].applicationType, this.typeOfApplication).subscribe((res) => {
+                if (res !== undefined) {
+                    this.sweetAlertService.success(res);
+                }
+            }, (err) => {
+                this.sweetAlertService.error(err);
+            }, () => {
+                this.resetFormValidator();
+                this.getList();
+            });
+        }
+        setFormValidator() {
+            formType: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
+            this.typeOfApplication.status = _shared__WEBPACK_IMPORTED_MODULE_5__["COMMON_FUNCTION"].ACTIVE;
+            this.typeOfApplicationForm = this.formBuilder.group({
+                // formType: ['', Validators.required],
+                clearingReleaseTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                decisionReleaseTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                sequenceNo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                status: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                submissionEndTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+                submissionStartTime: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]],
+            });
+        }
+        resetFormValidator() {
+            this.typeOfApplication = new _models__WEBPACK_IMPORTED_MODULE_4__["TypeOfApplication"]();
+            this.typeOfApplication.status = _shared__WEBPACK_IMPORTED_MODULE_5__["COMMON_FUNCTION"].ACTIVE;
+            this.typeOfApplicationForm.markAsUntouched();
+            this.typeOfApplicationForm.markAsPristine();
+        }
+        compareFormType(value, selected) {
+            if (value && selected) {
+                return value.description === selected;
+            }
+        }
+        delete() {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
+                text: 'Are you sure you want to delete this type of application?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirm'
+            }).then((result) => {
+                if (result.value) {
+                    this.apiService.deleteById(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].applicationType, this.typeOfApplication.id).subscribe(() => {
+                        this.sweetAlertService.customSuccessMessage('Type of application successfully deleted.');
+                        this.resetFormValidator();
+                        this.getList();
+                    });
+                }
+            });
         }
     }
-    delete() {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_10___default.a.fire({
-            text: 'Are you sure you want to delete this type of application?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Confirm'
-        }).then((result) => {
-            if (result.value) {
-                this.apiService.deleteById(_shared__WEBPACK_IMPORTED_MODULE_9__["ENDPOINTS"].applicationType, this.typeOfApplication.id).subscribe(() => {
-                    this.sweetAlertService.customSuccessMessage('Type of application successfully deleted.');
-                    this.resetFormValidator();
-                    this.getList();
-                });
+    TypeOfApplicationComponent.ɵfac = function TypeOfApplicationComponent_Factory(t) { return new (t || TypeOfApplicationComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_7__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_7__["SweetAlertService"])); };
+    TypeOfApplicationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: TypeOfApplicationComponent, selectors: [["app-type-of-application"]], viewQuery: function TypeOfApplicationComponent_Query(rf, ctx) {
+            if (rf & 1) {
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵviewQuery"](_fragments__WEBPACK_IMPORTED_MODULE_3__["FormListComponent"], true);
             }
-        });
-    }
-};
-TypeOfApplicationComponent.ctorParameters = () => [
-    { type: _services__WEBPACK_IMPORTED_MODULE_8__["ApiService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"] },
-    { type: _services__WEBPACK_IMPORTED_MODULE_8__["SweetAlertService"] }
-];
-TypeOfApplicationComponent.propDecorators = {
-    formListComponent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["ViewChild"], args: [_fragments__WEBPACK_IMPORTED_MODULE_6__["FormListComponent"],] }]
-};
-TypeOfApplicationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: 'app-type-of-application',
-        template: _raw_loader_type_of_application_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_type_of_application_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], TypeOfApplicationComponent);
+            if (rf & 2) {
+                var _t;
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵloadQuery"]()) && (ctx.formListComponent = _t.first);
+            }
+        }, decls: 50, vars: 12, consts: [[1, "container-fluid"], [1, "row"], [1, "col-md-12", "title"], [3, "formGroup"], ["appearance", "outline", 1, "col-md-4"], [1, "required-field"], ["matInput", "", "name", "description", "formControlName", "description", 3, "ngModel", "ngModelChange"], ["matInput", "", "name", "sequenceNo", "formControlName", "sequenceNo", 3, "ngModel", "ngModelChange"], ["class", "col-md-4", "appearance", "outline", 4, "ngIf"], ["appearance", "outline", 1, "col-md-6"], ["matInput", "", "name", "clearingReleaseTime", "formControlName", "clearingReleaseTime", 3, "ngModel", "ngModelChange"], ["matInput", "", "name", "decisionReleaseTime", "formControlName", "decisionReleaseTime", 3, "ngModel", "ngModelChange"], ["matInput", "", "name", "submissionStartTime", "formControlName", "submissionStartTime", 3, "ngModel", "ngModelChange"], ["matInput", "", "name", "submissionEndTime", "formControlName", "submissionEndTime", 3, "ngModel", "ngModelChange"], [3, "childObject", "childForm", "saveFunction", "updateFunction", "cancelFunction", "deleteFunction"], [3, "dataSource", "displayedColumns", "selectInListFunction"], ["name", "status", "formControlName", "status", 3, "ngModel", "ngModelChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"]], template: function TypeOfApplicationComponent_Template(rf, ctx) {
+            if (rf & 1) {
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "br");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "form");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 0);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 2);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " Type of Application ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "hr");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "form", 3);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "mat-form-field", 4);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Description ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "input", 6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_Template_input_ngModelChange_15_listener($event) { return ctx.typeOfApplication.description = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "mat-form-field", 4);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "Sequence Number ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](20, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "input", 7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_Template_input_ngModelChange_21_listener($event) { return ctx.typeOfApplication.sequenceNo = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](22, TypeOfApplicationComponent_mat_form_field_22_Template, 5, 2, "mat-form-field", 8);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "mat-form-field", 9);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "Clearing Release Time ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "input", 10);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_Template_input_ngModelChange_28_listener($event) { return ctx.typeOfApplication.clearingReleaseTime = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "mat-form-field", 9);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, "Decision Release Time ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "input", 11);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_Template_input_ngModelChange_34_listener($event) { return ctx.typeOfApplication.decisionReleaseTime = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "mat-form-field", 9);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, "Submission Start Time ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "input", 12);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_Template_input_ngModelChange_40_listener($event) { return ctx.typeOfApplication.submissionStartTime = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "mat-form-field", 9);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "mat-label");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, "Submission End Time ");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "span", 5);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, "*");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "input", 13);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TypeOfApplicationComponent_Template_input_ngModelChange_46_listener($event) { return ctx.typeOfApplication.submissionEndTime = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "app-form-action-buttons", 14);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("saveFunction", function TypeOfApplicationComponent_Template_app_form_action_buttons_saveFunction_47_listener() { return ctx.save(); })("updateFunction", function TypeOfApplicationComponent_Template_app_form_action_buttons_updateFunction_47_listener() { return ctx.update(); })("cancelFunction", function TypeOfApplicationComponent_Template_app_form_action_buttons_cancelFunction_47_listener() { return ctx.resetFormValidator(); })("deleteFunction", function TypeOfApplicationComponent_Template_app_form_action_buttons_deleteFunction_47_listener() { return ctx.delete(); });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "br");
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "app-form-list", 15);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("selectInListFunction", function TypeOfApplicationComponent_Template_app_form_list_selectInListFunction_49_listener() { return ctx.getTypeOfApplication(); });
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            }
+            if (rf & 2) {
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.typeOfApplicationForm);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.typeOfApplication.description);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.typeOfApplication.sequenceNo);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.typeOfApplication.id);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.typeOfApplication.clearingReleaseTime);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.typeOfApplication.decisionReleaseTime);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.typeOfApplication.submissionStartTime);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.typeOfApplication.submissionEndTime);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("childObject", ctx.typeOfApplication)("childForm", ctx.typeOfApplicationForm);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("dataSource", ctx.dataSource)("displayedColumns", ctx.displayedColumns);
+            }
+        }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgForm"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatLabel"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__["MatFormField"], _angular_material_input__WEBPACK_IMPORTED_MODULE_9__["MatInput"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_10__["NgIf"], _fragments_form_action_buttons_form_action_buttons_component__WEBPACK_IMPORTED_MODULE_11__["FormActionButtonsComponent"], _fragments_form_list_form_list_component__WEBPACK_IMPORTED_MODULE_12__["FormListComponent"], _angular_material_select__WEBPACK_IMPORTED_MODULE_13__["MatSelect"], _angular_common__WEBPACK_IMPORTED_MODULE_10__["NgForOf"], _angular_material_core__WEBPACK_IMPORTED_MODULE_14__["MatOption"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGFnZXMvbWFpbnRlbmFuY2UvdHlwZS1vZi1hcHBsaWNhdGlvbi90eXBlLW9mLWFwcGxpY2F0aW9uLmNvbXBvbmVudC5zY3NzIn0= */"] });
+    return TypeOfApplicationComponent;
+})();
 
 
 

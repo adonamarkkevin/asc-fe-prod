@@ -28,67 +28,77 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _payment_type_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _payment_type_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./payment-type-routing.module */
       "3Zc0");
       /* harmony import */
 
 
-      var _payment_type_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _payment_type_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./payment-type.component */
       "PE+p");
       /* harmony import */
 
 
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/common/http */
       "tk/3");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/forms */
       "3Pt+");
       /* harmony import */
 
 
-      var _shared__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _shared__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @shared */
       "M0ag");
       /* harmony import */
 
 
-      var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../../../fragments/fragments.module */
       "7Tf7");
 
-      var PaymentTypeModule = /*#__PURE__*/_createClass(function PaymentTypeModule() {
-        _classCallCheck(this, PaymentTypeModule);
-      });
+      var PaymentTypeModule = /*@__PURE__*/function () {
+        var PaymentTypeModule = /*#__PURE__*/_createClass(function PaymentTypeModule() {
+          _classCallCheck(this, PaymentTypeModule);
+        });
 
-      PaymentTypeModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_payment_type_component__WEBPACK_IMPORTED_MODULE_4__["PaymentTypeComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _payment_type_routing_module__WEBPACK_IMPORTED_MODULE_3__["PaymentTypeRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _shared__WEBPACK_IMPORTED_MODULE_7__["AngularMaterialModule"], _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_8__["FragmentsModule"]]
-      })], PaymentTypeModule);
+        PaymentTypeModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: PaymentTypeModule
+        });
+        PaymentTypeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function PaymentTypeModule_Factory(t) {
+            return new (t || PaymentTypeModule)();
+          },
+          imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _payment_type_routing_module__WEBPACK_IMPORTED_MODULE_2__["PaymentTypeRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"], _shared__WEBPACK_IMPORTED_MODULE_6__["AngularMaterialModule"], _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]]]
+        });
+        return PaymentTypeModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PaymentTypeModule, {
+          declarations: [_payment_type_component__WEBPACK_IMPORTED_MODULE_3__["PaymentTypeComponent"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _payment_type_routing_module__WEBPACK_IMPORTED_MODULE_2__["PaymentTypeRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"], _shared__WEBPACK_IMPORTED_MODULE_6__["AngularMaterialModule"], _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]]
+        });
+      })();
       /***/
+
     },
 
     /***/
@@ -113,42 +123,52 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _payment_type_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _payment_type_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./payment-type.component */
       "PE+p");
 
       var routes = [{
         path: '',
-        component: _payment_type_component__WEBPACK_IMPORTED_MODULE_3__["PaymentTypeComponent"]
+        component: _payment_type_component__WEBPACK_IMPORTED_MODULE_2__["PaymentTypeComponent"]
       }];
 
-      var PaymentTypeRoutingModule = /*#__PURE__*/_createClass(function PaymentTypeRoutingModule() {
-        _classCallCheck(this, PaymentTypeRoutingModule);
-      });
+      var PaymentTypeRoutingModule = /*@__PURE__*/function () {
+        var PaymentTypeRoutingModule = /*#__PURE__*/_createClass(function PaymentTypeRoutingModule() {
+          _classCallCheck(this, PaymentTypeRoutingModule);
+        });
 
-      PaymentTypeRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      })], PaymentTypeRoutingModule);
+        PaymentTypeRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: PaymentTypeRoutingModule
+        });
+        PaymentTypeRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function PaymentTypeRoutingModule_Factory(t) {
+            return new (t || PaymentTypeRoutingModule)();
+          },
+          imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+        return PaymentTypeRoutingModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](PaymentTypeRoutingModule, {
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+      })();
       /***/
+
     },
 
     /***/

@@ -28,75 +28,73 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
+      var _shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @shared */
+      "M0ag");
       /* harmony import */
 
 
       var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/common/http */
       "tk/3");
-      /* harmony import */
 
+      var AddressService = /*@__PURE__*/function () {
+        var AddressService = /*#__PURE__*/function () {
+          function AddressService(http) {
+            _classCallCheck(this, AddressService);
 
-      var _shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @shared */
-      "M0ag");
-
-      var AddressService = /*#__PURE__*/function () {
-        function AddressService(http) {
-          _classCallCheck(this, AddressService);
-
-          this.http = http;
-        }
-
-        _createClass(AddressService, [{
-          key: "getRegions",
-          value: function getRegions() {
-            return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].regions));
+            this.http = http;
           }
-        }, {
-          key: "getProvinces",
-          value: function getProvinces(regionId) {
-            return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].provinces, "/region-id/").concat(regionId));
-          }
-        }, {
-          key: "getCityMunicipalities",
-          value: function getCityMunicipalities(provinceId) {
-            return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].cityMunicipalities, "/province-id/").concat(provinceId));
-          }
-        }, {
-          key: "getBarangays",
-          value: function getBarangays(cityMunicipalityId) {
-            return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].barangays, "/city-municipality-id/").concat(cityMunicipalityId));
-          }
-        }, {
-          key: "getBarangay",
-          value: function getBarangay(barangayId) {
-            return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].barangays, "/barangay-id/").concat(barangayId));
-          }
-        }]);
 
+          _createClass(AddressService, [{
+            key: "getRegions",
+            value: function getRegions() {
+              return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_1__["ENDPOINTS"].regions));
+            }
+          }, {
+            key: "getProvinces",
+            value: function getProvinces(regionId) {
+              return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_1__["ENDPOINTS"].provinces, "/region-id/").concat(regionId));
+            }
+          }, {
+            key: "getCityMunicipalities",
+            value: function getCityMunicipalities(provinceId) {
+              return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_1__["ENDPOINTS"].cityMunicipalities, "/province-id/").concat(provinceId));
+            }
+          }, {
+            key: "getBarangays",
+            value: function getBarangays(cityMunicipalityId) {
+              return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_1__["ENDPOINTS"].barangays, "/city-municipality-id/").concat(cityMunicipalityId));
+            }
+          }, {
+            key: "getBarangay",
+            value: function getBarangay(barangayId) {
+              return this.http.get("".concat(_shared__WEBPACK_IMPORTED_MODULE_1__["ENDPOINTS"].barangays, "/barangay-id/").concat(barangayId));
+            }
+          }]);
+
+          return AddressService;
+        }();
+
+        AddressService.ɵfac = function AddressService_Factory(t) {
+          return new (t || AddressService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
+        };
+
+        AddressService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+          token: AddressService,
+          factory: AddressService.ɵfac,
+          providedIn: 'root'
+        });
         return AddressService;
       }();
-
-      AddressService.ctorParameters = function () {
-        return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
-        }];
-      };
-
-      AddressService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-      })], AddressService);
       /***/
+
     }
   }]);
 })();

@@ -28,32 +28,26 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @shared */
       "M0ag");
 
       var routes = [{
         path: '',
         children: [{
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].BRANDS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].BRANDS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | brands-brands-module */
@@ -64,18 +58,18 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_REASON,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_REASON,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-reason-type-of-reason-module */
-            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("common"), __webpack_require__.e("type-of-reason-type-of-reason-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("default~applications-applications-module~type-of-reason-type-of-reason-module"), __webpack_require__.e("type-of-reason-type-of-reason-module")]).then(__webpack_require__.bind(null,
             /*! ./type-of-reason/type-of-reason.module */
             "BqXF")).then(function (m) {
               return m.TypeOfReasonModule;
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_MEDIUM,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_MEDIUM,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-medium-type-of-medium-module */
@@ -86,51 +80,51 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].AFFILIATION,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].AFFILIATION,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | affiliation-affiliation-module */
-            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("common"), __webpack_require__.e("affiliation-affiliation-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("default~affiliation-affiliation-module~applications-applications-module"), __webpack_require__.e("affiliation-affiliation-module")]).then(__webpack_require__.bind(null,
             /*! ./affiliation/affiliation.module */
             "1f37")).then(function (m) {
               return m.AffiliationModule;
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].PAYMENT_TYPE,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].PAYMENT_TYPE,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | payment-type-payment-type-module */
-            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("common"), __webpack_require__.e("payment-type-payment-type-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("default~applications-applications-module~payment-type-payment-type-module"), __webpack_require__.e("payment-type-payment-type-module")]).then(__webpack_require__.bind(null,
             /*! ./payment-type/payment-type.module */
             "0zys")).then(function (m) {
               return m.PaymentTypeModule;
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_DOCUMENT,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_DOCUMENT,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-document-type-of-document-module */
-            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("common"), __webpack_require__.e("type-of-document-type-of-document-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("default~applications-applications-module~type-of-document-type-of-document-module"), __webpack_require__.e("type-of-document-type-of-document-module")]).then(__webpack_require__.bind(null,
             /*! ./type-of-document/type-of-document.module */
             "y+NH")).then(function (m) {
               return m.TypeOfDocumentModule;
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].CATEGORY,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].CATEGORY,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | category-category-module */
-            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("common"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~affiliation-affiliation-module~announcement-content-announcement-content-module~applications~1d994fe1"), __webpack_require__.e("default~applications-applications-module~category-category-module"), __webpack_require__.e("category-category-module")]).then(__webpack_require__.bind(null,
             /*! ./category/category.module */
             "BYy1")).then(function (m) {
               return m.CategoryModule;
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].PRODUCT,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].PRODUCT,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | product-product-module */
@@ -141,7 +135,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_APPLICATION,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_APPLICATION,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-application-type-of-application-module */
@@ -152,7 +146,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].ASC_RATES,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].ASC_RATES,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | asc-rates-asc-rates-module */
@@ -163,7 +157,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].ASC_RATES_SPECIAL,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].ASC_RATES_SPECIAL,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | asc-rates-special-asc-rates-special-module */
@@ -174,7 +168,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].HOLIDAYS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].HOLIDAYS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | holiday-holiday-module */
@@ -185,7 +179,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].DIALECTS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].DIALECTS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | dialect-dialect-module */
@@ -196,7 +190,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_APPLICATION,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_APPLICATION,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-application-type-of-application-module */
@@ -207,7 +201,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].SCREENER_REVIEWER_PAIRS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].SCREENER_REVIEWER_PAIRS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | screener-reviewer-pair-screener-reviewer-pair-module */
@@ -218,7 +212,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].EMAIL_NOTIFICATION,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].EMAIL_NOTIFICATION,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | email-notification-email-notification-module */
@@ -229,7 +223,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_EXECUTIONS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_EXECUTIONS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-medium-execution-type-of-medium-execution-module */
@@ -240,7 +234,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_MAIN_DOCUMENTS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_MAIN_DOCUMENTS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-main-document-type-of-main-document-module */
@@ -251,7 +245,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].DOCUMENTS_SIZE,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].DOCUMENTS_SIZE,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-main-document-type-of-main-document-module */
@@ -262,7 +256,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].ANNOUNCEMENT_CONTENT,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].ANNOUNCEMENT_CONTENT,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | announcement-content-announcement-content-module */
@@ -273,7 +267,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].S1_S2_EXPIRATION_PERIODS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].S1_S2_EXPIRATION_PERIODS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | s1-and-s2-form-expiration-period-s1-and-s2-form-expiration-period-module */
@@ -284,7 +278,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].S1_FEES_SETTLEMENT_PERIOD,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].S1_FEES_SETTLEMENT_PERIOD,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | s1-fees-settlement-period-s1-fees-settlement-period-module */
@@ -295,7 +289,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].S1_INCOMPLETE_DECISION_EXPIRATION_PERIOD,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].S1_INCOMPLETE_DECISION_EXPIRATION_PERIOD,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | s1-incomplete-decision-expiration-period-s1-incomplete-decision-expiration-period-module */
@@ -306,7 +300,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].PROMISSORY_NOTE_PERIODS,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].PROMISSORY_NOTE_PERIODS,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | promissory-note-period-promissory-note-period-module */
@@ -317,7 +311,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].QR_AND_BAR_CODE_CHECKER,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].QR_AND_BAR_CODE_CHECKER,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | qr-and-bar-code-checker-qr-and-bar-code-checker-module */
@@ -328,7 +322,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].NUMBER_OF_MULTIPLE_APPLICATION_ALLOWED,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].NUMBER_OF_MULTIPLE_APPLICATION_ALLOWED,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | number-of-multiple-application-allowed-number-of-multiple-application-allowed-module */
@@ -339,7 +333,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].BRAND_PENALTIES,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].BRAND_PENALTIES,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | brand-penalties-brand-penalties-module */
@@ -350,7 +344,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].COMPANY_PENALTIES,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].COMPANY_PENALTIES,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | company-penalties-company-penalties-module */
@@ -361,7 +355,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].TYPE_OF_RATIONAL,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].TYPE_OF_RATIONAL,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | type-of-rational-type-of-rational-module */
@@ -372,7 +366,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].USER_ACCOUNT,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].USER_ACCOUNT,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | user-account-user-account-module */
@@ -383,7 +377,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].MEDIUM_EXECUTIONS_CONTROLLER,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].MEDIUM_EXECUTIONS_CONTROLLER,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | medium-execution-controller-medium-execution-controller-module */
@@ -394,7 +388,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].LOGIN_IMAGE,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].LOGIN_IMAGE,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | login-images-login-images-module */
@@ -405,7 +399,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].WEEKLY_USER_SCHEDULE,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].WEEKLY_USER_SCHEDULE,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | weekly-user-schedule-weekly-user-schedule-module */
@@ -418,15 +412,31 @@
         }]
       }];
 
-      var MaintenanceRoutingModule = /*#__PURE__*/_createClass(function MaintenanceRoutingModule() {
-        _classCallCheck(this, MaintenanceRoutingModule);
-      });
+      var MaintenanceRoutingModule = /*@__PURE__*/function () {
+        var MaintenanceRoutingModule = /*#__PURE__*/_createClass(function MaintenanceRoutingModule() {
+          _classCallCheck(this, MaintenanceRoutingModule);
+        });
 
-      MaintenanceRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      })], MaintenanceRoutingModule);
+        MaintenanceRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: MaintenanceRoutingModule
+        });
+        MaintenanceRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function MaintenanceRoutingModule_Factory(t) {
+            return new (t || MaintenanceRoutingModule)();
+          },
+          imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+        return MaintenanceRoutingModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](MaintenanceRoutingModule, {
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+      })();
       /***/
+
     },
 
     /***/
@@ -451,37 +461,46 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _maintenance_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _maintenance_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./maintenance-routing.module */
       "3EiE");
 
-      var MaintenanceModule = /*#__PURE__*/_createClass(function MaintenanceModule() {
-        _classCallCheck(this, MaintenanceModule);
-      });
+      var MaintenanceModule = /*@__PURE__*/function () {
+        var MaintenanceModule = /*#__PURE__*/_createClass(function MaintenanceModule() {
+          _classCallCheck(this, MaintenanceModule);
+        });
 
-      MaintenanceModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _maintenance_routing_module__WEBPACK_IMPORTED_MODULE_3__["MaintenanceRoutingModule"]]
-      })], MaintenanceModule);
+        MaintenanceModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: MaintenanceModule
+        });
+        MaintenanceModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function MaintenanceModule_Factory(t) {
+            return new (t || MaintenanceModule)();
+          },
+          imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _maintenance_routing_module__WEBPACK_IMPORTED_MODULE_2__["MaintenanceRoutingModule"]]]
+        });
+        return MaintenanceModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](MaintenanceModule, {
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _maintenance_routing_module__WEBPACK_IMPORTED_MODULE_2__["MaintenanceRoutingModule"]]
+        });
+      })();
       /***/
+
     }
   }]);
 })();

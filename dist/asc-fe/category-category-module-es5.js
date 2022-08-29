@@ -69,67 +69,77 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _category_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _category_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./category-routing.module */
       "d2/S");
       /* harmony import */
 
 
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/common/http */
       "tk/3");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/forms */
       "3Pt+");
       /* harmony import */
 
 
-      var _shared__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _shared__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @shared */
       "M0ag");
       /* harmony import */
 
 
-      var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../../../fragments/fragments.module */
       "7Tf7");
       /* harmony import */
 
 
-      var _category_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _category_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./category.component */
       "1kjv");
 
-      var CategoryModule = /*#__PURE__*/_createClass(function CategoryModule() {
-        _classCallCheck(this, CategoryModule);
-      });
+      var CategoryModule = /*@__PURE__*/function () {
+        var CategoryModule = /*#__PURE__*/_createClass(function CategoryModule() {
+          _classCallCheck(this, CategoryModule);
+        });
 
-      CategoryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_category_component__WEBPACK_IMPORTED_MODULE_8__["CategoryComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _category_routing_module__WEBPACK_IMPORTED_MODULE_3__["CategoryRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ReactiveFormsModule"], _shared__WEBPACK_IMPORTED_MODULE_6__["AngularMaterialModule"], _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]]
-      })], CategoryModule);
+        CategoryModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: CategoryModule
+        });
+        CategoryModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function CategoryModule_Factory(t) {
+            return new (t || CategoryModule)();
+          },
+          imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _category_routing_module__WEBPACK_IMPORTED_MODULE_2__["CategoryRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _shared__WEBPACK_IMPORTED_MODULE_5__["AngularMaterialModule"], _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_6__["FragmentsModule"]]]
+        });
+        return CategoryModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CategoryModule, {
+          declarations: [_category_component__WEBPACK_IMPORTED_MODULE_7__["CategoryComponent"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _category_routing_module__WEBPACK_IMPORTED_MODULE_2__["CategoryRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _shared__WEBPACK_IMPORTED_MODULE_5__["AngularMaterialModule"], _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_6__["FragmentsModule"]]
+        });
+      })();
       /***/
+
     },
 
     /***/
@@ -154,42 +164,52 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _category_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _category_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./category.component */
       "1kjv");
 
       var routes = [{
         path: '',
-        component: _category_component__WEBPACK_IMPORTED_MODULE_3__["CategoryComponent"]
+        component: _category_component__WEBPACK_IMPORTED_MODULE_2__["CategoryComponent"]
       }];
 
-      var CategoryRoutingModule = /*#__PURE__*/_createClass(function CategoryRoutingModule() {
-        _classCallCheck(this, CategoryRoutingModule);
-      });
+      var CategoryRoutingModule = /*@__PURE__*/function () {
+        var CategoryRoutingModule = /*#__PURE__*/_createClass(function CategoryRoutingModule() {
+          _classCallCheck(this, CategoryRoutingModule);
+        });
 
-      CategoryRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      })], CategoryRoutingModule);
+        CategoryRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: CategoryRoutingModule
+        });
+        CategoryRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function CategoryRoutingModule_Factory(t) {
+            return new (t || CategoryRoutingModule)();
+          },
+          imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+        return CategoryRoutingModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CategoryRoutingModule, {
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+      })();
       /***/
+
     }
   }]);
 })();

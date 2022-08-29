@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /***/ }),
 
 /***/ "BqXF":
@@ -31,15 +32,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeOfReasonModule", function() { return TypeOfReasonModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared */ "M0ag");
-/* harmony import */ var _type_of_reason_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./type-of-reason.component */ "kyg5");
-/* harmony import */ var _type_of_reason_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./type-of-reason-routing.module */ "p/KS");
-/* harmony import */ var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../fragments/fragments.module */ "7Tf7");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared */ "M0ag");
+/* harmony import */ var _type_of_reason_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./type-of-reason.component */ "kyg5");
+/* harmony import */ var _type_of_reason_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./type-of-reason-routing.module */ "p/KS");
+/* harmony import */ var _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../fragments/fragments.module */ "7Tf7");
 
 
 
@@ -49,21 +49,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let TypeOfReasonModule = class TypeOfReasonModule {
-};
-TypeOfReasonModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_type_of_reason_component__WEBPACK_IMPORTED_MODULE_6__["TypeOfReasonComponent"]],
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _type_of_reason_routing_module__WEBPACK_IMPORTED_MODULE_7__["TypeOfReasonRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
-            _shared__WEBPACK_IMPORTED_MODULE_5__["AngularMaterialModule"],
-            _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_8__["FragmentsModule"]
-        ]
-    })
-], TypeOfReasonModule);
+let TypeOfReasonModule = /*@__PURE__*/ (() => {
+    class TypeOfReasonModule {
+    }
+    TypeOfReasonModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: TypeOfReasonModule });
+    TypeOfReasonModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function TypeOfReasonModule_Factory(t) { return new (t || TypeOfReasonModule)(); }, imports: [[
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _type_of_reason_routing_module__WEBPACK_IMPORTED_MODULE_6__["TypeOfReasonRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _shared__WEBPACK_IMPORTED_MODULE_4__["AngularMaterialModule"],
+                _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]
+            ]] });
+    return TypeOfReasonModule;
+})();
+(function () {
+    (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](TypeOfReasonModule, { declarations: [_type_of_reason_component__WEBPACK_IMPORTED_MODULE_5__["TypeOfReasonComponent"]], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+            _type_of_reason_routing_module__WEBPACK_IMPORTED_MODULE_6__["TypeOfReasonRoutingModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _shared__WEBPACK_IMPORTED_MODULE_4__["AngularMaterialModule"],
+            _fragments_fragments_module__WEBPACK_IMPORTED_MODULE_7__["FragmentsModule"]] });
+})();
 
 
 
@@ -79,10 +86,10 @@ TypeOfReasonModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TypeOfReasonRoutingModule", function() { return TypeOfReasonRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _type_of_reason_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./type-of-reason.component */ "kyg5");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _type_of_reason_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./type-of-reason.component */ "kyg5");
+
 
 
 
@@ -90,17 +97,17 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _type_of_reason_component__WEBPACK_IMPORTED_MODULE_3__["TypeOfReasonComponent"]
+        component: _type_of_reason_component__WEBPACK_IMPORTED_MODULE_2__["TypeOfReasonComponent"]
     }
 ];
-let TypeOfReasonRoutingModule = class TypeOfReasonRoutingModule {
-};
-TypeOfReasonRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], TypeOfReasonRoutingModule);
+let TypeOfReasonRoutingModule = /*@__PURE__*/ (() => {
+    class TypeOfReasonRoutingModule {
+    }
+    TypeOfReasonRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: TypeOfReasonRoutingModule });
+    TypeOfReasonRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function TypeOfReasonRoutingModule_Factory(t) { return new (t || TypeOfReasonRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
+    return TypeOfReasonRoutingModule;
+})();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](TypeOfReasonRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] }); })();
 
 
 

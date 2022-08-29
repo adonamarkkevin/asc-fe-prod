@@ -28,32 +28,26 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _shared__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _shared__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @shared */
       "M0ag");
 
       var routes = [{
         path: '',
         children: [{
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].LIST_COMPANY,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].LIST_COMPANY,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | list-company-list-company-module */
@@ -64,7 +58,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].ADD_COMPANY,
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].ADD_COMPANY,
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | add-company-add-company-module */
@@ -75,7 +69,7 @@
             });
           }
         }, {
-          path: _shared__WEBPACK_IMPORTED_MODULE_3__["URL_PATHS"].UPDATE_COMPANY + '/:id',
+          path: _shared__WEBPACK_IMPORTED_MODULE_2__["URL_PATHS"].UPDATE_COMPANY + '/:id',
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | add-company-add-company-module */
@@ -88,15 +82,31 @@
         }]
       }];
 
-      var CompanyRoutingModule = /*#__PURE__*/_createClass(function CompanyRoutingModule() {
-        _classCallCheck(this, CompanyRoutingModule);
-      });
+      var CompanyRoutingModule = /*@__PURE__*/function () {
+        var CompanyRoutingModule = /*#__PURE__*/_createClass(function CompanyRoutingModule() {
+          _classCallCheck(this, CompanyRoutingModule);
+        });
 
-      CompanyRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      })], CompanyRoutingModule);
+        CompanyRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: CompanyRoutingModule
+        });
+        CompanyRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function CompanyRoutingModule_Factory(t) {
+            return new (t || CompanyRoutingModule)();
+          },
+          imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+        return CompanyRoutingModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CompanyRoutingModule, {
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+      })();
       /***/
+
     },
 
     /***/
@@ -121,39 +131,48 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _company_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _company_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./company-routing.module */
       "Fy8O");
 
       ;
 
-      var CompanyModule = /*#__PURE__*/_createClass(function CompanyModule() {
-        _classCallCheck(this, CompanyModule);
-      });
+      var CompanyModule = /*@__PURE__*/function () {
+        var CompanyModule = /*#__PURE__*/_createClass(function CompanyModule() {
+          _classCallCheck(this, CompanyModule);
+        });
 
-      CompanyModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _company_routing_module__WEBPACK_IMPORTED_MODULE_3__["CompanyRoutingModule"]]
-      })], CompanyModule);
+        CompanyModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: CompanyModule
+        });
+        CompanyModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function CompanyModule_Factory(t) {
+            return new (t || CompanyModule)();
+          },
+          imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _company_routing_module__WEBPACK_IMPORTED_MODULE_2__["CompanyRoutingModule"]]]
+        });
+        return CompanyModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CompanyModule, {
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _company_routing_module__WEBPACK_IMPORTED_MODULE_2__["CompanyRoutingModule"]]
+        });
+      })();
       /***/
+
     }
   }]);
 })();

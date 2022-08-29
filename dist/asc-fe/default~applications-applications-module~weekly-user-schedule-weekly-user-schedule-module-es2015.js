@@ -37,17 +37,18 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfISOWeekYear(new Date(2005, 6, 2))
  * //=> Sun Jan 01 2006 00:00:00
  */
-
 function lastDayOfISOWeekYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var year = Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var fourthOfJanuary = new Date(0);
-  fourthOfJanuary.setFullYear(year + 1, 0, 4);
-  fourthOfJanuary.setHours(0, 0, 0, 0);
-  var date = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuary);
-  date.setDate(date.getDate() - 1);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var year = Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var fourthOfJanuary = new Date(0);
+    fourthOfJanuary.setFullYear(year + 1, 0, 4);
+    fourthOfJanuary.setHours(0, 0, 0, 0);
+    var date = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuary);
+    date.setDate(date.getDate() - 1);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -62,15 +63,15 @@ function lastDayOfISOWeekYear(dirtyDate) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return addLeadingZeros; });
 function addLeadingZeros(number, targetLength) {
-  var sign = number < 0 ? '-' : '';
-  var output = Math.abs(number).toString();
-
-  while (output.length < targetLength) {
-    output = '0' + output;
-  }
-
-  return sign + output;
+    var sign = number < 0 ? '-' : '';
+    var output = Math.abs(number).toString();
+    while (output.length < targetLength) {
+        output = '0' + output;
+    }
+    return sign + output;
 }
+
+
 
 /***/ }),
 
@@ -105,11 +106,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousWednesday(new Date(2021, 5, 18))
  * //=> Wed June 16 2021 00:00:00
  */
-
 function previousWednesday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 3);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 3);
 }
+
+
 
 /***/ }),
 
@@ -124,19 +126,19 @@ function previousWednesday(date) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return assign; });
 function assign(target, object) {
-  if (target == null) {
-    throw new TypeError('assign requires that input parameter not be null or undefined');
-  }
-
-  for (var property in object) {
-    if (Object.prototype.hasOwnProperty.call(object, property)) {
-      ;
-      target[property] = object[property];
+    if (target == null) {
+        throw new TypeError('assign requires that input parameter not be null or undefined');
     }
-  }
-
-  return target;
+    for (var property in object) {
+        if (Object.prototype.hasOwnProperty.call(object, property)) {
+            ;
+            target[property] = object[property];
+        }
+    }
+    return target;
 }
+
+
 
 /***/ }),
 
@@ -159,25 +161,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function setUTCDay(dirtyDate, dirtyDay, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
-  var weekStartsOn = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDay);
-  var currentDay = date.getUTCDay();
-  var remainder = day % 7;
-  var dayIndex = (remainder + 7) % 7;
-  var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
-  date.setUTCDate(date.getUTCDate() + diff);
-  return date;
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
+    var weekStartsOn = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDay);
+    var currentDay = date.getUTCDay();
+    var remainder = day % 7;
+    var dayIndex = (remainder + 7) % 7;
+    var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
+    date.setUTCDate(date.getUTCDate() + diff);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -215,12 +216,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subWeeks(new Date(2014, 8, 1), 4)
  * //=> Mon Aug 04 2014 00:00:00
  */
-
 function subWeeks(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addWeeks_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addWeeks_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -276,18 +278,18 @@ var MILLISECONDS_IN_WEEK = 604800000;
  * )
  * //=> 2
  */
-
 function differenceInCalendarWeeks(dirtyDateLeft, dirtyDateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var startOfWeekLeft = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft, options);
-  var startOfWeekRight = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight, options);
-  var timestampLeft = startOfWeekLeft.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startOfWeekLeft);
-  var timestampRight = startOfWeekRight.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startOfWeekRight); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var startOfWeekLeft = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft, options);
+    var startOfWeekRight = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight, options);
+    var timestampLeft = startOfWeekLeft.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startOfWeekLeft);
+    var timestampRight = startOfWeekRight.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startOfWeekRight); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK);
 }
+
+
 
 /***/ }),
 
@@ -333,27 +335,27 @@ __webpack_require__.r(__webpack_exports__);
  * const result = toDate(1392098430000)
  * //=> Tue Feb 11 2014 11:30:30
  */
-
 function toDate(argument) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var argStr = Object.prototype.toString.call(argument); // Clone the date
-
-  if (argument instanceof Date || typeof argument === 'object' && argStr === '[object Date]') {
-    // Prevent the date to lose the milliseconds when passed to new Date() in IE10
-    return new Date(argument.getTime());
-  } else if (typeof argument === 'number' || argStr === '[object Number]') {
-    return new Date(argument);
-  } else {
-    if ((typeof argument === 'string' || argStr === '[object String]') && typeof console !== 'undefined') {
-      // eslint-disable-next-line no-console
-      console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as date arguments. Please use `parseISO` to parse strings. See: https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#string-arguments"); // eslint-disable-next-line no-console
-
-      console.warn(new Error().stack);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var argStr = Object.prototype.toString.call(argument); // Clone the date
+    if (argument instanceof Date || typeof argument === 'object' && argStr === '[object Date]') {
+        // Prevent the date to lose the milliseconds when passed to new Date() in IE10
+        return new Date(argument.getTime());
     }
-
-    return new Date(NaN);
-  }
+    else if (typeof argument === 'number' || argStr === '[object Number]') {
+        return new Date(argument);
+    }
+    else {
+        if ((typeof argument === 'string' || argStr === '[object String]') && typeof console !== 'undefined') {
+            // eslint-disable-next-line no-console
+            console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as date arguments. Please use `parseISO` to parse strings. See: https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#string-arguments"); // eslint-disable-next-line no-console
+            console.warn(new Error().stack);
+        }
+        return new Date(NaN);
+    }
 }
+
+
 
 /***/ }),
 
@@ -368,18 +370,17 @@ function toDate(argument) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return toInteger; });
 function toInteger(dirtyNumber) {
-  if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
-    return NaN;
-  }
-
-  var number = Number(dirtyNumber);
-
-  if (isNaN(number)) {
-    return number;
-  }
-
-  return number < 0 ? Math.ceil(number) : Math.floor(number);
+    if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
+        return NaN;
+    }
+    var number = Number(dirtyNumber);
+    if (isNaN(number)) {
+        return number;
+    }
+    return number < 0 ? Math.ceil(number) : Math.floor(number);
 }
+
+
 
 /***/ }),
 
@@ -397,7 +398,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isValid/index.js */ "Se/U");
 /* harmony import */ var _lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/addLeadingZeros/index.js */ "+7QN");
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "/h9T");
-
 
 
 
@@ -434,54 +434,46 @@ __webpack_require__.r(__webpack_exports__);
  * //=> '2019-09-18T19:00:52.234Z'
  */
 function formatRFC3339(dirtyDate, options) {
-  var _options$fractionDigi;
-
-  if (arguments.length < 1) {
-    throw new TypeError("1 arguments required, but only ".concat(arguments.length, " present"));
-  }
-
-  var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate)) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var fractionDigits = Number((_options$fractionDigi = options === null || options === void 0 ? void 0 : options.fractionDigits) !== null && _options$fractionDigi !== void 0 ? _options$fractionDigi : 0); // Test if fractionDigits is between 0 and 3 _and_ is not NaN
-
-  if (!(fractionDigits >= 0 && fractionDigits <= 3)) {
-    throw new RangeError('fractionDigits must be between 0 and 3 inclusively');
-  }
-
-  var day = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getDate(), 2);
-  var month = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMonth() + 1, 2);
-  var year = originalDate.getFullYear();
-  var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getHours(), 2);
-  var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMinutes(), 2);
-  var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getSeconds(), 2);
-  var fractionalSecond = '';
-
-  if (fractionDigits > 0) {
-    var milliseconds = originalDate.getMilliseconds();
-    var fractionalSeconds = Math.floor(milliseconds * Math.pow(10, fractionDigits - 3));
-    fractionalSecond = '.' + Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fractionalSeconds, fractionDigits);
-  }
-
-  var offset = '';
-  var tzOffset = originalDate.getTimezoneOffset();
-
-  if (tzOffset !== 0) {
-    var absoluteOffset = Math.abs(tzOffset);
-    var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(absoluteOffset / 60), 2);
-    var minuteOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(absoluteOffset % 60, 2); // If less than 0, the sign is +, because it is ahead of time.
-
-    var sign = tzOffset < 0 ? '+' : '-';
-    offset = "".concat(sign).concat(hourOffset, ":").concat(minuteOffset);
-  } else {
-    offset = 'Z';
-  }
-
-  return "".concat(year, "-").concat(month, "-").concat(day, "T").concat(hour, ":").concat(minute, ":").concat(second).concat(fractionalSecond).concat(offset);
+    var _options$fractionDigi;
+    if (arguments.length < 1) {
+        throw new TypeError("1 arguments required, but only ".concat(arguments.length, " present"));
+    }
+    var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate)) {
+        throw new RangeError('Invalid time value');
+    }
+    var fractionDigits = Number((_options$fractionDigi = options === null || options === void 0 ? void 0 : options.fractionDigits) !== null && _options$fractionDigi !== void 0 ? _options$fractionDigi : 0); // Test if fractionDigits is between 0 and 3 _and_ is not NaN
+    if (!(fractionDigits >= 0 && fractionDigits <= 3)) {
+        throw new RangeError('fractionDigits must be between 0 and 3 inclusively');
+    }
+    var day = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getDate(), 2);
+    var month = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMonth() + 1, 2);
+    var year = originalDate.getFullYear();
+    var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getHours(), 2);
+    var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMinutes(), 2);
+    var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getSeconds(), 2);
+    var fractionalSecond = '';
+    if (fractionDigits > 0) {
+        var milliseconds = originalDate.getMilliseconds();
+        var fractionalSeconds = Math.floor(milliseconds * Math.pow(10, fractionDigits - 3));
+        fractionalSecond = '.' + Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fractionalSeconds, fractionDigits);
+    }
+    var offset = '';
+    var tzOffset = originalDate.getTimezoneOffset();
+    if (tzOffset !== 0) {
+        var absoluteOffset = Math.abs(tzOffset);
+        var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(absoluteOffset / 60), 2);
+        var minuteOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(absoluteOffset % 60, 2); // If less than 0, the sign is +, because it is ahead of time.
+        var sign = tzOffset < 0 ? '+' : '-';
+        offset = "".concat(sign).concat(hourOffset, ":").concat(minuteOffset);
+    }
+    else {
+        offset = 'Z';
+    }
+    return "".concat(year, "-").concat(month, "-").concat(day, "T").concat(hour, ":").concat(minute, ":").concat(second).concat(fractionalSecond).concat(offset);
 }
+
+
 
 /***/ }),
 
@@ -520,13 +512,14 @@ __webpack_require__.r(__webpack_exports__);
  * //=> false
  */
 function isExists(year, month, day) {
-  if (arguments.length < 3) {
-    throw new TypeError('3 argument required, but only ' + arguments.length + ' present');
-  }
-
-  var date = new Date(year, month, day);
-  return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day;
+    if (arguments.length < 3) {
+        throw new TypeError('3 argument required, but only ' + arguments.length + ' present');
+    }
+    var date = new Date(year, month, day);
+    return date.getFullYear() === year && date.getMonth() === month && date.getDate() === day;
 }
+
+
 
 /***/ }),
 
@@ -575,34 +568,31 @@ __webpack_require__.r(__webpack_exports__);
  * //   Fri Oct 10 2014 00:00:00
  * // ]
  */
-
 function eachDayOfInterval(dirtyInterval, options) {
-  var _options$step;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var interval = dirtyInterval || {};
-  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start);
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end);
-  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startDate.getTime() <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var dates = [];
-  var currentDate = startDate;
-  currentDate.setHours(0, 0, 0, 0);
-  var step = Number((_options$step = options === null || options === void 0 ? void 0 : options.step) !== null && _options$step !== void 0 ? _options$step : 1);
-  if (step < 1 || isNaN(step)) throw new RangeError('`options.step` must be a number greater than 1');
-
-  while (currentDate.getTime() <= endTime) {
-    dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate));
-    currentDate.setDate(currentDate.getDate() + step);
+    var _options$step;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var interval = dirtyInterval || {};
+    var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start);
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end);
+    var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startDate.getTime() <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var dates = [];
+    var currentDate = startDate;
     currentDate.setHours(0, 0, 0, 0);
-  }
-
-  return dates;
+    var step = Number((_options$step = options === null || options === void 0 ? void 0 : options.step) !== null && _options$step !== void 0 ? _options$step : 1);
+    if (step < 1 || isNaN(step))
+        throw new RangeError('`options.step` must be a number greater than 1');
+    while (currentDate.getTime() <= endTime) {
+        dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate));
+        currentDate.setDate(currentDate.getDate() + step);
+        currentDate.setHours(0, 0, 0, 0);
+    }
+    return dates;
 }
+
+
 
 /***/ }),
 
@@ -637,10 +627,11 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfToday()
  * //=> Mon Oct 6 2014 00:00:00
  */
-
 function startOfToday() {
-  return Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now());
+    return Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now());
 }
+
+
 
 /***/ }),
 
@@ -656,30 +647,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimestampSecondsParser", function() { return TimestampSecondsParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class TimestampSecondsParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 40);
-
-    _defineProperty(this, "incompatibleTokens", '*');
-  }
-
-  parse(dateString) {
-    return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseAnyDigitsSigned"])(dateString);
-  }
-
-  set(_date, _flags, value) {
-    return [new Date(value * 1000), {
-      timestampIsSet: true
-    }];
-  }
-
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 40);
+        _defineProperty(this, "incompatibleTokens", '*');
+    }
+    parse(dateString) {
+        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseAnyDigitsSigned"])(dateString);
+    }
+    set(_date, _flags, value) {
+        return [new Date(value * 1000), {
+                timestampIsSet: true
+            }];
+    }
 }
+
+
 
 /***/ }),
 
@@ -714,13 +706,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getHours(new Date(2012, 1, 29, 11, 45))
  * //=> 11
  */
-
 function getHours(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var hours = date.getHours();
-  return hours;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var hours = date.getHours();
+    return hours;
 }
+
+
 
 /***/ }),
 
@@ -734,19 +727,19 @@ function getHours(dirtyDate) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var formatRelativeLocale = {
-  lastWeek: "'last' eeee 'at' p",
-  yesterday: "'yesterday at' p",
-  today: "'today at' p",
-  tomorrow: "'tomorrow at' p",
-  nextWeek: "eeee 'at' p",
-  other: 'P'
+    lastWeek: "'last' eeee 'at' p",
+    yesterday: "'yesterday at' p",
+    today: "'today at' p",
+    tomorrow: "'tomorrow at' p",
+    nextWeek: "eeee 'at' p",
+    other: 'P'
 };
-
 var formatRelative = function (token, _date, _baseDate, _options) {
-  return formatRelativeLocale[token];
+    return formatRelativeLocale[token];
 };
-
 /* harmony default export */ __webpack_exports__["default"] = (formatRelative);
+
+
 
 /***/ }),
 
@@ -782,13 +775,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:00
  */
-
 function startOfMinute(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setSeconds(0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setSeconds(0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -903,102 +897,104 @@ var MINUTES_IN_YEAR = MINUTES_IN_DAY * 365;
  * })
  * //=> '1 jaro'
  */
-
 function formatDistanceStrict(dirtyDate, dirtyBaseDate, options) {
-  var _ref, _options$locale, _options$roundingMeth;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(2, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-  var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_6__["default"];
-
-  if (!locale.formatDistance) {
-    throw new RangeError('locale must contain localize.formatDistance property');
-  }
-
-  var comparison = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate, dirtyBaseDate);
-
-  if (isNaN(comparison)) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var localizeOptions = Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_lib_cloneObject_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(options), {
-    addSuffix: Boolean(options === null || options === void 0 ? void 0 : options.addSuffix),
-    comparison: comparison
-  });
-  var dateLeft;
-  var dateRight;
-
-  if (comparison > 0) {
-    dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyBaseDate);
-    dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyDate);
-  } else {
-    dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyDate);
-    dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyBaseDate);
-  }
-
-  var roundingMethod = String((_options$roundingMeth = options === null || options === void 0 ? void 0 : options.roundingMethod) !== null && _options$roundingMeth !== void 0 ? _options$roundingMeth : 'round');
-  var roundingMethodFn;
-
-  if (roundingMethod === 'floor') {
-    roundingMethodFn = Math.floor;
-  } else if (roundingMethod === 'ceil') {
-    roundingMethodFn = Math.ceil;
-  } else if (roundingMethod === 'round') {
-    roundingMethodFn = Math.round;
-  } else {
-    throw new RangeError("roundingMethod must be 'floor', 'ceil' or 'round'");
-  }
-
-  var milliseconds = dateRight.getTime() - dateLeft.getTime();
-  var minutes = milliseconds / MILLISECONDS_IN_MINUTE;
-  var timezoneOffset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateRight) - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft); // Use DST-normalized difference in minutes for years, months and days;
-  // use regular difference in minutes for hours, minutes and seconds.
-
-  var dstNormalizedMinutes = (milliseconds - timezoneOffset) / MILLISECONDS_IN_MINUTE;
-  var defaultUnit = options === null || options === void 0 ? void 0 : options.unit;
-  var unit;
-
-  if (!defaultUnit) {
-    if (minutes < 1) {
-      unit = 'second';
-    } else if (minutes < 60) {
-      unit = 'minute';
-    } else if (minutes < MINUTES_IN_DAY) {
-      unit = 'hour';
-    } else if (dstNormalizedMinutes < MINUTES_IN_MONTH) {
-      unit = 'day';
-    } else if (dstNormalizedMinutes < MINUTES_IN_YEAR) {
-      unit = 'month';
-    } else {
-      unit = 'year';
+    var _ref, _options$locale, _options$roundingMeth;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(2, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_6__["default"];
+    if (!locale.formatDistance) {
+        throw new RangeError('locale must contain localize.formatDistance property');
     }
-  } else {
-    unit = String(defaultUnit);
-  } // 0 up to 60 seconds
-
-
-  if (unit === 'second') {
-    var seconds = roundingMethodFn(milliseconds / 1000);
-    return locale.formatDistance('xSeconds', seconds, localizeOptions); // 1 up to 60 mins
-  } else if (unit === 'minute') {
-    var roundedMinutes = roundingMethodFn(minutes);
-    return locale.formatDistance('xMinutes', roundedMinutes, localizeOptions); // 1 up to 24 hours
-  } else if (unit === 'hour') {
-    var hours = roundingMethodFn(minutes / 60);
-    return locale.formatDistance('xHours', hours, localizeOptions); // 1 up to 30 days
-  } else if (unit === 'day') {
-    var days = roundingMethodFn(dstNormalizedMinutes / MINUTES_IN_DAY);
-    return locale.formatDistance('xDays', days, localizeOptions); // 1 up to 12 months
-  } else if (unit === 'month') {
-    var months = roundingMethodFn(dstNormalizedMinutes / MINUTES_IN_MONTH);
-    return months === 12 && defaultUnit !== 'month' ? locale.formatDistance('xYears', 1, localizeOptions) : locale.formatDistance('xMonths', months, localizeOptions); // 1 year up to max Date
-  } else if (unit === 'year') {
-    var years = roundingMethodFn(dstNormalizedMinutes / MINUTES_IN_YEAR);
-    return locale.formatDistance('xYears', years, localizeOptions);
-  }
-
-  throw new RangeError("unit must be 'second', 'minute', 'hour', 'day', 'month' or 'year'");
+    var comparison = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate, dirtyBaseDate);
+    if (isNaN(comparison)) {
+        throw new RangeError('Invalid time value');
+    }
+    var localizeOptions = Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Object(_lib_cloneObject_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(options), {
+        addSuffix: Boolean(options === null || options === void 0 ? void 0 : options.addSuffix),
+        comparison: comparison
+    });
+    var dateLeft;
+    var dateRight;
+    if (comparison > 0) {
+        dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyBaseDate);
+        dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyDate);
+    }
+    else {
+        dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyDate);
+        dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyBaseDate);
+    }
+    var roundingMethod = String((_options$roundingMeth = options === null || options === void 0 ? void 0 : options.roundingMethod) !== null && _options$roundingMeth !== void 0 ? _options$roundingMeth : 'round');
+    var roundingMethodFn;
+    if (roundingMethod === 'floor') {
+        roundingMethodFn = Math.floor;
+    }
+    else if (roundingMethod === 'ceil') {
+        roundingMethodFn = Math.ceil;
+    }
+    else if (roundingMethod === 'round') {
+        roundingMethodFn = Math.round;
+    }
+    else {
+        throw new RangeError("roundingMethod must be 'floor', 'ceil' or 'round'");
+    }
+    var milliseconds = dateRight.getTime() - dateLeft.getTime();
+    var minutes = milliseconds / MILLISECONDS_IN_MINUTE;
+    var timezoneOffset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateRight) - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft); // Use DST-normalized difference in minutes for years, months and days;
+    // use regular difference in minutes for hours, minutes and seconds.
+    var dstNormalizedMinutes = (milliseconds - timezoneOffset) / MILLISECONDS_IN_MINUTE;
+    var defaultUnit = options === null || options === void 0 ? void 0 : options.unit;
+    var unit;
+    if (!defaultUnit) {
+        if (minutes < 1) {
+            unit = 'second';
+        }
+        else if (minutes < 60) {
+            unit = 'minute';
+        }
+        else if (minutes < MINUTES_IN_DAY) {
+            unit = 'hour';
+        }
+        else if (dstNormalizedMinutes < MINUTES_IN_MONTH) {
+            unit = 'day';
+        }
+        else if (dstNormalizedMinutes < MINUTES_IN_YEAR) {
+            unit = 'month';
+        }
+        else {
+            unit = 'year';
+        }
+    }
+    else {
+        unit = String(defaultUnit);
+    } // 0 up to 60 seconds
+    if (unit === 'second') {
+        var seconds = roundingMethodFn(milliseconds / 1000);
+        return locale.formatDistance('xSeconds', seconds, localizeOptions); // 1 up to 60 mins
+    }
+    else if (unit === 'minute') {
+        var roundedMinutes = roundingMethodFn(minutes);
+        return locale.formatDistance('xMinutes', roundedMinutes, localizeOptions); // 1 up to 24 hours
+    }
+    else if (unit === 'hour') {
+        var hours = roundingMethodFn(minutes / 60);
+        return locale.formatDistance('xHours', hours, localizeOptions); // 1 up to 30 days
+    }
+    else if (unit === 'day') {
+        var days = roundingMethodFn(dstNormalizedMinutes / MINUTES_IN_DAY);
+        return locale.formatDistance('xDays', days, localizeOptions); // 1 up to 12 months
+    }
+    else if (unit === 'month') {
+        var months = roundingMethodFn(dstNormalizedMinutes / MINUTES_IN_MONTH);
+        return months === 12 && defaultUnit !== 'month' ? locale.formatDistance('xYears', 1, localizeOptions) : locale.formatDistance('xMonths', months, localizeOptions); // 1 year up to max Date
+    }
+    else if (unit === 'year') {
+        var years = roundingMethodFn(dstNormalizedMinutes / MINUTES_IN_YEAR);
+        return locale.formatDistance('xYears', years, localizeOptions);
+    }
+    throw new RangeError("unit must be 'second', 'minute', 'hour', 'day', 'month' or 'year'");
 }
+
+
 
 /***/ }),
 
@@ -1059,12 +1055,13 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 8
  */
-
 function differenceInWeeks(dateLeft, dateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var diff = Object(_differenceInDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight) / 7;
-  return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_2__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var diff = Object(_differenceInDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight) / 7;
+    return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_2__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
 }
+
+
 
 /***/ }),
 
@@ -1100,11 +1097,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = hoursToMilliseconds(2)
  * //=> 7200000
  */
-
 function hoursToMilliseconds(hours) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInHour"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInHour"]);
 }
+
+
 
 /***/ }),
 
@@ -1145,16 +1143,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfISOWeekYear(new Date(2005, 6, 2))
  * //=> Mon Jan 03 2005 00:00:00
  */
-
 function startOfISOWeekYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var year = Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var fourthOfJanuary = new Date(0);
-  fourthOfJanuary.setFullYear(year, 0, 4);
-  fourthOfJanuary.setHours(0, 0, 0, 0);
-  var date = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuary);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var year = Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var fourthOfJanuary = new Date(0);
+    fourthOfJanuary.setFullYear(year, 0, 4);
+    fourthOfJanuary.setHours(0, 0, 0, 0);
+    var date = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuary);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -1171,54 +1170,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class Hour1to12Parser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 70);
-
-    _defineProperty(this, "incompatibleTokens", ['H', 'K', 'k', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'h':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour12h, dateString);
-
-      case 'ho':
-        return match.ordinalNumber(dateString, {
-          unit: 'hour'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 70);
+        _defineProperty(this, "incompatibleTokens", ['H', 'K', 'k', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 12;
-  }
-
-  set(date, _flags, value) {
-    var isPM = date.getUTCHours() >= 12;
-
-    if (isPM && value < 12) {
-      date.setUTCHours(value + 12, 0, 0, 0);
-    } else if (!isPM && value === 12) {
-      date.setUTCHours(0, 0, 0, 0);
-    } else {
-      date.setUTCHours(value, 0, 0, 0);
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'h':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour12h, dateString);
+            case 'ho':
+                return match.ordinalNumber(dateString, {
+                    unit: 'hour'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
     }
-
-    return date;
-  }
-
+    validate(_date, value) {
+        return value >= 1 && value <= 12;
+    }
+    set(date, _flags, value) {
+        var isPM = date.getUTCHours() >= 12;
+        if (isPM && value < 12) {
+            date.setUTCHours(value + 12, 0, 0, 0);
+        }
+        else if (!isPM && value === 12) {
+            date.setUTCHours(0, 0, 0, 0);
+        }
+        else {
+            date.setUTCHours(value, 0, 0, 0);
+        }
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -1259,11 +1256,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isYesterday(new Date(2014, 9, 5, 14, 0))
  * //=> true
  */
-
 function isYesterday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  return Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Date.now(), 1));
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    return Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Date.now(), 1));
 }
+
+
 
 /***/ }),
 
@@ -1301,13 +1299,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Mon Sep 01 2014 00:00:00
  */
-
 function startOfISOWeek(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, {
-    weekStartsOn: 1
-  });
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, {
+        weekStartsOn: 1
+    });
 }
+
+
 
 /***/ }),
 
@@ -1321,93 +1320,93 @@ function startOfISOWeek(dirtyDate) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var formatDistanceLocale = {
-  lessThanXSeconds: {
-    one: 'less than a second',
-    other: 'less than {{count}} seconds'
-  },
-  xSeconds: {
-    one: '1 second',
-    other: '{{count}} seconds'
-  },
-  halfAMinute: 'half a minute',
-  lessThanXMinutes: {
-    one: 'less than a minute',
-    other: 'less than {{count}} minutes'
-  },
-  xMinutes: {
-    one: '1 minute',
-    other: '{{count}} minutes'
-  },
-  aboutXHours: {
-    one: 'about 1 hour',
-    other: 'about {{count}} hours'
-  },
-  xHours: {
-    one: '1 hour',
-    other: '{{count}} hours'
-  },
-  xDays: {
-    one: '1 day',
-    other: '{{count}} days'
-  },
-  aboutXWeeks: {
-    one: 'about 1 week',
-    other: 'about {{count}} weeks'
-  },
-  xWeeks: {
-    one: '1 week',
-    other: '{{count}} weeks'
-  },
-  aboutXMonths: {
-    one: 'about 1 month',
-    other: 'about {{count}} months'
-  },
-  xMonths: {
-    one: '1 month',
-    other: '{{count}} months'
-  },
-  aboutXYears: {
-    one: 'about 1 year',
-    other: 'about {{count}} years'
-  },
-  xYears: {
-    one: '1 year',
-    other: '{{count}} years'
-  },
-  overXYears: {
-    one: 'over 1 year',
-    other: 'over {{count}} years'
-  },
-  almostXYears: {
-    one: 'almost 1 year',
-    other: 'almost {{count}} years'
-  }
-};
-
-var formatDistance = function (token, count, options) {
-  var result;
-  var tokenValue = formatDistanceLocale[token];
-
-  if (typeof tokenValue === 'string') {
-    result = tokenValue;
-  } else if (count === 1) {
-    result = tokenValue.one;
-  } else {
-    result = tokenValue.other.replace('{{count}}', count.toString());
-  }
-
-  if (options !== null && options !== void 0 && options.addSuffix) {
-    if (options.comparison && options.comparison > 0) {
-      return 'in ' + result;
-    } else {
-      return result + ' ago';
+    lessThanXSeconds: {
+        one: 'less than a second',
+        other: 'less than {{count}} seconds'
+    },
+    xSeconds: {
+        one: '1 second',
+        other: '{{count}} seconds'
+    },
+    halfAMinute: 'half a minute',
+    lessThanXMinutes: {
+        one: 'less than a minute',
+        other: 'less than {{count}} minutes'
+    },
+    xMinutes: {
+        one: '1 minute',
+        other: '{{count}} minutes'
+    },
+    aboutXHours: {
+        one: 'about 1 hour',
+        other: 'about {{count}} hours'
+    },
+    xHours: {
+        one: '1 hour',
+        other: '{{count}} hours'
+    },
+    xDays: {
+        one: '1 day',
+        other: '{{count}} days'
+    },
+    aboutXWeeks: {
+        one: 'about 1 week',
+        other: 'about {{count}} weeks'
+    },
+    xWeeks: {
+        one: '1 week',
+        other: '{{count}} weeks'
+    },
+    aboutXMonths: {
+        one: 'about 1 month',
+        other: 'about {{count}} months'
+    },
+    xMonths: {
+        one: '1 month',
+        other: '{{count}} months'
+    },
+    aboutXYears: {
+        one: 'about 1 year',
+        other: 'about {{count}} years'
+    },
+    xYears: {
+        one: '1 year',
+        other: '{{count}} years'
+    },
+    overXYears: {
+        one: 'over 1 year',
+        other: 'over {{count}} years'
+    },
+    almostXYears: {
+        one: 'almost 1 year',
+        other: 'almost {{count}} years'
     }
-  }
-
-  return result;
 };
-
+var formatDistance = function (token, count, options) {
+    var result;
+    var tokenValue = formatDistanceLocale[token];
+    if (typeof tokenValue === 'string') {
+        result = tokenValue;
+    }
+    else if (count === 1) {
+        result = tokenValue.one;
+    }
+    else {
+        result = tokenValue.other.replace('{{count}}', count.toString());
+    }
+    if (options !== null && options !== void 0 && options.addSuffix) {
+        if (options.comparison && options.comparison > 0) {
+            return 'in ' + result;
+        }
+        else {
+            return result + ' ago';
+        }
+    }
+    return result;
+};
 /* harmony default export */ __webpack_exports__["default"] = (formatDistance);
+
+
 
 /***/ }),
 
@@ -1443,15 +1442,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Jan 01 2014 00:00:00
  */
-
 function startOfYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var cleanDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var date = new Date(0);
-  date.setFullYear(cleanDate.getFullYear(), 0, 1);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var cleanDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var date = new Date(0);
+    date.setFullYear(cleanDate.getFullYear(), 0, 1);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -1474,23 +1474,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function startOfUTCWeek(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
-  var weekStartsOn = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getUTCDay();
-  var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
-  date.setUTCDate(date.getUTCDate() - diff);
-  date.setUTCHours(0, 0, 0, 0);
-  return date;
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
+    var weekStartsOn = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getUTCDay();
+    var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
+    date.setUTCDate(date.getUTCDate() - diff);
+    date.setUTCHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -1563,24 +1562,22 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> true
  */
-
 function areIntervalsOverlapping(intervalLeft, intervalRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var leftStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft === null || intervalLeft === void 0 ? void 0 : intervalLeft.start).getTime();
-  var leftEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft === null || intervalLeft === void 0 ? void 0 : intervalLeft.end).getTime();
-  var rightStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight === null || intervalRight === void 0 ? void 0 : intervalRight.start).getTime();
-  var rightEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight === null || intervalRight === void 0 ? void 0 : intervalRight.end).getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(leftStartTime <= leftEndTime && rightStartTime <= rightEndTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  if (options !== null && options !== void 0 && options.inclusive) {
-    return leftStartTime <= rightEndTime && rightStartTime <= leftEndTime;
-  }
-
-  return leftStartTime < rightEndTime && rightStartTime < leftEndTime;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var leftStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft === null || intervalLeft === void 0 ? void 0 : intervalLeft.start).getTime();
+    var leftEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft === null || intervalLeft === void 0 ? void 0 : intervalLeft.end).getTime();
+    var rightStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight === null || intervalRight === void 0 ? void 0 : intervalRight.start).getTime();
+    var rightEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight === null || intervalRight === void 0 ? void 0 : intervalRight.end).getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(leftStartTime <= leftEndTime && rightStartTime <= rightEndTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    if (options !== null && options !== void 0 && options.inclusive) {
+        return leftStartTime <= rightEndTime && rightStartTime <= leftEndTime;
+    }
+    return leftStartTime < rightEndTime && rightStartTime < leftEndTime;
 }
+
+
 
 /***/ }),
 
@@ -1629,17 +1626,19 @@ __webpack_require__.r(__webpack_exports__);
  * //   Sun Feb 27 2022 00:00:00
  * // ]
  */
-
 function eachWeekendOfMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var startDate = Object(_startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  if (isNaN(startDate.getTime())) throw new RangeError('The passed date is invalid');
-  var endDate = Object(_endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
-  return Object(_eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    start: startDate,
-    end: endDate
-  });
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var startDate = Object(_startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    if (isNaN(startDate.getTime()))
+        throw new RangeError('The passed date is invalid');
+    var endDate = Object(_endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+    return Object(_eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        start: startDate,
+        end: endDate
+    });
 }
+
+
 
 /***/ }),
 
@@ -1658,47 +1657,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_setUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../_lib/setUTCWeek/index.js */ "xiNX");
 /* harmony import */ var _lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../_lib/startOfUTCWeek/index.js */ "1vjI");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 
  // Local week of year
-
 class LocalWeekParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 100);
-
-    _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'q', 'Q', 'M', 'L', 'I', 'd', 'D', 'i', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'w':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].week, dateString);
-
-      case 'wo':
-        return match.ordinalNumber(dateString, {
-          unit: 'week'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 100);
+        _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'q', 'Q', 'M', 'L', 'I', 'd', 'D', 'i', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 53;
-  }
-
-  set(date, _flags, value, options) {
-    return Object(_lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_lib_setUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, value, options), options);
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'w':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].week, dateString);
+            case 'wo':
+                return match.ordinalNumber(dateString, {
+                    unit: 'week'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
+    }
+    validate(_date, value) {
+        return value >= 1 && value <= 53;
+    }
+    set(date, _flags, value, options) {
+        return Object(_lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_lib_setUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, value, options), options);
+    }
 }
+
+
 
 /***/ }),
 
@@ -1739,12 +1735,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = monthsToQuarters(7)
  * //=> 2
  */
-
 function monthsToQuarters(months) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var quarters = months / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInQuarter"];
-  return Math.floor(quarters);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var quarters = months / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInQuarter"];
+    return Math.floor(quarters);
 }
+
+
 
 /***/ }),
 
@@ -1760,7 +1757,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isThisWeek; });
 /* harmony import */ var _isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../isSameWeek/index.js */ "JO1+");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 /**
@@ -1795,9 +1791,11 @@ __webpack_require__.r(__webpack_exports__);
  * //=> false
  */
 function isThisWeek(dirtyDate, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), options);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), options);
 }
+
+
 
 /***/ }),
 
@@ -1814,50 +1812,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
  // Timezone (ISO-8601. +00:00 is `'Z'`)
-
 class ISOTimezoneWithZParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 10);
-
-    _defineProperty(this, "incompatibleTokens", ['t', 'T', 'x']);
-  }
-
-  parse(dateString, token) {
-    switch (token) {
-      case 'X':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalMinutes, dateString);
-
-      case 'XX':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basic, dateString);
-
-      case 'XXXX':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalSeconds, dateString);
-
-      case 'XXXXX':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extendedOptionalSeconds, dateString);
-
-      case 'XXX':
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extended, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 10);
+        _defineProperty(this, "incompatibleTokens", ['t', 'T', 'x']);
     }
-  }
-
-  set(date, flags, value) {
-    if (flags.timestampIsSet) {
-      return date;
+    parse(dateString, token) {
+        switch (token) {
+            case 'X':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalMinutes, dateString);
+            case 'XX':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basic, dateString);
+            case 'XXXX':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalSeconds, dateString);
+            case 'XXXXX':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extendedOptionalSeconds, dateString);
+            case 'XXX':
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extended, dateString);
+        }
     }
-
-    return new Date(date.getTime() - value);
-  }
-
+    set(date, flags, value) {
+        if (flags.timestampIsSet) {
+            return date;
+        }
+        return new Date(date.getTime() - value);
+    }
 }
+
+
 
 /***/ }),
 
@@ -1874,45 +1867,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class Hour0to23Parser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 70);
-
-    _defineProperty(this, "incompatibleTokens", ['a', 'b', 'h', 'K', 'k', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'H':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour23h, dateString);
-
-      case 'Ho':
-        return match.ordinalNumber(dateString, {
-          unit: 'hour'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 70);
+        _defineProperty(this, "incompatibleTokens", ['a', 'b', 'h', 'K', 'k', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 23;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCHours(value, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'H':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour23h, dateString);
+            case 'Ho':
+                return match.ordinalNumber(dateString, {
+                    unit: 'hour'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 23;
+    }
+    set(date, _flags, value) {
+        date.setUTCHours(value, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -1929,56 +1920,53 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class DayOfYearParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 90);
-
-    _defineProperty(this, "subpriority", 1);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'M', 'L', 'w', 'I', 'd', 'E', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'D':
-      case 'DD':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].dayOfYear, dateString);
-
-      case 'Do':
-        return match.ordinalNumber(dateString, {
-          unit: 'date'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 90);
+        _defineProperty(this, "subpriority", 1);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'M', 'L', 'w', 'I', 'd', 'E', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(date, value) {
-    var year = date.getUTCFullYear();
-    var isLeapYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["isLeapYearIndex"])(year);
-
-    if (isLeapYear) {
-      return value >= 1 && value <= 366;
-    } else {
-      return value >= 1 && value <= 365;
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'D':
+            case 'DD':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].dayOfYear, dateString);
+            case 'Do':
+                return match.ordinalNumber(dateString, {
+                    unit: 'date'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
     }
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMonth(0, value);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    validate(date, value) {
+        var year = date.getUTCFullYear();
+        var isLeapYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["isLeapYearIndex"])(year);
+        if (isLeapYear) {
+            return value >= 1 && value <= 366;
+        }
+        else {
+            return value >= 1 && value <= 365;
+        }
+    }
+    set(date, _flags, value) {
+        date.setUTCMonth(0, value);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -1997,22 +1985,27 @@ __webpack_require__.r(__webpack_exports__);
 var protectedDayOfYearTokens = ['D', 'DD'];
 var protectedWeekYearTokens = ['YY', 'YYYY'];
 function isProtectedDayOfYearToken(token) {
-  return protectedDayOfYearTokens.indexOf(token) !== -1;
+    return protectedDayOfYearTokens.indexOf(token) !== -1;
 }
 function isProtectedWeekYearToken(token) {
-  return protectedWeekYearTokens.indexOf(token) !== -1;
+    return protectedWeekYearTokens.indexOf(token) !== -1;
 }
 function throwProtectedError(token, format, input) {
-  if (token === 'YYYY') {
-    throw new RangeError("Use `yyyy` instead of `YYYY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
-  } else if (token === 'YY') {
-    throw new RangeError("Use `yy` instead of `YY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
-  } else if (token === 'D') {
-    throw new RangeError("Use `d` instead of `D` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
-  } else if (token === 'DD') {
-    throw new RangeError("Use `dd` instead of `DD` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
-  }
+    if (token === 'YYYY') {
+        throw new RangeError("Use `yyyy` instead of `YYYY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
+    }
+    else if (token === 'YY') {
+        throw new RangeError("Use `yy` instead of `YY` (in `".concat(format, "`) for formatting years to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
+    }
+    else if (token === 'D') {
+        throw new RangeError("Use `d` instead of `D` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
+    }
+    else if (token === 'DD') {
+        throw new RangeError("Use `dd` instead of `DD` (in `".concat(format, "`) for formatting days of the month to the input `").concat(input, "`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md"));
+    }
 }
+
+
 
 /***/ }),
 
@@ -2047,13 +2040,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getMinutes(new Date(2012, 1, 29, 11, 45, 5))
  * //=> 45
  */
-
 function getMinutes(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var minutes = date.getMinutes();
-  return minutes;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var minutes = date.getMinutes();
+    return minutes;
 }
+
+
 
 /***/ }),
 
@@ -2094,15 +2088,16 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 3
  */
-
 function differenceInCalendarQuarters(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
-  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
-  var quarterDiff = Object(_getQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft) - Object(_getQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight);
-  return yearDiff * 4 + quarterDiff;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
+    var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+    var quarterDiff = Object(_getQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft) - Object(_getQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight);
+    return yearDiff * 4 + quarterDiff;
 }
+
+
 
 /***/ }),
 
@@ -2143,11 +2138,12 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 2
  */
-
 function differenceInCalendarISOWeekYears(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  return Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft) - Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    return Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft) - Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
 }
+
+
 
 /***/ }),
 
@@ -2199,237 +2195,200 @@ __webpack_require__.r(__webpack_exports__);
  * const result = parseISO('+02014101', { additionalDigits: 1 })
  * //=> Fri Apr 11 2014 00:00:00
  */
-
 function parseISO(argument, options) {
-  var _options$additionalDi;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var additionalDigits = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_options$additionalDi = options === null || options === void 0 ? void 0 : options.additionalDigits) !== null && _options$additionalDi !== void 0 ? _options$additionalDi : 2);
-
-  if (additionalDigits !== 2 && additionalDigits !== 1 && additionalDigits !== 0) {
-    throw new RangeError('additionalDigits must be 0, 1 or 2');
-  }
-
-  if (!(typeof argument === 'string' || Object.prototype.toString.call(argument) === '[object String]')) {
-    return new Date(NaN);
-  }
-
-  var dateStrings = splitDateString(argument);
-  var date;
-
-  if (dateStrings.date) {
-    var parseYearResult = parseYear(dateStrings.date, additionalDigits);
-    date = parseDate(parseYearResult.restDateString, parseYearResult.year);
-  }
-
-  if (!date || isNaN(date.getTime())) {
-    return new Date(NaN);
-  }
-
-  var timestamp = date.getTime();
-  var time = 0;
-  var offset;
-
-  if (dateStrings.time) {
-    time = parseTime(dateStrings.time);
-
-    if (isNaN(time)) {
-      return new Date(NaN);
+    var _options$additionalDi;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var additionalDigits = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_options$additionalDi = options === null || options === void 0 ? void 0 : options.additionalDigits) !== null && _options$additionalDi !== void 0 ? _options$additionalDi : 2);
+    if (additionalDigits !== 2 && additionalDigits !== 1 && additionalDigits !== 0) {
+        throw new RangeError('additionalDigits must be 0, 1 or 2');
     }
-  }
-
-  if (dateStrings.timezone) {
-    offset = parseTimezone(dateStrings.timezone);
-
-    if (isNaN(offset)) {
-      return new Date(NaN);
+    if (!(typeof argument === 'string' || Object.prototype.toString.call(argument) === '[object String]')) {
+        return new Date(NaN);
     }
-  } else {
-    var dirtyDate = new Date(timestamp + time); // js parsed string assuming it's in UTC timezone
-    // but we need it to be parsed in our timezone
-    // so we use utc values to build date in our timezone.
-    // Year values from 0 to 99 map to the years 1900 to 1999
-    // so set year explicitly with setFullYear.
-
-    var result = new Date(0);
-    result.setFullYear(dirtyDate.getUTCFullYear(), dirtyDate.getUTCMonth(), dirtyDate.getUTCDate());
-    result.setHours(dirtyDate.getUTCHours(), dirtyDate.getUTCMinutes(), dirtyDate.getUTCSeconds(), dirtyDate.getUTCMilliseconds());
-    return result;
-  }
-
-  return new Date(timestamp + time + offset);
+    var dateStrings = splitDateString(argument);
+    var date;
+    if (dateStrings.date) {
+        var parseYearResult = parseYear(dateStrings.date, additionalDigits);
+        date = parseDate(parseYearResult.restDateString, parseYearResult.year);
+    }
+    if (!date || isNaN(date.getTime())) {
+        return new Date(NaN);
+    }
+    var timestamp = date.getTime();
+    var time = 0;
+    var offset;
+    if (dateStrings.time) {
+        time = parseTime(dateStrings.time);
+        if (isNaN(time)) {
+            return new Date(NaN);
+        }
+    }
+    if (dateStrings.timezone) {
+        offset = parseTimezone(dateStrings.timezone);
+        if (isNaN(offset)) {
+            return new Date(NaN);
+        }
+    }
+    else {
+        var dirtyDate = new Date(timestamp + time); // js parsed string assuming it's in UTC timezone
+        // but we need it to be parsed in our timezone
+        // so we use utc values to build date in our timezone.
+        // Year values from 0 to 99 map to the years 1900 to 1999
+        // so set year explicitly with setFullYear.
+        var result = new Date(0);
+        result.setFullYear(dirtyDate.getUTCFullYear(), dirtyDate.getUTCMonth(), dirtyDate.getUTCDate());
+        result.setHours(dirtyDate.getUTCHours(), dirtyDate.getUTCMinutes(), dirtyDate.getUTCSeconds(), dirtyDate.getUTCMilliseconds());
+        return result;
+    }
+    return new Date(timestamp + time + offset);
 }
 var patterns = {
-  dateTimeDelimiter: /[T ]/,
-  timeZoneDelimiter: /[Z ]/i,
-  timezone: /([Z+-].*)$/
+    dateTimeDelimiter: /[T ]/,
+    timeZoneDelimiter: /[Z ]/i,
+    timezone: /([Z+-].*)$/
 };
 var dateRegex = /^-?(?:(\d{3})|(\d{2})(?:-?(\d{2}))?|W(\d{2})(?:-?(\d{1}))?|)$/;
 var timeRegex = /^(\d{2}(?:[.,]\d*)?)(?::?(\d{2}(?:[.,]\d*)?))?(?::?(\d{2}(?:[.,]\d*)?))?$/;
 var timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/;
-
 function splitDateString(dateString) {
-  var dateStrings = {};
-  var array = dateString.split(patterns.dateTimeDelimiter);
-  var timeString; // The regex match should only return at maximum two array elements.
-  // [date], [time], or [date, time].
-
-  if (array.length > 2) {
+    var dateStrings = {};
+    var array = dateString.split(patterns.dateTimeDelimiter);
+    var timeString; // The regex match should only return at maximum two array elements.
+    // [date], [time], or [date, time].
+    if (array.length > 2) {
+        return dateStrings;
+    }
+    if (/:/.test(array[0])) {
+        timeString = array[0];
+    }
+    else {
+        dateStrings.date = array[0];
+        timeString = array[1];
+        if (patterns.timeZoneDelimiter.test(dateStrings.date)) {
+            dateStrings.date = dateString.split(patterns.timeZoneDelimiter)[0];
+            timeString = dateString.substr(dateStrings.date.length, dateString.length);
+        }
+    }
+    if (timeString) {
+        var token = patterns.timezone.exec(timeString);
+        if (token) {
+            dateStrings.time = timeString.replace(token[1], '');
+            dateStrings.timezone = token[1];
+        }
+        else {
+            dateStrings.time = timeString;
+        }
+    }
     return dateStrings;
-  }
-
-  if (/:/.test(array[0])) {
-    timeString = array[0];
-  } else {
-    dateStrings.date = array[0];
-    timeString = array[1];
-
-    if (patterns.timeZoneDelimiter.test(dateStrings.date)) {
-      dateStrings.date = dateString.split(patterns.timeZoneDelimiter)[0];
-      timeString = dateString.substr(dateStrings.date.length, dateString.length);
-    }
-  }
-
-  if (timeString) {
-    var token = patterns.timezone.exec(timeString);
-
-    if (token) {
-      dateStrings.time = timeString.replace(token[1], '');
-      dateStrings.timezone = token[1];
-    } else {
-      dateStrings.time = timeString;
-    }
-  }
-
-  return dateStrings;
 }
-
 function parseYear(dateString, additionalDigits) {
-  var regex = new RegExp('^(?:(\\d{4}|[+-]\\d{' + (4 + additionalDigits) + '})|(\\d{2}|[+-]\\d{' + (2 + additionalDigits) + '})$)');
-  var captures = dateString.match(regex); // Invalid ISO-formatted year
-
-  if (!captures) return {
-    year: NaN,
-    restDateString: ''
-  };
-  var year = captures[1] ? parseInt(captures[1]) : null;
-  var century = captures[2] ? parseInt(captures[2]) : null; // either year or century is null, not both
-
-  return {
-    year: century === null ? year : century * 100,
-    restDateString: dateString.slice((captures[1] || captures[2]).length)
-  };
+    var regex = new RegExp('^(?:(\\d{4}|[+-]\\d{' + (4 + additionalDigits) + '})|(\\d{2}|[+-]\\d{' + (2 + additionalDigits) + '})$)');
+    var captures = dateString.match(regex); // Invalid ISO-formatted year
+    if (!captures)
+        return {
+            year: NaN,
+            restDateString: ''
+        };
+    var year = captures[1] ? parseInt(captures[1]) : null;
+    var century = captures[2] ? parseInt(captures[2]) : null; // either year or century is null, not both
+    return {
+        year: century === null ? year : century * 100,
+        restDateString: dateString.slice((captures[1] || captures[2]).length)
+    };
 }
-
 function parseDate(dateString, year) {
-  // Invalid ISO-formatted year
-  if (year === null) return new Date(NaN);
-  var captures = dateString.match(dateRegex); // Invalid ISO-formatted string
-
-  if (!captures) return new Date(NaN);
-  var isWeekDate = !!captures[4];
-  var dayOfYear = parseDateUnit(captures[1]);
-  var month = parseDateUnit(captures[2]) - 1;
-  var day = parseDateUnit(captures[3]);
-  var week = parseDateUnit(captures[4]);
-  var dayOfWeek = parseDateUnit(captures[5]) - 1;
-
-  if (isWeekDate) {
-    if (!validateWeekDate(year, week, dayOfWeek)) {
-      return new Date(NaN);
+    // Invalid ISO-formatted year
+    if (year === null)
+        return new Date(NaN);
+    var captures = dateString.match(dateRegex); // Invalid ISO-formatted string
+    if (!captures)
+        return new Date(NaN);
+    var isWeekDate = !!captures[4];
+    var dayOfYear = parseDateUnit(captures[1]);
+    var month = parseDateUnit(captures[2]) - 1;
+    var day = parseDateUnit(captures[3]);
+    var week = parseDateUnit(captures[4]);
+    var dayOfWeek = parseDateUnit(captures[5]) - 1;
+    if (isWeekDate) {
+        if (!validateWeekDate(year, week, dayOfWeek)) {
+            return new Date(NaN);
+        }
+        return dayOfISOWeekYear(year, week, dayOfWeek);
     }
-
-    return dayOfISOWeekYear(year, week, dayOfWeek);
-  } else {
-    var date = new Date(0);
-
-    if (!validateDate(year, month, day) || !validateDayOfYearDate(year, dayOfYear)) {
-      return new Date(NaN);
+    else {
+        var date = new Date(0);
+        if (!validateDate(year, month, day) || !validateDayOfYearDate(year, dayOfYear)) {
+            return new Date(NaN);
+        }
+        date.setUTCFullYear(year, month, Math.max(dayOfYear, day));
+        return date;
     }
-
-    date.setUTCFullYear(year, month, Math.max(dayOfYear, day));
-    return date;
-  }
 }
-
 function parseDateUnit(value) {
-  return value ? parseInt(value) : 1;
+    return value ? parseInt(value) : 1;
 }
-
 function parseTime(timeString) {
-  var captures = timeString.match(timeRegex);
-  if (!captures) return NaN; // Invalid ISO-formatted time
-
-  var hours = parseTimeUnit(captures[1]);
-  var minutes = parseTimeUnit(captures[2]);
-  var seconds = parseTimeUnit(captures[3]);
-
-  if (!validateTime(hours, minutes, seconds)) {
-    return NaN;
-  }
-
-  return hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"] + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"] + seconds * 1000;
+    var captures = timeString.match(timeRegex);
+    if (!captures)
+        return NaN; // Invalid ISO-formatted time
+    var hours = parseTimeUnit(captures[1]);
+    var minutes = parseTimeUnit(captures[2]);
+    var seconds = parseTimeUnit(captures[3]);
+    if (!validateTime(hours, minutes, seconds)) {
+        return NaN;
+    }
+    return hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"] + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"] + seconds * 1000;
 }
-
 function parseTimeUnit(value) {
-  return value && parseFloat(value.replace(',', '.')) || 0;
+    return value && parseFloat(value.replace(',', '.')) || 0;
 }
-
 function parseTimezone(timezoneString) {
-  if (timezoneString === 'Z') return 0;
-  var captures = timezoneString.match(timezoneRegex);
-  if (!captures) return 0;
-  var sign = captures[1] === '+' ? -1 : 1;
-  var hours = parseInt(captures[2]);
-  var minutes = captures[3] && parseInt(captures[3]) || 0;
-
-  if (!validateTimezone(hours, minutes)) {
-    return NaN;
-  }
-
-  return sign * (hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"] + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"]);
+    if (timezoneString === 'Z')
+        return 0;
+    var captures = timezoneString.match(timezoneRegex);
+    if (!captures)
+        return 0;
+    var sign = captures[1] === '+' ? -1 : 1;
+    var hours = parseInt(captures[2]);
+    var minutes = captures[3] && parseInt(captures[3]) || 0;
+    if (!validateTimezone(hours, minutes)) {
+        return NaN;
+    }
+    return sign * (hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"] + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"]);
 }
-
 function dayOfISOWeekYear(isoWeekYear, week, day) {
-  var date = new Date(0);
-  date.setUTCFullYear(isoWeekYear, 0, 4);
-  var fourthOfJanuaryDay = date.getUTCDay() || 7;
-  var diff = (week - 1) * 7 + day + 1 - fourthOfJanuaryDay;
-  date.setUTCDate(date.getUTCDate() + diff);
-  return date;
+    var date = new Date(0);
+    date.setUTCFullYear(isoWeekYear, 0, 4);
+    var fourthOfJanuaryDay = date.getUTCDay() || 7;
+    var diff = (week - 1) * 7 + day + 1 - fourthOfJanuaryDay;
+    date.setUTCDate(date.getUTCDate() + diff);
+    return date;
 } // Validation functions
 // February is null to handle the leap year (using ||)
-
-
 var daysInMonths = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
 function isLeapYearIndex(year) {
-  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
+    return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
 }
-
 function validateDate(year, month, date) {
-  return month >= 0 && month <= 11 && date >= 1 && date <= (daysInMonths[month] || (isLeapYearIndex(year) ? 29 : 28));
+    return month >= 0 && month <= 11 && date >= 1 && date <= (daysInMonths[month] || (isLeapYearIndex(year) ? 29 : 28));
 }
-
 function validateDayOfYearDate(year, dayOfYear) {
-  return dayOfYear >= 1 && dayOfYear <= (isLeapYearIndex(year) ? 366 : 365);
+    return dayOfYear >= 1 && dayOfYear <= (isLeapYearIndex(year) ? 366 : 365);
 }
-
 function validateWeekDate(_year, week, day) {
-  return week >= 1 && week <= 53 && day >= 0 && day <= 6;
+    return week >= 1 && week <= 53 && day >= 0 && day <= 6;
 }
-
 function validateTime(hours, minutes, seconds) {
-  if (hours === 24) {
-    return minutes === 0 && seconds === 0;
-  }
-
-  return seconds >= 0 && seconds < 60 && minutes >= 0 && minutes < 60 && hours >= 0 && hours < 25;
+    if (hours === 24) {
+        return minutes === 0 && seconds === 0;
+    }
+    return seconds >= 0 && seconds < 60 && minutes >= 0 && minutes < 60 && hours >= 0 && hours < 25;
 }
-
 function validateTimezone(_hours, minutes) {
-  return minutes >= 0 && minutes <= 59;
+    return minutes >= 0 && minutes <= 59;
 }
+
+
 
 /***/ }),
 
@@ -2446,7 +2405,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
 /* harmony import */ var _getDay_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../getDay/index.js */ "GobQ");
 /* harmony import */ var _subDays_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../subDays/index.js */ "Xep9");
-
 
 
 
@@ -2474,11 +2432,14 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Tue Mar 17 2020 00:00:00
  */
 function previousDay(date, day) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
-  var delta = Object(_getDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date) - day;
-  if (delta <= 0) delta += 7;
-  return Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, delta);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(2, arguments);
+    var delta = Object(_getDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date) - day;
+    if (delta <= 0)
+        delta += 7;
+    return Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, delta);
 }
+
+
 
 /***/ }),
 
@@ -2494,6 +2455,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../locale/en-US/index.js */ "iSMj");
 
 /* harmony default export */ __webpack_exports__["default"] = (_locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
 
 /***/ }),
 
@@ -2528,13 +2491,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getMilliseconds(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 123
  */
-
 function getMilliseconds(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var milliseconds = date.getMilliseconds();
-  return milliseconds;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var milliseconds = date.getMilliseconds();
+    return milliseconds;
 }
+
+
 
 /***/ }),
 
@@ -2576,24 +2540,15 @@ __webpack_require__.r(__webpack_exports__);
  * })
  * //=> 'P39Y2M20DT0H0M0S'
  */
-
 function formatISODuration(duration) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  if (typeof duration !== 'object') throw new Error('Duration must be an object');
-  var _duration$years = duration.years,
-      years = _duration$years === void 0 ? 0 : _duration$years,
-      _duration$months = duration.months,
-      months = _duration$months === void 0 ? 0 : _duration$months,
-      _duration$days = duration.days,
-      days = _duration$days === void 0 ? 0 : _duration$days,
-      _duration$hours = duration.hours,
-      hours = _duration$hours === void 0 ? 0 : _duration$hours,
-      _duration$minutes = duration.minutes,
-      minutes = _duration$minutes === void 0 ? 0 : _duration$minutes,
-      _duration$seconds = duration.seconds,
-      seconds = _duration$seconds === void 0 ? 0 : _duration$seconds;
-  return "P".concat(years, "Y").concat(months, "M").concat(days, "DT").concat(hours, "H").concat(minutes, "M").concat(seconds, "S");
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    if (typeof duration !== 'object')
+        throw new Error('Duration must be an object');
+    var _duration$years = duration.years, years = _duration$years === void 0 ? 0 : _duration$years, _duration$months = duration.months, months = _duration$months === void 0 ? 0 : _duration$months, _duration$days = duration.days, days = _duration$days === void 0 ? 0 : _duration$days, _duration$hours = duration.hours, hours = _duration$hours === void 0 ? 0 : _duration$hours, _duration$minutes = duration.minutes, minutes = _duration$minutes === void 0 ? 0 : _duration$minutes, _duration$seconds = duration.seconds, seconds = _duration$seconds === void 0 ? 0 : _duration$seconds;
+    return "P".concat(years, "Y").concat(months, "M").concat(days, "DT").concat(hours, "H").concat(minutes, "M").concat(seconds, "S");
 }
+
+
 
 /***/ }),
 
@@ -2631,14 +2586,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:45:40
  */
-
 function setMinutes(dirtyDate, dirtyMinutes) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var minutes = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyMinutes);
-  date.setMinutes(minutes);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var minutes = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyMinutes);
+    date.setMinutes(minutes);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -2686,30 +2642,27 @@ __webpack_require__.r(__webpack_exports__);
  * //   Fri Aug 01 2014 00:00:00
  * // ]
  */
-
 function eachMonthOfInterval(dirtyInterval) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var interval = dirtyInterval || {};
-  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start);
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end);
-  var endTime = endDate.getTime();
-  var dates = []; // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startDate.getTime() <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var currentDate = startDate;
-  currentDate.setHours(0, 0, 0, 0);
-  currentDate.setDate(1);
-
-  while (currentDate.getTime() <= endTime) {
-    dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate));
-    currentDate.setMonth(currentDate.getMonth() + 1);
-  }
-
-  return dates;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var interval = dirtyInterval || {};
+    var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start);
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end);
+    var endTime = endDate.getTime();
+    var dates = []; // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startDate.getTime() <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var currentDate = startDate;
+    currentDate.setHours(0, 0, 0, 0);
+    currentDate.setDate(1);
+    while (currentDate.getTime() <= endTime) {
+        dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate));
+        currentDate.setMonth(currentDate.getMonth() + 1);
+    }
+    return dates;
 }
+
+
 
 /***/ }),
 
@@ -2744,11 +2697,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextTuesday(new Date(2020, 2, 22))
  * //=> Tue Mar 24 2020 00:00:00
  */
-
 function nextTuesday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 2);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 2);
 }
+
+
 
 /***/ }),
 
@@ -2788,17 +2742,17 @@ var MILLISECONDS_IN_WEEK = 604800000;
  * const result = getISOWeeksInYear(new Date(2015, 1, 11))
  * //=> 53
  */
-
 function getISOWeeksInYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var thisYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var nextYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_addWeeks_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(thisYear, 60));
-  var diff = nextYear.valueOf() - thisYear.valueOf(); // Round the number of weeks to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round(diff / MILLISECONDS_IN_WEEK);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var thisYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var nextYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_addWeeks_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(thisYear, 60));
+    var diff = nextYear.valueOf() - thisYear.valueOf(); // Round the number of weeks to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round(diff / MILLISECONDS_IN_WEEK);
 }
+
+
 
 /***/ }),
 
@@ -2834,11 +2788,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = minutesToSeconds(2)
  * //=> 120
  */
-
 function minutesToSeconds(minutes) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInMinute"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInMinute"]);
 }
+
+
 
 /***/ }),
 
@@ -2884,13 +2839,13 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Date} the date bounded by the start and the end of the interval
  * @throws {TypeError} 2 arguments required
  */
-
 function clamp(date, _ref) {
-  var start = _ref.start,
-      end = _ref.end;
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  return Object(_min_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])([Object(_max_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])([date, start]), end]);
+    var start = _ref.start, end = _ref.end;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    return Object(_min_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])([Object(_max_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])([date, start]), end]);
 }
+
+
 
 /***/ }),
 
@@ -2926,11 +2881,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = weeksToDays(2)
  * //=> 14
  */
-
 function weeksToDays(weeks) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(weeks * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["daysInWeek"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(weeks * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["daysInWeek"]);
 }
+
+
 
 /***/ }),
 
@@ -2965,11 +2921,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isWednesday(new Date(2014, 8, 24))
  * //=> true
  */
-
 function isWednesday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 3;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 3;
 }
+
+
 
 /***/ }),
 
@@ -3004,13 +2961,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getTime(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 1330515905123
  */
-
 function getTime(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var timestamp = date.getTime();
-  return timestamp;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var timestamp = date.getTime();
+    return timestamp;
 }
+
+
 
 /***/ }),
 
@@ -3048,15 +3006,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setDayOfYear(new Date(2014, 6, 2), 2)
  * //=> Thu Jan 02 2014 00:00:00
  */
-
 function setDayOfYear(dirtyDate, dirtyDayOfYear) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var dayOfYear = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDayOfYear);
-  date.setMonth(0);
-  date.setDate(dayOfYear);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var dayOfYear = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDayOfYear);
+    date.setMonth(0);
+    date.setDate(dayOfYear);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -3094,19 +3053,18 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setYear(new Date(2014, 8, 1), 2013)
  * //=> Sun Sep 01 2013 00:00:00
  */
-
 function setYear(dirtyDate, dirtyYear) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var year = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyYear); // Check if date is Invalid Date because Date.prototype.setFullYear ignores the value of Invalid Date
-
-  if (isNaN(date.getTime())) {
-    return new Date(NaN);
-  }
-
-  date.setFullYear(year);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var year = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyYear); // Check if date is Invalid Date because Date.prototype.setFullYear ignores the value of Invalid Date
+    if (isNaN(date.getTime())) {
+        return new Date(NaN);
+    }
+    date.setFullYear(year);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -3123,50 +3081,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
  // Timezone (ISO-8601)
-
 class ISOTimezoneParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 10);
-
-    _defineProperty(this, "incompatibleTokens", ['t', 'T', 'X']);
-  }
-
-  parse(dateString, token) {
-    switch (token) {
-      case 'x':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalMinutes, dateString);
-
-      case 'xx':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basic, dateString);
-
-      case 'xxxx':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalSeconds, dateString);
-
-      case 'xxxxx':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extendedOptionalSeconds, dateString);
-
-      case 'xxx':
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extended, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 10);
+        _defineProperty(this, "incompatibleTokens", ['t', 'T', 'X']);
     }
-  }
-
-  set(date, flags, value) {
-    if (flags.timestampIsSet) {
-      return date;
+    parse(dateString, token) {
+        switch (token) {
+            case 'x':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalMinutes, dateString);
+            case 'xx':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basic, dateString);
+            case 'xxxx':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].basicOptionalSeconds, dateString);
+            case 'xxxxx':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extendedOptionalSeconds, dateString);
+            case 'xxx':
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseTimezonePattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["timezonePatterns"].extended, dateString);
+        }
     }
-
-    return new Date(date.getTime() - value);
-  }
-
+    set(date, flags, value) {
+        if (flags.timestampIsSet) {
+            return date;
+        }
+        return new Date(date.getTime() - value);
+    }
 }
+
+
 
 /***/ }),
 
@@ -3182,34 +3135,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ExtendedYearParser", function() { return ExtendedYearParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class ExtendedYearParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 130);
-
-    _defineProperty(this, "incompatibleTokens", ['G', 'y', 'Y', 'R', 'w', 'I', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token) {
-    if (token === 'u') {
-      return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(4, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 130);
+        _defineProperty(this, "incompatibleTokens", ['G', 'y', 'Y', 'R', 'w', 'I', 'i', 'e', 'c', 't', 'T']);
     }
-
-    return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(token.length, dateString);
-  }
-
-  set(date, _flags, value) {
-    date.setUTCFullYear(value, 0, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token) {
+        if (token === 'u') {
+            return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(4, dateString);
+        }
+        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(token.length, dateString);
+    }
+    set(date, _flags, value) {
+        date.setUTCFullYear(value, 0, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -3227,7 +3180,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../startOfMinute/index.js */ "0LOL");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -3263,30 +3215,28 @@ __webpack_require__.r(__webpack_exports__);
  * // ]
  */
 function eachMinuteOfInterval(interval, options) {
-  var _options$step;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var startDate = Object(_startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.start));
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.end);
-  var startTime = startDate.getTime();
-  var endTime = endDate.getTime();
-
-  if (startTime >= endTime) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var dates = [];
-  var currentDate = startDate;
-  var step = Number((_options$step = options === null || options === void 0 ? void 0 : options.step) !== null && _options$step !== void 0 ? _options$step : 1);
-  if (step < 1 || isNaN(step)) throw new RangeError('`options.step` must be a number equal to or greater than 1');
-
-  while (currentDate.getTime() <= endTime) {
-    dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentDate));
-    currentDate = Object(_addMinutes_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate, step);
-  }
-
-  return dates;
+    var _options$step;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var startDate = Object(_startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.start));
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.end);
+    var startTime = startDate.getTime();
+    var endTime = endDate.getTime();
+    if (startTime >= endTime) {
+        throw new RangeError('Invalid interval');
+    }
+    var dates = [];
+    var currentDate = startDate;
+    var step = Number((_options$step = options === null || options === void 0 ? void 0 : options.step) !== null && _options$step !== void 0 ? _options$step : 1);
+    if (step < 1 || isNaN(step))
+        throw new RangeError('`options.step` must be a number equal to or greater than 1');
+    while (currentDate.getTime() <= endTime) {
+        dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentDate));
+        currentDate = Object(_addMinutes_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate, step);
+    }
+    return dates;
 }
+
+
 
 /***/ }),
 
@@ -3302,60 +3252,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayPeriodParser", function() { return DayPeriodParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
  // in the morning, in the afternoon, in the evening, at night
-
 class DayPeriodParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 80);
-
-    _defineProperty(this, "incompatibleTokens", ['a', 'b', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'B':
-      case 'BB':
-      case 'BBB':
-        return match.dayPeriod(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'BBBBB':
-        return match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'BBBB':
-      default:
-        return match.dayPeriod(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 80);
+        _defineProperty(this, "incompatibleTokens", ['a', 'b', 't', 'T']);
     }
-  }
-
-  set(date, _flags, value) {
-    date.setUTCHours(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["dayPeriodEnumToHours"])(value), 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'B':
+            case 'BB':
+            case 'BBB':
+                return match.dayPeriod(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'BBBBB':
+                return match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'BBBB':
+            default:
+                return match.dayPeriod(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    set(date, _flags, value) {
+        date.setUTCHours(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["dayPeriodEnumToHours"])(value), 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -3390,16 +3338,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfDecade(new Date(2015, 9, 21, 00, 00, 00))
  * //=> Jan 01 2010 00:00:00
  */
-
 function startOfDecade(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var decade = Math.floor(year / 10) * 10;
-  date.setFullYear(decade, 0, 1);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var decade = Math.floor(year / 10) * 10;
+    date.setFullYear(decade, 0, 1);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -3414,7 +3363,6 @@ function startOfDecade(dirtyDate) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return intlFormat; });
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 /**
  * @name intlFormat
@@ -3487,23 +3435,22 @@ __webpack_require__.r(__webpack_exports__);
  * //=> 10/4/2019
  */
 function intlFormat(date, formatOrLocale, localeOptions) {
-  var _localeOptions;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var formatOptions;
-
-  if (isFormatOptions(formatOrLocale)) {
-    formatOptions = formatOrLocale;
-  } else {
-    localeOptions = formatOrLocale;
-  }
-
-  return new Intl.DateTimeFormat((_localeOptions = localeOptions) === null || _localeOptions === void 0 ? void 0 : _localeOptions.locale, formatOptions).format(date);
+    var _localeOptions;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var formatOptions;
+    if (isFormatOptions(formatOrLocale)) {
+        formatOptions = formatOrLocale;
+    }
+    else {
+        localeOptions = formatOrLocale;
+    }
+    return new Intl.DateTimeFormat((_localeOptions = localeOptions) === null || _localeOptions === void 0 ? void 0 : _localeOptions.locale, formatOptions).format(date);
 }
-
 function isFormatOptions(opts) {
-  return opts !== undefined && !('locale' in opts);
+    return opts !== undefined && !('locale' in opts);
 }
+
+
 
 /***/ }),
 
@@ -3548,19 +3495,20 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setISOWeekYear(new Date(2008, 11, 29), 2007)
  * //=> Mon Jan 01 2007 00:00:00
  */
-
 function setISOWeekYear(dirtyDate, dirtyISOWeekYear) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var isoWeekYear = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyISOWeekYear);
-  var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date));
-  var fourthOfJanuary = new Date(0);
-  fourthOfJanuary.setFullYear(isoWeekYear, 0, 4);
-  fourthOfJanuary.setHours(0, 0, 0, 0);
-  date = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fourthOfJanuary);
-  date.setDate(date.getDate() + diff);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var isoWeekYear = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyISOWeekYear);
+    var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date));
+    var fourthOfJanuary = new Date(0);
+    fourthOfJanuary.setFullYear(isoWeekYear, 0, 4);
+    fourthOfJanuary.setHours(0, 0, 0, 0);
+    date = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fourthOfJanuary);
+    date.setDate(date.getDate() + diff);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -3596,11 +3544,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = yearsToQuarters(2)
  * //=> 8
  */
-
 function yearsToQuarters(years) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(years * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["quartersInYear"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(years * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["quartersInYear"]);
 }
+
+
 
 /***/ }),
 
@@ -3635,11 +3584,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextSunday(new Date(2020, 2, 22))
  * //=> Sun Mar 29 2020 00:00:00
  */
-
 function nextSunday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 0);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 0);
 }
+
+
 
 /***/ }),
 
@@ -3675,11 +3625,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = minutesToMilliseconds(2)
  * //=> 120000
  */
-
 function minutesToMilliseconds(minutes) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInMinute"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInMinute"]);
 }
+
+
 
 /***/ }),
 
@@ -3742,37 +3693,36 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getWeekYear(new Date(2004, 11, 26), { firstWeekContainsDate: 4 })
  * //=> 2004
  */
-
 function getWeekYear(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
-  var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
-
-  if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
-    throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
-  }
-
-  var firstWeekOfNextYear = new Date(0);
-  firstWeekOfNextYear.setFullYear(year + 1, 0, firstWeekContainsDate);
-  firstWeekOfNextYear.setHours(0, 0, 0, 0);
-  var startOfNextYear = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(firstWeekOfNextYear, options);
-  var firstWeekOfThisYear = new Date(0);
-  firstWeekOfThisYear.setFullYear(year, 0, firstWeekContainsDate);
-  firstWeekOfThisYear.setHours(0, 0, 0, 0);
-  var startOfThisYear = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(firstWeekOfThisYear, options);
-
-  if (date.getTime() >= startOfNextYear.getTime()) {
-    return year + 1;
-  } else if (date.getTime() >= startOfThisYear.getTime()) {
-    return year;
-  } else {
-    return year - 1;
-  }
+    var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
+    var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
+    if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
+        throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
+    }
+    var firstWeekOfNextYear = new Date(0);
+    firstWeekOfNextYear.setFullYear(year + 1, 0, firstWeekContainsDate);
+    firstWeekOfNextYear.setHours(0, 0, 0, 0);
+    var startOfNextYear = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(firstWeekOfNextYear, options);
+    var firstWeekOfThisYear = new Date(0);
+    firstWeekOfThisYear.setFullYear(year, 0, firstWeekContainsDate);
+    firstWeekOfThisYear.setHours(0, 0, 0, 0);
+    var startOfThisYear = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(firstWeekOfThisYear, options);
+    if (date.getTime() >= startOfNextYear.getTime()) {
+        return year + 1;
+    }
+    else if (date.getTime() >= startOfThisYear.getTime()) {
+        return year;
+    }
+    else {
+        return year - 1;
+    }
 }
+
+
 
 /***/ }),
 
@@ -3788,30 +3738,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimestampMillisecondsParser", function() { return TimestampMillisecondsParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class TimestampMillisecondsParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 20);
-
-    _defineProperty(this, "incompatibleTokens", '*');
-  }
-
-  parse(dateString) {
-    return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseAnyDigitsSigned"])(dateString);
-  }
-
-  set(_date, _flags, value) {
-    return [new Date(value), {
-      timestampIsSet: true
-    }];
-  }
-
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 20);
+        _defineProperty(this, "incompatibleTokens", '*');
+    }
+    parse(dateString) {
+        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseAnyDigitsSigned"])(dateString);
+    }
+    set(_date, _flags, value) {
+        return [new Date(value), {
+                timestampIsSet: true
+            }];
+    }
 }
+
+
 
 /***/ }),
 
@@ -3872,28 +3823,27 @@ __webpack_require__.r(__webpack_exports__);
  * })
  * //=> Mon Sep 1 2014 10:19:50
  */
-
 function sub(date, duration) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  if (!duration || typeof duration !== 'object') return new Date(NaN);
-  var years = duration.years ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.years) : 0;
-  var months = duration.months ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.months) : 0;
-  var weeks = duration.weeks ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.weeks) : 0;
-  var days = duration.days ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.days) : 0;
-  var hours = duration.hours ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.hours) : 0;
-  var minutes = duration.minutes ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.minutes) : 0;
-  var seconds = duration.seconds ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.seconds) : 0; // Subtract years and months
-
-  var dateWithoutMonths = Object(_subMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, months + years * 12); // Subtract weeks and days
-
-  var dateWithoutDays = Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithoutMonths, days + weeks * 7); // Subtract hours, minutes and seconds
-
-  var minutestoSub = minutes + hours * 60;
-  var secondstoSub = seconds + minutestoSub * 60;
-  var mstoSub = secondstoSub * 1000;
-  var finalDate = new Date(dateWithoutDays.getTime() - mstoSub);
-  return finalDate;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    if (!duration || typeof duration !== 'object')
+        return new Date(NaN);
+    var years = duration.years ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.years) : 0;
+    var months = duration.months ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.months) : 0;
+    var weeks = duration.weeks ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.weeks) : 0;
+    var days = duration.days ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.days) : 0;
+    var hours = duration.hours ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.hours) : 0;
+    var minutes = duration.minutes ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.minutes) : 0;
+    var seconds = duration.seconds ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(duration.seconds) : 0; // Subtract years and months
+    var dateWithoutMonths = Object(_subMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, months + years * 12); // Subtract weeks and days
+    var dateWithoutDays = Object(_subDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithoutMonths, days + weeks * 7); // Subtract hours, minutes and seconds
+    var minutestoSub = minutes + hours * 60;
+    var secondstoSub = seconds + minutestoSub * 60;
+    var mstoSub = secondstoSub * 1000;
+    var finalDate = new Date(dateWithoutDays.getTime() - mstoSub);
+    return finalDate;
 }
+
+
 
 /***/ }),
 
@@ -3909,7 +3859,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return formatDistanceToNow; });
 /* harmony import */ var _formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../formatDistance/index.js */ "FVam");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 /**
@@ -3999,9 +3948,11 @@ __webpack_require__.r(__webpack_exports__);
  * //=> 'pli ol 1 jaro'
  */
 function formatDistanceToNow(dirtyDate, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), options);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), options);
 }
+
+
 
 /***/ }),
 
@@ -4045,39 +3996,38 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addBusinessDays(new Date(2014, 8, 1), 10)
  * //=> Mon Sep 15 2014 00:00:00 (skipped weekend days)
  */
-
 function addBusinessDays(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var startedOnWeekend = Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  if (isNaN(amount)) return new Date(NaN);
-  var hours = date.getHours();
-  var sign = amount < 0 ? -1 : 1;
-  var fullWeeks = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(amount / 5);
-  date.setDate(date.getDate() + fullWeeks * 7); // Get remaining days not part of a full week
-
-  var restDays = Math.abs(amount % 5); // Loops over remaining days
-
-  while (restDays > 0) {
-    date.setDate(date.getDate() + sign);
-    if (!Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date)) restDays -= 1;
-  } // If the date is a weekend day and we reduce a dividable of
-  // 5 from it, we land on a weekend date.
-  // To counter this, we add days accordingly to land on the next business day
-
-
-  if (startedOnWeekend && Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date) && amount !== 0) {
-    // If we're reducing days, we want to add days until we land on a weekday
-    // If we're adding days we want to reduce days until we land on a weekday
-    if (Object(_isSaturday_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(date)) date.setDate(date.getDate() + (sign < 0 ? 2 : -1));
-    if (Object(_isSunday_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date)) date.setDate(date.getDate() + (sign < 0 ? 1 : -2));
-  } // Restore hours to avoid DST lag
-
-
-  date.setHours(hours);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var startedOnWeekend = Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    if (isNaN(amount))
+        return new Date(NaN);
+    var hours = date.getHours();
+    var sign = amount < 0 ? -1 : 1;
+    var fullWeeks = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(amount / 5);
+    date.setDate(date.getDate() + fullWeeks * 7); // Get remaining days not part of a full week
+    var restDays = Math.abs(amount % 5); // Loops over remaining days
+    while (restDays > 0) {
+        date.setDate(date.getDate() + sign);
+        if (!Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date))
+            restDays -= 1;
+    } // If the date is a weekend day and we reduce a dividable of
+    // 5 from it, we land on a weekend date.
+    // To counter this, we add days accordingly to land on the next business day
+    if (startedOnWeekend && Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date) && amount !== 0) {
+        // If we're reducing days, we want to add days until we land on a weekday
+        // If we're adding days we want to reduce days until we land on a weekday
+        if (Object(_isSaturday_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(date))
+            date.setDate(date.getDate() + (sign < 0 ? 2 : -1));
+        if (Object(_isSunday_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date))
+            date.setDate(date.getDate() + (sign < 0 ? 1 : -2));
+    } // Restore hours to avoid DST lag
+    date.setHours(hours);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -4104,133 +4054,115 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function mapValue(parseFnResult, mapFn) {
-  if (!parseFnResult) {
-    return parseFnResult;
-  }
-
-  return {
-    value: mapFn(parseFnResult.value),
-    rest: parseFnResult.rest
-  };
+    if (!parseFnResult) {
+        return parseFnResult;
+    }
+    return {
+        value: mapFn(parseFnResult.value),
+        rest: parseFnResult.rest
+    };
 }
 function parseNumericPattern(pattern, dateString) {
-  var matchResult = dateString.match(pattern);
-
-  if (!matchResult) {
-    return null;
-  }
-
-  return {
-    value: parseInt(matchResult[0], 10),
-    rest: dateString.slice(matchResult[0].length)
-  };
+    var matchResult = dateString.match(pattern);
+    if (!matchResult) {
+        return null;
+    }
+    return {
+        value: parseInt(matchResult[0], 10),
+        rest: dateString.slice(matchResult[0].length)
+    };
 }
 function parseTimezonePattern(pattern, dateString) {
-  var matchResult = dateString.match(pattern);
-
-  if (!matchResult) {
-    return null;
-  } // Input is 'Z'
-
-
-  if (matchResult[0] === 'Z') {
+    var matchResult = dateString.match(pattern);
+    if (!matchResult) {
+        return null;
+    } // Input is 'Z'
+    if (matchResult[0] === 'Z') {
+        return {
+            value: 0,
+            rest: dateString.slice(1)
+        };
+    }
+    var sign = matchResult[1] === '+' ? 1 : -1;
+    var hours = matchResult[2] ? parseInt(matchResult[2], 10) : 0;
+    var minutes = matchResult[3] ? parseInt(matchResult[3], 10) : 0;
+    var seconds = matchResult[5] ? parseInt(matchResult[5], 10) : 0;
     return {
-      value: 0,
-      rest: dateString.slice(1)
+        value: sign * (hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"] + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"] + seconds * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInSecond"]),
+        rest: dateString.slice(matchResult[0].length)
     };
-  }
-
-  var sign = matchResult[1] === '+' ? 1 : -1;
-  var hours = matchResult[2] ? parseInt(matchResult[2], 10) : 0;
-  var minutes = matchResult[3] ? parseInt(matchResult[3], 10) : 0;
-  var seconds = matchResult[5] ? parseInt(matchResult[5], 10) : 0;
-  return {
-    value: sign * (hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"] + minutes * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"] + seconds * _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInSecond"]),
-    rest: dateString.slice(matchResult[0].length)
-  };
 }
 function parseAnyDigitsSigned(dateString) {
-  return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].anyDigitsSigned, dateString);
+    return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].anyDigitsSigned, dateString);
 }
 function parseNDigits(n, dateString) {
-  switch (n) {
-    case 1:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].singleDigit, dateString);
-
-    case 2:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].twoDigits, dateString);
-
-    case 3:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].threeDigits, dateString);
-
-    case 4:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].fourDigits, dateString);
-
-    default:
-      return parseNumericPattern(new RegExp('^\\d{1,' + n + '}'), dateString);
-  }
+    switch (n) {
+        case 1:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].singleDigit, dateString);
+        case 2:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].twoDigits, dateString);
+        case 3:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].threeDigits, dateString);
+        case 4:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].fourDigits, dateString);
+        default:
+            return parseNumericPattern(new RegExp('^\\d{1,' + n + '}'), dateString);
+    }
 }
 function parseNDigitsSigned(n, dateString) {
-  switch (n) {
-    case 1:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].singleDigitSigned, dateString);
-
-    case 2:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].twoDigitsSigned, dateString);
-
-    case 3:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].threeDigitsSigned, dateString);
-
-    case 4:
-      return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].fourDigitsSigned, dateString);
-
-    default:
-      return parseNumericPattern(new RegExp('^-?\\d{1,' + n + '}'), dateString);
-  }
+    switch (n) {
+        case 1:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].singleDigitSigned, dateString);
+        case 2:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].twoDigitsSigned, dateString);
+        case 3:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].threeDigitsSigned, dateString);
+        case 4:
+            return parseNumericPattern(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].fourDigitsSigned, dateString);
+        default:
+            return parseNumericPattern(new RegExp('^-?\\d{1,' + n + '}'), dateString);
+    }
 }
 function dayPeriodEnumToHours(dayPeriod) {
-  switch (dayPeriod) {
-    case 'morning':
-      return 4;
-
-    case 'evening':
-      return 17;
-
-    case 'pm':
-    case 'noon':
-    case 'afternoon':
-      return 12;
-
-    case 'am':
-    case 'midnight':
-    case 'night':
-    default:
-      return 0;
-  }
+    switch (dayPeriod) {
+        case 'morning':
+            return 4;
+        case 'evening':
+            return 17;
+        case 'pm':
+        case 'noon':
+        case 'afternoon':
+            return 12;
+        case 'am':
+        case 'midnight':
+        case 'night':
+        default:
+            return 0;
+    }
 }
 function normalizeTwoDigitYear(twoDigitYear, currentYear) {
-  var isCommonEra = currentYear > 0; // Absolute number of the current year:
-  // 1 -> 1 AC
-  // 0 -> 1 BC
-  // -1 -> 2 BC
-
-  var absCurrentYear = isCommonEra ? currentYear : 1 - currentYear;
-  var result;
-
-  if (absCurrentYear <= 50) {
-    result = twoDigitYear || 100;
-  } else {
-    var rangeEnd = absCurrentYear + 50;
-    var rangeEndCentury = Math.floor(rangeEnd / 100) * 100;
-    var isPreviousCentury = twoDigitYear >= rangeEnd % 100;
-    result = twoDigitYear + rangeEndCentury - (isPreviousCentury ? 100 : 0);
-  }
-
-  return isCommonEra ? result : 1 - result;
+    var isCommonEra = currentYear > 0; // Absolute number of the current year:
+    // 1 -> 1 AC
+    // 0 -> 1 BC
+    // -1 -> 2 BC
+    var absCurrentYear = isCommonEra ? currentYear : 1 - currentYear;
+    var result;
+    if (absCurrentYear <= 50) {
+        result = twoDigitYear || 100;
+    }
+    else {
+        var rangeEnd = absCurrentYear + 50;
+        var rangeEndCentury = Math.floor(rangeEnd / 100) * 100;
+        var isPreviousCentury = twoDigitYear >= rangeEnd % 100;
+        result = twoDigitYear + rangeEndCentury - (isPreviousCentury ? 100 : 0);
+    }
+    return isCommonEra ? result : 1 - result;
 }
 function isLeapYearIndex(year) {
-  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
+    return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
 }
+
+
 
 /***/ }),
 
@@ -4265,16 +4197,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfDecade(new Date(2012, 11, 21, 21, 12, 00))
  * //=> Wed Dec 31 2019 00:00:00
  */
-
 function lastDayOfDecade(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var decade = 9 + Math.floor(year / 10) * 10;
-  date.setFullYear(decade + 1, 0, 0);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var decade = 9 + Math.floor(year / 10) * 10;
+    date.setFullYear(decade + 1, 0, 0);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -4312,24 +4245,22 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addDays(new Date(2014, 8, 1), 10)
  * //=> Thu Sep 11 2014 00:00:00
  */
-
 function addDays(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-
-  if (isNaN(amount)) {
-    return new Date(NaN);
-  }
-
-  if (!amount) {
-    // If 0 days, no-op to avoid changing times in the hour before end of DST
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    if (isNaN(amount)) {
+        return new Date(NaN);
+    }
+    if (!amount) {
+        // If 0 days, no-op to avoid changing times in the hour before end of DST
+        return date;
+    }
+    date.setDate(date.getDate() + amount);
     return date;
-  }
-
-  date.setDate(date.getDate() + amount);
-  return date;
 }
+
+
 
 /***/ }),
 
@@ -4364,13 +4295,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isLeapYear(new Date(2012, 8, 1))
  * //=> true
  */
-
 function isLeapYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    return year % 400 === 0 || year % 4 === 0 && year % 100 !== 0;
 }
+
+
 
 /***/ }),
 
@@ -4412,10 +4344,11 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDefaultOptions()
  * //=> { weekStarsOn: 1, firstWeekContainsDate: 4 }
  */
-
 function getDefaultOptions() {
-  return Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])({}, Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])());
+    return Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])({}, Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])());
 }
+
+
 
 /***/ }),
 
@@ -4456,12 +4389,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = millisecondsToHours(7199999)
  * //=> 1
  */
-
 function millisecondsToHours(milliseconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var hours = milliseconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInHour"];
-  return Math.floor(hours);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var hours = milliseconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInHour"];
+    return Math.floor(hours);
 }
+
+
 
 /***/ }),
 
@@ -4496,11 +4430,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextMonday(new Date(2020, 2, 22))
  * //=> Mon Mar 23 2020 00:00:00
  */
-
 function nextMonday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 1);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 1);
 }
+
+
 
 /***/ }),
 
@@ -4536,14 +4471,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Mon Sep 01 2014 00:00:00
  */
-
 function startOfMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setDate(1);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setDate(1);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -4560,84 +4496,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class StandAloneMonthParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 110);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'M', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    var valueCallback = function (value) {
-      return value - 1;
-    };
-
-    switch (token) {
-      // 1, 2, ..., 12
-      case 'L':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].month, dateString), valueCallback);
-      // 01, 02, ..., 12
-
-      case 'LL':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(2, dateString), valueCallback);
-      // 1st, 2nd, ..., 12th
-
-      case 'Lo':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["mapValue"])(match.ordinalNumber(dateString, {
-          unit: 'month'
-        }), valueCallback);
-      // Jan, Feb, ..., Dec
-
-      case 'LLL':
-        return match.month(dateString, {
-          width: 'abbreviated',
-          context: 'standalone'
-        }) || match.month(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // J, F, ..., D
-
-      case 'LLLLL':
-        return match.month(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // January, February, ..., December
-
-      case 'LLLL':
-      default:
-        return match.month(dateString, {
-          width: 'wide',
-          context: 'standalone'
-        }) || match.month(dateString, {
-          width: 'abbreviated',
-          context: 'standalone'
-        }) || match.month(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 110);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'M', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 11;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMonth(value, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        var valueCallback = function (value) {
+            return value - 1;
+        };
+        switch (token) {
+            // 1, 2, ..., 12
+            case 'L':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].month, dateString), valueCallback);
+            // 01, 02, ..., 12
+            case 'LL':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(2, dateString), valueCallback);
+            // 1st, 2nd, ..., 12th
+            case 'Lo':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["mapValue"])(match.ordinalNumber(dateString, {
+                    unit: 'month'
+                }), valueCallback);
+            // Jan, Feb, ..., Dec
+            case 'LLL':
+                return match.month(dateString, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                }) || match.month(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // J, F, ..., D
+            case 'LLLLL':
+                return match.month(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // January, February, ..., December
+            case 'LLLL':
+            default:
+                return match.month(dateString, {
+                    width: 'wide',
+                    context: 'standalone'
+                }) || match.month(dateString, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                }) || match.month(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 11;
+    }
+    set(date, _flags, value) {
+        date.setUTCMonth(value, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -4673,11 +4603,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = hoursToSeconds(2)
  * //=> 7200
  */
-
 function hoursToSeconds(hours) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInHour"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInHour"]);
 }
+
+
 
 /***/ }),
 
@@ -4716,13 +4647,14 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 2
  */
-
 function differenceInCalendarYears(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeft.getFullYear() - dateRight.getFullYear();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeft.getFullYear() - dateRight.getFullYear();
 }
+
+
 
 /***/ }),
 
@@ -4762,11 +4694,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisSecond(new Date(2014, 8, 25, 18, 30, 15))
  * //=> true
  */
-
 function isThisSecond(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameSecond_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameSecond_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
 }
+
+
 
 /***/ }),
 
@@ -4808,39 +4741,34 @@ __webpack_require__.r(__webpack_exports__);
  * const result = differenceInMonths(new Date(2014, 8, 1), new Date(2014, 0, 31))
  * //=> 7
  */
-
 function differenceInMonths(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
-  var difference = Math.abs(Object(_differenceInCalendarMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
-  var result; // Check for the difference of less than month
-
-  if (difference < 1) {
-    result = 0;
-  } else {
-    if (dateLeft.getMonth() === 1 && dateLeft.getDate() > 27) {
-      // This will check if the date is end of Feb and assign a higher end of month date
-      // to compare it with Jan
-      dateLeft.setDate(30);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
+    var difference = Math.abs(Object(_differenceInCalendarMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
+    var result; // Check for the difference of less than month
+    if (difference < 1) {
+        result = 0;
     }
-
-    dateLeft.setMonth(dateLeft.getMonth() - sign * difference); // Math.abs(diff in full months - diff in calendar months) === 1 if last calendar month is not full
-    // If so, result must be decreased by 1 in absolute value
-
-    var isLastMonthNotFull = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign; // Check for cases of one full calendar month
-
-    if (Object(_isLastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft)) && difference === 1 && Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDateLeft, dateRight) === 1) {
-      isLastMonthNotFull = false;
-    }
-
-    result = sign * (difference - Number(isLastMonthNotFull));
-  } // Prevent negative zero
-
-
-  return result === 0 ? 0 : result;
+    else {
+        if (dateLeft.getMonth() === 1 && dateLeft.getDate() > 27) {
+            // This will check if the date is end of Feb and assign a higher end of month date
+            // to compare it with Jan
+            dateLeft.setDate(30);
+        }
+        dateLeft.setMonth(dateLeft.getMonth() - sign * difference); // Math.abs(diff in full months - diff in calendar months) === 1 if last calendar month is not full
+        // If so, result must be decreased by 1 in absolute value
+        var isLastMonthNotFull = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign; // Check for cases of one full calendar month
+        if (Object(_isLastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft)) && difference === 1 && Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDateLeft, dateRight) === 1) {
+            isLastMonthNotFull = false;
+        }
+        result = sign * (difference - Number(isLastMonthNotFull));
+    } // Prevent negative zero
+    return result === 0 ? 0 : result;
 }
+
+
 
 /***/ }),
 
@@ -4895,13 +4823,14 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> false
  */
-
 function isSameSecond(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfSecond = Object(_startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRightStartOfSecond = Object(_startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfSecond = Object(_startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRightStartOfSecond = Object(_startOfSecond_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeftStartOfSecond.getTime() === dateRightStartOfSecond.getTime();
 }
+
+
 
 /***/ }),
 
@@ -4941,28 +4870,30 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getISOWeekYear(new Date(2005, 0, 2))
  * //=> 2004
  */
-
 function getISOWeekYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var fourthOfJanuaryOfNextYear = new Date(0);
-  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
-  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
-  var startOfNextYear = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuaryOfNextYear);
-  var fourthOfJanuaryOfThisYear = new Date(0);
-  fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4);
-  fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0);
-  var startOfThisYear = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuaryOfThisYear);
-
-  if (date.getTime() >= startOfNextYear.getTime()) {
-    return year + 1;
-  } else if (date.getTime() >= startOfThisYear.getTime()) {
-    return year;
-  } else {
-    return year - 1;
-  }
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var fourthOfJanuaryOfNextYear = new Date(0);
+    fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
+    fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
+    var startOfNextYear = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuaryOfNextYear);
+    var fourthOfJanuaryOfThisYear = new Date(0);
+    fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4);
+    fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0);
+    var startOfThisYear = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuaryOfThisYear);
+    if (date.getTime() >= startOfNextYear.getTime()) {
+        return year + 1;
+    }
+    else if (date.getTime() >= startOfThisYear.getTime()) {
+        return year;
+    }
+    else {
+        return year - 1;
+    }
 }
+
+
 
 /***/ }),
 
@@ -5002,24 +4933,22 @@ __webpack_require__.r(__webpack_exports__);
  * const result = differenceInYears(new Date(2015, 1, 11), new Date(2013, 11, 31))
  * //=> 1
  */
-
 function differenceInYears(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
-  var difference = Math.abs(Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)); // Set both dates to a valid leap year for accurate comparison when dealing
-  // with leap days
-
-  dateLeft.setFullYear(1584);
-  dateRight.setFullYear(1584); // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
-  // If so, result must be decreased by 1 in absolute value
-
-  var isLastYearNotFull = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign;
-  var result = sign * (difference - Number(isLastYearNotFull)); // Prevent negative zero
-
-  return result === 0 ? 0 : result;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
+    var difference = Math.abs(Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)); // Set both dates to a valid leap year for accurate comparison when dealing
+    // with leap days
+    dateLeft.setFullYear(1584);
+    dateRight.setFullYear(1584); // Math.abs(diff in full years - diff in calendar years) === 1 if last calendar year is not full
+    // If so, result must be decreased by 1 in absolute value
+    var isLastYearNotFull = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign;
+    var result = sign * (difference - Number(isLastYearNotFull)); // Prevent negative zero
+    return result === 0 ? 0 : result;
 }
+
+
 
 /***/ }),
 
@@ -5062,13 +4991,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextDay(new Date(2020, 2, 21), 2)
  * //=> Tue Mar 24 2020 00:00:00
  */
-
 function nextDay(date, day) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var delta = day - Object(_getDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
-  if (delta <= 0) delta += 7;
-  return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, delta);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var delta = day - Object(_getDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
+    if (delta <= 0)
+        delta += 7;
+    return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, delta);
 }
+
+
 
 /***/ }),
 
@@ -5106,12 +5037,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
  * //=> Thu Jul 10 2014 12:45:30
  */
-
 function addSeconds(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * 1000);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * 1000);
 }
+
+
 
 /***/ }),
 
@@ -5147,13 +5079,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfHour(new Date(2014, 8, 2, 11, 55))
  * //=> Tue Sep 02 2014 11:00:00
  */
-
 function startOfHour(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setMinutes(0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setMinutes(0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -5188,14 +5121,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDecade(new Date(1942, 10, 27))
  * //=> 1940
  */
-
 function getDecade(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var decade = Math.floor(year / 10) * 10;
-  return decade;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var decade = Math.floor(year / 10) * 10;
+    return decade;
 }
+
+
 
 /***/ }),
 
@@ -5212,7 +5146,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parse_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../parse/index.js */ "LPPQ");
 /* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isValid/index.js */ "Se/U");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -5509,9 +5442,11 @@ __webpack_require__.r(__webpack_exports__);
  * //=> true
  */
 function isMatch(dateString, formatString, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  return Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_parse_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateString, formatString, new Date(), options));
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    return Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Object(_parse_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateString, formatString, new Date(), options));
 }
+
+
 
 /***/ }),
 
@@ -5539,16 +5474,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var dayPeriodEnum = {
-  am: 'am',
-  pm: 'pm',
-  midnight: 'midnight',
-  noon: 'noon',
-  morning: 'morning',
-  afternoon: 'afternoon',
-  evening: 'evening',
-  night: 'night'
+    am: 'am',
+    pm: 'pm',
+    midnight: 'midnight',
+    noon: 'noon',
+    morning: 'morning',
+    afternoon: 'afternoon',
+    evening: 'evening',
+    night: 'night'
 };
-
 /*
  * |     | Unit                           |     | Unit                           |
  * |-----|--------------------------------|-----|--------------------------------|
@@ -5595,808 +5529,709 @@ var dayPeriodEnum = {
  * - `p` is long localized time format
  */
 var formatters = {
-  // Era
-  G: function (date, token, localize) {
-    var era = date.getUTCFullYear() > 0 ? 1 : 0;
-
-    switch (token) {
-      // AD, BC
-      case 'G':
-      case 'GG':
-      case 'GGG':
-        return localize.era(era, {
-          width: 'abbreviated'
-        });
-      // A, B
-
-      case 'GGGGG':
-        return localize.era(era, {
-          width: 'narrow'
-        });
-      // Anno Domini, Before Christ
-
-      case 'GGGG':
-      default:
-        return localize.era(era, {
-          width: 'wide'
-        });
+    // Era
+    G: function (date, token, localize) {
+        var era = date.getUTCFullYear() > 0 ? 1 : 0;
+        switch (token) {
+            // AD, BC
+            case 'G':
+            case 'GG':
+            case 'GGG':
+                return localize.era(era, {
+                    width: 'abbreviated'
+                });
+            // A, B
+            case 'GGGGG':
+                return localize.era(era, {
+                    width: 'narrow'
+                });
+            // Anno Domini, Before Christ
+            case 'GGGG':
+            default:
+                return localize.era(era, {
+                    width: 'wide'
+                });
+        }
+    },
+    // Year
+    y: function (date, token, localize) {
+        // Ordinal number
+        if (token === 'yo') {
+            var signedYear = date.getUTCFullYear(); // Returns 1 for 1 BC (which is year 0 in JavaScript)
+            var year = signedYear > 0 ? signedYear : 1 - signedYear;
+            return localize.ordinalNumber(year, {
+                unit: 'year'
+            });
+        }
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].y(date, token);
+    },
+    // Local week-numbering year
+    Y: function (date, token, localize, options) {
+        var signedWeekYear = Object(_lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date, options); // Returns 1 for 1 BC (which is year 0 in JavaScript)
+        var weekYear = signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear; // Two digit year
+        if (token === 'YY') {
+            var twoDigitYear = weekYear % 100;
+            return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(twoDigitYear, 2);
+        } // Ordinal number
+        if (token === 'Yo') {
+            return localize.ordinalNumber(weekYear, {
+                unit: 'year'
+            });
+        } // Padding
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(weekYear, token.length);
+    },
+    // ISO week-numbering year
+    R: function (date, token) {
+        var isoWeekYear = Object(_lib_getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date); // Padding
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(isoWeekYear, token.length);
+    },
+    // Extended year. This is a single number designating the year of this calendar system.
+    // The main difference between `y` and `u` localizers are B.C. years:
+    // | Year | `y` | `u` |
+    // |------|-----|-----|
+    // | AC 1 |   1 |   1 |
+    // | BC 1 |   1 |   0 |
+    // | BC 2 |   2 |  -1 |
+    // Also `yy` always returns the last two digits of a year,
+    // while `uu` pads single digit years to 2 characters and returns other years unchanged.
+    u: function (date, token) {
+        var year = date.getUTCFullYear();
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(year, token.length);
+    },
+    // Quarter
+    Q: function (date, token, localize) {
+        var quarter = Math.ceil((date.getUTCMonth() + 1) / 3);
+        switch (token) {
+            // 1, 2, 3, 4
+            case 'Q':
+                return String(quarter);
+            // 01, 02, 03, 04
+            case 'QQ':
+                return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(quarter, 2);
+            // 1st, 2nd, 3rd, 4th
+            case 'Qo':
+                return localize.ordinalNumber(quarter, {
+                    unit: 'quarter'
+                });
+            // Q1, Q2, Q3, Q4
+            case 'QQQ':
+                return localize.quarter(quarter, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            case 'QQQQQ':
+                return localize.quarter(quarter, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // 1st quarter, 2nd quarter, ...
+            case 'QQQQ':
+            default:
+                return localize.quarter(quarter, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // Stand-alone quarter
+    q: function (date, token, localize) {
+        var quarter = Math.ceil((date.getUTCMonth() + 1) / 3);
+        switch (token) {
+            // 1, 2, 3, 4
+            case 'q':
+                return String(quarter);
+            // 01, 02, 03, 04
+            case 'qq':
+                return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(quarter, 2);
+            // 1st, 2nd, 3rd, 4th
+            case 'qo':
+                return localize.ordinalNumber(quarter, {
+                    unit: 'quarter'
+                });
+            // Q1, Q2, Q3, Q4
+            case 'qqq':
+                return localize.quarter(quarter, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                });
+            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            case 'qqqqq':
+                return localize.quarter(quarter, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // 1st quarter, 2nd quarter, ...
+            case 'qqqq':
+            default:
+                return localize.quarter(quarter, {
+                    width: 'wide',
+                    context: 'standalone'
+                });
+        }
+    },
+    // Month
+    M: function (date, token, localize) {
+        var month = date.getUTCMonth();
+        switch (token) {
+            case 'M':
+            case 'MM':
+                return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].M(date, token);
+            // 1st, 2nd, ..., 12th
+            case 'Mo':
+                return localize.ordinalNumber(month + 1, {
+                    unit: 'month'
+                });
+            // Jan, Feb, ..., Dec
+            case 'MMM':
+                return localize.month(month, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            // J, F, ..., D
+            case 'MMMMM':
+                return localize.month(month, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // January, February, ..., December
+            case 'MMMM':
+            default:
+                return localize.month(month, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // Stand-alone month
+    L: function (date, token, localize) {
+        var month = date.getUTCMonth();
+        switch (token) {
+            // 1, 2, ..., 12
+            case 'L':
+                return String(month + 1);
+            // 01, 02, ..., 12
+            case 'LL':
+                return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(month + 1, 2);
+            // 1st, 2nd, ..., 12th
+            case 'Lo':
+                return localize.ordinalNumber(month + 1, {
+                    unit: 'month'
+                });
+            // Jan, Feb, ..., Dec
+            case 'LLL':
+                return localize.month(month, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                });
+            // J, F, ..., D
+            case 'LLLLL':
+                return localize.month(month, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // January, February, ..., December
+            case 'LLLL':
+            default:
+                return localize.month(month, {
+                    width: 'wide',
+                    context: 'standalone'
+                });
+        }
+    },
+    // Local week of year
+    w: function (date, token, localize, options) {
+        var week = Object(_lib_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, options);
+        if (token === 'wo') {
+            return localize.ordinalNumber(week, {
+                unit: 'week'
+            });
+        }
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(week, token.length);
+    },
+    // ISO week of year
+    I: function (date, token, localize) {
+        var isoWeek = Object(_lib_getUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
+        if (token === 'Io') {
+            return localize.ordinalNumber(isoWeek, {
+                unit: 'week'
+            });
+        }
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(isoWeek, token.length);
+    },
+    // Day of the month
+    d: function (date, token, localize) {
+        if (token === 'do') {
+            return localize.ordinalNumber(date.getUTCDate(), {
+                unit: 'date'
+            });
+        }
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].d(date, token);
+    },
+    // Day of year
+    D: function (date, token, localize) {
+        var dayOfYear = Object(_lib_getUTCDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
+        if (token === 'Do') {
+            return localize.ordinalNumber(dayOfYear, {
+                unit: 'dayOfYear'
+            });
+        }
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dayOfYear, token.length);
+    },
+    // Day of week
+    E: function (date, token, localize) {
+        var dayOfWeek = date.getUTCDay();
+        switch (token) {
+            // Tue
+            case 'E':
+            case 'EE':
+            case 'EEE':
+                return localize.day(dayOfWeek, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            // T
+            case 'EEEEE':
+                return localize.day(dayOfWeek, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tu
+            case 'EEEEEE':
+                return localize.day(dayOfWeek, {
+                    width: 'short',
+                    context: 'formatting'
+                });
+            // Tuesday
+            case 'EEEE':
+            default:
+                return localize.day(dayOfWeek, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // Local day of week
+    e: function (date, token, localize, options) {
+        var dayOfWeek = date.getUTCDay();
+        var localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
+        switch (token) {
+            // Numerical value (Nth day of week with current locale or weekStartsOn)
+            case 'e':
+                return String(localDayOfWeek);
+            // Padded numerical value
+            case 'ee':
+                return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(localDayOfWeek, 2);
+            // 1st, 2nd, ..., 7th
+            case 'eo':
+                return localize.ordinalNumber(localDayOfWeek, {
+                    unit: 'day'
+                });
+            case 'eee':
+                return localize.day(dayOfWeek, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            // T
+            case 'eeeee':
+                return localize.day(dayOfWeek, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tu
+            case 'eeeeee':
+                return localize.day(dayOfWeek, {
+                    width: 'short',
+                    context: 'formatting'
+                });
+            // Tuesday
+            case 'eeee':
+            default:
+                return localize.day(dayOfWeek, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // Stand-alone local day of week
+    c: function (date, token, localize, options) {
+        var dayOfWeek = date.getUTCDay();
+        var localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
+        switch (token) {
+            // Numerical value (same as in `e`)
+            case 'c':
+                return String(localDayOfWeek);
+            // Padded numerical value
+            case 'cc':
+                return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(localDayOfWeek, token.length);
+            // 1st, 2nd, ..., 7th
+            case 'co':
+                return localize.ordinalNumber(localDayOfWeek, {
+                    unit: 'day'
+                });
+            case 'ccc':
+                return localize.day(dayOfWeek, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                });
+            // T
+            case 'ccccc':
+                return localize.day(dayOfWeek, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // Tu
+            case 'cccccc':
+                return localize.day(dayOfWeek, {
+                    width: 'short',
+                    context: 'standalone'
+                });
+            // Tuesday
+            case 'cccc':
+            default:
+                return localize.day(dayOfWeek, {
+                    width: 'wide',
+                    context: 'standalone'
+                });
+        }
+    },
+    // ISO day of week
+    i: function (date, token, localize) {
+        var dayOfWeek = date.getUTCDay();
+        var isoDayOfWeek = dayOfWeek === 0 ? 7 : dayOfWeek;
+        switch (token) {
+            // 2
+            case 'i':
+                return String(isoDayOfWeek);
+            // 02
+            case 'ii':
+                return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(isoDayOfWeek, token.length);
+            // 2nd
+            case 'io':
+                return localize.ordinalNumber(isoDayOfWeek, {
+                    unit: 'day'
+                });
+            // Tue
+            case 'iii':
+                return localize.day(dayOfWeek, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            // T
+            case 'iiiii':
+                return localize.day(dayOfWeek, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tu
+            case 'iiiiii':
+                return localize.day(dayOfWeek, {
+                    width: 'short',
+                    context: 'formatting'
+                });
+            // Tuesday
+            case 'iiii':
+            default:
+                return localize.day(dayOfWeek, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // AM or PM
+    a: function (date, token, localize) {
+        var hours = date.getUTCHours();
+        var dayPeriodEnumValue = hours / 12 >= 1 ? 'pm' : 'am';
+        switch (token) {
+            case 'a':
+            case 'aa':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            case 'aaa':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }).toLowerCase();
+            case 'aaaaa':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'aaaa':
+            default:
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // AM, PM, midnight, noon
+    b: function (date, token, localize) {
+        var hours = date.getUTCHours();
+        var dayPeriodEnumValue;
+        if (hours === 12) {
+            dayPeriodEnumValue = dayPeriodEnum.noon;
+        }
+        else if (hours === 0) {
+            dayPeriodEnumValue = dayPeriodEnum.midnight;
+        }
+        else {
+            dayPeriodEnumValue = hours / 12 >= 1 ? 'pm' : 'am';
+        }
+        switch (token) {
+            case 'b':
+            case 'bb':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            case 'bbb':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }).toLowerCase();
+            case 'bbbbb':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'bbbb':
+            default:
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // in the morning, in the afternoon, in the evening, at night
+    B: function (date, token, localize) {
+        var hours = date.getUTCHours();
+        var dayPeriodEnumValue;
+        if (hours >= 17) {
+            dayPeriodEnumValue = dayPeriodEnum.evening;
+        }
+        else if (hours >= 12) {
+            dayPeriodEnumValue = dayPeriodEnum.afternoon;
+        }
+        else if (hours >= 4) {
+            dayPeriodEnumValue = dayPeriodEnum.morning;
+        }
+        else {
+            dayPeriodEnumValue = dayPeriodEnum.night;
+        }
+        switch (token) {
+            case 'B':
+            case 'BB':
+            case 'BBB':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                });
+            case 'BBBBB':
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'BBBB':
+            default:
+                return localize.dayPeriod(dayPeriodEnumValue, {
+                    width: 'wide',
+                    context: 'formatting'
+                });
+        }
+    },
+    // Hour [1-12]
+    h: function (date, token, localize) {
+        if (token === 'ho') {
+            var hours = date.getUTCHours() % 12;
+            if (hours === 0)
+                hours = 12;
+            return localize.ordinalNumber(hours, {
+                unit: 'hour'
+            });
+        }
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].h(date, token);
+    },
+    // Hour [0-23]
+    H: function (date, token, localize) {
+        if (token === 'Ho') {
+            return localize.ordinalNumber(date.getUTCHours(), {
+                unit: 'hour'
+            });
+        }
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].H(date, token);
+    },
+    // Hour [0-11]
+    K: function (date, token, localize) {
+        var hours = date.getUTCHours() % 12;
+        if (token === 'Ko') {
+            return localize.ordinalNumber(hours, {
+                unit: 'hour'
+            });
+        }
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(hours, token.length);
+    },
+    // Hour [1-24]
+    k: function (date, token, localize) {
+        var hours = date.getUTCHours();
+        if (hours === 0)
+            hours = 24;
+        if (token === 'ko') {
+            return localize.ordinalNumber(hours, {
+                unit: 'hour'
+            });
+        }
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(hours, token.length);
+    },
+    // Minute
+    m: function (date, token, localize) {
+        if (token === 'mo') {
+            return localize.ordinalNumber(date.getUTCMinutes(), {
+                unit: 'minute'
+            });
+        }
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].m(date, token);
+    },
+    // Second
+    s: function (date, token, localize) {
+        if (token === 'so') {
+            return localize.ordinalNumber(date.getUTCSeconds(), {
+                unit: 'second'
+            });
+        }
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].s(date, token);
+    },
+    // Fraction of second
+    S: function (date, token) {
+        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].S(date, token);
+    },
+    // Timezone (ISO-8601. If offset is 0, output is always `'Z'`)
+    X: function (date, token, _localize, options) {
+        var originalDate = options._originalDate || date;
+        var timezoneOffset = originalDate.getTimezoneOffset();
+        if (timezoneOffset === 0) {
+            return 'Z';
+        }
+        switch (token) {
+            // Hours and optional minutes
+            case 'X':
+                return formatTimezoneWithOptionalMinutes(timezoneOffset);
+            // Hours, minutes and optional seconds without `:` delimiter
+            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
+            // so this token always has the same output as `XX`
+            case 'XXXX':
+            case 'XX':
+                // Hours and minutes without `:` delimiter
+                return formatTimezone(timezoneOffset);
+            // Hours, minutes and optional seconds with `:` delimiter
+            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
+            // so this token always has the same output as `XXX`
+            case 'XXXXX':
+            case 'XXX': // Hours and minutes with `:` delimiter
+            default:
+                return formatTimezone(timezoneOffset, ':');
+        }
+    },
+    // Timezone (ISO-8601. If offset is 0, output is `'+00:00'` or equivalent)
+    x: function (date, token, _localize, options) {
+        var originalDate = options._originalDate || date;
+        var timezoneOffset = originalDate.getTimezoneOffset();
+        switch (token) {
+            // Hours and optional minutes
+            case 'x':
+                return formatTimezoneWithOptionalMinutes(timezoneOffset);
+            // Hours, minutes and optional seconds without `:` delimiter
+            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
+            // so this token always has the same output as `xx`
+            case 'xxxx':
+            case 'xx':
+                // Hours and minutes without `:` delimiter
+                return formatTimezone(timezoneOffset);
+            // Hours, minutes and optional seconds with `:` delimiter
+            // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
+            // so this token always has the same output as `xxx`
+            case 'xxxxx':
+            case 'xxx': // Hours and minutes with `:` delimiter
+            default:
+                return formatTimezone(timezoneOffset, ':');
+        }
+    },
+    // Timezone (GMT)
+    O: function (date, token, _localize, options) {
+        var originalDate = options._originalDate || date;
+        var timezoneOffset = originalDate.getTimezoneOffset();
+        switch (token) {
+            // Short
+            case 'O':
+            case 'OO':
+            case 'OOO':
+                return 'GMT' + formatTimezoneShort(timezoneOffset, ':');
+            // Long
+            case 'OOOO':
+            default:
+                return 'GMT' + formatTimezone(timezoneOffset, ':');
+        }
+    },
+    // Timezone (specific non-location)
+    z: function (date, token, _localize, options) {
+        var originalDate = options._originalDate || date;
+        var timezoneOffset = originalDate.getTimezoneOffset();
+        switch (token) {
+            // Short
+            case 'z':
+            case 'zz':
+            case 'zzz':
+                return 'GMT' + formatTimezoneShort(timezoneOffset, ':');
+            // Long
+            case 'zzzz':
+            default:
+                return 'GMT' + formatTimezone(timezoneOffset, ':');
+        }
+    },
+    // Seconds timestamp
+    t: function (date, token, _localize, options) {
+        var originalDate = options._originalDate || date;
+        var timestamp = Math.floor(originalDate.getTime() / 1000);
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(timestamp, token.length);
+    },
+    // Milliseconds timestamp
+    T: function (date, token, _localize, options) {
+        var originalDate = options._originalDate || date;
+        var timestamp = originalDate.getTime();
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(timestamp, token.length);
     }
-  },
-  // Year
-  y: function (date, token, localize) {
-    // Ordinal number
-    if (token === 'yo') {
-      var signedYear = date.getUTCFullYear(); // Returns 1 for 1 BC (which is year 0 in JavaScript)
-
-      var year = signedYear > 0 ? signedYear : 1 - signedYear;
-      return localize.ordinalNumber(year, {
-        unit: 'year'
-      });
-    }
-
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].y(date, token);
-  },
-  // Local week-numbering year
-  Y: function (date, token, localize, options) {
-    var signedWeekYear = Object(_lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date, options); // Returns 1 for 1 BC (which is year 0 in JavaScript)
-
-    var weekYear = signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear; // Two digit year
-
-    if (token === 'YY') {
-      var twoDigitYear = weekYear % 100;
-      return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(twoDigitYear, 2);
-    } // Ordinal number
-
-
-    if (token === 'Yo') {
-      return localize.ordinalNumber(weekYear, {
-        unit: 'year'
-      });
-    } // Padding
-
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(weekYear, token.length);
-  },
-  // ISO week-numbering year
-  R: function (date, token) {
-    var isoWeekYear = Object(_lib_getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date); // Padding
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(isoWeekYear, token.length);
-  },
-  // Extended year. This is a single number designating the year of this calendar system.
-  // The main difference between `y` and `u` localizers are B.C. years:
-  // | Year | `y` | `u` |
-  // |------|-----|-----|
-  // | AC 1 |   1 |   1 |
-  // | BC 1 |   1 |   0 |
-  // | BC 2 |   2 |  -1 |
-  // Also `yy` always returns the last two digits of a year,
-  // while `uu` pads single digit years to 2 characters and returns other years unchanged.
-  u: function (date, token) {
-    var year = date.getUTCFullYear();
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(year, token.length);
-  },
-  // Quarter
-  Q: function (date, token, localize) {
-    var quarter = Math.ceil((date.getUTCMonth() + 1) / 3);
-
-    switch (token) {
-      // 1, 2, 3, 4
-      case 'Q':
-        return String(quarter);
-      // 01, 02, 03, 04
-
-      case 'QQ':
-        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(quarter, 2);
-      // 1st, 2nd, 3rd, 4th
-
-      case 'Qo':
-        return localize.ordinalNumber(quarter, {
-          unit: 'quarter'
-        });
-      // Q1, Q2, Q3, Q4
-
-      case 'QQQ':
-        return localize.quarter(quarter, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-      // 1, 2, 3, 4 (narrow quarter; could be not numerical)
-
-      case 'QQQQQ':
-        return localize.quarter(quarter, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // 1st quarter, 2nd quarter, ...
-
-      case 'QQQQ':
-      default:
-        return localize.quarter(quarter, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // Stand-alone quarter
-  q: function (date, token, localize) {
-    var quarter = Math.ceil((date.getUTCMonth() + 1) / 3);
-
-    switch (token) {
-      // 1, 2, 3, 4
-      case 'q':
-        return String(quarter);
-      // 01, 02, 03, 04
-
-      case 'qq':
-        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(quarter, 2);
-      // 1st, 2nd, 3rd, 4th
-
-      case 'qo':
-        return localize.ordinalNumber(quarter, {
-          unit: 'quarter'
-        });
-      // Q1, Q2, Q3, Q4
-
-      case 'qqq':
-        return localize.quarter(quarter, {
-          width: 'abbreviated',
-          context: 'standalone'
-        });
-      // 1, 2, 3, 4 (narrow quarter; could be not numerical)
-
-      case 'qqqqq':
-        return localize.quarter(quarter, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // 1st quarter, 2nd quarter, ...
-
-      case 'qqqq':
-      default:
-        return localize.quarter(quarter, {
-          width: 'wide',
-          context: 'standalone'
-        });
-    }
-  },
-  // Month
-  M: function (date, token, localize) {
-    var month = date.getUTCMonth();
-
-    switch (token) {
-      case 'M':
-      case 'MM':
-        return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].M(date, token);
-      // 1st, 2nd, ..., 12th
-
-      case 'Mo':
-        return localize.ordinalNumber(month + 1, {
-          unit: 'month'
-        });
-      // Jan, Feb, ..., Dec
-
-      case 'MMM':
-        return localize.month(month, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-      // J, F, ..., D
-
-      case 'MMMMM':
-        return localize.month(month, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // January, February, ..., December
-
-      case 'MMMM':
-      default:
-        return localize.month(month, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // Stand-alone month
-  L: function (date, token, localize) {
-    var month = date.getUTCMonth();
-
-    switch (token) {
-      // 1, 2, ..., 12
-      case 'L':
-        return String(month + 1);
-      // 01, 02, ..., 12
-
-      case 'LL':
-        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(month + 1, 2);
-      // 1st, 2nd, ..., 12th
-
-      case 'Lo':
-        return localize.ordinalNumber(month + 1, {
-          unit: 'month'
-        });
-      // Jan, Feb, ..., Dec
-
-      case 'LLL':
-        return localize.month(month, {
-          width: 'abbreviated',
-          context: 'standalone'
-        });
-      // J, F, ..., D
-
-      case 'LLLLL':
-        return localize.month(month, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // January, February, ..., December
-
-      case 'LLLL':
-      default:
-        return localize.month(month, {
-          width: 'wide',
-          context: 'standalone'
-        });
-    }
-  },
-  // Local week of year
-  w: function (date, token, localize, options) {
-    var week = Object(_lib_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, options);
-
-    if (token === 'wo') {
-      return localize.ordinalNumber(week, {
-        unit: 'week'
-      });
-    }
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(week, token.length);
-  },
-  // ISO week of year
-  I: function (date, token, localize) {
-    var isoWeek = Object(_lib_getUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
-
-    if (token === 'Io') {
-      return localize.ordinalNumber(isoWeek, {
-        unit: 'week'
-      });
-    }
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(isoWeek, token.length);
-  },
-  // Day of the month
-  d: function (date, token, localize) {
-    if (token === 'do') {
-      return localize.ordinalNumber(date.getUTCDate(), {
-        unit: 'date'
-      });
-    }
-
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].d(date, token);
-  },
-  // Day of year
-  D: function (date, token, localize) {
-    var dayOfYear = Object(_lib_getUTCDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
-
-    if (token === 'Do') {
-      return localize.ordinalNumber(dayOfYear, {
-        unit: 'dayOfYear'
-      });
-    }
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dayOfYear, token.length);
-  },
-  // Day of week
-  E: function (date, token, localize) {
-    var dayOfWeek = date.getUTCDay();
-
-    switch (token) {
-      // Tue
-      case 'E':
-      case 'EE':
-      case 'EEE':
-        return localize.day(dayOfWeek, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-      // T
-
-      case 'EEEEE':
-        return localize.day(dayOfWeek, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tu
-
-      case 'EEEEEE':
-        return localize.day(dayOfWeek, {
-          width: 'short',
-          context: 'formatting'
-        });
-      // Tuesday
-
-      case 'EEEE':
-      default:
-        return localize.day(dayOfWeek, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // Local day of week
-  e: function (date, token, localize, options) {
-    var dayOfWeek = date.getUTCDay();
-    var localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
-
-    switch (token) {
-      // Numerical value (Nth day of week with current locale or weekStartsOn)
-      case 'e':
-        return String(localDayOfWeek);
-      // Padded numerical value
-
-      case 'ee':
-        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(localDayOfWeek, 2);
-      // 1st, 2nd, ..., 7th
-
-      case 'eo':
-        return localize.ordinalNumber(localDayOfWeek, {
-          unit: 'day'
-        });
-
-      case 'eee':
-        return localize.day(dayOfWeek, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-      // T
-
-      case 'eeeee':
-        return localize.day(dayOfWeek, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tu
-
-      case 'eeeeee':
-        return localize.day(dayOfWeek, {
-          width: 'short',
-          context: 'formatting'
-        });
-      // Tuesday
-
-      case 'eeee':
-      default:
-        return localize.day(dayOfWeek, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // Stand-alone local day of week
-  c: function (date, token, localize, options) {
-    var dayOfWeek = date.getUTCDay();
-    var localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7;
-
-    switch (token) {
-      // Numerical value (same as in `e`)
-      case 'c':
-        return String(localDayOfWeek);
-      // Padded numerical value
-
-      case 'cc':
-        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(localDayOfWeek, token.length);
-      // 1st, 2nd, ..., 7th
-
-      case 'co':
-        return localize.ordinalNumber(localDayOfWeek, {
-          unit: 'day'
-        });
-
-      case 'ccc':
-        return localize.day(dayOfWeek, {
-          width: 'abbreviated',
-          context: 'standalone'
-        });
-      // T
-
-      case 'ccccc':
-        return localize.day(dayOfWeek, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // Tu
-
-      case 'cccccc':
-        return localize.day(dayOfWeek, {
-          width: 'short',
-          context: 'standalone'
-        });
-      // Tuesday
-
-      case 'cccc':
-      default:
-        return localize.day(dayOfWeek, {
-          width: 'wide',
-          context: 'standalone'
-        });
-    }
-  },
-  // ISO day of week
-  i: function (date, token, localize) {
-    var dayOfWeek = date.getUTCDay();
-    var isoDayOfWeek = dayOfWeek === 0 ? 7 : dayOfWeek;
-
-    switch (token) {
-      // 2
-      case 'i':
-        return String(isoDayOfWeek);
-      // 02
-
-      case 'ii':
-        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(isoDayOfWeek, token.length);
-      // 2nd
-
-      case 'io':
-        return localize.ordinalNumber(isoDayOfWeek, {
-          unit: 'day'
-        });
-      // Tue
-
-      case 'iii':
-        return localize.day(dayOfWeek, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-      // T
-
-      case 'iiiii':
-        return localize.day(dayOfWeek, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tu
-
-      case 'iiiiii':
-        return localize.day(dayOfWeek, {
-          width: 'short',
-          context: 'formatting'
-        });
-      // Tuesday
-
-      case 'iiii':
-      default:
-        return localize.day(dayOfWeek, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // AM or PM
-  a: function (date, token, localize) {
-    var hours = date.getUTCHours();
-    var dayPeriodEnumValue = hours / 12 >= 1 ? 'pm' : 'am';
-
-    switch (token) {
-      case 'a':
-      case 'aa':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-
-      case 'aaa':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }).toLowerCase();
-
-      case 'aaaaa':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'aaaa':
-      default:
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // AM, PM, midnight, noon
-  b: function (date, token, localize) {
-    var hours = date.getUTCHours();
-    var dayPeriodEnumValue;
-
-    if (hours === 12) {
-      dayPeriodEnumValue = dayPeriodEnum.noon;
-    } else if (hours === 0) {
-      dayPeriodEnumValue = dayPeriodEnum.midnight;
-    } else {
-      dayPeriodEnumValue = hours / 12 >= 1 ? 'pm' : 'am';
-    }
-
-    switch (token) {
-      case 'b':
-      case 'bb':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-
-      case 'bbb':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }).toLowerCase();
-
-      case 'bbbbb':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'bbbb':
-      default:
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // in the morning, in the afternoon, in the evening, at night
-  B: function (date, token, localize) {
-    var hours = date.getUTCHours();
-    var dayPeriodEnumValue;
-
-    if (hours >= 17) {
-      dayPeriodEnumValue = dayPeriodEnum.evening;
-    } else if (hours >= 12) {
-      dayPeriodEnumValue = dayPeriodEnum.afternoon;
-    } else if (hours >= 4) {
-      dayPeriodEnumValue = dayPeriodEnum.morning;
-    } else {
-      dayPeriodEnumValue = dayPeriodEnum.night;
-    }
-
-    switch (token) {
-      case 'B':
-      case 'BB':
-      case 'BBB':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'abbreviated',
-          context: 'formatting'
-        });
-
-      case 'BBBBB':
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'BBBB':
-      default:
-        return localize.dayPeriod(dayPeriodEnumValue, {
-          width: 'wide',
-          context: 'formatting'
-        });
-    }
-  },
-  // Hour [1-12]
-  h: function (date, token, localize) {
-    if (token === 'ho') {
-      var hours = date.getUTCHours() % 12;
-      if (hours === 0) hours = 12;
-      return localize.ordinalNumber(hours, {
-        unit: 'hour'
-      });
-    }
-
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].h(date, token);
-  },
-  // Hour [0-23]
-  H: function (date, token, localize) {
-    if (token === 'Ho') {
-      return localize.ordinalNumber(date.getUTCHours(), {
-        unit: 'hour'
-      });
-    }
-
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].H(date, token);
-  },
-  // Hour [0-11]
-  K: function (date, token, localize) {
-    var hours = date.getUTCHours() % 12;
-
-    if (token === 'Ko') {
-      return localize.ordinalNumber(hours, {
-        unit: 'hour'
-      });
-    }
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(hours, token.length);
-  },
-  // Hour [1-24]
-  k: function (date, token, localize) {
-    var hours = date.getUTCHours();
-    if (hours === 0) hours = 24;
-
-    if (token === 'ko') {
-      return localize.ordinalNumber(hours, {
-        unit: 'hour'
-      });
-    }
-
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(hours, token.length);
-  },
-  // Minute
-  m: function (date, token, localize) {
-    if (token === 'mo') {
-      return localize.ordinalNumber(date.getUTCMinutes(), {
-        unit: 'minute'
-      });
-    }
-
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].m(date, token);
-  },
-  // Second
-  s: function (date, token, localize) {
-    if (token === 'so') {
-      return localize.ordinalNumber(date.getUTCSeconds(), {
-        unit: 'second'
-      });
-    }
-
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].s(date, token);
-  },
-  // Fraction of second
-  S: function (date, token) {
-    return _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_6__["default"].S(date, token);
-  },
-  // Timezone (ISO-8601. If offset is 0, output is always `'Z'`)
-  X: function (date, token, _localize, options) {
-    var originalDate = options._originalDate || date;
-    var timezoneOffset = originalDate.getTimezoneOffset();
-
-    if (timezoneOffset === 0) {
-      return 'Z';
-    }
-
-    switch (token) {
-      // Hours and optional minutes
-      case 'X':
-        return formatTimezoneWithOptionalMinutes(timezoneOffset);
-      // Hours, minutes and optional seconds without `:` delimiter
-      // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-      // so this token always has the same output as `XX`
-
-      case 'XXXX':
-      case 'XX':
-        // Hours and minutes without `:` delimiter
-        return formatTimezone(timezoneOffset);
-      // Hours, minutes and optional seconds with `:` delimiter
-      // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-      // so this token always has the same output as `XXX`
-
-      case 'XXXXX':
-      case 'XXX': // Hours and minutes with `:` delimiter
-
-      default:
-        return formatTimezone(timezoneOffset, ':');
-    }
-  },
-  // Timezone (ISO-8601. If offset is 0, output is `'+00:00'` or equivalent)
-  x: function (date, token, _localize, options) {
-    var originalDate = options._originalDate || date;
-    var timezoneOffset = originalDate.getTimezoneOffset();
-
-    switch (token) {
-      // Hours and optional minutes
-      case 'x':
-        return formatTimezoneWithOptionalMinutes(timezoneOffset);
-      // Hours, minutes and optional seconds without `:` delimiter
-      // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-      // so this token always has the same output as `xx`
-
-      case 'xxxx':
-      case 'xx':
-        // Hours and minutes without `:` delimiter
-        return formatTimezone(timezoneOffset);
-      // Hours, minutes and optional seconds with `:` delimiter
-      // Note: neither ISO-8601 nor JavaScript supports seconds in timezone offsets
-      // so this token always has the same output as `xxx`
-
-      case 'xxxxx':
-      case 'xxx': // Hours and minutes with `:` delimiter
-
-      default:
-        return formatTimezone(timezoneOffset, ':');
-    }
-  },
-  // Timezone (GMT)
-  O: function (date, token, _localize, options) {
-    var originalDate = options._originalDate || date;
-    var timezoneOffset = originalDate.getTimezoneOffset();
-
-    switch (token) {
-      // Short
-      case 'O':
-      case 'OO':
-      case 'OOO':
-        return 'GMT' + formatTimezoneShort(timezoneOffset, ':');
-      // Long
-
-      case 'OOOO':
-      default:
-        return 'GMT' + formatTimezone(timezoneOffset, ':');
-    }
-  },
-  // Timezone (specific non-location)
-  z: function (date, token, _localize, options) {
-    var originalDate = options._originalDate || date;
-    var timezoneOffset = originalDate.getTimezoneOffset();
-
-    switch (token) {
-      // Short
-      case 'z':
-      case 'zz':
-      case 'zzz':
-        return 'GMT' + formatTimezoneShort(timezoneOffset, ':');
-      // Long
-
-      case 'zzzz':
-      default:
-        return 'GMT' + formatTimezone(timezoneOffset, ':');
-    }
-  },
-  // Seconds timestamp
-  t: function (date, token, _localize, options) {
-    var originalDate = options._originalDate || date;
-    var timestamp = Math.floor(originalDate.getTime() / 1000);
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(timestamp, token.length);
-  },
-  // Milliseconds timestamp
-  T: function (date, token, _localize, options) {
-    var originalDate = options._originalDate || date;
-    var timestamp = originalDate.getTime();
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(timestamp, token.length);
-  }
 };
-
 function formatTimezoneShort(offset, dirtyDelimiter) {
-  var sign = offset > 0 ? '-' : '+';
-  var absOffset = Math.abs(offset);
-  var hours = Math.floor(absOffset / 60);
-  var minutes = absOffset % 60;
-
-  if (minutes === 0) {
-    return sign + String(hours);
-  }
-
-  var delimiter = dirtyDelimiter || '';
-  return sign + String(hours) + delimiter + Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(minutes, 2);
-}
-
-function formatTimezoneWithOptionalMinutes(offset, dirtyDelimiter) {
-  if (offset % 60 === 0) {
     var sign = offset > 0 ? '-' : '+';
-    return sign + Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Math.abs(offset) / 60, 2);
-  }
-
-  return formatTimezone(offset, dirtyDelimiter);
+    var absOffset = Math.abs(offset);
+    var hours = Math.floor(absOffset / 60);
+    var minutes = absOffset % 60;
+    if (minutes === 0) {
+        return sign + String(hours);
+    }
+    var delimiter = dirtyDelimiter || '';
+    return sign + String(hours) + delimiter + Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(minutes, 2);
 }
-
+function formatTimezoneWithOptionalMinutes(offset, dirtyDelimiter) {
+    if (offset % 60 === 0) {
+        var sign = offset > 0 ? '-' : '+';
+        return sign + Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Math.abs(offset) / 60, 2);
+    }
+    return formatTimezone(offset, dirtyDelimiter);
+}
 function formatTimezone(offset, dirtyDelimiter) {
-  var delimiter = dirtyDelimiter || '';
-  var sign = offset > 0 ? '-' : '+';
-  var absOffset = Math.abs(offset);
-  var hours = Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Math.floor(absOffset / 60), 2);
-  var minutes = Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(absOffset % 60, 2);
-  return sign + hours + delimiter + minutes;
+    var delimiter = dirtyDelimiter || '';
+    var sign = offset > 0 ? '-' : '+';
+    var absOffset = Math.abs(offset);
+    var hours = Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(Math.floor(absOffset / 60), 2);
+    var minutes = Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(absOffset % 60, 2);
+    return sign + hours + delimiter + minutes;
 }
-
 /* harmony default export */ __webpack_exports__["default"] = (formatters);
+
+
 
 /***/ }),
 
@@ -6435,12 +6270,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isLastDayOfMonth(new Date(2014, 1, 28))
  * //=> true
  */
-
 function isLastDayOfMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  return Object(_endOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date).getTime() === Object(_endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date).getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    return Object(_endOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date).getTime() === Object(_endOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date).getTime();
 }
+
+
 
 /***/ }),
 
@@ -6479,12 +6315,13 @@ var MILLISECONDS_IN_HOUR = 3600000;
  * const result = addHours(new Date(2014, 6, 10, 23, 0), 2)
  * //=> Fri Jul 11 2014 01:00:00
  */
-
 function addHours(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * MILLISECONDS_IN_HOUR);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * MILLISECONDS_IN_HOUR);
 }
+
+
 
 /***/ }),
 
@@ -6500,59 +6337,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AMPMMidnightParser", function() { return AMPMMidnightParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class AMPMMidnightParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 80);
-
-    _defineProperty(this, "incompatibleTokens", ['a', 'B', 'H', 'k', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'b':
-      case 'bb':
-      case 'bbb':
-        return match.dayPeriod(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'bbbbb':
-        return match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'bbbb':
-      default:
-        return match.dayPeriod(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 80);
+        _defineProperty(this, "incompatibleTokens", ['a', 'B', 'H', 'k', 't', 'T']);
     }
-  }
-
-  set(date, _flags, value) {
-    date.setUTCHours(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["dayPeriodEnumToHours"])(value), 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'b':
+            case 'bb':
+            case 'bbb':
+                return match.dayPeriod(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'bbbbb':
+                return match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'bbbb':
+            default:
+                return match.dayPeriod(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    set(date, _flags, value) {
+        date.setUTCHours(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["dayPeriodEnumToHours"])(value), 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -6591,14 +6427,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDayOfYear(new Date(2014, 6, 2))
  * //=> 183
  */
-
 function getDayOfYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, Object(_startOfYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date));
-  var dayOfYear = diff + 1;
-  return dayOfYear;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, Object(_startOfYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date));
+    var dayOfYear = diff + 1;
+    return dayOfYear;
 }
+
+
 
 /***/ }),
 
@@ -6614,8 +6451,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YearParser", function() { return YearParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns
@@ -6627,57 +6468,48 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // | AD 1234  |  1234 | 34 |  1234 |  1234 | 01234 |
 // | AD 12345 | 12345 | 45 | 12345 | 12345 | 12345 |
 class YearParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 130);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'u', 'w', 'I', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    var valueCallback = function (year) {
-      return {
-        year: year,
-        isTwoDigitYear: token === 'yy'
-      };
-    };
-
-    switch (token) {
-      case 'y':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(4, dateString), valueCallback);
-
-      case 'yo':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
-          unit: 'year'
-        }), valueCallback);
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 130);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'u', 'w', 'I', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value.isTwoDigitYear || value.year > 0;
-  }
-
-  set(date, flags, value) {
-    var currentYear = date.getUTCFullYear();
-
-    if (value.isTwoDigitYear) {
-      var normalizedTwoDigitYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["normalizeTwoDigitYear"])(value.year, currentYear);
-      date.setUTCFullYear(normalizedTwoDigitYear, 0, 1);
-      date.setUTCHours(0, 0, 0, 0);
-      return date;
+    parse(dateString, token, match) {
+        var valueCallback = function (year) {
+            return {
+                year: year,
+                isTwoDigitYear: token === 'yy'
+            };
+        };
+        switch (token) {
+            case 'y':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(4, dateString), valueCallback);
+            case 'yo':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
+                    unit: 'year'
+                }), valueCallback);
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+        }
     }
-
-    var year = !('era' in flags) || flags.era === 1 ? value.year : 1 - value.year;
-    date.setUTCFullYear(year, 0, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    validate(_date, value) {
+        return value.isTwoDigitYear || value.year > 0;
+    }
+    set(date, flags, value) {
+        var currentYear = date.getUTCFullYear();
+        if (value.isTwoDigitYear) {
+            var normalizedTwoDigitYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["normalizeTwoDigitYear"])(value.year, currentYear);
+            date.setUTCFullYear(normalizedTwoDigitYear, 0, 1);
+            date.setUTCHours(0, 0, 0, 0);
+            return date;
+        }
+        var year = !('era' in flags) || flags.era === 1 ? value.year : 1 - value.year;
+        date.setUTCFullYear(year, 0, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -6713,13 +6545,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isAfter(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> true
  */
-
 function isAfter(dirtyDate, dirtyDateToCompare) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
-  return date.getTime() > dateToCompare.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
+    return date.getTime() > dateToCompare.getTime();
 }
+
+
 
 /***/ }),
 
@@ -6765,16 +6598,17 @@ __webpack_require__.r(__webpack_exports__);
  * // ]
  * ]
  */
-
 function eachWeekendOfYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var startDate = Object(_startOfYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
-  var endDate = Object(_endOfYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  return Object(_eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    start: startDate,
-    end: endDate
-  });
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var startDate = Object(_startOfYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+    var endDate = Object(_endOfYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    return Object(_eachWeekendOfInterval_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        start: startDate,
+        end: endDate
+    });
 }
+
+
 
 /***/ }),
 
@@ -6798,14 +6632,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var MILLISECONDS_IN_WEEK = 604800000;
 function getUTCWeek(dirtyDate, options) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var diff = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, options).getTime() - Object(_startOfUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, options).getTime(); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var diff = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, options).getTime() - Object(_startOfUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, options).getTime(); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
 }
+
+
 
 /***/ }),
 
@@ -6923,102 +6758,108 @@ var MINUTES_IN_TWO_MONTHS = 86400;
  * })
  * //=> 'pli ol 1 jaro'
  */
-
 function formatDistance(dirtyDate, dirtyBaseDate, options) {
-  var _ref, _options$locale;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(2, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-  var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_4__["default"];
-
-  if (!locale.formatDistance) {
-    throw new RangeError('locale must contain formatDistance property');
-  }
-
-  var comparison = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, dirtyBaseDate);
-
-  if (isNaN(comparison)) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var localizeOptions = Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_lib_cloneObject_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(options), {
-    addSuffix: Boolean(options === null || options === void 0 ? void 0 : options.addSuffix),
-    comparison: comparison
-  });
-  var dateLeft;
-  var dateRight;
-
-  if (comparison > 0) {
-    dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyBaseDate);
-    dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDate);
-  } else {
-    dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDate);
-    dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyBaseDate);
-  }
-
-  var seconds = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateRight, dateLeft);
-  var offsetInSeconds = (Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateRight) - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft)) / 1000;
-  var minutes = Math.round((seconds - offsetInSeconds) / 60);
-  var months; // 0 up to 2 mins
-
-  if (minutes < 2) {
-    if (options !== null && options !== void 0 && options.includeSeconds) {
-      if (seconds < 5) {
-        return locale.formatDistance('lessThanXSeconds', 5, localizeOptions);
-      } else if (seconds < 10) {
-        return locale.formatDistance('lessThanXSeconds', 10, localizeOptions);
-      } else if (seconds < 20) {
-        return locale.formatDistance('lessThanXSeconds', 20, localizeOptions);
-      } else if (seconds < 40) {
-        return locale.formatDistance('halfAMinute', 0, localizeOptions);
-      } else if (seconds < 60) {
-        return locale.formatDistance('lessThanXMinutes', 1, localizeOptions);
-      } else {
-        return locale.formatDistance('xMinutes', 1, localizeOptions);
-      }
-    } else {
-      if (minutes === 0) {
-        return locale.formatDistance('lessThanXMinutes', 1, localizeOptions);
-      } else {
-        return locale.formatDistance('xMinutes', minutes, localizeOptions);
-      }
-    } // 2 mins up to 0.75 hrs
-
-  } else if (minutes < 45) {
-    return locale.formatDistance('xMinutes', minutes, localizeOptions); // 0.75 hrs up to 1.5 hrs
-  } else if (minutes < 90) {
-    return locale.formatDistance('aboutXHours', 1, localizeOptions); // 1.5 hrs up to 24 hrs
-  } else if (minutes < MINUTES_IN_DAY) {
-    var hours = Math.round(minutes / 60);
-    return locale.formatDistance('aboutXHours', hours, localizeOptions); // 1 day up to 1.75 days
-  } else if (minutes < MINUTES_IN_ALMOST_TWO_DAYS) {
-    return locale.formatDistance('xDays', 1, localizeOptions); // 1.75 days up to 30 days
-  } else if (minutes < MINUTES_IN_MONTH) {
-    var days = Math.round(minutes / MINUTES_IN_DAY);
-    return locale.formatDistance('xDays', days, localizeOptions); // 1 month up to 2 months
-  } else if (minutes < MINUTES_IN_TWO_MONTHS) {
-    months = Math.round(minutes / MINUTES_IN_MONTH);
-    return locale.formatDistance('aboutXMonths', months, localizeOptions);
-  }
-
-  months = Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateRight, dateLeft); // 2 months up to 12 months
-
-  if (months < 12) {
-    var nearestMonth = Math.round(minutes / MINUTES_IN_MONTH);
-    return locale.formatDistance('xMonths', nearestMonth, localizeOptions); // 1 year up to max Date
-  } else {
-    var monthsSinceStartOfYear = months % 12;
-    var years = Math.floor(months / 12); // N years up to 1 years 3 months
-
-    if (monthsSinceStartOfYear < 3) {
-      return locale.formatDistance('aboutXYears', years, localizeOptions); // N years 3 months up to N years 9 months
-    } else if (monthsSinceStartOfYear < 9) {
-      return locale.formatDistance('overXYears', years, localizeOptions); // N years 9 months up to N year 12 months
-    } else {
-      return locale.formatDistance('almostXYears', years + 1, localizeOptions);
+    var _ref, _options$locale;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(2, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_4__["default"];
+    if (!locale.formatDistance) {
+        throw new RangeError('locale must contain formatDistance property');
     }
-  }
+    var comparison = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, dirtyBaseDate);
+    if (isNaN(comparison)) {
+        throw new RangeError('Invalid time value');
+    }
+    var localizeOptions = Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_lib_cloneObject_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(options), {
+        addSuffix: Boolean(options === null || options === void 0 ? void 0 : options.addSuffix),
+        comparison: comparison
+    });
+    var dateLeft;
+    var dateRight;
+    if (comparison > 0) {
+        dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyBaseDate);
+        dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDate);
+    }
+    else {
+        dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDate);
+        dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyBaseDate);
+    }
+    var seconds = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateRight, dateLeft);
+    var offsetInSeconds = (Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateRight) - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft)) / 1000;
+    var minutes = Math.round((seconds - offsetInSeconds) / 60);
+    var months; // 0 up to 2 mins
+    if (minutes < 2) {
+        if (options !== null && options !== void 0 && options.includeSeconds) {
+            if (seconds < 5) {
+                return locale.formatDistance('lessThanXSeconds', 5, localizeOptions);
+            }
+            else if (seconds < 10) {
+                return locale.formatDistance('lessThanXSeconds', 10, localizeOptions);
+            }
+            else if (seconds < 20) {
+                return locale.formatDistance('lessThanXSeconds', 20, localizeOptions);
+            }
+            else if (seconds < 40) {
+                return locale.formatDistance('halfAMinute', 0, localizeOptions);
+            }
+            else if (seconds < 60) {
+                return locale.formatDistance('lessThanXMinutes', 1, localizeOptions);
+            }
+            else {
+                return locale.formatDistance('xMinutes', 1, localizeOptions);
+            }
+        }
+        else {
+            if (minutes === 0) {
+                return locale.formatDistance('lessThanXMinutes', 1, localizeOptions);
+            }
+            else {
+                return locale.formatDistance('xMinutes', minutes, localizeOptions);
+            }
+        } // 2 mins up to 0.75 hrs
+    }
+    else if (minutes < 45) {
+        return locale.formatDistance('xMinutes', minutes, localizeOptions); // 0.75 hrs up to 1.5 hrs
+    }
+    else if (minutes < 90) {
+        return locale.formatDistance('aboutXHours', 1, localizeOptions); // 1.5 hrs up to 24 hrs
+    }
+    else if (minutes < MINUTES_IN_DAY) {
+        var hours = Math.round(minutes / 60);
+        return locale.formatDistance('aboutXHours', hours, localizeOptions); // 1 day up to 1.75 days
+    }
+    else if (minutes < MINUTES_IN_ALMOST_TWO_DAYS) {
+        return locale.formatDistance('xDays', 1, localizeOptions); // 1.75 days up to 30 days
+    }
+    else if (minutes < MINUTES_IN_MONTH) {
+        var days = Math.round(minutes / MINUTES_IN_DAY);
+        return locale.formatDistance('xDays', days, localizeOptions); // 1 month up to 2 months
+    }
+    else if (minutes < MINUTES_IN_TWO_MONTHS) {
+        months = Math.round(minutes / MINUTES_IN_MONTH);
+        return locale.formatDistance('aboutXMonths', months, localizeOptions);
+    }
+    months = Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateRight, dateLeft); // 2 months up to 12 months
+    if (months < 12) {
+        var nearestMonth = Math.round(minutes / MINUTES_IN_MONTH);
+        return locale.formatDistance('xMonths', nearestMonth, localizeOptions); // 1 year up to max Date
+    }
+    else {
+        var monthsSinceStartOfYear = months % 12;
+        var years = Math.floor(months / 12); // N years up to 1 years 3 months
+        if (monthsSinceStartOfYear < 3) {
+            return locale.formatDistance('aboutXYears', years, localizeOptions); // N years 3 months up to N years 9 months
+        }
+        else if (monthsSinceStartOfYear < 9) {
+            return locale.formatDistance('overXYears', years, localizeOptions); // N years 9 months up to N year 12 months
+        }
+        else {
+            return locale.formatDistance('almostXYears', years + 1, localizeOptions);
+        }
+    }
 }
+
+
 
 /***/ }),
 
@@ -7057,16 +6898,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 00:00:00
  */
-
 function lastDayOfQuarter(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var currentMonth = date.getMonth();
-  var month = currentMonth - currentMonth % 3 + 3;
-  date.setMonth(month, 0);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var currentMonth = date.getMonth();
+    var month = currentMonth - currentMonth % 3 + 3;
+    date.setMonth(month, 0);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -7112,13 +6954,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameDay(new Date(2014, 8, 4), new Date(2015, 8, 4))
  * //=> false
  */
-
 function isSameDay(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfDay = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRightStartOfDay = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfDay = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRightStartOfDay = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
 }
+
+
 
 /***/ }),
 
@@ -7160,12 +7003,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addISOWeekYears(new Date(2010, 6, 2), 5)
  * //=> Fri Jun 26 2015 00:00:00
  */
-
 function addISOWeekYears(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_setISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate, Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate) + amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_setISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate, Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate) + amount);
 }
+
+
 
 /***/ }),
 
@@ -7206,12 +7050,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = millisecondsToMinutes(119999)
  * //=> 1
  */
-
 function millisecondsToMinutes(milliseconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var minutes = milliseconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInMinute"];
-  return Math.floor(minutes);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var minutes = milliseconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInMinute"];
+    return Math.floor(minutes);
 }
+
+
 
 /***/ }),
 
@@ -7246,13 +7091,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDay(new Date(2012, 1, 29))
  * //=> 3
  */
-
 function getDay(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getDay();
-  return day;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getDay();
+    return day;
 }
+
+
 
 /***/ }),
 
@@ -7288,15 +7134,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Dec 31 2014 23:59:59.999
  */
-
 function endOfYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  date.setFullYear(year + 1, 0, 0);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    date.setFullYear(year + 1, 0, 0);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -7331,11 +7178,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSaturday(new Date(2014, 8, 27))
  * //=> true
  */
-
 function isSaturday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 6;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 6;
 }
+
+
 
 /***/ }),
 
@@ -7370,11 +7218,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThursday(new Date(2014, 8, 25))
  * //=> true
  */
-
 function isThursday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 4;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 4;
 }
+
+
 
 /***/ }),
 
@@ -7466,11 +7315,12 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> '1 jaro'
  */
-
 function formatDistanceToNowStrict(dirtyDate, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), options);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_formatDistanceStrict_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now(), options);
 }
+
+
 
 /***/ }),
 
@@ -7509,11 +7359,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isPast(new Date(2014, 6, 2))
  * //=> true
  */
-
 function isPast(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getTime() < Date.now();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getTime() < Date.now();
 }
+
+
 
 /***/ }),
 
@@ -7557,18 +7408,18 @@ var MILLISECONDS_IN_WEEK = 604800000;
  * )
  * //=> 3
  */
-
 function differenceInCalendarISOWeeks(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var startOfISOWeekLeft = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
-  var startOfISOWeekRight = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
-  var timestampLeft = startOfISOWeekLeft.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfISOWeekLeft);
-  var timestampRight = startOfISOWeekRight.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfISOWeekRight); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var startOfISOWeekLeft = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
+    var startOfISOWeekRight = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
+    var timestampLeft = startOfISOWeekLeft.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfISOWeekLeft);
+    var timestampRight = startOfISOWeekRight.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfISOWeekRight); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_WEEK);
 }
+
+
 
 /***/ }),
 
@@ -7609,12 +7460,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = daysToWeeks(13)
  * //=> 1
  */
-
 function daysToWeeks(days) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var weeks = days / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["daysInWeek"];
-  return Math.floor(weeks);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var weeks = days / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["daysInWeek"];
+    return Math.floor(weeks);
 }
+
+
 
 /***/ }),
 
@@ -7634,15 +7486,17 @@ __webpack_require__.r(__webpack_exports__);
 
 var MILLISECONDS_IN_DAY = 86400000;
 function getUTCDayOfYear(dirtyDate) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var timestamp = date.getTime();
-  date.setUTCMonth(0, 1);
-  date.setUTCHours(0, 0, 0, 0);
-  var startOfYearTimestamp = date.getTime();
-  var difference = timestamp - startOfYearTimestamp;
-  return Math.floor(difference / MILLISECONDS_IN_DAY) + 1;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var timestamp = date.getTime();
+    date.setUTCMonth(0, 1);
+    date.setUTCHours(0, 0, 0, 0);
+    var startOfYearTimestamp = date.getTime();
+    var difference = timestamp - startOfYearTimestamp;
+    return Math.floor(difference / MILLISECONDS_IN_DAY) + 1;
 }
+
+
 
 /***/ }),
 
@@ -7678,13 +7532,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:59.999
  */
-
 function endOfMinute(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setSeconds(59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setSeconds(59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -7732,30 +7587,26 @@ __webpack_require__.r(__webpack_exports__);
  * // rounds up because given date is exactly between 12:00:00 and 12:15:00
  * //=> Thu Jul 10 2014 12:15:00
  */
-
 function roundToNearestMinutes(dirtyDate, options) {
-  var _options$nearestTo;
-
-  if (arguments.length < 1) {
-    throw new TypeError('1 argument required, but only none provided present');
-  }
-
-  var nearestTo = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_options$nearestTo = options === null || options === void 0 ? void 0 : options.nearestTo) !== null && _options$nearestTo !== void 0 ? _options$nearestTo : 1);
-
-  if (nearestTo < 1 || nearestTo > 30) {
-    throw new RangeError('`options.nearestTo` must be between 1 and 30');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var seconds = date.getSeconds(); // relevant if nearestTo is 1, which is the default case
-
-  var minutes = date.getMinutes() + seconds / 60;
-  var roundingMethod = Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_1__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod);
-  var roundedMinutes = roundingMethod(minutes / nearestTo) * nearestTo;
-  var remainderMinutes = minutes % nearestTo;
-  var addedMinutes = Math.round(remainderMinutes / nearestTo) * nearestTo;
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), roundedMinutes + addedMinutes);
+    var _options$nearestTo;
+    if (arguments.length < 1) {
+        throw new TypeError('1 argument required, but only none provided present');
+    }
+    var nearestTo = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_options$nearestTo = options === null || options === void 0 ? void 0 : options.nearestTo) !== null && _options$nearestTo !== void 0 ? _options$nearestTo : 1);
+    if (nearestTo < 1 || nearestTo > 30) {
+        throw new RangeError('`options.nearestTo` must be between 1 and 30');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var seconds = date.getSeconds(); // relevant if nearestTo is 1, which is the default case
+    var minutes = date.getMinutes() + seconds / 60;
+    var roundingMethod = Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_1__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod);
+    var roundedMinutes = roundingMethod(minutes / nearestTo) * nearestTo;
+    var remainderMinutes = minutes % nearestTo;
+    var addedMinutes = Math.round(remainderMinutes / nearestTo) * nearestTo;
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), roundedMinutes + addedMinutes);
 }
+
+
 
 /***/ }),
 
@@ -7794,12 +7645,13 @@ var MILLISECONDS_IN_MINUTE = 60000;
  * const result = addMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 12:30:00
  */
-
 function addMinutes(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * MILLISECONDS_IN_MINUTE);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * MILLISECONDS_IN_MINUTE);
 }
+
+
 
 /***/ }),
 
@@ -7813,101 +7665,87 @@ function addMinutes(dirtyDate, dirtyAmount) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 var dateLongFormatter = function (pattern, formatLong) {
-  switch (pattern) {
-    case 'P':
-      return formatLong.date({
-        width: 'short'
-      });
-
-    case 'PP':
-      return formatLong.date({
-        width: 'medium'
-      });
-
-    case 'PPP':
-      return formatLong.date({
-        width: 'long'
-      });
-
-    case 'PPPP':
-    default:
-      return formatLong.date({
-        width: 'full'
-      });
-  }
+    switch (pattern) {
+        case 'P':
+            return formatLong.date({
+                width: 'short'
+            });
+        case 'PP':
+            return formatLong.date({
+                width: 'medium'
+            });
+        case 'PPP':
+            return formatLong.date({
+                width: 'long'
+            });
+        case 'PPPP':
+        default:
+            return formatLong.date({
+                width: 'full'
+            });
+    }
 };
-
 var timeLongFormatter = function (pattern, formatLong) {
-  switch (pattern) {
-    case 'p':
-      return formatLong.time({
-        width: 'short'
-      });
-
-    case 'pp':
-      return formatLong.time({
-        width: 'medium'
-      });
-
-    case 'ppp':
-      return formatLong.time({
-        width: 'long'
-      });
-
-    case 'pppp':
-    default:
-      return formatLong.time({
-        width: 'full'
-      });
-  }
+    switch (pattern) {
+        case 'p':
+            return formatLong.time({
+                width: 'short'
+            });
+        case 'pp':
+            return formatLong.time({
+                width: 'medium'
+            });
+        case 'ppp':
+            return formatLong.time({
+                width: 'long'
+            });
+        case 'pppp':
+        default:
+            return formatLong.time({
+                width: 'full'
+            });
+    }
 };
-
 var dateTimeLongFormatter = function (pattern, formatLong) {
-  var matchResult = pattern.match(/(P+)(p+)?/) || [];
-  var datePattern = matchResult[1];
-  var timePattern = matchResult[2];
-
-  if (!timePattern) {
-    return dateLongFormatter(pattern, formatLong);
-  }
-
-  var dateTimeFormat;
-
-  switch (datePattern) {
-    case 'P':
-      dateTimeFormat = formatLong.dateTime({
-        width: 'short'
-      });
-      break;
-
-    case 'PP':
-      dateTimeFormat = formatLong.dateTime({
-        width: 'medium'
-      });
-      break;
-
-    case 'PPP':
-      dateTimeFormat = formatLong.dateTime({
-        width: 'long'
-      });
-      break;
-
-    case 'PPPP':
-    default:
-      dateTimeFormat = formatLong.dateTime({
-        width: 'full'
-      });
-      break;
-  }
-
-  return dateTimeFormat.replace('{{date}}', dateLongFormatter(datePattern, formatLong)).replace('{{time}}', timeLongFormatter(timePattern, formatLong));
+    var matchResult = pattern.match(/(P+)(p+)?/) || [];
+    var datePattern = matchResult[1];
+    var timePattern = matchResult[2];
+    if (!timePattern) {
+        return dateLongFormatter(pattern, formatLong);
+    }
+    var dateTimeFormat;
+    switch (datePattern) {
+        case 'P':
+            dateTimeFormat = formatLong.dateTime({
+                width: 'short'
+            });
+            break;
+        case 'PP':
+            dateTimeFormat = formatLong.dateTime({
+                width: 'medium'
+            });
+            break;
+        case 'PPP':
+            dateTimeFormat = formatLong.dateTime({
+                width: 'long'
+            });
+            break;
+        case 'PPPP':
+        default:
+            dateTimeFormat = formatLong.dateTime({
+                width: 'full'
+            });
+            break;
+    }
+    return dateTimeFormat.replace('{{date}}', dateLongFormatter(datePattern, formatLong)).replace('{{time}}', timeLongFormatter(timePattern, formatLong));
 };
-
 var longFormatters = {
-  p: timeLongFormatter,
-  P: dateTimeLongFormatter
+    p: timeLongFormatter,
+    P: dateTimeLongFormatter
 };
 /* harmony default export */ __webpack_exports__["default"] = (longFormatters);
+
+
 
 /***/ }),
 
@@ -7926,7 +7764,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "/h9T");
-
 
 
 
@@ -7972,27 +7809,27 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Thu Jun 15 2017 15:29:20
  */
 function add(dirtyDate, duration) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  if (!duration || typeof duration !== 'object') return new Date(NaN);
-  var years = duration.years ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.years) : 0;
-  var months = duration.months ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.months) : 0;
-  var weeks = duration.weeks ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.weeks) : 0;
-  var days = duration.days ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.days) : 0;
-  var hours = duration.hours ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.hours) : 0;
-  var minutes = duration.minutes ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.minutes) : 0;
-  var seconds = duration.seconds ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.seconds) : 0; // Add years and months
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
-  var dateWithMonths = months || years ? Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, months + years * 12) : date; // Add weeks and days
-
-  var dateWithDays = days || weeks ? Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithMonths, days + weeks * 7) : dateWithMonths; // Add days, hours, minutes and seconds
-
-  var minutesToAdd = minutes + hours * 60;
-  var secondsToAdd = seconds + minutesToAdd * 60;
-  var msToAdd = secondsToAdd * 1000;
-  var finalDate = new Date(dateWithDays.getTime() + msToAdd);
-  return finalDate;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    if (!duration || typeof duration !== 'object')
+        return new Date(NaN);
+    var years = duration.years ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.years) : 0;
+    var months = duration.months ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.months) : 0;
+    var weeks = duration.weeks ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.weeks) : 0;
+    var days = duration.days ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.days) : 0;
+    var hours = duration.hours ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.hours) : 0;
+    var minutes = duration.minutes ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.minutes) : 0;
+    var seconds = duration.seconds ? Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(duration.seconds) : 0; // Add years and months
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+    var dateWithMonths = months || years ? Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, months + years * 12) : date; // Add weeks and days
+    var dateWithDays = days || weeks ? Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateWithMonths, days + weeks * 7) : dateWithMonths; // Add days, hours, minutes and seconds
+    var minutesToAdd = minutes + hours * 60;
+    var secondsToAdd = seconds + minutesToAdd * 60;
+    var msToAdd = secondsToAdd * 1000;
+    var finalDate = new Date(dateWithDays.getTime() + msToAdd);
+    return finalDate;
 }
+
+
 
 /***/ }),
 
@@ -8017,7 +7854,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../differenceInSeconds/index.js */ "qVkf");
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -8131,76 +7967,90 @@ __webpack_require__.r(__webpack_exports__);
  * //=> 'in 2 yr'
  */
 function intlFormatDistance(date, baseDate, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(2, arguments);
-  var value = 0;
-  var unit;
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(date);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(baseDate);
-
-  if (!(options !== null && options !== void 0 && options.unit)) {
-    // Get the unit based on diffInSeconds calculations if no unit is specified
-    var diffInSeconds = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft, dateRight); // The smallest unit
-
-    if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInMinute"]) {
-      value = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft, dateRight);
-      unit = 'second';
-    } else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInHour"]) {
-      value = Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(dateLeft, dateRight);
-      unit = 'minute';
-    } else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInDay"] && Math.abs(Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)) < 1) {
-      value = Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(dateLeft, dateRight);
-      unit = 'hour';
-    } else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInWeek"] && (value = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)) && Math.abs(value) < 7) {
-      unit = 'day';
-    } else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInMonth"]) {
-      value = Object(_differenceInCalendarWeeks_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateLeft, dateRight);
-      unit = 'week';
-    } else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInQuarter"]) {
-      value = Object(_differenceInCalendarMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
-      unit = 'month';
-    } else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInYear"]) {
-      if (Object(_differenceInCalendarQuarters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, dateRight) < 4) {
-        // To filter out cases that are less than a year but match 4 quarters
-        value = Object(_differenceInCalendarQuarters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, dateRight);
-        unit = 'quarter';
-      } else {
-        value = Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dateLeft, dateRight);
-        unit = 'year';
-      }
-    } else {
-      value = Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dateLeft, dateRight);
-      unit = 'year';
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_10__["default"])(2, arguments);
+    var value = 0;
+    var unit;
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(date);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(baseDate);
+    if (!(options !== null && options !== void 0 && options.unit)) {
+        // Get the unit based on diffInSeconds calculations if no unit is specified
+        var diffInSeconds = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft, dateRight); // The smallest unit
+        if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInMinute"]) {
+            value = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft, dateRight);
+            unit = 'second';
+        }
+        else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInHour"]) {
+            value = Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(dateLeft, dateRight);
+            unit = 'minute';
+        }
+        else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInDay"] && Math.abs(Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)) < 1) {
+            value = Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(dateLeft, dateRight);
+            unit = 'hour';
+        }
+        else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInWeek"] && (value = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight)) && Math.abs(value) < 7) {
+            unit = 'day';
+        }
+        else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInMonth"]) {
+            value = Object(_differenceInCalendarWeeks_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateLeft, dateRight);
+            unit = 'week';
+        }
+        else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInQuarter"]) {
+            value = Object(_differenceInCalendarMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
+            unit = 'month';
+        }
+        else if (Math.abs(diffInSeconds) < _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["secondsInYear"]) {
+            if (Object(_differenceInCalendarQuarters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, dateRight) < 4) {
+                // To filter out cases that are less than a year but match 4 quarters
+                value = Object(_differenceInCalendarQuarters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, dateRight);
+                unit = 'quarter';
+            }
+            else {
+                value = Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dateLeft, dateRight);
+                unit = 'year';
+            }
+        }
+        else {
+            value = Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dateLeft, dateRight);
+            unit = 'year';
+        }
     }
-  } else {
-    // Get the value if unit is specified
-    unit = options === null || options === void 0 ? void 0 : options.unit;
-
-    if (unit === 'second') {
-      value = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft, dateRight);
-    } else if (unit === 'minute') {
-      value = Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(dateLeft, dateRight);
-    } else if (unit === 'hour') {
-      value = Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(dateLeft, dateRight);
-    } else if (unit === 'day') {
-      value = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight);
-    } else if (unit === 'week') {
-      value = Object(_differenceInCalendarWeeks_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateLeft, dateRight);
-    } else if (unit === 'month') {
-      value = Object(_differenceInCalendarMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
-    } else if (unit === 'quarter') {
-      value = Object(_differenceInCalendarQuarters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, dateRight);
-    } else if (unit === 'year') {
-      value = Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dateLeft, dateRight);
+    else {
+        // Get the value if unit is specified
+        unit = options === null || options === void 0 ? void 0 : options.unit;
+        if (unit === 'second') {
+            value = Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'minute') {
+            value = Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'hour') {
+            value = Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'day') {
+            value = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'week') {
+            value = Object(_differenceInCalendarWeeks_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'month') {
+            value = Object(_differenceInCalendarMonths_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'quarter') {
+            value = Object(_differenceInCalendarQuarters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, dateRight);
+        }
+        else if (unit === 'year') {
+            value = Object(_differenceInCalendarYears_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dateLeft, dateRight);
+        }
     }
-  }
-
-  var rtf = new Intl.RelativeTimeFormat(options === null || options === void 0 ? void 0 : options.locale, {
-    localeMatcher: options === null || options === void 0 ? void 0 : options.localeMatcher,
-    numeric: (options === null || options === void 0 ? void 0 : options.numeric) || 'auto',
-    style: options === null || options === void 0 ? void 0 : options.style
-  });
-  return rtf.format(value, unit);
+    var rtf = new Intl.RelativeTimeFormat(options === null || options === void 0 ? void 0 : options.locale, {
+        localeMatcher: options === null || options === void 0 ? void 0 : options.localeMatcher,
+        numeric: (options === null || options === void 0 ? void 0 : options.numeric) || 'auto',
+        style: options === null || options === void 0 ? void 0 : options.style
+    });
+    return rtf.format(value, unit);
 }
+
+
 
 /***/ }),
 
@@ -8216,150 +8066,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../_lib/buildLocalizeFn/index.js */ "ku8+");
 
 var eraValues = {
-  narrow: ['B', 'A'],
-  abbreviated: ['BC', 'AD'],
-  wide: ['Before Christ', 'Anno Domini']
+    narrow: ['B', 'A'],
+    abbreviated: ['BC', 'AD'],
+    wide: ['Before Christ', 'Anno Domini']
 };
 var quarterValues = {
-  narrow: ['1', '2', '3', '4'],
-  abbreviated: ['Q1', 'Q2', 'Q3', 'Q4'],
-  wide: ['1st quarter', '2nd quarter', '3rd quarter', '4th quarter']
+    narrow: ['1', '2', '3', '4'],
+    abbreviated: ['Q1', 'Q2', 'Q3', 'Q4'],
+    wide: ['1st quarter', '2nd quarter', '3rd quarter', '4th quarter']
 }; // Note: in English, the names of days of the week and months are capitalized.
 // If you are making a new locale based on this one, check if the same is true for the language you're working on.
 // Generally, formatted dates should look like they are in the middle of a sentence,
 // e.g. in Spanish language the weekdays and months should be in the lowercase.
-
 var monthValues = {
-  narrow: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
-  abbreviated: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  wide: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    narrow: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+    abbreviated: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wide: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 };
 var dayValues = {
-  narrow: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-  short: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-  abbreviated: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-  wide: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    narrow: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    short: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    abbreviated: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    wide: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 };
 var dayPeriodValues = {
-  narrow: {
-    am: 'a',
-    pm: 'p',
-    midnight: 'mi',
-    noon: 'n',
-    morning: 'morning',
-    afternoon: 'afternoon',
-    evening: 'evening',
-    night: 'night'
-  },
-  abbreviated: {
-    am: 'AM',
-    pm: 'PM',
-    midnight: 'midnight',
-    noon: 'noon',
-    morning: 'morning',
-    afternoon: 'afternoon',
-    evening: 'evening',
-    night: 'night'
-  },
-  wide: {
-    am: 'a.m.',
-    pm: 'p.m.',
-    midnight: 'midnight',
-    noon: 'noon',
-    morning: 'morning',
-    afternoon: 'afternoon',
-    evening: 'evening',
-    night: 'night'
-  }
+    narrow: {
+        am: 'a',
+        pm: 'p',
+        midnight: 'mi',
+        noon: 'n',
+        morning: 'morning',
+        afternoon: 'afternoon',
+        evening: 'evening',
+        night: 'night'
+    },
+    abbreviated: {
+        am: 'AM',
+        pm: 'PM',
+        midnight: 'midnight',
+        noon: 'noon',
+        morning: 'morning',
+        afternoon: 'afternoon',
+        evening: 'evening',
+        night: 'night'
+    },
+    wide: {
+        am: 'a.m.',
+        pm: 'p.m.',
+        midnight: 'midnight',
+        noon: 'noon',
+        morning: 'morning',
+        afternoon: 'afternoon',
+        evening: 'evening',
+        night: 'night'
+    }
 };
 var formattingDayPeriodValues = {
-  narrow: {
-    am: 'a',
-    pm: 'p',
-    midnight: 'mi',
-    noon: 'n',
-    morning: 'in the morning',
-    afternoon: 'in the afternoon',
-    evening: 'in the evening',
-    night: 'at night'
-  },
-  abbreviated: {
-    am: 'AM',
-    pm: 'PM',
-    midnight: 'midnight',
-    noon: 'noon',
-    morning: 'in the morning',
-    afternoon: 'in the afternoon',
-    evening: 'in the evening',
-    night: 'at night'
-  },
-  wide: {
-    am: 'a.m.',
-    pm: 'p.m.',
-    midnight: 'midnight',
-    noon: 'noon',
-    morning: 'in the morning',
-    afternoon: 'in the afternoon',
-    evening: 'in the evening',
-    night: 'at night'
-  }
+    narrow: {
+        am: 'a',
+        pm: 'p',
+        midnight: 'mi',
+        noon: 'n',
+        morning: 'in the morning',
+        afternoon: 'in the afternoon',
+        evening: 'in the evening',
+        night: 'at night'
+    },
+    abbreviated: {
+        am: 'AM',
+        pm: 'PM',
+        midnight: 'midnight',
+        noon: 'noon',
+        morning: 'in the morning',
+        afternoon: 'in the afternoon',
+        evening: 'in the evening',
+        night: 'at night'
+    },
+    wide: {
+        am: 'a.m.',
+        pm: 'p.m.',
+        midnight: 'midnight',
+        noon: 'noon',
+        morning: 'in the morning',
+        afternoon: 'in the afternoon',
+        evening: 'in the evening',
+        night: 'at night'
+    }
 };
-
 var ordinalNumber = function (dirtyNumber, _options) {
-  var number = Number(dirtyNumber); // If ordinal numbers depend on context, for example,
-  // if they are different for different grammatical genders,
-  // use `options.unit`.
-  //
-  // `unit` can be 'year', 'quarter', 'month', 'week', 'date', 'dayOfYear',
-  // 'day', 'hour', 'minute', 'second'.
-
-  var rem100 = number % 100;
-
-  if (rem100 > 20 || rem100 < 10) {
-    switch (rem100 % 10) {
-      case 1:
-        return number + 'st';
-
-      case 2:
-        return number + 'nd';
-
-      case 3:
-        return number + 'rd';
+    var number = Number(dirtyNumber); // If ordinal numbers depend on context, for example,
+    // if they are different for different grammatical genders,
+    // use `options.unit`.
+    //
+    // `unit` can be 'year', 'quarter', 'month', 'week', 'date', 'dayOfYear',
+    // 'day', 'hour', 'minute', 'second'.
+    var rem100 = number % 100;
+    if (rem100 > 20 || rem100 < 10) {
+        switch (rem100 % 10) {
+            case 1:
+                return number + 'st';
+            case 2:
+                return number + 'nd';
+            case 3:
+                return number + 'rd';
+        }
     }
-  }
-
-  return number + 'th';
+    return number + 'th';
 };
-
 var localize = {
-  ordinalNumber: ordinalNumber,
-  era: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    values: eraValues,
-    defaultWidth: 'wide'
-  }),
-  quarter: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    values: quarterValues,
-    defaultWidth: 'wide',
-    argumentCallback: function (quarter) {
-      return quarter - 1;
-    }
-  }),
-  month: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    values: monthValues,
-    defaultWidth: 'wide'
-  }),
-  day: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    values: dayValues,
-    defaultWidth: 'wide'
-  }),
-  dayPeriod: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    values: dayPeriodValues,
-    defaultWidth: 'wide',
-    formattingValues: formattingDayPeriodValues,
-    defaultFormattingWidth: 'wide'
-  })
+    ordinalNumber: ordinalNumber,
+    era: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        values: eraValues,
+        defaultWidth: 'wide'
+    }),
+    quarter: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        values: quarterValues,
+        defaultWidth: 'wide',
+        argumentCallback: function (quarter) {
+            return quarter - 1;
+        }
+    }),
+    month: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        values: monthValues,
+        defaultWidth: 'wide'
+    }),
+    day: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        values: dayValues,
+        defaultWidth: 'wide'
+    }),
+    dayPeriod: Object(_lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        values: dayPeriodValues,
+        defaultWidth: 'wide',
+        formattingValues: formattingDayPeriodValues,
+        defaultFormattingWidth: 'wide'
+    })
 };
 /* harmony default export */ __webpack_exports__["default"] = (localize);
+
+
 
 /***/ }),
 
@@ -8385,10 +8229,12 @@ __webpack_require__.r(__webpack_exports__);
  * This function returns the timezone offset in milliseconds that takes seconds in account.
  */
 function getTimezoneOffsetInMilliseconds(date) {
-  var utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds()));
-  utcDate.setUTCFullYear(date.getFullYear());
-  return date.getTime() - utcDate.getTime();
+    var utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds()));
+    utcDate.setUTCFullYear(date.getFullYear());
+    return date.getTime() - utcDate.getTime();
 }
+
+
 
 /***/ }),
 
@@ -8404,7 +8250,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isSameWeek; });
 /* harmony import */ var _startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../startOfWeek/index.js */ "aetl");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 /**
@@ -8443,11 +8288,13 @@ __webpack_require__.r(__webpack_exports__);
  * //=> false
  */
 function isSameWeek(dirtyDateLeft, dirtyDateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft, options);
-  var dateRightStartOfWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight, options);
-  return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft, options);
+    var dateRightStartOfWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight, options);
+    return dateLeftStartOfWeek.getTime() === dateRightStartOfWeek.getTime();
 }
+
+
 
 /***/ }),
 
@@ -8504,38 +8351,41 @@ __webpack_require__.r(__webpack_exports__);
  * })
  * // => { years: 39, months: 2, days: 20, hours: 7, minutes: 5, seconds: 0 }
  */
-
 function intervalToDuration(interval) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(1, arguments);
-  var start = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(interval.start);
-  var end = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(interval.end);
-  if (isNaN(start.getTime())) throw new RangeError('Start Date is invalid');
-  if (isNaN(end.getTime())) throw new RangeError('End Date is invalid');
-  var duration = {};
-  duration.years = Math.abs(Object(_differenceInYears_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(end, start));
-  var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(end, start);
-  var remainingMonths = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(start, {
-    years: sign * duration.years
-  });
-  duration.months = Math.abs(Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(end, remainingMonths));
-  var remainingDays = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingMonths, {
-    months: sign * duration.months
-  });
-  duration.days = Math.abs(Object(_differenceInDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(end, remainingDays));
-  var remainingHours = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingDays, {
-    days: sign * duration.days
-  });
-  duration.hours = Math.abs(Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(end, remainingHours));
-  var remainingMinutes = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingHours, {
-    hours: sign * duration.hours
-  });
-  duration.minutes = Math.abs(Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(end, remainingMinutes));
-  var remainingSeconds = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingMinutes, {
-    minutes: sign * duration.minutes
-  });
-  duration.seconds = Math.abs(Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(end, remainingSeconds));
-  return duration;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_9__["default"])(1, arguments);
+    var start = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(interval.start);
+    var end = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(interval.end);
+    if (isNaN(start.getTime()))
+        throw new RangeError('Start Date is invalid');
+    if (isNaN(end.getTime()))
+        throw new RangeError('End Date is invalid');
+    var duration = {};
+    duration.years = Math.abs(Object(_differenceInYears_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(end, start));
+    var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(end, start);
+    var remainingMonths = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(start, {
+        years: sign * duration.years
+    });
+    duration.months = Math.abs(Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(end, remainingMonths));
+    var remainingDays = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingMonths, {
+        months: sign * duration.months
+    });
+    duration.days = Math.abs(Object(_differenceInDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(end, remainingDays));
+    var remainingHours = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingDays, {
+        days: sign * duration.days
+    });
+    duration.hours = Math.abs(Object(_differenceInHours_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(end, remainingHours));
+    var remainingMinutes = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingHours, {
+        hours: sign * duration.hours
+    });
+    duration.minutes = Math.abs(Object(_differenceInMinutes_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(end, remainingMinutes));
+    var remainingSeconds = Object(_add_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(remainingMinutes, {
+        minutes: sign * duration.minutes
+    });
+    duration.seconds = Math.abs(Object(_differenceInSeconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(end, remainingSeconds));
+    return duration;
 }
+
+
 
 /***/ }),
 
@@ -8585,21 +8435,23 @@ __webpack_require__.r(__webpack_exports__);
  * //   Sun Jul 02 1995 00:00:00
  * // ]
  */
-
 function compareAsc(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var diff = dateLeft.getTime() - dateRight.getTime();
-
-  if (diff < 0) {
-    return -1;
-  } else if (diff > 0) {
-    return 1; // Return 0 if diff is 0; return NaN if diff is NaN
-  } else {
-    return diff;
-  }
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var diff = dateLeft.getTime() - dateRight.getTime();
+    if (diff < 0) {
+        return -1;
+    }
+    else if (diff > 0) {
+        return 1; // Return 0 if diff is 0; return NaN if diff is NaN
+    }
+    else {
+        return diff;
+    }
 }
+
+
 
 /***/ }),
 
@@ -8615,77 +8467,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StandAloneQuarterParser", function() { return StandAloneQuarterParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class StandAloneQuarterParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 120);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'Q', 'M', 'L', 'w', 'I', 'd', 'D', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      // 1, 2, 3, 4
-      case 'q':
-      case 'qq':
-        // 01, 02, 03, 04
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString);
-      // 1st, 2nd, 3rd, 4th
-
-      case 'qo':
-        return match.ordinalNumber(dateString, {
-          unit: 'quarter'
-        });
-      // Q1, Q2, Q3, Q4
-
-      case 'qqq':
-        return match.quarter(dateString, {
-          width: 'abbreviated',
-          context: 'standalone'
-        }) || match.quarter(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // 1, 2, 3, 4 (narrow quarter; could be not numerical)
-
-      case 'qqqqq':
-        return match.quarter(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // 1st quarter, 2nd quarter, ...
-
-      case 'qqqq':
-      default:
-        return match.quarter(dateString, {
-          width: 'wide',
-          context: 'standalone'
-        }) || match.quarter(dateString, {
-          width: 'abbreviated',
-          context: 'standalone'
-        }) || match.quarter(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 120);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'Q', 'M', 'L', 'w', 'I', 'd', 'D', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 4;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMonth((value - 1) * 3, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            // 1, 2, 3, 4
+            case 'q':
+            case 'qq':
+                // 01, 02, 03, 04
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString);
+            // 1st, 2nd, 3rd, 4th
+            case 'qo':
+                return match.ordinalNumber(dateString, {
+                    unit: 'quarter'
+                });
+            // Q1, Q2, Q3, Q4
+            case 'qqq':
+                return match.quarter(dateString, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                }) || match.quarter(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            case 'qqqqq':
+                return match.quarter(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // 1st quarter, 2nd quarter, ...
+            case 'qqqq':
+            default:
+                return match.quarter(dateString, {
+                    width: 'wide',
+                    context: 'standalone'
+                }) || match.quarter(dateString, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                }) || match.quarter(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 1 && value <= 4;
+    }
+    set(date, _flags, value) {
+        date.setUTCMonth((value - 1) * 3, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -8721,11 +8569,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = secondsToMilliseconds(2)
  * //=> 2000
  */
-
 function secondsToMilliseconds(seconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return seconds * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInSecond"];
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return seconds * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInSecond"];
 }
+
+
 
 /***/ }),
 
@@ -8743,7 +8592,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "/h9T");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -8776,23 +8624,22 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Sun Sep 07 2014 23:59:59.999
  */
 function endOfWeek(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var day = date.getDay();
-  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
-  date.setDate(date.getDate() + diff);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var day = date.getDay();
+    var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
+    date.setDate(date.getDate() + diff);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -8840,10 +8687,8 @@ __webpack_require__.r(__webpack_exports__);
 //   If there is no matching single quote
 //   then the sequence will continue until the end of the string.
 // - . matches any single character unmatched by previous parts of the RegExps
-
 var formattingTokensRegExp = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g; // This RegExp catches symbols escaped by quotes, and also
 // sequences of symbols P, p, and the combinations like `PPPPPPPppppp`
-
 var longFormattingTokensRegExp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g;
 var escapedStringRegExp = /^'([^]*?)'?$/;
 var doubleQuoteRegExp = /''/g;
@@ -9150,184 +8995,154 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * })
  * //=> Sun Feb 28 2010 00:00:00
  */
-
 function parse(dirtyDateString, dirtyFormatString, dirtyReferenceDate, options) {
-  var _ref, _options$locale, _ref2, _ref3, _ref4, _options$firstWeekCon, _options$locale2, _options$locale2$opti, _defaultOptions$local, _defaultOptions$local2, _ref5, _ref6, _ref7, _options$weekStartsOn, _options$locale3, _options$locale3$opti, _defaultOptions$local3, _defaultOptions$local4;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(3, arguments);
-  var dateString = String(dirtyDateString);
-  var formatString = String(dirtyFormatString);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_11__["getDefaultOptions"])();
-  var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_0__["default"];
-
-  if (!locale.match) {
-    throw new RangeError('locale must contain match property');
-  }
-
-  var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref2 = (_ref3 = (_ref4 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale2 = options.locale) === null || _options$locale2 === void 0 ? void 0 : (_options$locale2$opti = _options$locale2.options) === null || _options$locale2$opti === void 0 ? void 0 : _options$locale2$opti.firstWeekContainsDate) !== null && _ref4 !== void 0 ? _ref4 : defaultOptions.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
-
-  if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
-    throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
-  }
-
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref5 = (_ref6 = (_ref7 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale3 = options.locale) === null || _options$locale3 === void 0 ? void 0 : (_options$locale3$opti = _options$locale3.options) === null || _options$locale3$opti === void 0 ? void 0 : _options$locale3$opti.weekStartsOn) !== null && _ref7 !== void 0 ? _ref7 : defaultOptions.weekStartsOn) !== null && _ref6 !== void 0 ? _ref6 : (_defaultOptions$local3 = defaultOptions.locale) === null || _defaultOptions$local3 === void 0 ? void 0 : (_defaultOptions$local4 = _defaultOptions$local3.options) === null || _defaultOptions$local4 === void 0 ? void 0 : _defaultOptions$local4.weekStartsOn) !== null && _ref5 !== void 0 ? _ref5 : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  if (formatString === '') {
-    if (dateString === '') {
-      return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyReferenceDate);
-    } else {
-      return new Date(NaN);
+    var _ref, _options$locale, _ref2, _ref3, _ref4, _options$firstWeekCon, _options$locale2, _options$locale2$opti, _defaultOptions$local, _defaultOptions$local2, _ref5, _ref6, _ref7, _options$weekStartsOn, _options$locale3, _options$locale3$opti, _defaultOptions$local3, _defaultOptions$local4;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(3, arguments);
+    var dateString = String(dirtyDateString);
+    var formatString = String(dirtyFormatString);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_11__["getDefaultOptions"])();
+    var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_0__["default"];
+    if (!locale.match) {
+        throw new RangeError('locale must contain match property');
     }
-  }
-
-  var subFnOptions = {
-    firstWeekContainsDate: firstWeekContainsDate,
-    weekStartsOn: weekStartsOn,
-    locale: locale
-  }; // If timezone isn't specified, it will be set to the system timezone
-
-  var setters = [new _lib_Setter_js__WEBPACK_IMPORTED_MODULE_9__["DateToSystemTimezoneSetter"]()];
-  var tokens = formatString.match(longFormattingTokensRegExp).map(function (substring) {
-    var firstCharacter = substring[0];
-
-    if (firstCharacter in _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_4__["default"]) {
-      var longFormatter = _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_4__["default"][firstCharacter];
-      return longFormatter(substring, locale.formatLong);
+    var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref2 = (_ref3 = (_ref4 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale2 = options.locale) === null || _options$locale2 === void 0 ? void 0 : (_options$locale2$opti = _options$locale2.options) === null || _options$locale2$opti === void 0 ? void 0 : _options$locale2$opti.firstWeekContainsDate) !== null && _ref4 !== void 0 ? _ref4 : defaultOptions.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
+    if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
+        throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
     }
-
-    return substring;
-  }).join('').match(formattingTokensRegExp);
-  var usedTokens = [];
-
-  var _loop = function (_token) {
-    if (!(options !== null && options !== void 0 && options.useAdditionalWeekYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedWeekYearToken"])(_token)) {
-      Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(_token, formatString, dirtyDateString);
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref5 = (_ref6 = (_ref7 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale3 = options.locale) === null || _options$locale3 === void 0 ? void 0 : (_options$locale3$opti = _options$locale3.options) === null || _options$locale3$opti === void 0 ? void 0 : _options$locale3$opti.weekStartsOn) !== null && _ref7 !== void 0 ? _ref7 : defaultOptions.weekStartsOn) !== null && _ref6 !== void 0 ? _ref6 : (_defaultOptions$local3 = defaultOptions.locale) === null || _defaultOptions$local3 === void 0 ? void 0 : (_defaultOptions$local4 = _defaultOptions$local3.options) === null || _defaultOptions$local4 === void 0 ? void 0 : _defaultOptions$local4.weekStartsOn) !== null && _ref5 !== void 0 ? _ref5 : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
     }
-
-    if (!(options !== null && options !== void 0 && options.useAdditionalDayOfYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedDayOfYearToken"])(_token)) {
-      Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(_token, formatString, dirtyDateString);
-    }
-
-    var firstCharacter = _token[0];
-    var parser = _lib_parsers_index_js__WEBPACK_IMPORTED_MODULE_10__["parsers"][firstCharacter];
-
-    if (parser) {
-      var incompatibleTokens = parser.incompatibleTokens;
-
-      if (Array.isArray(incompatibleTokens)) {
-        var incompatibleToken = usedTokens.find(function (usedToken) {
-          return incompatibleTokens.includes(usedToken.token) || usedToken.token === firstCharacter;
-        });
-
-        if (incompatibleToken) {
-          throw new RangeError("The format string mustn't contain `".concat(incompatibleToken.fullToken, "` and `").concat(_token, "` at the same time"));
+    if (formatString === '') {
+        if (dateString === '') {
+            return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyReferenceDate);
         }
-      } else if (parser.incompatibleTokens === '*' && usedTokens.length > 0) {
-        throw new RangeError("The format string mustn't contain `".concat(_token, "` and any other token at the same time"));
-      }
-
-      usedTokens.push({
-        token: firstCharacter,
-        fullToken: _token
-      });
-      var parseResult = parser.run(dateString, _token, locale.match, subFnOptions);
-
-      if (!parseResult) {
-        token = _token;
-        return {
-          v: new Date(NaN)
-        };
-      }
-
-      setters.push(parseResult.setter);
-      dateString = parseResult.rest;
-    } else {
-      if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
-        throw new RangeError('Format string contains an unescaped latin alphabet character `' + firstCharacter + '`');
-      } // Replace two single quote characters with one single quote character
-
-
-      if (_token === "''") {
-        _token = "'";
-      } else if (firstCharacter === "'") {
-        _token = cleanEscapedString(_token);
-      } // Cut token from string, or, if string doesn't match the token, return Invalid Date
-
-
-      if (dateString.indexOf(_token) === 0) {
-        dateString = dateString.slice(_token.length);
-      } else {
-        token = _token;
-        return {
-          v: new Date(NaN)
-        };
-      }
+        else {
+            return new Date(NaN);
+        }
     }
-
-    token = _token;
-  };
-
-  for (var token of tokens) {
-    var _ret = _loop(token);
-
-    if (typeof _ret === "object") return _ret.v;
-  } // Check if the remaining input contains something other than whitespace
-
-
-  if (dateString.length > 0 && notWhitespaceRegExp.test(dateString)) {
-    return new Date(NaN);
-  }
-
-  var uniquePrioritySetters = setters.map(function (setter) {
-    return setter.priority;
-  }).sort(function (a, b) {
-    return b - a;
-  }).filter(function (priority, index, array) {
-    return array.indexOf(priority) === index;
-  }).map(function (priority) {
-    return setters.filter(function (setter) {
-      return setter.priority === priority;
+    var subFnOptions = {
+        firstWeekContainsDate: firstWeekContainsDate,
+        weekStartsOn: weekStartsOn,
+        locale: locale
+    }; // If timezone isn't specified, it will be set to the system timezone
+    var setters = [new _lib_Setter_js__WEBPACK_IMPORTED_MODULE_9__["DateToSystemTimezoneSetter"]()];
+    var tokens = formatString.match(longFormattingTokensRegExp).map(function (substring) {
+        var firstCharacter = substring[0];
+        if (firstCharacter in _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_4__["default"]) {
+            var longFormatter = _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_4__["default"][firstCharacter];
+            return longFormatter(substring, locale.formatLong);
+        }
+        return substring;
+    }).join('').match(formattingTokensRegExp);
+    var usedTokens = [];
+    var _loop = function (_token) {
+        if (!(options !== null && options !== void 0 && options.useAdditionalWeekYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedWeekYearToken"])(_token)) {
+            Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(_token, formatString, dirtyDateString);
+        }
+        if (!(options !== null && options !== void 0 && options.useAdditionalDayOfYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedDayOfYearToken"])(_token)) {
+            Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(_token, formatString, dirtyDateString);
+        }
+        var firstCharacter = _token[0];
+        var parser = _lib_parsers_index_js__WEBPACK_IMPORTED_MODULE_10__["parsers"][firstCharacter];
+        if (parser) {
+            var incompatibleTokens = parser.incompatibleTokens;
+            if (Array.isArray(incompatibleTokens)) {
+                var incompatibleToken = usedTokens.find(function (usedToken) {
+                    return incompatibleTokens.includes(usedToken.token) || usedToken.token === firstCharacter;
+                });
+                if (incompatibleToken) {
+                    throw new RangeError("The format string mustn't contain `".concat(incompatibleToken.fullToken, "` and `").concat(_token, "` at the same time"));
+                }
+            }
+            else if (parser.incompatibleTokens === '*' && usedTokens.length > 0) {
+                throw new RangeError("The format string mustn't contain `".concat(_token, "` and any other token at the same time"));
+            }
+            usedTokens.push({
+                token: firstCharacter,
+                fullToken: _token
+            });
+            var parseResult = parser.run(dateString, _token, locale.match, subFnOptions);
+            if (!parseResult) {
+                token = _token;
+                return {
+                    v: new Date(NaN)
+                };
+            }
+            setters.push(parseResult.setter);
+            dateString = parseResult.rest;
+        }
+        else {
+            if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
+                throw new RangeError('Format string contains an unescaped latin alphabet character `' + firstCharacter + '`');
+            } // Replace two single quote characters with one single quote character
+            if (_token === "''") {
+                _token = "'";
+            }
+            else if (firstCharacter === "'") {
+                _token = cleanEscapedString(_token);
+            } // Cut token from string, or, if string doesn't match the token, return Invalid Date
+            if (dateString.indexOf(_token) === 0) {
+                dateString = dateString.slice(_token.length);
+            }
+            else {
+                token = _token;
+                return {
+                    v: new Date(NaN)
+                };
+            }
+        }
+        token = _token;
+    };
+    for (var token of tokens) {
+        var _ret = _loop(token);
+        if (typeof _ret === "object")
+            return _ret.v;
+    } // Check if the remaining input contains something other than whitespace
+    if (dateString.length > 0 && notWhitespaceRegExp.test(dateString)) {
+        return new Date(NaN);
+    }
+    var uniquePrioritySetters = setters.map(function (setter) {
+        return setter.priority;
     }).sort(function (a, b) {
-      return b.subPriority - a.subPriority;
+        return b - a;
+    }).filter(function (priority, index, array) {
+        return array.indexOf(priority) === index;
+    }).map(function (priority) {
+        return setters.filter(function (setter) {
+            return setter.priority === priority;
+        }).sort(function (a, b) {
+            return b.subPriority - a.subPriority;
+        });
+    }).map(function (setterArray) {
+        return setterArray[0];
     });
-  }).map(function (setterArray) {
-    return setterArray[0];
-  });
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyReferenceDate);
-
-  if (isNaN(date.getTime())) {
-    return new Date(NaN);
-  } // Convert the date in system timezone to the same date in UTC+00:00 timezone.
-
-
-  var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(date));
-  var flags = {};
-
-  for (var setter of uniquePrioritySetters) {
-    if (!setter.validate(utcDate, subFnOptions)) {
-      return new Date(NaN);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyReferenceDate);
+    if (isNaN(date.getTime())) {
+        return new Date(NaN);
+    } // Convert the date in system timezone to the same date in UTC+00:00 timezone.
+    var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(date));
+    var flags = {};
+    for (var setter of uniquePrioritySetters) {
+        if (!setter.validate(utcDate, subFnOptions)) {
+            return new Date(NaN);
+        }
+        var result = setter.set(utcDate, flags, subFnOptions); // Result is tuple (date, flags)
+        if (Array.isArray(result)) {
+            utcDate = result[0];
+            Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(flags, result[1]); // Result is date
+        }
+        else {
+            utcDate = result;
+        }
     }
-
-    var result = setter.set(utcDate, flags, subFnOptions); // Result is tuple (date, flags)
-
-    if (Array.isArray(result)) {
-      utcDate = result[0];
-      Object(_lib_assign_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(flags, result[1]); // Result is date
-    } else {
-      utcDate = result;
-    }
-  }
-
-  return utcDate;
+    return utcDate;
 }
-
 function cleanEscapedString(input) {
-  return input.match(escapedStringRegExp)[1].replace(doubleQuoteRegExp, "'");
+    return input.match(escapedStringRegExp)[1].replace(doubleQuoteRegExp, "'");
 }
+
+
 
 /***/ }),
 
@@ -9363,13 +9178,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 02 2014 00:00:00
  */
-
 function startOfDay(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -9385,77 +9201,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuarterParser", function() { return QuarterParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class QuarterParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 120);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'M', 'L', 'w', 'I', 'd', 'D', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      // 1, 2, 3, 4
-      case 'Q':
-      case 'QQ':
-        // 01, 02, 03, 04
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString);
-      // 1st, 2nd, 3rd, 4th
-
-      case 'Qo':
-        return match.ordinalNumber(dateString, {
-          unit: 'quarter'
-        });
-      // Q1, Q2, Q3, Q4
-
-      case 'QQQ':
-        return match.quarter(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.quarter(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // 1, 2, 3, 4 (narrow quarter; could be not numerical)
-
-      case 'QQQQQ':
-        return match.quarter(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // 1st quarter, 2nd quarter, ...
-
-      case 'QQQQ':
-      default:
-        return match.quarter(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.quarter(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.quarter(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 120);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'M', 'L', 'w', 'I', 'd', 'D', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 4;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMonth((value - 1) * 3, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            // 1, 2, 3, 4
+            case 'Q':
+            case 'QQ':
+                // 01, 02, 03, 04
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString);
+            // 1st, 2nd, 3rd, 4th
+            case 'Qo':
+                return match.ordinalNumber(dateString, {
+                    unit: 'quarter'
+                });
+            // Q1, Q2, Q3, Q4
+            case 'QQQ':
+                return match.quarter(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.quarter(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // 1, 2, 3, 4 (narrow quarter; could be not numerical)
+            case 'QQQQQ':
+                return match.quarter(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // 1st quarter, 2nd quarter, ...
+            case 'QQQQ':
+            default:
+                return match.quarter(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.quarter(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.quarter(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 1 && value <= 4;
+    }
+    set(date, _flags, value) {
+        date.setUTCMonth((value - 1) * 3, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -9471,84 +9283,80 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayParser", function() { return DayParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../_lib/setUTCDay/index.js */ "+lkT");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
  // Day of week
-
 class DayParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 90);
-
-    _defineProperty(this, "incompatibleTokens", ['D', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      // Tue
-      case 'E':
-      case 'EE':
-      case 'EEE':
-        return match.day(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // T
-
-      case 'EEEEE':
-        return match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tu
-
-      case 'EEEEEE':
-        return match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tuesday
-
-      case 'EEEE':
-      default:
-        return match.day(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 90);
+        _defineProperty(this, "incompatibleTokens", ['D', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 6;
-  }
-
-  set(date, _flags, value, options) {
-    date = Object(_lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, value, options);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            // Tue
+            case 'E':
+            case 'EE':
+            case 'EEE':
+                return match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // T
+            case 'EEEEE':
+                return match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tu
+            case 'EEEEEE':
+                return match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tuesday
+            case 'EEEE':
+            default:
+                return match.day(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 6;
+    }
+    set(date, _flags, value, options) {
+        date = Object(_lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, value, options);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -9588,11 +9396,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisMinute(new Date(2014, 8, 25, 18, 30))
  * //=> true
  */
-
 function isThisMinute(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameMinute_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameMinute_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
 }
+
+
 
 /***/ }),
 
@@ -9609,37 +9418,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_lib/startOfUTCISOWeek/index.js */ "tpup");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
  // ISO week-numbering year
-
 class ISOWeekYearParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 130);
-
-    _defineProperty(this, "incompatibleTokens", ['G', 'y', 'Y', 'u', 'Q', 'q', 'M', 'L', 'w', 'd', 'D', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token) {
-    if (token === 'R') {
-      return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(4, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 130);
+        _defineProperty(this, "incompatibleTokens", ['G', 'y', 'Y', 'u', 'Q', 'q', 'M', 'L', 'w', 'd', 'D', 'e', 'c', 't', 'T']);
     }
-
-    return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(token.length, dateString);
-  }
-
-  set(_date, _flags, value) {
-    var firstWeekOfYear = new Date(0);
-    firstWeekOfYear.setUTCFullYear(value, 0, 4);
-    firstWeekOfYear.setUTCHours(0, 0, 0, 0);
-    return Object(_lib_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeekOfYear);
-  }
-
+    parse(dateString, token) {
+        if (token === 'R') {
+            return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(4, dateString);
+        }
+        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigitsSigned"])(token.length, dateString);
+    }
+    set(_date, _flags, value) {
+        var firstWeekOfYear = new Date(0);
+        firstWeekOfYear.setUTCFullYear(value, 0, 4);
+        firstWeekOfYear.setUTCHours(0, 0, 0, 0);
+        return Object(_lib_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeekOfYear);
+    }
 }
+
+
 
 /***/ }),
 
@@ -9678,11 +9486,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisYear(new Date(2014, 6, 2))
  * //=> true
  */
-
 function isThisYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now());
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now());
 }
+
+
 
 /***/ }),
 
@@ -9720,18 +9529,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getISODay(new Date(2012, 1, 26))
  * //=> 7
  */
-
 function getISODay(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getDay();
-
-  if (day === 0) {
-    day = 7;
-  }
-
-  return day;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getDay();
+    if (day === 0) {
+        day = 7;
+    }
+    return day;
 }
+
+
 
 /***/ }),
 
@@ -9754,17 +9562,17 @@ __webpack_require__.r(__webpack_exports__);
 // for accurate equality comparisons of UTC timestamps that end up
 // having the same representation in local time, e.g. one hour before
 // DST ends vs. the instant that DST ends.
-
 function compareLocalAsc(dateLeft, dateRight) {
-  var diff = dateLeft.getFullYear() - dateRight.getFullYear() || dateLeft.getMonth() - dateRight.getMonth() || dateLeft.getDate() - dateRight.getDate() || dateLeft.getHours() - dateRight.getHours() || dateLeft.getMinutes() - dateRight.getMinutes() || dateLeft.getSeconds() - dateRight.getSeconds() || dateLeft.getMilliseconds() - dateRight.getMilliseconds();
-
-  if (diff < 0) {
-    return -1;
-  } else if (diff > 0) {
-    return 1; // Return 0 if diff is 0; return NaN if diff is NaN
-  } else {
-    return diff;
-  }
+    var diff = dateLeft.getFullYear() - dateRight.getFullYear() || dateLeft.getMonth() - dateRight.getMonth() || dateLeft.getDate() - dateRight.getDate() || dateLeft.getHours() - dateRight.getHours() || dateLeft.getMinutes() - dateRight.getMinutes() || dateLeft.getSeconds() - dateRight.getSeconds() || dateLeft.getMilliseconds() - dateRight.getMilliseconds();
+    if (diff < 0) {
+        return -1;
+    }
+    else if (diff > 0) {
+        return 1; // Return 0 if diff is 0; return NaN if diff is NaN
+    }
+    else {
+        return diff;
+    }
 }
 /**
  * @name differenceInDays
@@ -9815,22 +9623,20 @@ function compareLocalAsc(dateLeft, dateRight) {
  * )
 //=> 92
  */
-
-
 function differenceInDays(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var sign = compareLocalAsc(dateLeft, dateRight);
-  var difference = Math.abs(Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
-  dateLeft.setDate(dateLeft.getDate() - sign * difference); // Math.abs(diff in full days - diff in calendar days) === 1 if last calendar day is not full
-  // If so, result must be decreased by 1 in absolute value
-
-  var isLastDayNotFull = Number(compareLocalAsc(dateLeft, dateRight) === -sign);
-  var result = sign * (difference - isLastDayNotFull); // Prevent negative zero
-
-  return result === 0 ? 0 : result;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var sign = compareLocalAsc(dateLeft, dateRight);
+    var difference = Math.abs(Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
+    dateLeft.setDate(dateLeft.getDate() - sign * difference); // Math.abs(diff in full days - diff in calendar days) === 1 if last calendar day is not full
+    // If so, result must be decreased by 1 in absolute value
+    var isLastDayNotFull = Number(compareLocalAsc(dateLeft, dateRight) === -sign);
+    var result = sign * (difference - isLastDayNotFull); // Prevent negative zero
+    return result === 0 ? 0 : result;
 }
+
+
 
 /***/ }),
 
@@ -9870,11 +9676,12 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 1100
  */
-
 function differenceInMilliseconds(dateLeft, dateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft).getTime() - Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight).getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft).getTime() - Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight).getTime();
 }
+
+
 
 /***/ }),
 
@@ -9909,17 +9716,18 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDaysInMonth(new Date(2000, 1))
  * //=> 29
  */
-
 function getDaysInMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var monthIndex = date.getMonth();
-  var lastDayOfMonth = new Date(0);
-  lastDayOfMonth.setFullYear(year, monthIndex + 1, 0);
-  lastDayOfMonth.setHours(0, 0, 0, 0);
-  return lastDayOfMonth.getDate();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var monthIndex = date.getMonth();
+    var lastDayOfMonth = new Date(0);
+    lastDayOfMonth.setFullYear(year, monthIndex + 1, 0);
+    lastDayOfMonth.setHours(0, 0, 0, 0);
+    return lastDayOfMonth.getDate();
 }
+
+
 
 /***/ }),
 
@@ -9936,84 +9744,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants.js */ "t9RH");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class MonthParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_1__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'L', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']);
-
-    _defineProperty(this, "priority", 110);
-  }
-
-  parse(dateString, token, match) {
-    var valueCallback = function (value) {
-      return value - 1;
-    };
-
-    switch (token) {
-      // 1, 2, ..., 12
-      case 'M':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_2__["numericPatterns"].month, dateString), valueCallback);
-      // 01, 02, ..., 12
-
-      case 'MM':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNDigits"])(2, dateString), valueCallback);
-      // 1st, 2nd, ..., 12th
-
-      case 'Mo':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["mapValue"])(match.ordinalNumber(dateString, {
-          unit: 'month'
-        }), valueCallback);
-      // Jan, Feb, ..., Dec
-
-      case 'MMM':
-        return match.month(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.month(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // J, F, ..., D
-
-      case 'MMMMM':
-        return match.month(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // January, February, ..., December
-
-      case 'MMMM':
-      default:
-        return match.month(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.month(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.month(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'L', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']);
+        _defineProperty(this, "priority", 110);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 11;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMonth(value, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        var valueCallback = function (value) {
+            return value - 1;
+        };
+        switch (token) {
+            // 1, 2, ..., 12
+            case 'M':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_2__["numericPatterns"].month, dateString), valueCallback);
+            // 01, 02, ..., 12
+            case 'MM':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNDigits"])(2, dateString), valueCallback);
+            // 1st, 2nd, ..., 12th
+            case 'Mo':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["mapValue"])(match.ordinalNumber(dateString, {
+                    unit: 'month'
+                }), valueCallback);
+            // Jan, Feb, ..., Dec
+            case 'MMM':
+                return match.month(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.month(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // J, F, ..., D
+            case 'MMMMM':
+                return match.month(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // January, February, ..., December
+            case 'MMMM':
+            default:
+                return match.month(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.month(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.month(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 11;
+    }
+    set(date, _flags, value) {
+        date.setUTCMonth(value, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -10065,23 +9867,20 @@ __webpack_require__.r(__webpack_exports__);
  * @returns {Date} the parsed date in the local time zone
  * @throws {TypeError} 1 argument required
  */
-
 function parseJSON(argument) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-
-  if (typeof argument === 'string') {
-    var parts = argument.match(/(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.(\d{0,7}))?(?:Z|(.)(\d{2}):?(\d{2})?)?/);
-
-    if (parts) {
-      // Group 8 matches the sign
-      return new Date(Date.UTC(+parts[1], +parts[2] - 1, +parts[3], +parts[4] - (+parts[9] || 0) * (parts[8] == '-' ? -1 : 1), +parts[5] - (+parts[10] || 0) * (parts[8] == '-' ? -1 : 1), +parts[6], +((parts[7] || '0') + '00').substring(0, 3)));
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    if (typeof argument === 'string') {
+        var parts = argument.match(/(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.(\d{0,7}))?(?:Z|(.)(\d{2}):?(\d{2})?)?/);
+        if (parts) {
+            // Group 8 matches the sign
+            return new Date(Date.UTC(+parts[1], +parts[2] - 1, +parts[3], +parts[4] - (+parts[9] || 0) * (parts[8] == '-' ? -1 : 1), +parts[5] - (+parts[10] || 0) * (parts[8] == '-' ? -1 : 1), +parts[6], +((parts[7] || '0') + '00').substring(0, 3)));
+        }
+        return new Date(NaN);
     }
-
-    return new Date(NaN);
-  }
-
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(argument);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(argument);
 }
+
+
 
 /***/ }),
 
@@ -10117,13 +9916,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:45.999
  */
-
 function endOfSecond(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setMilliseconds(999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setMilliseconds(999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -10158,11 +9958,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousFriday(new Date(2021, 5, 19))
  * //=> Fri June 18 2021 00:00:00
  */
-
 function previousFriday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 5);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 5);
 }
+
+
 
 /***/ }),
 
@@ -10197,11 +9998,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isTuesday(new Date(2014, 8, 23))
  * //=> true
  */
-
 function isTuesday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 2;
 }
+
+
 
 /***/ }),
 
@@ -10243,15 +10045,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setISOWeek(new Date(2004, 7, 7), 53)
  * //=> Sat Jan 01 2005 00:00:00
  */
-
 function setISOWeek(dirtyDate, dirtyISOWeek) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var isoWeek = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyISOWeek);
-  var diff = Object(_getISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date) - isoWeek;
-  date.setDate(date.getDate() - diff * 7);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var isoWeek = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyISOWeek);
+    var diff = Object(_getISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date) - isoWeek;
+    date.setDate(date.getDate() - diff * 7);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -10319,64 +10122,62 @@ __webpack_require__.r(__webpack_exports__);
  * const result = formatRelative(addDays(new Date(), -6), new Date())
  * //=> "last Thursday at 12:45 AM"
  */
-
 function formatRelative(dirtyDate, dirtyBaseDate, options) {
-  var _ref, _options$locale, _ref2, _ref3, _ref4, _options$weekStartsOn, _options$locale2, _options$locale2$opti, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDate);
-  var baseDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyBaseDate);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-  var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_3__["default"];
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])((_ref2 = (_ref3 = (_ref4 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale2 = options.locale) === null || _options$locale2 === void 0 ? void 0 : (_options$locale2$opti = _options$locale2.options) === null || _options$locale2$opti === void 0 ? void 0 : _options$locale2$opti.weekStartsOn) !== null && _ref4 !== void 0 ? _ref4 : defaultOptions.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : 0);
-
-  if (!locale.localize) {
-    throw new RangeError('locale must contain localize property');
-  }
-
-  if (!locale.formatLong) {
-    throw new RangeError('locale must contain formatLong property');
-  }
-
-  if (!locale.formatRelative) {
-    throw new RangeError('locale must contain formatRelative property');
-  }
-
-  var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, baseDate);
-
-  if (isNaN(diff)) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var token;
-
-  if (diff < -6) {
-    token = 'other';
-  } else if (diff < -1) {
-    token = 'lastWeek';
-  } else if (diff < 0) {
-    token = 'yesterday';
-  } else if (diff < 1) {
-    token = 'today';
-  } else if (diff < 2) {
-    token = 'tomorrow';
-  } else if (diff < 7) {
-    token = 'nextWeek';
-  } else {
-    token = 'other';
-  }
-
-  var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date, Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(date));
-  var utcBaseDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(baseDate, Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(baseDate));
-  var formatStr = locale.formatRelative(token, utcDate, utcBaseDate, {
-    locale: locale,
-    weekStartsOn: weekStartsOn
-  });
-  return Object(_format_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, formatStr, {
-    locale: locale,
-    weekStartsOn: weekStartsOn
-  });
+    var _ref, _options$locale, _ref2, _ref3, _ref4, _options$weekStartsOn, _options$locale2, _options$locale2$opti, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDate);
+    var baseDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyBaseDate);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_3__["default"];
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])((_ref2 = (_ref3 = (_ref4 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale2 = options.locale) === null || _options$locale2 === void 0 ? void 0 : (_options$locale2$opti = _options$locale2.options) === null || _options$locale2$opti === void 0 ? void 0 : _options$locale2$opti.weekStartsOn) !== null && _ref4 !== void 0 ? _ref4 : defaultOptions.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : 0);
+    if (!locale.localize) {
+        throw new RangeError('locale must contain localize property');
+    }
+    if (!locale.formatLong) {
+        throw new RangeError('locale must contain formatLong property');
+    }
+    if (!locale.formatRelative) {
+        throw new RangeError('locale must contain formatRelative property');
+    }
+    var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, baseDate);
+    if (isNaN(diff)) {
+        throw new RangeError('Invalid time value');
+    }
+    var token;
+    if (diff < -6) {
+        token = 'other';
+    }
+    else if (diff < -1) {
+        token = 'lastWeek';
+    }
+    else if (diff < 0) {
+        token = 'yesterday';
+    }
+    else if (diff < 1) {
+        token = 'today';
+    }
+    else if (diff < 2) {
+        token = 'tomorrow';
+    }
+    else if (diff < 7) {
+        token = 'nextWeek';
+    }
+    else {
+        token = 'other';
+    }
+    var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(date, Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(date));
+    var utcBaseDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(baseDate, Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(baseDate));
+    var formatStr = locale.formatRelative(token, utcDate, utcBaseDate, {
+        locale: locale,
+        weekStartsOn: weekStartsOn
+    });
+    return Object(_format_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, formatStr, {
+        locale: locale,
+        weekStartsOn: weekStartsOn
+    });
 }
+
+
 
 /***/ }),
 
@@ -10393,100 +10194,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_lib/setUTCDay/index.js */ "+lkT");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
  // Stand-alone local day of week
-
 class StandAloneLocalDayParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 90);
-
-    _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'q', 'Q', 'M', 'L', 'I', 'd', 'D', 'E', 'i', 'e', 't', 'T']);
-  }
-
-  parse(dateString, token, match, options) {
-    var valueCallback = function (value) {
-      var wholeWeekDays = Math.floor((value - 1) / 7) * 7;
-      return (value + options.weekStartsOn + 6) % 7 + wholeWeekDays;
-    };
-
-    switch (token) {
-      // 3
-      case 'c':
-      case 'cc':
-        // 03
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
-      // 3rd
-
-      case 'co':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
-          unit: 'day'
-        }), valueCallback);
-      // Tue
-
-      case 'ccc':
-        return match.day(dateString, {
-          width: 'abbreviated',
-          context: 'standalone'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'standalone'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // T
-
-      case 'ccccc':
-        return match.day(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // Tu
-
-      case 'cccccc':
-        return match.day(dateString, {
-          width: 'short',
-          context: 'standalone'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
-      // Tuesday
-
-      case 'cccc':
-      default:
-        return match.day(dateString, {
-          width: 'wide',
-          context: 'standalone'
-        }) || match.day(dateString, {
-          width: 'abbreviated',
-          context: 'standalone'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'standalone'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'standalone'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 90);
+        _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'q', 'Q', 'M', 'L', 'I', 'd', 'D', 'E', 'i', 'e', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 6;
-  }
-
-  set(date, _flags, value, options) {
-    date = Object(_lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, value, options);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match, options) {
+        var valueCallback = function (value) {
+            var wholeWeekDays = Math.floor((value - 1) / 7) * 7;
+            return (value + options.weekStartsOn + 6) % 7 + wholeWeekDays;
+        };
+        switch (token) {
+            // 3
+            case 'c':
+            case 'cc':
+                // 03
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+            // 3rd
+            case 'co':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
+                    unit: 'day'
+                }), valueCallback);
+            // Tue
+            case 'ccc':
+                return match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'standalone'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // T
+            case 'ccccc':
+                return match.day(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // Tu
+            case 'cccccc':
+                return match.day(dateString, {
+                    width: 'short',
+                    context: 'standalone'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+            // Tuesday
+            case 'cccc':
+            default:
+                return match.day(dateString, {
+                    width: 'wide',
+                    context: 'standalone'
+                }) || match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'standalone'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'standalone'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'standalone'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 6;
+    }
+    set(date, _flags, value, options) {
+        date = Object(_lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, value, options);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -10524,16 +10318,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfDecade(new Date(1984, 4, 12, 00, 00, 00))
  * //=> Dec 31 1989 23:59:59.999
  */
-
 function endOfDecade(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  var decade = 9 + Math.floor(year / 10) * 10;
-  date.setFullYear(decade, 11, 31);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    var decade = 9 + Math.floor(year / 10) * 10;
+    date.setFullYear(decade, 11, 31);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -10574,12 +10369,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = minutesToHours(179)
  * //=> 2
  */
-
 function minutesToHours(minutes) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var hours = minutes / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["minutesInHour"];
-  return Math.floor(hours);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var hours = minutes / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["minutesInHour"];
+    return Math.floor(hours);
 }
+
+
 
 /***/ }),
 
@@ -10600,14 +10396,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function startOfUTCISOWeekYear(dirtyDate) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var year = Object(_getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var fourthOfJanuary = new Date(0);
-  fourthOfJanuary.setUTCFullYear(year, 0, 4);
-  fourthOfJanuary.setUTCHours(0, 0, 0, 0);
-  var date = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuary);
-  return date;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var year = Object(_getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var fourthOfJanuary = new Date(0);
+    fourthOfJanuary.setUTCFullYear(year, 0, 4);
+    fourthOfJanuary.setUTCHours(0, 0, 0, 0);
+    var date = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuary);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -10624,7 +10422,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../isValid/index.js */ "Se/U");
 /* harmony import */ var _lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/addLeadingZeros/index.js */ "+7QN");
-
 
 
 
@@ -10667,54 +10464,42 @@ __webpack_require__.r(__webpack_exports__);
  * //=> '19:00:52'
  */
 function formatISO9075(dirtyDate, options) {
-  var _options$format, _options$representati;
-
-  if (arguments.length < 1) {
-    throw new TypeError("1 argument required, but only ".concat(arguments.length, " present"));
-  }
-
-  var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate)) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var format = String((_options$format = options === null || options === void 0 ? void 0 : options.format) !== null && _options$format !== void 0 ? _options$format : 'extended');
-  var representation = String((_options$representati = options === null || options === void 0 ? void 0 : options.representation) !== null && _options$representati !== void 0 ? _options$representati : 'complete');
-
-  if (format !== 'extended' && format !== 'basic') {
-    throw new RangeError("format must be 'extended' or 'basic'");
-  }
-
-  if (representation !== 'date' && representation !== 'time' && representation !== 'complete') {
-    throw new RangeError("representation must be 'date', 'time', or 'complete'");
-  }
-
-  var result = '';
-  var dateDelimiter = format === 'extended' ? '-' : '';
-  var timeDelimiter = format === 'extended' ? ':' : ''; // Representation is either 'date' or 'complete'
-
-  if (representation !== 'time') {
-    var day = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getDate(), 2);
-    var month = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMonth() + 1, 2);
-    var year = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getFullYear(), 4); // yyyyMMdd or yyyy-MM-dd.
-
-    result = "".concat(year).concat(dateDelimiter).concat(month).concat(dateDelimiter).concat(day);
-  } // Representation is either 'time' or 'complete'
-
-
-  if (representation !== 'date') {
-    var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getHours(), 2);
-    var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMinutes(), 2);
-    var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getSeconds(), 2); // If there's also date, separate it with time with a space
-
-    var separator = result === '' ? '' : ' '; // HHmmss or HH:mm:ss.
-
-    result = "".concat(result).concat(separator).concat(hour).concat(timeDelimiter).concat(minute).concat(timeDelimiter).concat(second);
-  }
-
-  return result;
+    var _options$format, _options$representati;
+    if (arguments.length < 1) {
+        throw new TypeError("1 argument required, but only ".concat(arguments.length, " present"));
+    }
+    var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate)) {
+        throw new RangeError('Invalid time value');
+    }
+    var format = String((_options$format = options === null || options === void 0 ? void 0 : options.format) !== null && _options$format !== void 0 ? _options$format : 'extended');
+    var representation = String((_options$representati = options === null || options === void 0 ? void 0 : options.representation) !== null && _options$representati !== void 0 ? _options$representati : 'complete');
+    if (format !== 'extended' && format !== 'basic') {
+        throw new RangeError("format must be 'extended' or 'basic'");
+    }
+    if (representation !== 'date' && representation !== 'time' && representation !== 'complete') {
+        throw new RangeError("representation must be 'date', 'time', or 'complete'");
+    }
+    var result = '';
+    var dateDelimiter = format === 'extended' ? '-' : '';
+    var timeDelimiter = format === 'extended' ? ':' : ''; // Representation is either 'date' or 'complete'
+    if (representation !== 'time') {
+        var day = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getDate(), 2);
+        var month = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMonth() + 1, 2);
+        var year = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getFullYear(), 4); // yyyyMMdd or yyyy-MM-dd.
+        result = "".concat(year).concat(dateDelimiter).concat(month).concat(dateDelimiter).concat(day);
+    } // Representation is either 'time' or 'complete'
+    if (representation !== 'date') {
+        var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getHours(), 2);
+        var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getMinutes(), 2);
+        var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getSeconds(), 2); // If there's also date, separate it with time with a space
+        var separator = result === '' ? '' : ' '; // HHmmss or HH:mm:ss.
+        result = "".concat(result).concat(separator).concat(hour).concat(timeDelimiter).concat(minute).concat(timeDelimiter).concat(second);
+    }
+    return result;
 }
+
+
 
 /***/ }),
 
@@ -10751,12 +10536,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = fromUnixTime(1330515905)
  * //=> Wed Feb 29 2012 11:45:05
  */
-
 function fromUnixTime(dirtyUnixTime) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var unixTime = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyUnixTime);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(unixTime * 1000);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var unixTime = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyUnixTime);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(unixTime * 1000);
 }
+
+
 
 /***/ }),
 
@@ -10794,14 +10580,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)
  * //=> Mon Sep 01 2014 11:30:40.300
  */
-
 function setMilliseconds(dirtyDate, dirtyMilliseconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var milliseconds = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyMilliseconds);
-  date.setMilliseconds(milliseconds);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var milliseconds = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyMilliseconds);
+    date.setMilliseconds(milliseconds);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -10920,40 +10707,41 @@ __webpack_require__.r(__webpack_exports__);
  *   `Y` is supposed to be used in conjunction with `w` and `e`
  *   for week-numbering date specific to the locale.
  */
-
 var parsers = {
-  G: new _EraParser_js__WEBPACK_IMPORTED_MODULE_0__["EraParser"](),
-  y: new _YearParser_js__WEBPACK_IMPORTED_MODULE_1__["YearParser"](),
-  Y: new _LocalWeekYearParser_js__WEBPACK_IMPORTED_MODULE_2__["LocalWeekYearParser"](),
-  R: new _ISOWeekYearParser_js__WEBPACK_IMPORTED_MODULE_3__["ISOWeekYearParser"](),
-  u: new _ExtendedYearParser_js__WEBPACK_IMPORTED_MODULE_4__["ExtendedYearParser"](),
-  Q: new _QuarterParser_js__WEBPACK_IMPORTED_MODULE_5__["QuarterParser"](),
-  q: new _StandAloneQuarterParser_js__WEBPACK_IMPORTED_MODULE_6__["StandAloneQuarterParser"](),
-  M: new _MonthParser_js__WEBPACK_IMPORTED_MODULE_7__["MonthParser"](),
-  L: new _StandAloneMonthParser_js__WEBPACK_IMPORTED_MODULE_8__["StandAloneMonthParser"](),
-  w: new _LocalWeekParser_js__WEBPACK_IMPORTED_MODULE_9__["LocalWeekParser"](),
-  I: new _ISOWeekParser_js__WEBPACK_IMPORTED_MODULE_10__["ISOWeekParser"](),
-  d: new _DateParser_js__WEBPACK_IMPORTED_MODULE_11__["DateParser"](),
-  D: new _DayOfYearParser_js__WEBPACK_IMPORTED_MODULE_12__["DayOfYearParser"](),
-  E: new _DayParser_js__WEBPACK_IMPORTED_MODULE_13__["DayParser"](),
-  e: new _LocalDayParser_js__WEBPACK_IMPORTED_MODULE_14__["LocalDayParser"](),
-  c: new _StandAloneLocalDayParser_js__WEBPACK_IMPORTED_MODULE_15__["StandAloneLocalDayParser"](),
-  i: new _ISODayParser_js__WEBPACK_IMPORTED_MODULE_16__["ISODayParser"](),
-  a: new _AMPMParser_js__WEBPACK_IMPORTED_MODULE_17__["AMPMParser"](),
-  b: new _AMPMMidnightParser_js__WEBPACK_IMPORTED_MODULE_18__["AMPMMidnightParser"](),
-  B: new _DayPeriodParser_js__WEBPACK_IMPORTED_MODULE_19__["DayPeriodParser"](),
-  h: new _Hour1to12Parser_js__WEBPACK_IMPORTED_MODULE_20__["Hour1to12Parser"](),
-  H: new _Hour0to23Parser_js__WEBPACK_IMPORTED_MODULE_21__["Hour0to23Parser"](),
-  K: new _Hour0To11Parser_js__WEBPACK_IMPORTED_MODULE_22__["Hour0To11Parser"](),
-  k: new _Hour1To24Parser_js__WEBPACK_IMPORTED_MODULE_23__["Hour1To24Parser"](),
-  m: new _MinuteParser_js__WEBPACK_IMPORTED_MODULE_24__["MinuteParser"](),
-  s: new _SecondParser_js__WEBPACK_IMPORTED_MODULE_25__["SecondParser"](),
-  S: new _FractionOfSecondParser_js__WEBPACK_IMPORTED_MODULE_26__["FractionOfSecondParser"](),
-  X: new _ISOTimezoneWithZParser_js__WEBPACK_IMPORTED_MODULE_27__["ISOTimezoneWithZParser"](),
-  x: new _ISOTimezoneParser_js__WEBPACK_IMPORTED_MODULE_28__["ISOTimezoneParser"](),
-  t: new _TimestampSecondsParser_js__WEBPACK_IMPORTED_MODULE_29__["TimestampSecondsParser"](),
-  T: new _TimestampMillisecondsParser_js__WEBPACK_IMPORTED_MODULE_30__["TimestampMillisecondsParser"]()
+    G: new _EraParser_js__WEBPACK_IMPORTED_MODULE_0__["EraParser"](),
+    y: new _YearParser_js__WEBPACK_IMPORTED_MODULE_1__["YearParser"](),
+    Y: new _LocalWeekYearParser_js__WEBPACK_IMPORTED_MODULE_2__["LocalWeekYearParser"](),
+    R: new _ISOWeekYearParser_js__WEBPACK_IMPORTED_MODULE_3__["ISOWeekYearParser"](),
+    u: new _ExtendedYearParser_js__WEBPACK_IMPORTED_MODULE_4__["ExtendedYearParser"](),
+    Q: new _QuarterParser_js__WEBPACK_IMPORTED_MODULE_5__["QuarterParser"](),
+    q: new _StandAloneQuarterParser_js__WEBPACK_IMPORTED_MODULE_6__["StandAloneQuarterParser"](),
+    M: new _MonthParser_js__WEBPACK_IMPORTED_MODULE_7__["MonthParser"](),
+    L: new _StandAloneMonthParser_js__WEBPACK_IMPORTED_MODULE_8__["StandAloneMonthParser"](),
+    w: new _LocalWeekParser_js__WEBPACK_IMPORTED_MODULE_9__["LocalWeekParser"](),
+    I: new _ISOWeekParser_js__WEBPACK_IMPORTED_MODULE_10__["ISOWeekParser"](),
+    d: new _DateParser_js__WEBPACK_IMPORTED_MODULE_11__["DateParser"](),
+    D: new _DayOfYearParser_js__WEBPACK_IMPORTED_MODULE_12__["DayOfYearParser"](),
+    E: new _DayParser_js__WEBPACK_IMPORTED_MODULE_13__["DayParser"](),
+    e: new _LocalDayParser_js__WEBPACK_IMPORTED_MODULE_14__["LocalDayParser"](),
+    c: new _StandAloneLocalDayParser_js__WEBPACK_IMPORTED_MODULE_15__["StandAloneLocalDayParser"](),
+    i: new _ISODayParser_js__WEBPACK_IMPORTED_MODULE_16__["ISODayParser"](),
+    a: new _AMPMParser_js__WEBPACK_IMPORTED_MODULE_17__["AMPMParser"](),
+    b: new _AMPMMidnightParser_js__WEBPACK_IMPORTED_MODULE_18__["AMPMMidnightParser"](),
+    B: new _DayPeriodParser_js__WEBPACK_IMPORTED_MODULE_19__["DayPeriodParser"](),
+    h: new _Hour1to12Parser_js__WEBPACK_IMPORTED_MODULE_20__["Hour1to12Parser"](),
+    H: new _Hour0to23Parser_js__WEBPACK_IMPORTED_MODULE_21__["Hour0to23Parser"](),
+    K: new _Hour0To11Parser_js__WEBPACK_IMPORTED_MODULE_22__["Hour0To11Parser"](),
+    k: new _Hour1To24Parser_js__WEBPACK_IMPORTED_MODULE_23__["Hour1To24Parser"](),
+    m: new _MinuteParser_js__WEBPACK_IMPORTED_MODULE_24__["MinuteParser"](),
+    s: new _SecondParser_js__WEBPACK_IMPORTED_MODULE_25__["SecondParser"](),
+    S: new _FractionOfSecondParser_js__WEBPACK_IMPORTED_MODULE_26__["FractionOfSecondParser"](),
+    X: new _ISOTimezoneWithZParser_js__WEBPACK_IMPORTED_MODULE_27__["ISOTimezoneWithZParser"](),
+    x: new _ISOTimezoneParser_js__WEBPACK_IMPORTED_MODULE_28__["ISOTimezoneParser"](),
+    t: new _TimestampSecondsParser_js__WEBPACK_IMPORTED_MODULE_29__["TimestampSecondsParser"](),
+    T: new _TimestampMillisecondsParser_js__WEBPACK_IMPORTED_MODULE_30__["TimestampMillisecondsParser"]()
 };
+
+
 
 /***/ }),
 
@@ -10987,7 +10775,6 @@ __webpack_require__.r(__webpack_exports__);
 //   If there is no matching single quote
 //   then the sequence will continue until the end of the string.
 // - . matches any single character unmatched by previous parts of the RegExps
-
 var formattingTokensRegExp = /(\w)\1*|''|'(''|[^'])+('|$)|./g;
 var escapedStringRegExp = /^'([^]*?)'?$/;
 var doubleQuoteRegExp = /''/g;
@@ -11047,59 +10834,48 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * const result = lightFormat(new Date(2014, 1, 11), 'yyyy-MM-dd')
  * //=> '2014-02-11'
  */
-
 function lightFormat(dirtyDate, formatStr) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(2, arguments);
-  var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(originalDate)) {
-    throw new RangeError('Invalid time value');
-  } // Convert the date in system timezone to the same date in UTC+00:00 timezone.
-  // This ensures that when UTC functions will be implemented, locales will be compatible with them.
-  // See an issue about UTC functions: https://github.com/date-fns/date-fns/issues/376
-
-
-  var timezoneOffset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate);
-  var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(originalDate, timezoneOffset);
-  var tokens = formatStr.match(formattingTokensRegExp); // The only case when formattingTokensRegExp doesn't match the string is when it's empty
-
-  if (!tokens) return '';
-  var result = tokens.map(function (substring) {
-    // Replace two single quote characters with one single quote character
-    if (substring === "''") {
-      return "'";
-    }
-
-    var firstCharacter = substring[0];
-
-    if (firstCharacter === "'") {
-      return cleanEscapedString(substring);
-    }
-
-    var formatter = _lib_format_lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_1__["default"][firstCharacter];
-
-    if (formatter) {
-      return formatter(utcDate, substring);
-    }
-
-    if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
-      throw new RangeError('Format string contains an unescaped latin alphabet character `' + firstCharacter + '`');
-    }
-
-    return substring;
-  }).join('');
-  return result;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(2, arguments);
+    var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(originalDate)) {
+        throw new RangeError('Invalid time value');
+    } // Convert the date in system timezone to the same date in UTC+00:00 timezone.
+    // This ensures that when UTC functions will be implemented, locales will be compatible with them.
+    // See an issue about UTC functions: https://github.com/date-fns/date-fns/issues/376
+    var timezoneOffset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate);
+    var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(originalDate, timezoneOffset);
+    var tokens = formatStr.match(formattingTokensRegExp); // The only case when formattingTokensRegExp doesn't match the string is when it's empty
+    if (!tokens)
+        return '';
+    var result = tokens.map(function (substring) {
+        // Replace two single quote characters with one single quote character
+        if (substring === "''") {
+            return "'";
+        }
+        var firstCharacter = substring[0];
+        if (firstCharacter === "'") {
+            return cleanEscapedString(substring);
+        }
+        var formatter = _lib_format_lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_1__["default"][firstCharacter];
+        if (formatter) {
+            return formatter(utcDate, substring);
+        }
+        if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
+            throw new RangeError('Format string contains an unescaped latin alphabet character `' + firstCharacter + '`');
+        }
+        return substring;
+    }).join('');
+    return result;
 }
-
 function cleanEscapedString(input) {
-  var matches = input.match(escapedStringRegExp);
-
-  if (!matches) {
-    return input;
-  }
-
-  return matches[1].replace(doubleQuoteRegExp, "'");
+    var matches = input.match(escapedStringRegExp);
+    if (!matches) {
+        return input;
+    }
+    return matches[1].replace(doubleQuoteRegExp, "'");
 }
+
+
 
 /***/ }),
 
@@ -11134,13 +10910,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getQuarter(new Date(2014, 6, 2))
  * //=> 3
  */
-
 function getQuarter(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var quarter = Math.floor(date.getMonth() / 3) + 1;
-  return quarter;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var quarter = Math.floor(date.getMonth() / 3) + 1;
+    return quarter;
 }
+
+
 
 /***/ }),
 
@@ -11191,17 +10968,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isValid(new Date(''))
  * //=> false
  */
-
 function isValid(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-
-  if (!Object(_isDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate) && typeof dirtyDate !== 'number') {
-    return false;
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  return !isNaN(Number(date));
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    if (!Object(_isDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate) && typeof dirtyDate !== 'number') {
+        return false;
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    return !isNaN(Number(date));
 }
+
+
 
 /***/ }),
 
@@ -11239,12 +11015,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)
  * //=> Thu Jul 10 2014 12:44:30
  */
-
 function subSeconds(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addSeconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addSeconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -11269,35 +11046,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getUTCWeekYear(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getUTCFullYear();
-  var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
-  var firstWeekContainsDate = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
-
-  if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
-    throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
-  }
-
-  var firstWeekOfNextYear = new Date(0);
-  firstWeekOfNextYear.setUTCFullYear(year + 1, 0, firstWeekContainsDate);
-  firstWeekOfNextYear.setUTCHours(0, 0, 0, 0);
-  var startOfNextYear = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeekOfNextYear, options);
-  var firstWeekOfThisYear = new Date(0);
-  firstWeekOfThisYear.setUTCFullYear(year, 0, firstWeekContainsDate);
-  firstWeekOfThisYear.setUTCHours(0, 0, 0, 0);
-  var startOfThisYear = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeekOfThisYear, options);
-
-  if (date.getTime() >= startOfNextYear.getTime()) {
-    return year + 1;
-  } else if (date.getTime() >= startOfThisYear.getTime()) {
-    return year;
-  } else {
-    return year - 1;
-  }
+    var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getUTCFullYear();
+    var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
+    var firstWeekContainsDate = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
+    if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
+        throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
+    }
+    var firstWeekOfNextYear = new Date(0);
+    firstWeekOfNextYear.setUTCFullYear(year + 1, 0, firstWeekContainsDate);
+    firstWeekOfNextYear.setUTCHours(0, 0, 0, 0);
+    var startOfNextYear = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeekOfNextYear, options);
+    var firstWeekOfThisYear = new Date(0);
+    firstWeekOfThisYear.setUTCFullYear(year, 0, firstWeekContainsDate);
+    firstWeekOfThisYear.setUTCHours(0, 0, 0, 0);
+    var startOfThisYear = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeekOfThisYear, options);
+    if (date.getTime() >= startOfNextYear.getTime()) {
+        return year + 1;
+    }
+    else if (date.getTime() >= startOfThisYear.getTime()) {
+        return year;
+    }
+    else {
+        return year - 1;
+    }
 }
+
+
 
 /***/ }),
 
@@ -11315,65 +11092,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_lib/getUTCWeekYear/index.js */ "Szzx");
 /* harmony import */ var _lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../_lib/startOfUTCWeek/index.js */ "1vjI");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 
 // Local week-numbering year
 class LocalWeekYearParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 130);
-
-    _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'Q', 'q', 'M', 'L', 'I', 'd', 'D', 'i', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    var valueCallback = function (year) {
-      return {
-        year: year,
-        isTwoDigitYear: token === 'YY'
-      };
-    };
-
-    switch (token) {
-      case 'Y':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(4, dateString), valueCallback);
-
-      case 'Yo':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
-          unit: 'year'
-        }), valueCallback);
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 130);
+        _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'Q', 'q', 'M', 'L', 'I', 'd', 'D', 'i', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value.isTwoDigitYear || value.year > 0;
-  }
-
-  set(date, flags, value, options) {
-    var currentYear = Object(_lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, options);
-
-    if (value.isTwoDigitYear) {
-      var normalizedTwoDigitYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["normalizeTwoDigitYear"])(value.year, currentYear);
-      date.setUTCFullYear(normalizedTwoDigitYear, 0, options.firstWeekContainsDate);
-      date.setUTCHours(0, 0, 0, 0);
-      return Object(_lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, options);
+    parse(dateString, token, match) {
+        var valueCallback = function (year) {
+            return {
+                year: year,
+                isTwoDigitYear: token === 'YY'
+            };
+        };
+        switch (token) {
+            case 'Y':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(4, dateString), valueCallback);
+            case 'Yo':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
+                    unit: 'year'
+                }), valueCallback);
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+        }
     }
-
-    var year = !('era' in flags) || flags.era === 1 ? value.year : 1 - value.year;
-    date.setUTCFullYear(year, 0, options.firstWeekContainsDate);
-    date.setUTCHours(0, 0, 0, 0);
-    return Object(_lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, options);
-  }
-
+    validate(_date, value) {
+        return value.isTwoDigitYear || value.year > 0;
+    }
+    set(date, flags, value, options) {
+        var currentYear = Object(_lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, options);
+        if (value.isTwoDigitYear) {
+            var normalizedTwoDigitYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["normalizeTwoDigitYear"])(value.year, currentYear);
+            date.setUTCFullYear(normalizedTwoDigitYear, 0, options.firstWeekContainsDate);
+            date.setUTCHours(0, 0, 0, 0);
+            return Object(_lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, options);
+        }
+        var year = !('era' in flags) || flags.era === 1 ? value.year : 1 - value.year;
+        date.setUTCFullYear(year, 0, options.firstWeekContainsDate);
+        date.setUTCHours(0, 0, 0, 0);
+        return Object(_lib_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, options);
+    }
 }
+
+
 
 /***/ }),
 
@@ -11414,13 +11186,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameQuarter(new Date(2014, 0, 1), new Date(2015, 0, 1))
  * //=> false
  */
-
 function isSameQuarter(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRightStartOfQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeftStartOfQuarter.getTime() === dateRightStartOfQuarter.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRightStartOfQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeftStartOfQuarter.getTime() === dateRightStartOfQuarter.getTime();
 }
+
+
 
 /***/ }),
 
@@ -11487,32 +11260,31 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfWeek(new Date(2014, 8, 2))
  * //=> Sun Aug 31 2014 00:00:00
  */
-
 function setDefaultOptions(newOptions) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var result = {};
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-
-  for (var property in defaultOptions) {
-    if (Object.prototype.hasOwnProperty.call(defaultOptions, property)) {
-      ;
-      result[property] = defaultOptions[property];
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var result = {};
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    for (var property in defaultOptions) {
+        if (Object.prototype.hasOwnProperty.call(defaultOptions, property)) {
+            ;
+            result[property] = defaultOptions[property];
+        }
     }
-  }
-
-  for (var _property in newOptions) {
-    if (Object.prototype.hasOwnProperty.call(newOptions, _property)) {
-      if (newOptions[_property] === undefined) {
-        delete result[_property];
-      } else {
-        ;
-        result[_property] = newOptions[_property];
-      }
+    for (var _property in newOptions) {
+        if (Object.prototype.hasOwnProperty.call(newOptions, _property)) {
+            if (newOptions[_property] === undefined) {
+                delete result[_property];
+            }
+            else {
+                ;
+                result[_property] = newOptions[_property];
+            }
+        }
     }
-  }
-
-  Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["setDefaultOptions"])(result);
+    Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["setDefaultOptions"])(result);
 }
+
+
 
 /***/ }),
 
@@ -11550,13 +11322,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Sun Sep 07 2014 23:59:59.999
  */
-
 function endOfISOWeek(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_endOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, {
-    weekStartsOn: 1
-  });
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_endOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, {
+        weekStartsOn: 1
+    });
 }
+
+
 
 /***/ }),
 
@@ -11595,11 +11368,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isToday(new Date(2014, 9, 6, 14, 0))
  * //=> true
  */
-
 function isToday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now());
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now());
 }
+
+
 
 /***/ }),
 
@@ -11639,30 +11413,30 @@ __webpack_require__.r(__webpack_exports__);
  * ])
  * //=> Sun Jul 02 1995 00:00:00
  */
-
 function max(dirtyDatesArray) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var datesArray; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
-
-  if (dirtyDatesArray && typeof dirtyDatesArray.forEach === 'function') {
-    datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array.
-  } else if (typeof dirtyDatesArray === 'object' && dirtyDatesArray !== null) {
-    datesArray = Array.prototype.slice.call(dirtyDatesArray);
-  } else {
-    // `dirtyDatesArray` is non-iterable, return Invalid Date
-    return new Date(NaN);
-  }
-
-  var result;
-  datesArray.forEach(function (dirtyDate) {
-    var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-    if (result === undefined || result < currentDate || isNaN(Number(currentDate))) {
-      result = currentDate;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var datesArray; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
+    if (dirtyDatesArray && typeof dirtyDatesArray.forEach === 'function') {
+        datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array.
     }
-  });
-  return result || new Date(NaN);
+    else if (typeof dirtyDatesArray === 'object' && dirtyDatesArray !== null) {
+        datesArray = Array.prototype.slice.call(dirtyDatesArray);
+    }
+    else {
+        // `dirtyDatesArray` is non-iterable, return Invalid Date
+        return new Date(NaN);
+    }
+    var result;
+    datesArray.forEach(function (dirtyDate) {
+        var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+        if (result === undefined || result < currentDate || isNaN(Number(currentDate))) {
+            result = currentDate;
+        }
+    });
+    return result || new Date(NaN);
 }
+
+
 
 /***/ }),
 
@@ -11697,13 +11471,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDate(new Date(2012, 1, 29))
  * //=> 29
  */
-
 function getDate(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var dayOfMonth = date.getDate();
-  return dayOfMonth;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var dayOfMonth = date.getDate();
+    return dayOfMonth;
 }
+
+
 
 /***/ }),
 
@@ -11741,13 +11516,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameISOWeekYear(new Date(2003, 11, 29), new Date(2005, 0, 2))
  * //=> true
  */
-
 function isSameISOWeekYear(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRightStartOfYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeftStartOfYear.getTime() === dateRightStartOfYear.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRightStartOfYear = Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeftStartOfYear.getTime() === dateRightStartOfYear.getTime();
 }
+
+
 
 /***/ }),
 
@@ -11764,7 +11540,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _addHours_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../addHours/index.js */ "Da6A");
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -11799,32 +11574,30 @@ __webpack_require__.r(__webpack_exports__);
  * // ]
  */
 function eachHourOfInterval(dirtyInterval, options) {
-  var _options$step;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var interval = dirtyInterval || {};
-  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.start);
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.end);
-  var startTime = startDate.getTime();
-  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startTime <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var dates = [];
-  var currentDate = startDate;
-  currentDate.setMinutes(0, 0, 0);
-  var step = Number((_options$step = options === null || options === void 0 ? void 0 : options.step) !== null && _options$step !== void 0 ? _options$step : 1);
-  if (step < 1 || isNaN(step)) throw new RangeError('`options.step` must be a number greater than 1');
-
-  while (currentDate.getTime() <= endTime) {
-    dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentDate));
-    currentDate = Object(_addHours_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate, step);
-  }
-
-  return dates;
+    var _options$step;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var interval = dirtyInterval || {};
+    var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.start);
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(interval.end);
+    var startTime = startDate.getTime();
+    var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startTime <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var dates = [];
+    var currentDate = startDate;
+    currentDate.setMinutes(0, 0, 0);
+    var step = Number((_options$step = options === null || options === void 0 ? void 0 : options.step) !== null && _options$step !== void 0 ? _options$step : 1);
+    if (step < 1 || isNaN(step))
+        throw new RangeError('`options.step` must be a number greater than 1');
+    while (currentDate.getTime() <= endTime) {
+        dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(currentDate));
+        currentDate = Object(_addHours_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate, step);
+    }
+    return dates;
 }
+
+
 
 /***/ }),
 
@@ -11862,12 +11635,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subQuarters(new Date(2014, 8, 1), 3)
  * //=> Sun Dec 01 2013 00:00:00
  */
-
 function subQuarters(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addQuarters_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addQuarters_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -11948,38 +11722,33 @@ var defaultFormat = ['years', 'months', 'weeks', 'days', 'hours', 'minutes', 'se
  * formatDuration({ years: 2, months: 9, weeks: 3 }, { delimiter: ', ' })
  * //=> '2 years, 9 months, 3 weeks'
  */
-
 function formatDuration(duration, options) {
-  var _ref, _options$locale, _options$format, _options$zero, _options$delimiter;
-
-  if (arguments.length < 1) {
-    throw new TypeError("1 argument required, but only ".concat(arguments.length, " present"));
-  }
-
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-  var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_1__["default"];
-  var format = (_options$format = options === null || options === void 0 ? void 0 : options.format) !== null && _options$format !== void 0 ? _options$format : defaultFormat;
-  var zero = (_options$zero = options === null || options === void 0 ? void 0 : options.zero) !== null && _options$zero !== void 0 ? _options$zero : false;
-  var delimiter = (_options$delimiter = options === null || options === void 0 ? void 0 : options.delimiter) !== null && _options$delimiter !== void 0 ? _options$delimiter : ' ';
-
-  if (!locale.formatDistance) {
-    return '';
-  }
-
-  var result = format.reduce(function (acc, unit) {
-    var token = "x".concat(unit.replace(/(^.)/, function (m) {
-      return m.toUpperCase();
-    }));
-    var value = duration[unit];
-
-    if (typeof value === 'number' && (zero || duration[unit])) {
-      return acc.concat(locale.formatDistance(token, value));
+    var _ref, _options$locale, _options$format, _options$zero, _options$delimiter;
+    if (arguments.length < 1) {
+        throw new TypeError("1 argument required, but only ".concat(arguments.length, " present"));
     }
-
-    return acc;
-  }, []).join(delimiter);
-  return result;
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_1__["default"];
+    var format = (_options$format = options === null || options === void 0 ? void 0 : options.format) !== null && _options$format !== void 0 ? _options$format : defaultFormat;
+    var zero = (_options$zero = options === null || options === void 0 ? void 0 : options.zero) !== null && _options$zero !== void 0 ? _options$zero : false;
+    var delimiter = (_options$delimiter = options === null || options === void 0 ? void 0 : options.delimiter) !== null && _options$delimiter !== void 0 ? _options$delimiter : ' ';
+    if (!locale.formatDistance) {
+        return '';
+    }
+    var result = format.reduce(function (acc, unit) {
+        var token = "x".concat(unit.replace(/(^.)/, function (m) {
+            return m.toUpperCase();
+        }));
+        var value = duration[unit];
+        if (typeof value === 'number' && (zero || duration[unit])) {
+            return acc.concat(locale.formatDistance(token, value));
+        }
+        return acc;
+    }, []).join(delimiter);
+    return result;
 }
+
+
 
 /***/ }),
 
@@ -12019,11 +11788,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisHour(new Date(2014, 8, 25, 18))
  * //=> true
  */
-
 function isThisHour(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameHour_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameHour_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
 }
+
+
 
 /***/ }),
 
@@ -12058,11 +11828,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isFriday(new Date(2014, 8, 26))
  * //=> true
  */
-
 function isFriday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 5;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 5;
 }
+
+
 
 /***/ }),
 
@@ -12100,12 +11871,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subBusinessDays(new Date(2014, 8, 1), 10)
  * //=> Mon Aug 18 2014 00:00:00 (skipped weekend days)
  */
-
 function subBusinessDays(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  return Object(_addBusinessDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    return Object(_addBusinessDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -12146,11 +11918,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisISOWeek(new Date(2014, 8, 22))
  * //=> true
  */
-
 function isThisISOWeek(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameISOWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now());
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameISOWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, Date.now());
 }
+
+
 
 /***/ }),
 
@@ -12167,59 +11940,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../constants.js */ "t9RH");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 var DAYS_IN_MONTH_LEAP_YEAR = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]; // Day of the month
-
 class DateParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_1__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 90);
-
-    _defineProperty(this, "subPriority", 1);
-
-    _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'd':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_2__["numericPatterns"].date, dateString);
-
-      case 'do':
-        return match.ordinalNumber(dateString, {
-          unit: 'date'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 90);
+        _defineProperty(this, "subPriority", 1);
+        _defineProperty(this, "incompatibleTokens", ['Y', 'R', 'q', 'Q', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(date, value) {
-    var year = date.getUTCFullYear();
-    var isLeapYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["isLeapYearIndex"])(year);
-    var month = date.getUTCMonth();
-
-    if (isLeapYear) {
-      return value >= 1 && value <= DAYS_IN_MONTH_LEAP_YEAR[month];
-    } else {
-      return value >= 1 && value <= DAYS_IN_MONTH[month];
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'd':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_2__["numericPatterns"].date, dateString);
+            case 'do':
+                return match.ordinalNumber(dateString, {
+                    unit: 'date'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["parseNDigits"])(token.length, dateString);
+        }
     }
-  }
-
-  set(date, _flags, value) {
-    date.setUTCDate(value);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    validate(date, value) {
+        var year = date.getUTCFullYear();
+        var isLeapYear = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__["isLeapYearIndex"])(year);
+        var month = date.getUTCMonth();
+        if (isLeapYear) {
+            return value >= 1 && value <= DAYS_IN_MONTH_LEAP_YEAR[month];
+        }
+        else {
+            return value >= 1 && value <= DAYS_IN_MONTH[month];
+        }
+    }
+    set(date, _flags, value) {
+        date.setUTCDate(value);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -12260,13 +12029,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameMonth(new Date(2014, 8, 2), new Date(2015, 8, 25))
  * //=> false
  */
-
 function isSameMonth(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeft.getFullYear() === dateRight.getFullYear() && dateLeft.getMonth() === dateRight.getMonth();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeft.getFullYear() === dateRight.getFullYear() && dateLeft.getMonth() === dateRight.getMonth();
 }
+
+
 
 /***/ }),
 
@@ -12302,13 +12072,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))
  * //=> Mon Dec 01 2014 22:15:45.000
  */
-
 function startOfSecond(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setMilliseconds(0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setMilliseconds(0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -12346,12 +12117,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subHours(new Date(2014, 6, 11, 1, 0), 2)
  * //=> Thu Jul 10 2014 23:00:00
  */
-
 function subHours(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  return Object(_addHours_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    return Object(_addHours_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -12371,99 +12143,101 @@ __webpack_require__.r(__webpack_exports__);
 var matchOrdinalNumberPattern = /^(\d+)(th|st|nd|rd)?/i;
 var parseOrdinalNumberPattern = /\d+/i;
 var matchEraPatterns = {
-  narrow: /^(b|a)/i,
-  abbreviated: /^(b\.?\s?c\.?|b\.?\s?c\.?\s?e\.?|a\.?\s?d\.?|c\.?\s?e\.?)/i,
-  wide: /^(before christ|before common era|anno domini|common era)/i
+    narrow: /^(b|a)/i,
+    abbreviated: /^(b\.?\s?c\.?|b\.?\s?c\.?\s?e\.?|a\.?\s?d\.?|c\.?\s?e\.?)/i,
+    wide: /^(before christ|before common era|anno domini|common era)/i
 };
 var parseEraPatterns = {
-  any: [/^b/i, /^(a|c)/i]
+    any: [/^b/i, /^(a|c)/i]
 };
 var matchQuarterPatterns = {
-  narrow: /^[1234]/i,
-  abbreviated: /^q[1234]/i,
-  wide: /^[1234](th|st|nd|rd)? quarter/i
+    narrow: /^[1234]/i,
+    abbreviated: /^q[1234]/i,
+    wide: /^[1234](th|st|nd|rd)? quarter/i
 };
 var parseQuarterPatterns = {
-  any: [/1/i, /2/i, /3/i, /4/i]
+    any: [/1/i, /2/i, /3/i, /4/i]
 };
 var matchMonthPatterns = {
-  narrow: /^[jfmasond]/i,
-  abbreviated: /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
-  wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i
+    narrow: /^[jfmasond]/i,
+    abbreviated: /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
+    wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i
 };
 var parseMonthPatterns = {
-  narrow: [/^j/i, /^f/i, /^m/i, /^a/i, /^m/i, /^j/i, /^j/i, /^a/i, /^s/i, /^o/i, /^n/i, /^d/i],
-  any: [/^ja/i, /^f/i, /^mar/i, /^ap/i, /^may/i, /^jun/i, /^jul/i, /^au/i, /^s/i, /^o/i, /^n/i, /^d/i]
+    narrow: [/^j/i, /^f/i, /^m/i, /^a/i, /^m/i, /^j/i, /^j/i, /^a/i, /^s/i, /^o/i, /^n/i, /^d/i],
+    any: [/^ja/i, /^f/i, /^mar/i, /^ap/i, /^may/i, /^jun/i, /^jul/i, /^au/i, /^s/i, /^o/i, /^n/i, /^d/i]
 };
 var matchDayPatterns = {
-  narrow: /^[smtwf]/i,
-  short: /^(su|mo|tu|we|th|fr|sa)/i,
-  abbreviated: /^(sun|mon|tue|wed|thu|fri|sat)/i,
-  wide: /^(sunday|monday|tuesday|wednesday|thursday|friday|saturday)/i
+    narrow: /^[smtwf]/i,
+    short: /^(su|mo|tu|we|th|fr|sa)/i,
+    abbreviated: /^(sun|mon|tue|wed|thu|fri|sat)/i,
+    wide: /^(sunday|monday|tuesday|wednesday|thursday|friday|saturday)/i
 };
 var parseDayPatterns = {
-  narrow: [/^s/i, /^m/i, /^t/i, /^w/i, /^t/i, /^f/i, /^s/i],
-  any: [/^su/i, /^m/i, /^tu/i, /^w/i, /^th/i, /^f/i, /^sa/i]
+    narrow: [/^s/i, /^m/i, /^t/i, /^w/i, /^t/i, /^f/i, /^s/i],
+    any: [/^su/i, /^m/i, /^tu/i, /^w/i, /^th/i, /^f/i, /^sa/i]
 };
 var matchDayPeriodPatterns = {
-  narrow: /^(a|p|mi|n|(in the|at) (morning|afternoon|evening|night))/i,
-  any: /^([ap]\.?\s?m\.?|midnight|noon|(in the|at) (morning|afternoon|evening|night))/i
+    narrow: /^(a|p|mi|n|(in the|at) (morning|afternoon|evening|night))/i,
+    any: /^([ap]\.?\s?m\.?|midnight|noon|(in the|at) (morning|afternoon|evening|night))/i
 };
 var parseDayPeriodPatterns = {
-  any: {
-    am: /^a/i,
-    pm: /^p/i,
-    midnight: /^mi/i,
-    noon: /^no/i,
-    morning: /morning/i,
-    afternoon: /afternoon/i,
-    evening: /evening/i,
-    night: /night/i
-  }
+    any: {
+        am: /^a/i,
+        pm: /^p/i,
+        midnight: /^mi/i,
+        noon: /^no/i,
+        morning: /morning/i,
+        afternoon: /afternoon/i,
+        evening: /evening/i,
+        night: /night/i
+    }
 };
 var match = {
-  ordinalNumber: Object(_lib_buildMatchPatternFn_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
-    matchPattern: matchOrdinalNumberPattern,
-    parsePattern: parseOrdinalNumberPattern,
-    valueCallback: function (value) {
-      return parseInt(value, 10);
-    }
-  }),
-  era: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    matchPatterns: matchEraPatterns,
-    defaultMatchWidth: 'wide',
-    parsePatterns: parseEraPatterns,
-    defaultParseWidth: 'any'
-  }),
-  quarter: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    matchPatterns: matchQuarterPatterns,
-    defaultMatchWidth: 'wide',
-    parsePatterns: parseQuarterPatterns,
-    defaultParseWidth: 'any',
-    valueCallback: function (index) {
-      return index + 1;
-    }
-  }),
-  month: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    matchPatterns: matchMonthPatterns,
-    defaultMatchWidth: 'wide',
-    parsePatterns: parseMonthPatterns,
-    defaultParseWidth: 'any'
-  }),
-  day: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    matchPatterns: matchDayPatterns,
-    defaultMatchWidth: 'wide',
-    parsePatterns: parseDayPatterns,
-    defaultParseWidth: 'any'
-  }),
-  dayPeriod: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    matchPatterns: matchDayPeriodPatterns,
-    defaultMatchWidth: 'any',
-    parsePatterns: parseDayPeriodPatterns,
-    defaultParseWidth: 'any'
-  })
+    ordinalNumber: Object(_lib_buildMatchPatternFn_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+        matchPattern: matchOrdinalNumberPattern,
+        parsePattern: parseOrdinalNumberPattern,
+        valueCallback: function (value) {
+            return parseInt(value, 10);
+        }
+    }),
+    era: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        matchPatterns: matchEraPatterns,
+        defaultMatchWidth: 'wide',
+        parsePatterns: parseEraPatterns,
+        defaultParseWidth: 'any'
+    }),
+    quarter: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        matchPatterns: matchQuarterPatterns,
+        defaultMatchWidth: 'wide',
+        parsePatterns: parseQuarterPatterns,
+        defaultParseWidth: 'any',
+        valueCallback: function (index) {
+            return index + 1;
+        }
+    }),
+    month: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        matchPatterns: matchMonthPatterns,
+        defaultMatchWidth: 'wide',
+        parsePatterns: parseMonthPatterns,
+        defaultParseWidth: 'any'
+    }),
+    day: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        matchPatterns: matchDayPatterns,
+        defaultMatchWidth: 'wide',
+        parsePatterns: parseDayPatterns,
+        defaultParseWidth: 'any'
+    }),
+    dayPeriod: Object(_lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        matchPatterns: matchDayPeriodPatterns,
+        defaultMatchWidth: 'any',
+        parsePatterns: parseDayPeriodPatterns,
+        defaultParseWidth: 'any'
+    })
 };
 /* harmony default export */ __webpack_exports__["default"] = (match);
+
+
 
 /***/ }),
 
@@ -12480,103 +12254,95 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_setUTCISODay_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_lib/setUTCISODay/index.js */ "zWh8");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
  // ISO day of week
-
 class ISODayParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 90);
-
-    _defineProperty(this, "incompatibleTokens", ['y', 'Y', 'u', 'q', 'Q', 'M', 'L', 'w', 'd', 'D', 'E', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    var valueCallback = function (value) {
-      if (value === 0) {
-        return 7;
-      }
-
-      return value;
-    };
-
-    switch (token) {
-      // 2
-      case 'i':
-      case 'ii':
-        // 02
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString);
-      // 2nd
-
-      case 'io':
-        return match.ordinalNumber(dateString, {
-          unit: 'day'
-        });
-      // Tue
-
-      case 'iii':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        }), valueCallback);
-      // T
-
-      case 'iiiii':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        }), valueCallback);
-      // Tu
-
-      case 'iiiiii':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        }), valueCallback);
-      // Tuesday
-
-      case 'iiii':
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        }), valueCallback);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 90);
+        _defineProperty(this, "incompatibleTokens", ['y', 'Y', 'u', 'q', 'Q', 'M', 'L', 'w', 'd', 'D', 'E', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 7;
-  }
-
-  set(date, _flags, value) {
-    date = Object(_lib_setUTCISODay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, value);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        var valueCallback = function (value) {
+            if (value === 0) {
+                return 7;
+            }
+            return value;
+        };
+        switch (token) {
+            // 2
+            case 'i':
+            case 'ii':
+                // 02
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString);
+            // 2nd
+            case 'io':
+                return match.ordinalNumber(dateString, {
+                    unit: 'day'
+                });
+            // Tue
+            case 'iii':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                }), valueCallback);
+            // T
+            case 'iiiii':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                }), valueCallback);
+            // Tu
+            case 'iiiiii':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                }), valueCallback);
+            // Tuesday
+            case 'iiii':
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.day(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                }), valueCallback);
+        }
+    }
+    validate(_date, value) {
+        return value >= 1 && value <= 7;
+    }
+    set(date, _flags, value) {
+        date = Object(_lib_setUTCISODay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, value);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -12614,14 +12380,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setHours(new Date(2014, 8, 1, 11, 30), 4)
  * //=> Mon Sep 01 2014 04:30:00
  */
-
 function setHours(dirtyDate, dirtyHours) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var hours = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyHours);
-  date.setHours(hours);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var hours = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyHours);
+    date.setHours(hours);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -12683,15 +12450,16 @@ __webpack_require__.r(__webpack_exports__);
  * })
  * //=> Sun Jan 4 2004 00:00:00
  */
-
 function setWeek(dirtyDate, dirtyWeek, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var week = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyWeek);
-  var diff = Object(_getWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, options) - week;
-  date.setDate(date.getDate() - diff * 7);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var week = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyWeek);
+    var diff = Object(_getWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, options) - week;
+    date.setDate(date.getDate() - diff * 7);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -12729,12 +12497,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subDays(new Date(2014, 8, 1), 10)
  * //=> Fri Aug 22 2014 00:00:00
  */
-
 function subDays(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -12775,12 +12544,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = quartersToYears(11)
  * //=> 2
  */
-
 function quartersToYears(quarters) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var years = quarters / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["quartersInYear"];
-  return Math.floor(years);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var years = quarters / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["quartersInYear"];
+    return Math.floor(years);
 }
+
+
 
 /***/ }),
 
@@ -12797,52 +12567,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class Hour0To11Parser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 70);
-
-    _defineProperty(this, "incompatibleTokens", ['h', 'H', 'k', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'K':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour11h, dateString);
-
-      case 'Ko':
-        return match.ordinalNumber(dateString, {
-          unit: 'hour'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 70);
+        _defineProperty(this, "incompatibleTokens", ['h', 'H', 'k', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 11;
-  }
-
-  set(date, _flags, value) {
-    var isPM = date.getUTCHours() >= 12;
-
-    if (isPM && value < 12) {
-      date.setUTCHours(value + 12, 0, 0, 0);
-    } else {
-      date.setUTCHours(value, 0, 0, 0);
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'K':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour11h, dateString);
+            case 'Ko':
+                return match.ordinalNumber(dateString, {
+                    unit: 'hour'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
     }
-
-    return date;
-  }
-
+    validate(_date, value) {
+        return value >= 0 && value <= 11;
+    }
+    set(date, _flags, value) {
+        var isPM = date.getUTCHours() >= 12;
+        if (isPM && value < 12) {
+            date.setUTCHours(value + 12, 0, 0, 0);
+        }
+        else {
+            date.setUTCHours(value, 0, 0, 0);
+        }
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -12869,77 +12636,73 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Letters marked by * are not implemented but reserved by Unicode standard.
  */
-
 var formatters = {
-  // Year
-  y: function (date, token) {
-    // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_tokens
-    // | Year     |     y | yy |   yyy |  yyyy | yyyyy |
-    // |----------|-------|----|-------|-------|-------|
-    // | AD 1     |     1 | 01 |   001 |  0001 | 00001 |
-    // | AD 12    |    12 | 12 |   012 |  0012 | 00012 |
-    // | AD 123   |   123 | 23 |   123 |  0123 | 00123 |
-    // | AD 1234  |  1234 | 34 |  1234 |  1234 | 01234 |
-    // | AD 12345 | 12345 | 45 | 12345 | 12345 | 12345 |
-    var signedYear = date.getUTCFullYear(); // Returns 1 for 1 BC (which is year 0 in JavaScript)
-
-    var year = signedYear > 0 ? signedYear : 1 - signedYear;
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(token === 'yy' ? year % 100 : year, token.length);
-  },
-  // Month
-  M: function (date, token) {
-    var month = date.getUTCMonth();
-    return token === 'M' ? String(month + 1) : Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(month + 1, 2);
-  },
-  // Day of the month
-  d: function (date, token) {
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCDate(), token.length);
-  },
-  // AM or PM
-  a: function (date, token) {
-    var dayPeriodEnumValue = date.getUTCHours() / 12 >= 1 ? 'pm' : 'am';
-
-    switch (token) {
-      case 'a':
-      case 'aa':
-        return dayPeriodEnumValue.toUpperCase();
-
-      case 'aaa':
-        return dayPeriodEnumValue;
-
-      case 'aaaaa':
-        return dayPeriodEnumValue[0];
-
-      case 'aaaa':
-      default:
-        return dayPeriodEnumValue === 'am' ? 'a.m.' : 'p.m.';
+    // Year
+    y: function (date, token) {
+        // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_tokens
+        // | Year     |     y | yy |   yyy |  yyyy | yyyyy |
+        // |----------|-------|----|-------|-------|-------|
+        // | AD 1     |     1 | 01 |   001 |  0001 | 00001 |
+        // | AD 12    |    12 | 12 |   012 |  0012 | 00012 |
+        // | AD 123   |   123 | 23 |   123 |  0123 | 00123 |
+        // | AD 1234  |  1234 | 34 |  1234 |  1234 | 01234 |
+        // | AD 12345 | 12345 | 45 | 12345 | 12345 | 12345 |
+        var signedYear = date.getUTCFullYear(); // Returns 1 for 1 BC (which is year 0 in JavaScript)
+        var year = signedYear > 0 ? signedYear : 1 - signedYear;
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(token === 'yy' ? year % 100 : year, token.length);
+    },
+    // Month
+    M: function (date, token) {
+        var month = date.getUTCMonth();
+        return token === 'M' ? String(month + 1) : Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(month + 1, 2);
+    },
+    // Day of the month
+    d: function (date, token) {
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCDate(), token.length);
+    },
+    // AM or PM
+    a: function (date, token) {
+        var dayPeriodEnumValue = date.getUTCHours() / 12 >= 1 ? 'pm' : 'am';
+        switch (token) {
+            case 'a':
+            case 'aa':
+                return dayPeriodEnumValue.toUpperCase();
+            case 'aaa':
+                return dayPeriodEnumValue;
+            case 'aaaaa':
+                return dayPeriodEnumValue[0];
+            case 'aaaa':
+            default:
+                return dayPeriodEnumValue === 'am' ? 'a.m.' : 'p.m.';
+        }
+    },
+    // Hour [1-12]
+    h: function (date, token) {
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCHours() % 12 || 12, token.length);
+    },
+    // Hour [0-23]
+    H: function (date, token) {
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCHours(), token.length);
+    },
+    // Minute
+    m: function (date, token) {
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCMinutes(), token.length);
+    },
+    // Second
+    s: function (date, token) {
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCSeconds(), token.length);
+    },
+    // Fraction of second
+    S: function (date, token) {
+        var numberOfDigits = token.length;
+        var milliseconds = date.getUTCMilliseconds();
+        var fractionalSeconds = Math.floor(milliseconds * Math.pow(10, numberOfDigits - 3));
+        return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(fractionalSeconds, token.length);
     }
-  },
-  // Hour [1-12]
-  h: function (date, token) {
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCHours() % 12 || 12, token.length);
-  },
-  // Hour [0-23]
-  H: function (date, token) {
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCHours(), token.length);
-  },
-  // Minute
-  m: function (date, token) {
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCMinutes(), token.length);
-  },
-  // Second
-  s: function (date, token) {
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date.getUTCSeconds(), token.length);
-  },
-  // Fraction of second
-  S: function (date, token) {
-    var numberOfDigits = token.length;
-    var milliseconds = date.getUTCMilliseconds();
-    var fractionalSeconds = Math.floor(milliseconds * Math.pow(10, numberOfDigits - 3));
-    return Object(_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(fractionalSeconds, token.length);
-  }
 };
 /* harmony default export */ __webpack_exports__["default"] = (formatters);
+
+
 
 /***/ }),
 
@@ -12973,15 +12736,17 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Sun Oct 5 2014 00:00:00
  */
 function startOfYesterday() {
-  var now = new Date();
-  var year = now.getFullYear();
-  var month = now.getMonth();
-  var day = now.getDate();
-  var date = new Date(0);
-  date.setFullYear(year, month, day - 1);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var day = now.getDate();
+    var date = new Date(0);
+    date.setFullYear(year, month, day - 1);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -13015,15 +12780,17 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Tue Oct 7 2014 23:59:59.999
  */
 function endOfTomorrow() {
-  var now = new Date();
-  var year = now.getFullYear();
-  var month = now.getMonth();
-  var day = now.getDate();
-  var date = new Date(0);
-  date.setFullYear(year, month, day + 1);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var day = now.getDate();
+    var date = new Date(0);
+    date.setFullYear(year, month, day + 1);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -13039,7 +12806,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isWithinInterval; });
 /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../toDate/index.js */ "/Tr7");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 /**
@@ -13082,17 +12848,17 @@ __webpack_require__.r(__webpack_exports__);
  * isWithinInterval(date, { start: date, end }) // => true
  */
 function isWithinInterval(dirtyDate, interval) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var time = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getTime();
-  var startTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start).getTime();
-  var endTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end).getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startTime <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  return time >= startTime && time <= endTime;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var time = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getTime();
+    var startTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start).getTime();
+    var endTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end).getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startTime <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    return time >= startTime && time <= endTime;
 }
+
+
 
 /***/ }),
 
@@ -13141,24 +12907,23 @@ __webpack_require__.r(__webpack_exports__);
  * //   Sun Sep 30 2018 00:00:00
  * // ]
  */
-
 function eachWeekendOfInterval(interval) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var dateInterval = Object(_eachDayOfInterval_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval);
-  var weekends = [];
-  var index = 0;
-
-  while (index < dateInterval.length) {
-    var date = dateInterval[index++];
-
-    if (Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date)) {
-      weekends.push(date);
-      if (Object(_isSunday_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date)) index = index + 5;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var dateInterval = Object(_eachDayOfInterval_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval);
+    var weekends = [];
+    var index = 0;
+    while (index < dateInterval.length) {
+        var date = dateInterval[index++];
+        if (Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date)) {
+            weekends.push(date);
+            if (Object(_isSunday_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date))
+                index = index + 5;
+        }
     }
-  }
-
-  return weekends;
+    return weekends;
 }
+
+
 
 /***/ }),
 
@@ -13196,12 +12961,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)
  * //=> Thu Jul 10 2014 11:30:00
  */
-
 function subMinutes(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  return Object(_addMinutes_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    return Object(_addMinutes_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -13241,12 +13007,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = differenceInQuarters(new Date(2014, 6, 2), new Date(2013, 11, 31))
  * //=> 2
  */
-
 function differenceInQuarters(dateLeft, dateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var diff = Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight) / 3;
-  return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_2__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var diff = Object(_differenceInMonths_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight) / 3;
+    return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_2__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
 }
+
+
 
 /***/ }),
 
@@ -13325,26 +13092,26 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 0
  */
-
 function differenceInBusinessDays(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDateRight);
-  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft) || !Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateRight)) return NaN;
-  var calendarDifference = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight);
-  var sign = calendarDifference < 0 ? -1 : 1;
-  var weeks = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(calendarDifference / 7);
-  var result = weeks * 5;
-  dateRight = Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight, weeks * 7); // the loop below will run at most 6 times to account for the remaining days that don't makeup a full week
-
-  while (!Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight)) {
-    // sign is used to account for both negative and positive differences
-    result += Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateRight) ? 0 : sign;
-    dateRight = Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight, sign);
-  }
-
-  return result === 0 ? 0 : result;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_6__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(dirtyDateRight);
+    if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft) || !Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateRight))
+        return NaN;
+    var calendarDifference = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight);
+    var sign = calendarDifference < 0 ? -1 : 1;
+    var weeks = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])(calendarDifference / 7);
+    var result = weeks * 5;
+    dateRight = Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight, weeks * 7); // the loop below will run at most 6 times to account for the remaining days that don't makeup a full week
+    while (!Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight)) {
+        // sign is used to account for both negative and positive differences
+        result += Object(_isWeekend_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(dateRight) ? 0 : sign;
+        dateRight = Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateRight, sign);
+    }
+    return result === 0 ? 0 : result;
 }
+
+
 
 /***/ }),
 
@@ -13379,11 +13146,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextFriday(new Date(2020, 2, 22))
  * //=> Fri Mar 27 2020 00:00:00
  */
-
 function nextFriday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 5);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 5);
 }
+
+
 
 /***/ }),
 
@@ -13418,13 +13186,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getSeconds(new Date(2012, 1, 29, 11, 45, 5, 123))
  * //=> 5
  */
-
 function getSeconds(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var seconds = date.getSeconds();
-  return seconds;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var seconds = date.getSeconds();
+    return seconds;
 }
+
+
 
 /***/ }),
 
@@ -13473,25 +13242,23 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0), { weekStartsOn: 1 })
  * //=> Mon Sep 01 2014 00:00:00
  */
-
 function startOfWeek(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getDay();
-  var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
-  date.setDate(date.getDate() - diff);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getDay();
+    var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
+    date.setDate(date.getDate() - diff);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -13539,27 +13306,29 @@ var daysInYear = 365.2425;
  * milliseconds({ months: 3 })
  * //=> 7889238000
  */
-
 function milliseconds(_ref) {
-  var years = _ref.years,
-      months = _ref.months,
-      weeks = _ref.weeks,
-      days = _ref.days,
-      hours = _ref.hours,
-      minutes = _ref.minutes,
-      seconds = _ref.seconds;
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var totalDays = 0;
-  if (years) totalDays += years * daysInYear;
-  if (months) totalDays += months * (daysInYear / 12);
-  if (weeks) totalDays += weeks * 7;
-  if (days) totalDays += days;
-  var totalSeconds = totalDays * 24 * 60 * 60;
-  if (hours) totalSeconds += hours * 60 * 60;
-  if (minutes) totalSeconds += minutes * 60;
-  if (seconds) totalSeconds += seconds;
-  return Math.round(totalSeconds * 1000);
+    var years = _ref.years, months = _ref.months, weeks = _ref.weeks, days = _ref.days, hours = _ref.hours, minutes = _ref.minutes, seconds = _ref.seconds;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var totalDays = 0;
+    if (years)
+        totalDays += years * daysInYear;
+    if (months)
+        totalDays += months * (daysInYear / 12);
+    if (weeks)
+        totalDays += weeks * 7;
+    if (days)
+        totalDays += days;
+    var totalSeconds = totalDays * 24 * 60 * 60;
+    if (hours)
+        totalSeconds += hours * 60 * 60;
+    if (minutes)
+        totalSeconds += minutes * 60;
+    if (seconds)
+        totalSeconds += seconds;
+    return Math.round(totalSeconds * 1000);
 }
+
+
 
 /***/ }),
 
@@ -14568,6 +14337,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 /***/ }),
 
 /***/ "bKex":
@@ -14600,15 +14371,17 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Sun Oct 5 2014 23:59:59.999
  */
 function endOfYesterday() {
-  var now = new Date();
-  var year = now.getFullYear();
-  var month = now.getMonth();
-  var day = now.getDate();
-  var date = new Date(0);
-  date.setFullYear(year, month, day - 1);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var day = now.getDate();
+    var date = new Date(0);
+    date.setFullYear(year, month, day - 1);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -14643,11 +14416,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousThursday(new Date(2021, 5, 18))
  * //=> Thu June 17 2021 00:00:00
  */
-
 function previousThursday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 4);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 4);
 }
+
+
 
 /***/ }),
 
@@ -14688,17 +14462,18 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfISOWeekYear(new Date(2005, 6, 2))
  * //=> Sun Jan 01 2006 23:59:59.999
  */
-
 function endOfISOWeekYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var year = Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var fourthOfJanuaryOfNextYear = new Date(0);
-  fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
-  fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
-  var date = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuaryOfNextYear);
-  date.setMilliseconds(date.getMilliseconds() - 1);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var year = Object(_getISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var fourthOfJanuaryOfNextYear = new Date(0);
+    fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
+    fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
+    var date = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(fourthOfJanuaryOfNextYear);
+    date.setMilliseconds(date.getMilliseconds() - 1);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -14739,28 +14514,25 @@ var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oc
  * const result = formatRFC7231(new Date(2019, 8, 18, 19, 0, 52))
  * //=> 'Wed, 18 Sep 2019 19:00:52 GMT'
  */
-
 function formatRFC7231(dirtyDate) {
-  if (arguments.length < 1) {
-    throw new TypeError("1 arguments required, but only ".concat(arguments.length, " present"));
-  }
-
-  var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate)) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var dayName = days[originalDate.getUTCDay()];
-  var dayOfMonth = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCDate(), 2);
-  var monthName = months[originalDate.getUTCMonth()];
-  var year = originalDate.getUTCFullYear();
-  var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCHours(), 2);
-  var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCMinutes(), 2);
-  var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCSeconds(), 2); // Result variables.
-
-  return "".concat(dayName, ", ").concat(dayOfMonth, " ").concat(monthName, " ").concat(year, " ").concat(hour, ":").concat(minute, ":").concat(second, " GMT");
+    if (arguments.length < 1) {
+        throw new TypeError("1 arguments required, but only ".concat(arguments.length, " present"));
+    }
+    var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate)) {
+        throw new RangeError('Invalid time value');
+    }
+    var dayName = days[originalDate.getUTCDay()];
+    var dayOfMonth = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCDate(), 2);
+    var monthName = months[originalDate.getUTCMonth()];
+    var year = originalDate.getUTCFullYear();
+    var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCHours(), 2);
+    var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCMinutes(), 2);
+    var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(originalDate.getUTCSeconds(), 2); // Result variables.
+    return "".concat(dayName, ", ").concat(dayOfMonth, " ").concat(monthName, " ").concat(year, " ").concat(hour, ":").concat(minute, ":").concat(second, " GMT");
 }
+
+
 
 /***/ }),
 
@@ -14776,33 +14548,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FractionOfSecondParser", function() { return FractionOfSecondParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class FractionOfSecondParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 30);
-
-    _defineProperty(this, "incompatibleTokens", ['t', 'T']);
-  }
-
-  parse(dateString, token) {
-    var valueCallback = function (value) {
-      return Math.floor(value * Math.pow(10, -token.length + 3));
-    };
-
-    return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMilliseconds(value);
-    return date;
-  }
-
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 30);
+        _defineProperty(this, "incompatibleTokens", ['t', 'T']);
+    }
+    parse(dateString, token) {
+        var valueCallback = function (value) {
+            return Math.floor(value * Math.pow(10, -token.length + 3));
+        };
+        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+    }
+    set(date, _flags, value) {
+        date.setUTCMilliseconds(value);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -14837,11 +14609,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousSunday(new Date(2021, 5, 21))
  * //=> Sun June 20 2021 00:00:00
  */
-
 function previousSunday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 0);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 0);
 }
+
+
 
 /***/ }),
 
@@ -14899,70 +14672,55 @@ __webpack_require__.r(__webpack_exports__);
  * const result = formatISO(new Date(2019, 8, 18, 19, 0, 52), { representation: 'time' })
  * //=> '19:00:52Z'
  */
-
 function formatISO(date, options) {
-  var _options$format, _options$representati;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
-
-  if (isNaN(originalDate.getTime())) {
-    throw new RangeError('Invalid time value');
-  }
-
-  var format = String((_options$format = options === null || options === void 0 ? void 0 : options.format) !== null && _options$format !== void 0 ? _options$format : 'extended');
-  var representation = String((_options$representati = options === null || options === void 0 ? void 0 : options.representation) !== null && _options$representati !== void 0 ? _options$representati : 'complete');
-
-  if (format !== 'extended' && format !== 'basic') {
-    throw new RangeError("format must be 'extended' or 'basic'");
-  }
-
-  if (representation !== 'date' && representation !== 'time' && representation !== 'complete') {
-    throw new RangeError("representation must be 'date', 'time', or 'complete'");
-  }
-
-  var result = '';
-  var tzOffset = '';
-  var dateDelimiter = format === 'extended' ? '-' : '';
-  var timeDelimiter = format === 'extended' ? ':' : ''; // Representation is either 'date' or 'complete'
-
-  if (representation !== 'time') {
-    var day = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getDate(), 2);
-    var month = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getMonth() + 1, 2);
-    var year = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getFullYear(), 4); // yyyyMMdd or yyyy-MM-dd.
-
-    result = "".concat(year).concat(dateDelimiter).concat(month).concat(dateDelimiter).concat(day);
-  } // Representation is either 'time' or 'complete'
-
-
-  if (representation !== 'date') {
-    // Add the timezone.
-    var offset = originalDate.getTimezoneOffset();
-
-    if (offset !== 0) {
-      var absoluteOffset = Math.abs(offset);
-      var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Math.floor(absoluteOffset / 60), 2);
-      var minuteOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(absoluteOffset % 60, 2); // If less than 0, the sign is +, because it is ahead of time.
-
-      var sign = offset < 0 ? '+' : '-';
-      tzOffset = "".concat(sign).concat(hourOffset, ":").concat(minuteOffset);
-    } else {
-      tzOffset = 'Z';
+    var _options$format, _options$representati;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date);
+    if (isNaN(originalDate.getTime())) {
+        throw new RangeError('Invalid time value');
     }
-
-    var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getHours(), 2);
-    var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getMinutes(), 2);
-    var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getSeconds(), 2); // If there's also date, separate it with time with 'T'
-
-    var separator = result === '' ? '' : 'T'; // Creates a time string consisting of hour, minute, and second, separated by delimiters, if defined.
-
-    var time = [hour, minute, second].join(timeDelimiter); // HHmmss or HH:mm:ss.
-
-    result = "".concat(result).concat(separator).concat(time).concat(tzOffset);
-  }
-
-  return result;
+    var format = String((_options$format = options === null || options === void 0 ? void 0 : options.format) !== null && _options$format !== void 0 ? _options$format : 'extended');
+    var representation = String((_options$representati = options === null || options === void 0 ? void 0 : options.representation) !== null && _options$representati !== void 0 ? _options$representati : 'complete');
+    if (format !== 'extended' && format !== 'basic') {
+        throw new RangeError("format must be 'extended' or 'basic'");
+    }
+    if (representation !== 'date' && representation !== 'time' && representation !== 'complete') {
+        throw new RangeError("representation must be 'date', 'time', or 'complete'");
+    }
+    var result = '';
+    var tzOffset = '';
+    var dateDelimiter = format === 'extended' ? '-' : '';
+    var timeDelimiter = format === 'extended' ? ':' : ''; // Representation is either 'date' or 'complete'
+    if (representation !== 'time') {
+        var day = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getDate(), 2);
+        var month = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getMonth() + 1, 2);
+        var year = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getFullYear(), 4); // yyyyMMdd or yyyy-MM-dd.
+        result = "".concat(year).concat(dateDelimiter).concat(month).concat(dateDelimiter).concat(day);
+    } // Representation is either 'time' or 'complete'
+    if (representation !== 'date') {
+        // Add the timezone.
+        var offset = originalDate.getTimezoneOffset();
+        if (offset !== 0) {
+            var absoluteOffset = Math.abs(offset);
+            var hourOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(Math.floor(absoluteOffset / 60), 2);
+            var minuteOffset = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(absoluteOffset % 60, 2); // If less than 0, the sign is +, because it is ahead of time.
+            var sign = offset < 0 ? '+' : '-';
+            tzOffset = "".concat(sign).concat(hourOffset, ":").concat(minuteOffset);
+        }
+        else {
+            tzOffset = 'Z';
+        }
+        var hour = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getHours(), 2);
+        var minute = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getMinutes(), 2);
+        var second = Object(_lib_addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate.getSeconds(), 2); // If there's also date, separate it with time with 'T'
+        var separator = result === '' ? '' : 'T'; // Creates a time string consisting of hour, minute, and second, separated by delimiters, if defined.
+        var time = [hour, minute, second].join(timeDelimiter); // HHmmss or HH:mm:ss.
+        result = "".concat(result).concat(separator).concat(time).concat(tzOffset);
+    }
+    return result;
 }
+
+
 
 /***/ }),
 
@@ -14997,13 +14755,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getMonth(new Date(2012, 1, 29))
  * //=> 1
  */
-
 function getMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var month = date.getMonth();
-  return month;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var month = date.getMonth();
+    return month;
 }
+
+
 
 /***/ }),
 
@@ -15022,47 +14781,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_setUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../_lib/setUTCISOWeek/index.js */ "pR7g");
 /* harmony import */ var _lib_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../_lib/startOfUTCISOWeek/index.js */ "tpup");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 
  // ISO week of year
-
 class ISOWeekParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 100);
-
-    _defineProperty(this, "incompatibleTokens", ['y', 'Y', 'u', 'q', 'Q', 'M', 'L', 'w', 'd', 'D', 'e', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'I':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].week, dateString);
-
-      case 'Io':
-        return match.ordinalNumber(dateString, {
-          unit: 'week'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 100);
+        _defineProperty(this, "incompatibleTokens", ['y', 'Y', 'u', 'q', 'Q', 'M', 'L', 'w', 'd', 'D', 'e', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 53;
-  }
-
-  set(date, _flags, value) {
-    return Object(_lib_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_lib_setUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, value));
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'I':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].week, dateString);
+            case 'Io':
+                return match.ordinalNumber(dateString, {
+                    unit: 'week'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
+    }
+    validate(_date, value) {
+        return value >= 1 && value <= 53;
+    }
+    set(date, _flags, value) {
+        return Object(_lib_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_lib_setUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date, value));
+    }
 }
+
+
 
 /***/ }),
 
@@ -15110,31 +14866,28 @@ __webpack_require__.r(__webpack_exports__);
  * //   Tue Jul 01 2014 00:00:00,
  * // ]
  */
-
 function eachQuarterOfInterval(dirtyInterval) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var interval = dirtyInterval || {};
-  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.start);
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.end);
-  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startDate.getTime() <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var startDateQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startDate);
-  var endDateQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(endDate);
-  endTime = endDateQuarter.getTime();
-  var quarters = [];
-  var currentQuarter = startDateQuarter;
-
-  while (currentQuarter.getTime() <= endTime) {
-    quarters.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(currentQuarter));
-    currentQuarter = Object(_addQuarters_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentQuarter, 1);
-  }
-
-  return quarters;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var interval = dirtyInterval || {};
+    var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.start);
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.end);
+    var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startDate.getTime() <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var startDateQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startDate);
+    var endDateQuarter = Object(_startOfQuarter_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(endDate);
+    endTime = endDateQuarter.getTime();
+    var quarters = [];
+    var currentQuarter = startDateQuarter;
+    while (currentQuarter.getTime() <= endTime) {
+        quarters.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(currentQuarter));
+        currentQuarter = Object(_addQuarters_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentQuarter, 1);
+    }
+    return quarters;
 }
+
+
 
 /***/ }),
 
@@ -15169,11 +14922,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getYear(new Date(2014, 6, 2))
  * //=> 2014
  */
-
 function getYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getFullYear();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getFullYear();
 }
+
+
 
 /***/ }),
 
@@ -15211,50 +14965,47 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addMonths(new Date(2014, 8, 1), 5)
  * //=> Sun Feb 01 2015 00:00:00
  */
-
 function addMonths(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-
-  if (isNaN(amount)) {
-    return new Date(NaN);
-  }
-
-  if (!amount) {
-    // If 0 months, no-op to avoid changing times in the hour before end of DST
-    return date;
-  }
-
-  var dayOfMonth = date.getDate(); // The JS Date object supports date math by accepting out-of-bounds values for
-  // month, day, etc. For example, new Date(2020, 0, 0) returns 31 Dec 2019 and
-  // new Date(2020, 13, 1) returns 1 Feb 2021.  This is *almost* the behavior we
-  // want except that dates will wrap around the end of a month, meaning that
-  // new Date(2020, 13, 31) will return 3 Mar 2021 not 28 Feb 2021 as desired. So
-  // we'll default to the end of the desired month by adding 1 to the desired
-  // month and using a date of 0 to back up one day to the end of the desired
-  // month.
-
-  var endOfDesiredMonth = new Date(date.getTime());
-  endOfDesiredMonth.setMonth(date.getMonth() + amount + 1, 0);
-  var daysInMonth = endOfDesiredMonth.getDate();
-
-  if (dayOfMonth >= daysInMonth) {
-    // If we're already at the end of the month, then this is the correct date
-    // and we're done.
-    return endOfDesiredMonth;
-  } else {
-    // Otherwise, we now know that setting the original day-of-month value won't
-    // cause an overflow, so set the desired day-of-month. Note that we can't
-    // just set the date of `endOfDesiredMonth` because that object may have had
-    // its time changed in the unusual case where where a DST transition was on
-    // the last day of the month and its local time was in the hour skipped or
-    // repeated next to a DST transition.  So we use `date` instead which is
-    // guaranteed to still have the original time.
-    date.setFullYear(endOfDesiredMonth.getFullYear(), endOfDesiredMonth.getMonth(), dayOfMonth);
-    return date;
-  }
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    if (isNaN(amount)) {
+        return new Date(NaN);
+    }
+    if (!amount) {
+        // If 0 months, no-op to avoid changing times in the hour before end of DST
+        return date;
+    }
+    var dayOfMonth = date.getDate(); // The JS Date object supports date math by accepting out-of-bounds values for
+    // month, day, etc. For example, new Date(2020, 0, 0) returns 31 Dec 2019 and
+    // new Date(2020, 13, 1) returns 1 Feb 2021.  This is *almost* the behavior we
+    // want except that dates will wrap around the end of a month, meaning that
+    // new Date(2020, 13, 31) will return 3 Mar 2021 not 28 Feb 2021 as desired. So
+    // we'll default to the end of the desired month by adding 1 to the desired
+    // month and using a date of 0 to back up one day to the end of the desired
+    // month.
+    var endOfDesiredMonth = new Date(date.getTime());
+    endOfDesiredMonth.setMonth(date.getMonth() + amount + 1, 0);
+    var daysInMonth = endOfDesiredMonth.getDate();
+    if (dayOfMonth >= daysInMonth) {
+        // If we're already at the end of the month, then this is the correct date
+        // and we're done.
+        return endOfDesiredMonth;
+    }
+    else {
+        // Otherwise, we now know that setting the original day-of-month value won't
+        // cause an overflow, so set the desired day-of-month. Note that we can't
+        // just set the date of `endOfDesiredMonth` because that object may have had
+        // its time changed in the unusual case where where a DST transition was on
+        // the last day of the month and its local time was in the hour skipped or
+        // repeated next to a DST transition.  So we use `date` instead which is
+        // guaranteed to still have the original time.
+        date.setFullYear(endOfDesiredMonth.getFullYear(), endOfDesiredMonth.getMonth(), dayOfMonth);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -15290,11 +15041,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = yearsToMonths(2)
  * //=> 24
  */
-
 function yearsToMonths(years) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(years * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInYear"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(years * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInYear"]);
 }
+
+
 
 /***/ }),
 
@@ -15339,30 +15091,27 @@ __webpack_require__.r(__webpack_exports__);
  * //   Sun Jan 01 2017 00:00:00
  * // ]
  */
-
 function eachYearOfInterval(dirtyInterval) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var interval = dirtyInterval || {};
-  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start);
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end);
-  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startDate.getTime() <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var dates = [];
-  var currentDate = startDate;
-  currentDate.setHours(0, 0, 0, 0);
-  currentDate.setMonth(0, 1);
-
-  while (currentDate.getTime() <= endTime) {
-    dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate));
-    currentDate.setFullYear(currentDate.getFullYear() + 1);
-  }
-
-  return dates;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var interval = dirtyInterval || {};
+    var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.start);
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(interval.end);
+    var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startDate.getTime() <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var dates = [];
+    var currentDate = startDate;
+    currentDate.setHours(0, 0, 0, 0);
+    currentDate.setMonth(0, 1);
+    while (currentDate.getTime() <= endTime) {
+        dates.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentDate));
+        currentDate.setFullYear(currentDate.getFullYear() + 1);
+    }
+    return dates;
 }
+
+
 
 /***/ }),
 
@@ -15397,11 +15146,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousTuesday(new Date(2021, 5, 18))
  * //=> Tue June 15 2021 00:00:00
  */
-
 function previousTuesday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 2);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 2);
 }
+
+
 
 /***/ }),
 
@@ -15437,13 +15187,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isBefore(new Date(1989, 6, 10), new Date(1987, 1, 11))
  * //=> false
  */
-
 function isBefore(dirtyDate, dirtyDateToCompare) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
-  return date.getTime() < dateToCompare.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
+    return date.getTime() < dateToCompare.getTime();
 }
+
+
 
 /***/ }),
 
@@ -15460,100 +15211,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
 /* harmony import */ var _lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_lib/setUTCDay/index.js */ "+lkT");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
  // Local day of week
-
 class LocalDayParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 90);
-
-    _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'q', 'Q', 'M', 'L', 'I', 'd', 'D', 'E', 'i', 'c', 't', 'T']);
-  }
-
-  parse(dateString, token, match, options) {
-    var valueCallback = function (value) {
-      var wholeWeekDays = Math.floor((value - 1) / 7) * 7;
-      return (value + options.weekStartsOn + 6) % 7 + wholeWeekDays;
-    };
-
-    switch (token) {
-      // 3
-      case 'e':
-      case 'ee':
-        // 03
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
-      // 3rd
-
-      case 'eo':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
-          unit: 'day'
-        }), valueCallback);
-      // Tue
-
-      case 'eee':
-        return match.day(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // T
-
-      case 'eeeee':
-        return match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tu
-
-      case 'eeeeee':
-        return match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-      // Tuesday
-
-      case 'eeee':
-      default:
-        return match.day(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'short',
-          context: 'formatting'
-        }) || match.day(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 90);
+        _defineProperty(this, "incompatibleTokens", ['y', 'R', 'u', 'q', 'Q', 'M', 'L', 'I', 'd', 'D', 'E', 'i', 'c', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 6;
-  }
-
-  set(date, _flags, value, options) {
-    date = Object(_lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, value, options);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match, options) {
+        var valueCallback = function (value) {
+            var wholeWeekDays = Math.floor((value - 1) / 7) * 7;
+            return (value + options.weekStartsOn + 6) % 7 + wholeWeekDays;
+        };
+        switch (token) {
+            // 3
+            case 'e':
+            case 'ee':
+                // 03
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["parseNDigits"])(token.length, dateString), valueCallback);
+            // 3rd
+            case 'eo':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["mapValue"])(match.ordinalNumber(dateString, {
+                    unit: 'day'
+                }), valueCallback);
+            // Tue
+            case 'eee':
+                return match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // T
+            case 'eeeee':
+                return match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tu
+            case 'eeeeee':
+                return match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            // Tuesday
+            case 'eeee':
+            default:
+                return match.day(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'short',
+                    context: 'formatting'
+                }) || match.day(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 6;
+    }
+    set(date, _flags, value, options) {
+        date = Object(_lib_setUTCDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, value, options);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -15570,46 +15314,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class Hour1To24Parser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 70);
-
-    _defineProperty(this, "incompatibleTokens", ['a', 'b', 'h', 'H', 'K', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'k':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour24h, dateString);
-
-      case 'ko':
-        return match.ordinalNumber(dateString, {
-          unit: 'hour'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 70);
+        _defineProperty(this, "incompatibleTokens", ['a', 'b', 'h', 'H', 'K', 't', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 1 && value <= 24;
-  }
-
-  set(date, _flags, value) {
-    var hours = value <= 24 ? value % 24 : value;
-    date.setUTCHours(hours, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'k':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].hour24h, dateString);
+            case 'ko':
+                return match.ordinalNumber(dateString, {
+                    unit: 'hour'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
+    }
+    validate(_date, value) {
+        return value >= 1 && value <= 24;
+    }
+    set(date, _flags, value) {
+        var hours = value <= 24 ? value % 24 : value;
+        date.setUTCHours(hours, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -15670,16 +15412,16 @@ var MILLISECONDS_IN_WEEK = 604800000;
  * })
  * //=> 53
  */
-
 function getWeek(dirtyDate, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
-  var diff = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, options).getTime() - Object(_startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, options).getTime(); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+    var diff = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, options).getTime() - Object(_startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, options).getTime(); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
 }
+
+
 
 /***/ }),
 
@@ -15719,30 +15461,30 @@ __webpack_require__.r(__webpack_exports__);
  * ])
  * //=> Wed Feb 11 1987 00:00:00
  */
-
 function min(dirtyDatesArray) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var datesArray; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
-
-  if (dirtyDatesArray && typeof dirtyDatesArray.forEach === 'function') {
-    datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array.
-  } else if (typeof dirtyDatesArray === 'object' && dirtyDatesArray !== null) {
-    datesArray = Array.prototype.slice.call(dirtyDatesArray);
-  } else {
-    // `dirtyDatesArray` is non-iterable, return Invalid Date
-    return new Date(NaN);
-  }
-
-  var result;
-  datesArray.forEach(function (dirtyDate) {
-    var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-    if (result === undefined || result > currentDate || isNaN(currentDate.getDate())) {
-      result = currentDate;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var datesArray; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
+    if (dirtyDatesArray && typeof dirtyDatesArray.forEach === 'function') {
+        datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array.
     }
-  });
-  return result || new Date(NaN);
+    else if (typeof dirtyDatesArray === 'object' && dirtyDatesArray !== null) {
+        datesArray = Array.prototype.slice.call(dirtyDatesArray);
+    }
+    else {
+        // `dirtyDatesArray` is non-iterable, return Invalid Date
+        return new Date(NaN);
+    }
+    var result;
+    datesArray.forEach(function (dirtyDate) {
+        var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+        if (result === undefined || result > currentDate || isNaN(currentDate.getDate())) {
+            result = currentDate;
+        }
+    });
+    return result || new Date(NaN);
 }
+
+
 
 /***/ }),
 
@@ -15759,8 +15501,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assign_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assign/index.js */ "+LmI");
 
 function cloneObject(object) {
-  return Object(_assign_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({}, object);
+    return Object(_assign_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({}, object);
 }
+
+
 
 /***/ }),
 
@@ -15795,11 +15539,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextSaturday(new Date(2020, 2, 22))
  * //=> Sat Mar 28 2020 00:00:00
  */
-
 function nextSaturday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 6);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 6);
 }
+
+
 
 /***/ }),
 
@@ -15814,57 +15559,56 @@ function nextSaturday(date) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EraParser", function() { return EraParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 class EraParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 140);
-
-    _defineProperty(this, "incompatibleTokens", ['R', 'u', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      // AD, BC
-      case 'G':
-      case 'GG':
-      case 'GGG':
-        return match.era(dateString, {
-          width: 'abbreviated'
-        }) || match.era(dateString, {
-          width: 'narrow'
-        });
-      // A, B
-
-      case 'GGGGG':
-        return match.era(dateString, {
-          width: 'narrow'
-        });
-      // Anno Domini, Before Christ
-
-      case 'GGGG':
-      default:
-        return match.era(dateString, {
-          width: 'wide'
-        }) || match.era(dateString, {
-          width: 'abbreviated'
-        }) || match.era(dateString, {
-          width: 'narrow'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 140);
+        _defineProperty(this, "incompatibleTokens", ['R', 'u', 't', 'T']);
     }
-  }
-
-  set(date, flags, value) {
-    flags.era = value;
-    date.setUTCFullYear(value, 0, 1);
-    date.setUTCHours(0, 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            // AD, BC
+            case 'G':
+            case 'GG':
+            case 'GGG':
+                return match.era(dateString, {
+                    width: 'abbreviated'
+                }) || match.era(dateString, {
+                    width: 'narrow'
+                });
+            // A, B
+            case 'GGGGG':
+                return match.era(dateString, {
+                    width: 'narrow'
+                });
+            // Anno Domini, Before Christ
+            case 'GGGG':
+            default:
+                return match.era(dateString, {
+                    width: 'wide'
+                }) || match.era(dateString, {
+                    width: 'abbreviated'
+                }) || match.era(dateString, {
+                    width: 'narrow'
+                });
+        }
+    }
+    set(date, flags, value) {
+        flags.era = value;
+        date.setUTCFullYear(value, 0, 1);
+        date.setUTCHours(0, 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -15914,21 +15658,23 @@ __webpack_require__.r(__webpack_exports__);
  * //   Wed Feb 11 1987 00:00:00
  * // ]
  */
-
 function compareDesc(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var diff = dateLeft.getTime() - dateRight.getTime();
-
-  if (diff > 0) {
-    return -1;
-  } else if (diff < 0) {
-    return 1; // Return 0 if diff is 0; return NaN if diff is NaN
-  } else {
-    return diff;
-  }
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var diff = dateLeft.getTime() - dateRight.getTime();
+    if (diff > 0) {
+        return -1;
+    }
+    else if (diff < 0) {
+        return 1; // Return 0 if diff is 0; return NaN if diff is NaN
+    }
+    else {
+        return diff;
+    }
 }
+
+
 
 /***/ }),
 
@@ -15966,12 +15712,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:29.250
  */
-
 function subMilliseconds(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    return Object(_addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -16009,13 +15756,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Sun Sep 07 2014 00:00:00
  */
-
 function lastDayOfISOWeek(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_lastDayOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, {
-    weekStartsOn: 1
-  });
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_lastDayOfWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, {
+        weekStartsOn: 1
+    });
 }
+
+
 
 /***/ }),
 
@@ -16064,25 +15812,23 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0), { weekStartsOn: 1 })
  * //=> Sun Sep 07 2014 00:00:00
  */
-
 function lastDayOfWeek(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getDay();
-  var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
-  date.setHours(0, 0, 0, 0);
-  date.setDate(date.getDate() + diff);
-  return date;
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_3__["getDefaultOptions"])();
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getDay();
+    var diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + diff);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -16117,13 +15863,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isWeekend(new Date(2014, 9, 5))
  * //=> true
  */
-
 function isWeekend(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getDay();
-  return day === 0 || day === 6;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getDay();
+    return day === 0 || day === 6;
 }
+
+
 
 /***/ }),
 
@@ -16141,7 +15888,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _setMonth_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../setMonth/index.js */ "nQ4q");
 /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_lib/toInteger/index.js */ "/h9T");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -16185,48 +15931,39 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Mon Sep 01 2014 12:23:45
  */
 function set(dirtyDate, values) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-
-  if (typeof values !== 'object' || values === null) {
-    throw new RangeError('values parameter must be an object');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate); // Check if date is Invalid Date because Date.prototype.setFullYear ignores the value of Invalid Date
-
-  if (isNaN(date.getTime())) {
-    return new Date(NaN);
-  }
-
-  if (values.year != null) {
-    date.setFullYear(values.year);
-  }
-
-  if (values.month != null) {
-    date = Object(_setMonth_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, values.month);
-  }
-
-  if (values.date != null) {
-    date.setDate(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.date));
-  }
-
-  if (values.hours != null) {
-    date.setHours(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.hours));
-  }
-
-  if (values.minutes != null) {
-    date.setMinutes(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.minutes));
-  }
-
-  if (values.seconds != null) {
-    date.setSeconds(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.seconds));
-  }
-
-  if (values.milliseconds != null) {
-    date.setMilliseconds(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.milliseconds));
-  }
-
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    if (typeof values !== 'object' || values === null) {
+        throw new RangeError('values parameter must be an object');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate); // Check if date is Invalid Date because Date.prototype.setFullYear ignores the value of Invalid Date
+    if (isNaN(date.getTime())) {
+        return new Date(NaN);
+    }
+    if (values.year != null) {
+        date.setFullYear(values.year);
+    }
+    if (values.month != null) {
+        date = Object(_setMonth_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, values.month);
+    }
+    if (values.date != null) {
+        date.setDate(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.date));
+    }
+    if (values.hours != null) {
+        date.setHours(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.hours));
+    }
+    if (values.minutes != null) {
+        date.setMinutes(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.minutes));
+    }
+    if (values.seconds != null) {
+        date.setSeconds(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.seconds));
+    }
+    if (values.milliseconds != null) {
+        date.setMilliseconds(Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(values.milliseconds));
+    }
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -16277,18 +16014,18 @@ var MILLISECONDS_IN_DAY = 86400000;
  * )
  * //=> 1
  */
-
 function differenceInCalendarDays(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var startOfDayLeft = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
-  var startOfDayRight = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
-  var timestampLeft = startOfDayLeft.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfDayLeft);
-  var timestampRight = startOfDayRight.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfDayRight); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a day is not constant
-  // (e.g. it's different in the day of the daylight saving time clock shift)
-
-  return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var startOfDayLeft = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateLeft);
+    var startOfDayRight = Object(_startOfDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDateRight);
+    var timestampLeft = startOfDayLeft.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfDayLeft);
+    var timestampRight = startOfDayRight.getTime() - Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(startOfDayRight); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a day is not constant
+    // (e.g. it's different in the day of the daylight saving time clock shift)
+    return Math.round((timestampLeft - timestampRight) / MILLISECONDS_IN_DAY);
 }
+
+
 
 /***/ }),
 
@@ -16309,26 +16046,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getUTCISOWeekYear(dirtyDate) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getUTCFullYear();
-  var fourthOfJanuaryOfNextYear = new Date(0);
-  fourthOfJanuaryOfNextYear.setUTCFullYear(year + 1, 0, 4);
-  fourthOfJanuaryOfNextYear.setUTCHours(0, 0, 0, 0);
-  var startOfNextYear = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fourthOfJanuaryOfNextYear);
-  var fourthOfJanuaryOfThisYear = new Date(0);
-  fourthOfJanuaryOfThisYear.setUTCFullYear(year, 0, 4);
-  fourthOfJanuaryOfThisYear.setUTCHours(0, 0, 0, 0);
-  var startOfThisYear = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fourthOfJanuaryOfThisYear);
-
-  if (date.getTime() >= startOfNextYear.getTime()) {
-    return year + 1;
-  } else if (date.getTime() >= startOfThisYear.getTime()) {
-    return year;
-  } else {
-    return year - 1;
-  }
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getUTCFullYear();
+    var fourthOfJanuaryOfNextYear = new Date(0);
+    fourthOfJanuaryOfNextYear.setUTCFullYear(year + 1, 0, 4);
+    fourthOfJanuaryOfNextYear.setUTCHours(0, 0, 0, 0);
+    var startOfNextYear = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fourthOfJanuaryOfNextYear);
+    var fourthOfJanuaryOfThisYear = new Date(0);
+    fourthOfJanuaryOfThisYear.setUTCFullYear(year, 0, 4);
+    fourthOfJanuaryOfThisYear.setUTCHours(0, 0, 0, 0);
+    var startOfThisYear = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(fourthOfJanuaryOfThisYear);
+    if (date.getTime() >= startOfNextYear.getTime()) {
+        return year + 1;
+    }
+    else if (date.getTime() >= startOfThisYear.getTime()) {
+        return year;
+    }
+    else {
+        return year - 1;
+    }
 }
+
+
 
 /***/ }),
 
@@ -16363,11 +16103,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextThursday(new Date(2020, 2, 22))
  * //=> Thur Mar 26 2020 00:00:00
  */
-
 function nextThursday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 4);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 4);
 }
+
+
 
 /***/ }),
 
@@ -16402,11 +16143,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSunday(new Date(2014, 8, 21))
  * //=> true
  */
-
 function isSunday(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 0;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDay() === 0;
 }
+
+
 
 /***/ }),
 
@@ -16441,11 +16183,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousSaturday(new Date(2021, 5, 20))
  * //=> Sat June 19 2021 00:00:00
  */
-
 function previousSaturday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 6);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 6);
 }
+
+
 
 /***/ }),
 
@@ -16462,45 +16205,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class SecondParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 50);
-
-    _defineProperty(this, "incompatibleTokens", ['t', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 's':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].second, dateString);
-
-      case 'so':
-        return match.ordinalNumber(dateString, {
-          unit: 'second'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 50);
+        _defineProperty(this, "incompatibleTokens", ['t', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 59;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCSeconds(value, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 's':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].second, dateString);
+            case 'so':
+                return match.ordinalNumber(dateString, {
+                    unit: 'second'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 59;
+    }
+    set(date, _flags, value) {
+        date.setUTCSeconds(value, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -16544,15 +16285,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setISODay(new Date(2014, 8, 1), 7)
  * //=> Sun Sep 07 2014 00:00:00
  */
-
 function setISODay(dirtyDate, dirtyDay) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var day = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDay);
-  var currentDay = Object(_getISODay_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date);
-  var diff = day - currentDay;
-  return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, diff);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var day = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDay);
+    var currentDay = Object(_getISODay_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date);
+    var diff = day - currentDay;
+    return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, diff);
 }
+
+
 
 /***/ }),
 
@@ -16588,11 +16330,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = hoursToMinutes(2)
  * //=> 120
  */
-
 function hoursToMinutes(hours) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["minutesInHour"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(hours * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["minutesInHour"]);
 }
+
+
 
 /***/ }),
 
@@ -16609,45 +16352,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants.js */ "t9RH");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 
 class MinuteParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 60);
-
-    _defineProperty(this, "incompatibleTokens", ['t', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'm':
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].minute, dateString);
-
-      case 'mo':
-        return match.ordinalNumber(dateString, {
-          unit: 'minute'
-        });
-
-      default:
-        return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 60);
+        _defineProperty(this, "incompatibleTokens", ['t', 'T']);
     }
-  }
-
-  validate(_date, value) {
-    return value >= 0 && value <= 59;
-  }
-
-  set(date, _flags, value) {
-    date.setUTCMinutes(value, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'm':
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNumericPattern"])(_constants_js__WEBPACK_IMPORTED_MODULE_1__["numericPatterns"].minute, dateString);
+            case 'mo':
+                return match.ordinalNumber(dateString, {
+                    unit: 'minute'
+                });
+            default:
+                return Object(_utils_js__WEBPACK_IMPORTED_MODULE_2__["parseNDigits"])(token.length, dateString);
+        }
+    }
+    validate(_date, value) {
+        return value >= 0 && value <= 59;
+    }
+    set(date, _flags, value) {
+        date.setUTCMinutes(value, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -16670,7 +16411,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /**
  * @type {Locale}
  * @category Locales
@@ -16681,20 +16421,22 @@ __webpack_require__.r(__webpack_exports__);
  * @author Lesha Koss [@leshakoss]{@link https://github.com/leshakoss}
  */
 var locale = {
-  code: 'en-US',
-  formatDistance: _lib_formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__["default"],
-  formatLong: _lib_formatLong_index_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  formatRelative: _lib_formatRelative_index_js__WEBPACK_IMPORTED_MODULE_2__["default"],
-  localize: _lib_localize_index_js__WEBPACK_IMPORTED_MODULE_3__["default"],
-  match: _lib_match_index_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-  options: {
-    weekStartsOn: 0
-    /* Sunday */
-    ,
-    firstWeekContainsDate: 1
-  }
+    code: 'en-US',
+    formatDistance: _lib_formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__["default"],
+    formatLong: _lib_formatLong_index_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+    formatRelative: _lib_formatRelative_index_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+    localize: _lib_localize_index_js__WEBPACK_IMPORTED_MODULE_3__["default"],
+    match: _lib_match_index_js__WEBPACK_IMPORTED_MODULE_4__["default"],
+    options: {
+        weekStartsOn: 0
+        /* Sunday */
+        ,
+        firstWeekContainsDate: 1
+    }
 };
 /* harmony default export */ __webpack_exports__["default"] = (locale);
+
+
 
 /***/ }),
 
@@ -16728,15 +16470,17 @@ __webpack_require__.r(__webpack_exports__);
  * //=> Tue Oct 7 2014 00:00:00
  */
 function startOfTomorrow() {
-  var now = new Date();
-  var year = now.getFullYear();
-  var month = now.getMonth();
-  var day = now.getDate();
-  var date = new Date(0);
-  date.setFullYear(year, month, day + 1);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var day = now.getDate();
+    var date = new Date(0);
+    date.setFullYear(year, month, day + 1);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -16789,12 +16533,13 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> -1
  */
-
 function differenceInMinutes(dateLeft, dateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var diff = Object(_differenceInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight) / _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"];
-  return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_3__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var diff = Object(_differenceInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight) / _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInMinute"];
+    return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_3__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
 }
+
+
 
 /***/ }),
 
@@ -16809,10 +16554,12 @@ function differenceInMinutes(dateLeft, dateRight, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return requiredArgs; });
 function requiredArgs(required, args) {
-  if (args.length < required) {
-    throw new TypeError(required + ' argument' + (required > 1 ? 's' : '') + ' required, but only ' + args.length + ' present');
-  }
+    if (args.length < required) {
+        throw new TypeError(required + ' argument' + (required > 1 ? 's' : '') + ' required, but only ' + args.length + ' present');
+    }
 }
+
+
 
 /***/ }),
 
@@ -16848,15 +16595,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 23:59:59.999
  */
-
 function endOfMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var month = date.getMonth();
-  date.setFullYear(date.getFullYear(), month + 1, 0);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var month = date.getMonth();
+    date.setFullYear(date.getFullYear(), month + 1, 0);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -16897,11 +16645,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isTomorrow(new Date(2014, 9, 7, 14, 0))
  * //=> true
  */
-
 function isTomorrow(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  return Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), 1));
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    return Object(_isSameDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), 1));
 }
+
+
 
 /***/ }),
 
@@ -16937,13 +16686,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameYear(new Date(2014, 8, 2), new Date(2014, 8, 25))
  * //=> true
  */
-
 function isSameYear(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeft.getFullYear() === dateRight.getFullYear();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeft.getFullYear() === dateRight.getFullYear();
 }
+
+
 
 /***/ }),
 
@@ -16979,15 +16729,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfMonth(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 00:00:00
  */
-
 function lastDayOfMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var month = date.getMonth();
-  date.setFullYear(date.getFullYear(), month + 1, 0);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var month = date.getMonth();
+    date.setFullYear(date.getFullYear(), month + 1, 0);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -17024,17 +16775,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getDaysInYear(new Date(2012, 0, 1))
  * //=> 366
  */
-
 function getDaysInYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-  if (String(new Date(date)) === 'Invalid Date') {
-    return NaN;
-  }
-
-  return Object(_isLeapYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date) ? 366 : 365;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    if (String(new Date(date)) === 'Invalid Date') {
+        return NaN;
+    }
+    return Object(_isLeapYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date) ? 366 : 365;
 }
+
+
 
 /***/ }),
 
@@ -17081,26 +16831,26 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getWeekOfMonth(new Date(2017, 10, 9))
  * //=> 2
  */
-
 function getWeekOfMonth(date, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(1, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0);
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  var currentDayOfMonth = Object(_getDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
-  if (isNaN(currentDayOfMonth)) return NaN;
-  var startWeekDay = Object(_getDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date));
-  var lastDayOfFirstWeek = weekStartsOn - startWeekDay;
-  if (lastDayOfFirstWeek <= 0) lastDayOfFirstWeek += 7;
-  var remainingDaysAfterFirstWeek = currentDayOfMonth - lastDayOfFirstWeek;
-  return Math.ceil(remainingDaysAfterFirstWeek / 7) + 1;
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(1, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_0__["getDefaultOptions"])();
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0);
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
+    }
+    var currentDayOfMonth = Object(_getDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date);
+    if (isNaN(currentDayOfMonth))
+        return NaN;
+    var startWeekDay = Object(_getDay_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(Object(_startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(date));
+    var lastDayOfFirstWeek = weekStartsOn - startWeekDay;
+    if (lastDayOfFirstWeek <= 0)
+        lastDayOfFirstWeek += 7;
+    var remainingDaysAfterFirstWeek = currentDayOfMonth - lastDayOfFirstWeek;
+    return Math.ceil(remainingDaysAfterFirstWeek / 7) + 1;
 }
+
+
 
 /***/ }),
 
@@ -17157,36 +16907,32 @@ __webpack_require__.r(__webpack_exports__);
  * //   Sun Nov 23 2014 00:00:00
  * // ]
  */
-
 function eachWeekOfInterval(dirtyInterval, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var interval = dirtyInterval || {};
-  var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.start);
-  var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.end);
-  var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(startDate.getTime() <= endTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var startDateWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startDate, options);
-  var endDateWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(endDate, options); // Some timezones switch DST at midnight, making start of day unreliable in these timezones, 3pm is a safe bet
-
-  startDateWeek.setHours(15);
-  endDateWeek.setHours(15);
-  endTime = endDateWeek.getTime();
-  var weeks = [];
-  var currentWeek = startDateWeek;
-
-  while (currentWeek.getTime() <= endTime) {
-    currentWeek.setHours(0);
-    weeks.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(currentWeek));
-    currentWeek = Object(_addWeeks_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentWeek, 1);
-    currentWeek.setHours(15);
-  }
-
-  return weeks;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var interval = dirtyInterval || {};
+    var startDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.start);
+    var endDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(interval.end);
+    var endTime = endDate.getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(startDate.getTime() <= endTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var startDateWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(startDate, options);
+    var endDateWeek = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(endDate, options); // Some timezones switch DST at midnight, making start of day unreliable in these timezones, 3pm is a safe bet
+    startDateWeek.setHours(15);
+    endDateWeek.setHours(15);
+    endTime = endDateWeek.getTime();
+    var weeks = [];
+    var currentWeek = startDateWeek;
+    while (currentWeek.getTime() <= endTime) {
+        currentWeek.setHours(0);
+        weeks.push(Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(currentWeek));
+        currentWeek = Object(_addWeeks_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(currentWeek, 1);
+        currentWeek.setHours(15);
+    }
+    return weeks;
 }
+
+
 
 /***/ }),
 
@@ -17237,27 +16983,25 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setDay(new Date(2014, 8, 1), 0, { weekStartsOn: 1 })
  * //=> Sun Sep 07 2014 00:00:00
  */
-
 function setDay(dirtyDate, dirtyDay, options) {
-  var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var day = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDay);
-  var currentDay = date.getDay();
-  var remainder = day % 7;
-  var dayIndex = (remainder + 7) % 7;
-  var delta = 7 - weekStartsOn;
-  var diff = day < 0 || day > 6 ? day - (currentDay + delta) % 7 : (dayIndex + delta) % 7 - (currentDay + delta) % 7;
-  return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, diff);
+    var _ref, _ref2, _ref3, _options$weekStartsOn, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.weekStartsOn) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.weekStartsOn) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.weekStartsOn) !== null && _ref !== void 0 ? _ref : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
+    }
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var day = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDay);
+    var currentDay = date.getDay();
+    var remainder = day % 7;
+    var dayIndex = (remainder + 7) % 7;
+    var delta = 7 - weekStartsOn;
+    var diff = day < 0 || day > 6 ? day - (currentDay + delta) % 7 : (dayIndex + delta) % 7 - (currentDay + delta) % 7;
+    return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, diff);
 }
+
+
 
 /***/ }),
 
@@ -17272,27 +17016,25 @@ function setDay(dirtyDate, dirtyDay, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildLocalizeFn; });
 function buildLocalizeFn(args) {
-  return function (dirtyIndex, options) {
-    var context = options !== null && options !== void 0 && options.context ? String(options.context) : 'standalone';
-    var valuesArray;
-
-    if (context === 'formatting' && args.formattingValues) {
-      var defaultWidth = args.defaultFormattingWidth || args.defaultWidth;
-      var width = options !== null && options !== void 0 && options.width ? String(options.width) : defaultWidth;
-      valuesArray = args.formattingValues[width] || args.formattingValues[defaultWidth];
-    } else {
-      var _defaultWidth = args.defaultWidth;
-
-      var _width = options !== null && options !== void 0 && options.width ? String(options.width) : args.defaultWidth;
-
-      valuesArray = args.values[_width] || args.values[_defaultWidth];
-    }
-
-    var index = args.argumentCallback ? args.argumentCallback(dirtyIndex) : dirtyIndex; // @ts-ignore: For some reason TypeScript just don't want to match it, no matter how hard we try. I challenge you to try to remove it!
-
-    return valuesArray[index];
-  };
+    return function (dirtyIndex, options) {
+        var context = options !== null && options !== void 0 && options.context ? String(options.context) : 'standalone';
+        var valuesArray;
+        if (context === 'formatting' && args.formattingValues) {
+            var defaultWidth = args.defaultFormattingWidth || args.defaultWidth;
+            var width = options !== null && options !== void 0 && options.width ? String(options.width) : defaultWidth;
+            valuesArray = args.formattingValues[width] || args.formattingValues[defaultWidth];
+        }
+        else {
+            var _defaultWidth = args.defaultWidth;
+            var _width = options !== null && options !== void 0 && options.width ? String(options.width) : args.defaultWidth;
+            valuesArray = args.values[_width] || args.values[_defaultWidth];
+        }
+        var index = args.argumentCallback ? args.argumentCallback(dirtyIndex) : dirtyIndex; // @ts-ignore: For some reason TypeScript just don't want to match it, no matter how hard we try. I challenge you to try to remove it!
+        return valuesArray[index];
+    };
 }
+
+
 
 /***/ }),
 
@@ -17327,11 +17069,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = previousMonday(new Date(2021, 5, 18))
  * //=> Mon June 14 2021 00:00:00
  */
-
 function previousMonday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 1);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Object(_previousDay_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, 1);
 }
+
+
 
 /***/ }),
 
@@ -17355,14 +17098,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var MILLISECONDS_IN_WEEK = 604800000;
 function getUTCISOWeek(dirtyDate) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var diff = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date).getTime() - Object(_startOfUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date).getTime(); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var diff = Object(_startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date).getTime() - Object(_startOfUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date).getTime(); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
 }
+
+
 
 /***/ }),
 
@@ -17397,10 +17141,11 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfToday()
  * //=> Mon Oct 6 2014 23:59:59.999
  */
-
 function endOfToday() {
-  return Object(_endOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now());
+    return Object(_endOfDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now());
 }
+
+
 
 /***/ }),
 
@@ -17415,36 +17160,35 @@ function endOfToday() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Parser", function() { return Parser; });
 /* harmony import */ var _Setter_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Setter.js */ "oDku");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 class Parser {
-  constructor() {
-    _defineProperty(this, "incompatibleTokens", void 0);
-
-    _defineProperty(this, "priority", void 0);
-
-    _defineProperty(this, "subPriority", void 0);
-  }
-
-  run(dateString, token, match, options) {
-    var result = this.parse(dateString, token, match, options);
-
-    if (!result) {
-      return null;
+    constructor() {
+        _defineProperty(this, "incompatibleTokens", void 0);
+        _defineProperty(this, "priority", void 0);
+        _defineProperty(this, "subPriority", void 0);
     }
-
-    return {
-      setter: new _Setter_js__WEBPACK_IMPORTED_MODULE_0__["ValueSetter"](result.value, this.validate, this.set, this.priority, this.subPriority),
-      rest: result.rest
-    };
-  }
-
-  validate(_utcDate, _value, _options) {
-    return true;
-  }
-
+    run(dateString, token, match, options) {
+        var result = this.parse(dateString, token, match, options);
+        if (!result) {
+            return null;
+        }
+        return {
+            setter: new _Setter_js__WEBPACK_IMPORTED_MODULE_0__["ValueSetter"](result.value, this.validate, this.set, this.priority, this.subPriority),
+            rest: result.rest
+        };
+    }
+    validate(_utcDate, _value, _options) {
+        return true;
+    }
 }
+
+
 
 /***/ }),
 
@@ -17489,12 +17233,13 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 12
  */
-
 function differenceInHours(dateLeft, dateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var diff = Object(_differenceInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight) / _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"];
-  return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_3__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var diff = Object(_differenceInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight) / _constants_index_js__WEBPACK_IMPORTED_MODULE_0__["millisecondsInHour"];
+    return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_3__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
 }
+
+
 
 /***/ }),
 
@@ -17529,11 +17274,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = nextWednesday(new Date(2020, 2, 22))
  * //=> Wed Mar 25 2020 00:00:00
  */
-
 function nextWednesday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 3);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_nextDay_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, 3);
 }
+
+
 
 /***/ }),
 
@@ -17549,59 +17295,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AMPMParser", function() { return AMPMParser; });
 /* harmony import */ var _Parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Parser.js */ "mLFc");
 /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils.js */ "8CPS");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 
 
 class AMPMParser extends _Parser_js__WEBPACK_IMPORTED_MODULE_0__["Parser"] {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", 80);
-
-    _defineProperty(this, "incompatibleTokens", ['b', 'B', 'H', 'k', 't', 'T']);
-  }
-
-  parse(dateString, token, match) {
-    switch (token) {
-      case 'a':
-      case 'aa':
-      case 'aaa':
-        return match.dayPeriod(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'aaaaa':
-        return match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
-
-      case 'aaaa':
-      default:
-        return match.dayPeriod(dateString, {
-          width: 'wide',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'abbreviated',
-          context: 'formatting'
-        }) || match.dayPeriod(dateString, {
-          width: 'narrow',
-          context: 'formatting'
-        });
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", 80);
+        _defineProperty(this, "incompatibleTokens", ['b', 'B', 'H', 'k', 't', 'T']);
     }
-  }
-
-  set(date, _flags, value) {
-    date.setUTCHours(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["dayPeriodEnumToHours"])(value), 0, 0, 0);
-    return date;
-  }
-
+    parse(dateString, token, match) {
+        switch (token) {
+            case 'a':
+            case 'aa':
+            case 'aaa':
+                return match.dayPeriod(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'aaaaa':
+                return match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+            case 'aaaa':
+            default:
+                return match.dayPeriod(dateString, {
+                    width: 'wide',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'abbreviated',
+                    context: 'formatting'
+                }) || match.dayPeriod(dateString, {
+                    width: 'narrow',
+                    context: 'formatting'
+                });
+        }
+    }
+    set(date, _flags, value) {
+        date.setUTCHours(Object(_utils_js__WEBPACK_IMPORTED_MODULE_1__["dayPeriodEnumToHours"])(value), 0, 0, 0);
+        return date;
+    }
 }
+
+
 
 /***/ }),
 
@@ -17641,22 +17386,22 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setMonth(new Date(2014, 8, 1), 1)
  * //=> Sat Feb 01 2014 00:00:00
  */
-
 function setMonth(dirtyDate, dirtyMonth) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var month = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyMonth);
-  var year = date.getFullYear();
-  var day = date.getDate();
-  var dateWithDesiredMonth = new Date(0);
-  dateWithDesiredMonth.setFullYear(year, month, 15);
-  dateWithDesiredMonth.setHours(0, 0, 0, 0);
-  var daysInMonth = Object(_getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateWithDesiredMonth); // Set the last day of the new month
-  // if the original date was the last day of the longer month
-
-  date.setMonth(month, Math.min(day, daysInMonth));
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var month = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyMonth);
+    var year = date.getFullYear();
+    var day = date.getDate();
+    var dateWithDesiredMonth = new Date(0);
+    dateWithDesiredMonth.setFullYear(year, month, 15);
+    dateWithDesiredMonth.setHours(0, 0, 0, 0);
+    var daysInMonth = Object(_getDaysInMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateWithDesiredMonth); // Set the last day of the new month
+    // if the original date was the last day of the longer month
+    date.setMonth(month, Math.min(day, daysInMonth));
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -17681,18 +17426,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function startOfUTCWeekYear(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
-  var firstWeekContainsDate = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1);
-  var year = Object(_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, options);
-  var firstWeek = new Date(0);
-  firstWeek.setUTCFullYear(year, 0, firstWeekContainsDate);
-  firstWeek.setUTCHours(0, 0, 0, 0);
-  var date = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeek, options);
-  return date;
+    var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var defaultOptions = Object(_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
+    var firstWeekContainsDate = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1);
+    var year = Object(_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, options);
+    var firstWeek = new Date(0);
+    firstWeek.setUTCFullYear(year, 0, firstWeekContainsDate);
+    firstWeek.setUTCHours(0, 0, 0, 0);
+    var date = Object(_startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(firstWeek, options);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -17708,64 +17454,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Setter", function() { return Setter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValueSetter", function() { return ValueSetter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DateToSystemTimezoneSetter", function() { return DateToSystemTimezoneSetter; });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _defineProperty(obj, key, value) { if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+}
+else {
+    obj[key] = value;
+} return obj; }
 var TIMEZONE_UNIT_PRIORITY = 10;
 class Setter {
-  constructor() {
-    _defineProperty(this, "priority", void 0);
-
-    _defineProperty(this, "subPriority", 0);
-  }
-
-  validate(_utcDate, _options) {
-    return true;
-  }
-
+    constructor() {
+        _defineProperty(this, "priority", void 0);
+        _defineProperty(this, "subPriority", 0);
+    }
+    validate(_utcDate, _options) {
+        return true;
+    }
 }
 class ValueSetter extends Setter {
-  constructor(value, validateValue, setValue, priority, subPriority) {
-    super();
-    this.value = value;
-    this.validateValue = validateValue;
-    this.setValue = setValue;
-    this.priority = priority;
-
-    if (subPriority) {
-      this.subPriority = subPriority;
+    constructor(value, validateValue, setValue, priority, subPriority) {
+        super();
+        this.value = value;
+        this.validateValue = validateValue;
+        this.setValue = setValue;
+        this.priority = priority;
+        if (subPriority) {
+            this.subPriority = subPriority;
+        }
     }
-  }
-
-  validate(utcDate, options) {
-    return this.validateValue(utcDate, this.value, options);
-  }
-
-  set(utcDate, flags, options) {
-    return this.setValue(utcDate, flags, this.value, options);
-  }
-
+    validate(utcDate, options) {
+        return this.validateValue(utcDate, this.value, options);
+    }
+    set(utcDate, flags, options) {
+        return this.setValue(utcDate, flags, this.value, options);
+    }
 }
 class DateToSystemTimezoneSetter extends Setter {
-  constructor() {
-    super(...arguments);
-
-    _defineProperty(this, "priority", TIMEZONE_UNIT_PRIORITY);
-
-    _defineProperty(this, "subPriority", -1);
-  }
-
-  set(date, flags) {
-    if (flags.timestampIsSet) {
-      return date;
+    constructor() {
+        super(...arguments);
+        _defineProperty(this, "priority", TIMEZONE_UNIT_PRIORITY);
+        _defineProperty(this, "subPriority", -1);
     }
-
-    var convertedDate = new Date(0);
-    convertedDate.setFullYear(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
-    convertedDate.setHours(date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds());
-    return convertedDate;
-  }
-
+    set(date, flags) {
+        if (flags.timestampIsSet) {
+            return date;
+        }
+        var convertedDate = new Date(0);
+        convertedDate.setFullYear(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+        convertedDate.setHours(date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds(), date.getUTCMilliseconds());
+        return convertedDate;
+    }
 }
+
+
 
 /***/ }),
 
@@ -17805,42 +17545,41 @@ __webpack_require__.r(__webpack_exports__);
  * ])
  * //=> Tue Jan 01 2030 00:00:00
  */
-
 function closestTo(dirtyDateToCompare, dirtyDatesArray) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
-  if (isNaN(Number(dateToCompare))) return new Date(NaN);
-  var timeToCompare = dateToCompare.getTime();
-  var datesArray; // `dirtyDatesArray` is undefined or null
-
-  if (dirtyDatesArray == null) {
-    datesArray = []; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
-  } else if (typeof dirtyDatesArray.forEach === 'function') {
-    datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array. Otherwise, make it empty Array
-  } else {
-    datesArray = Array.prototype.slice.call(dirtyDatesArray);
-  }
-
-  var result;
-  var minDistance;
-  datesArray.forEach(function (dirtyDate) {
-    var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-    if (isNaN(Number(currentDate))) {
-      result = new Date(NaN);
-      minDistance = NaN;
-      return;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
+    if (isNaN(Number(dateToCompare)))
+        return new Date(NaN);
+    var timeToCompare = dateToCompare.getTime();
+    var datesArray; // `dirtyDatesArray` is undefined or null
+    if (dirtyDatesArray == null) {
+        datesArray = []; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
     }
-
-    var distance = Math.abs(timeToCompare - currentDate.getTime());
-
-    if (result == null || distance < Number(minDistance)) {
-      result = currentDate;
-      minDistance = distance;
+    else if (typeof dirtyDatesArray.forEach === 'function') {
+        datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array. Otherwise, make it empty Array
     }
-  });
-  return result;
+    else {
+        datesArray = Array.prototype.slice.call(dirtyDatesArray);
+    }
+    var result;
+    var minDistance;
+    datesArray.forEach(function (dirtyDate) {
+        var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+        if (isNaN(Number(currentDate))) {
+            result = new Date(NaN);
+            minDistance = NaN;
+            return;
+        }
+        var distance = Math.abs(timeToCompare - currentDate.getTime());
+        if (result == null || distance < Number(minDistance)) {
+            result = currentDate;
+            minDistance = distance;
+        }
+    });
+    return result;
 }
+
+
 
 /***/ }),
 
@@ -17875,11 +17614,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = getUnixTime(new Date(2012, 1, 29, 11, 45, 5))
  * //=> 1330512305
  */
-
 function getUnixTime(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Math.floor(Object(_getTime_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate) / 1000);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Math.floor(Object(_getTime_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate) / 1000);
 }
+
+
 
 /***/ }),
 
@@ -17927,11 +17667,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isDate({})
  * //=> false
  */
-
 function isDate(value) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return value instanceof Date || typeof value === 'object' && Object.prototype.toString.call(value) === '[object Date]';
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return value instanceof Date || typeof value === 'object' && Object.prototype.toString.call(value) === '[object Date]';
 }
+
+
 
 /***/ }),
 
@@ -17998,23 +17739,23 @@ __webpack_require__.r(__webpack_exports__);
  * })
  * //=> Sat Jan 01 2005 00:00:00
  */
-
 function setWeekYear(dirtyDate, dirtyWeekYear, options) {
-  var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_5__["getDefaultOptions"])();
-  var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
-  var weekYear = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyWeekYear);
-  var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, Object(_startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, options));
-  var firstWeek = new Date(0);
-  firstWeek.setFullYear(weekYear, 0, firstWeekContainsDate);
-  firstWeek.setHours(0, 0, 0, 0);
-  date = Object(_startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(firstWeek, options);
-  date.setDate(date.getDate() + diff);
-  return date;
+    var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_5__["getDefaultOptions"])();
+    var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+    var weekYear = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dirtyWeekYear);
+    var diff = Object(_differenceInCalendarDays_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date, Object(_startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date, options));
+    var firstWeek = new Date(0);
+    firstWeek.setFullYear(weekYear, 0, firstWeekContainsDate);
+    firstWeek.setHours(0, 0, 0, 0);
+    date = Object(_startOfWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(firstWeek, options);
+    date.setDate(date.getDate() + diff);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -18054,12 +17795,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subISOWeekYears(new Date(2014, 8, 1), 5)
  * //=> Mon Aug 31 2009 00:00:00
  */
-
 function subISOWeekYears(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
-  return Object(_addISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyAmount);
+    return Object(_addISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -18082,13 +17824,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function setUTCISOWeek(dirtyDate, dirtyISOWeek) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var isoWeek = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyISOWeek);
-  var diff = Object(_getUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date) - isoWeek;
-  date.setUTCDate(date.getUTCDate() - diff * 7);
-  return date;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var isoWeek = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyISOWeek);
+    var diff = Object(_getUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date) - isoWeek;
+    date.setUTCDate(date.getUTCDate() - diff * 7);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -18126,12 +17870,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subMonths(new Date(2015, 1, 1), 5)
  * //=> Mon Sep 01 2014 00:00:00
  */
-
 function subMonths(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -18167,13 +17912,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfDay(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 02 2014 23:59:59.999
  */
-
 function endOfDay(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -18213,15 +17959,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setQuarter(new Date(2014, 6, 2), 2)
  * //=> Wed Apr 02 2014 00:00:00
  */
-
 function setQuarter(dirtyDate, dirtyQuarter) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var quarter = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyQuarter);
-  var oldQuarter = Math.floor(date.getMonth() / 3) + 1;
-  var diff = quarter - oldQuarter;
-  return Object(_setMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, date.getMonth() + diff * 3);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var quarter = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyQuarter);
+    var oldQuarter = Math.floor(date.getMonth() / 3) + 1;
+    var diff = quarter - oldQuarter;
+    return Object(_setMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, date.getMonth() + diff * 3);
 }
+
+
 
 /***/ }),
 
@@ -18259,13 +18006,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)
  * //=> Thu Jul 10 2014 12:45:30.750
  */
-
 function addMilliseconds(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var timestamp = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate).getTime();
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return new Date(timestamp + amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var timestamp = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate).getTime();
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return new Date(timestamp + amount);
 }
+
+
 
 /***/ }),
 
@@ -18304,15 +18052,16 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 8
  */
-
 function differenceInCalendarMonths(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
-  var monthDiff = dateLeft.getMonth() - dateRight.getMonth();
-  return yearDiff * 12 + monthDiff;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var yearDiff = dateLeft.getFullYear() - dateRight.getFullYear();
+    var monthDiff = dateLeft.getMonth() - dateRight.getMonth();
+    return yearDiff * 12 + monthDiff;
 }
+
+
 
 /***/ }),
 
@@ -18330,7 +18079,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lastDayOfMonth/index.js */ "kKUf");
 /* harmony import */ var _startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../startOfMonth/index.js */ "9ig3");
 /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_lib/requiredArgs/index.js */ "jIYg");
-
 
 
 
@@ -18363,9 +18111,11 @@ __webpack_require__.r(__webpack_exports__);
  * //=> 6
  */
 function getWeeksInMonth(date, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  return Object(_differenceInCalendarWeeks_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date), Object(_startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date), options) + 1;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    return Object(_differenceInCalendarWeeks_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Object(_lastDayOfMonth_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date), Object(_startOfMonth_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date), options) + 1;
 }
+
+
 
 /***/ }),
 
@@ -18409,12 +18159,13 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 12
  */
-
 function differenceInSeconds(dateLeft, dateRight, options) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var diff = Object(_differenceInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight) / 1000;
-  return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_2__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var diff = Object(_differenceInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dateLeft, dateRight) / 1000;
+    return Object(_lib_roundingMethods_index_js__WEBPACK_IMPORTED_MODULE_2__["getRoundingMethod"])(options === null || options === void 0 ? void 0 : options.roundingMethod)(diff);
 }
+
+
 
 /***/ }),
 
@@ -18477,20 +18228,20 @@ __webpack_require__.r(__webpack_exports__);
  * })
  * //=> Mon Jan 03 2005 00:00:00
  */
-
 function startOfWeekYear(dirtyDate, options) {
-  var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
-  var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1);
-  var year = Object(_getWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, options);
-  var firstWeek = new Date(0);
-  firstWeek.setFullYear(year, 0, firstWeekContainsDate);
-  firstWeek.setHours(0, 0, 0, 0);
-  var date = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(firstWeek, options);
-  return date;
+    var _ref, _ref2, _ref3, _options$firstWeekCon, _options$locale, _options$locale$optio, _defaultOptions$local, _defaultOptions$local2;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_4__["getDefaultOptions"])();
+    var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])((_ref = (_ref2 = (_ref3 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale = options.locale) === null || _options$locale === void 0 ? void 0 : (_options$locale$optio = _options$locale.options) === null || _options$locale$optio === void 0 ? void 0 : _options$locale$optio.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : defaultOptions.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref !== void 0 ? _ref : 1);
+    var year = Object(_getWeekYear_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate, options);
+    var firstWeek = new Date(0);
+    firstWeek.setFullYear(year, 0, firstWeekContainsDate);
+    firstWeek.setHours(0, 0, 0, 0);
+    var date = Object(_startOfWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(firstWeek, options);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -18526,16 +18277,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Sep 30 2014 23:59:59.999
  */
-
 function endOfQuarter(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var currentMonth = date.getMonth();
-  var month = currentMonth - currentMonth % 3 + 3;
-  date.setMonth(month, 0);
-  date.setHours(23, 59, 59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var currentMonth = date.getMonth();
+    var month = currentMonth - currentMonth % 3 + 3;
+    date.setMonth(month, 0);
+    date.setHours(23, 59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -18578,13 +18330,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameISOWeek(new Date(2014, 8, 1), new Date(2015, 8, 1))
  * //=> false
  */
-
 function isSameISOWeek(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  return Object(_isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft, dirtyDateRight, {
-    weekStartsOn: 1
-  });
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    return Object(_isSameWeek_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft, dirtyDateRight, {
+        weekStartsOn: 1
+    });
 }
+
+
 
 /***/ }),
 
@@ -18622,13 +18375,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addWeeks(new Date(2014, 8, 1), 4)
  * //=> Mon Sep 29 2014 00:00:00
  */
-
 function addWeeks(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  var days = amount * 7;
-  return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, days);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    var days = amount * 7;
+    return Object(_addDays_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, days);
 }
+
+
 
 /***/ }),
 
@@ -18664,13 +18418,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = endOfHour(new Date(2014, 8, 2, 11, 55))
  * //=> Tue Sep 02 2014 11:59:59.999
  */
-
 function endOfHour(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  date.setMinutes(59, 59, 999);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    date.setMinutes(59, 59, 999);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -18717,13 +18472,14 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> false
  */
-
 function isSameMinute(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfMinute = Object(_startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRightStartOfMinute = Object(_startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeftStartOfMinute.getTime() === dateRightStartOfMinute.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfMinute = Object(_startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRightStartOfMinute = Object(_startOfMinute_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeftStartOfMinute.getTime() === dateRightStartOfMinute.getTime();
 }
+
+
 
 /***/ }),
 
@@ -18765,16 +18521,16 @@ var MILLISECONDS_IN_WEEK = 604800000;
  * const result = getISOWeek(new Date(2005, 0, 2))
  * //=> 53
  */
-
 function getISOWeek(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var diff = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date).getTime() - Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date).getTime(); // Round the number of days to the nearest integer
-  // because the number of milliseconds in a week is not constant
-  // (e.g. it's different in the week of the daylight saving time clock shift)
-
-  return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var diff = Object(_startOfISOWeek_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(date).getTime() - Object(_startOfISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date).getTime(); // Round the number of days to the nearest integer
+    // because the number of milliseconds in a week is not constant
+    // (e.g. it's different in the week of the daylight saving time clock shift)
+    return Math.round(diff / MILLISECONDS_IN_WEEK) + 1;
 }
+
+
 
 /***/ }),
 
@@ -18820,10 +18576,8 @@ __webpack_require__.r(__webpack_exports__);
 //   If there is no matching single quote
 //   then the sequence will continue until the end of the string.
 // - . matches any single character unmatched by previous parts of the RegExps
-
 var formattingTokensRegExp = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g; // This RegExp catches symbols escaped by quotes, and also
 // sequences of symbols P, p, and the combinations like `PPPPPPPppppp`
-
 var longFormattingTokensRegExp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g;
 var escapedStringRegExp = /^'([^]*?)'?$/;
 var doubleQuoteRegExp = /''/g;
@@ -19119,104 +18873,82 @@ var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * const result = format(new Date(2014, 6, 2, 15), "h 'o''clock'")
  * //=> "3 o'clock"
  */
-
 function format(dirtyDate, dirtyFormatStr, options) {
-  var _ref, _options$locale, _ref2, _ref3, _ref4, _options$firstWeekCon, _options$locale2, _options$locale2$opti, _defaultOptions$local, _defaultOptions$local2, _ref5, _ref6, _ref7, _options$weekStartsOn, _options$locale3, _options$locale3$opti, _defaultOptions$local3, _defaultOptions$local4;
-
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(2, arguments);
-  var formatStr = String(dirtyFormatStr);
-  var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_9__["getDefaultOptions"])();
-  var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_10__["default"];
-  var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref2 = (_ref3 = (_ref4 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale2 = options.locale) === null || _options$locale2 === void 0 ? void 0 : (_options$locale2$opti = _options$locale2.options) === null || _options$locale2$opti === void 0 ? void 0 : _options$locale2$opti.firstWeekContainsDate) !== null && _ref4 !== void 0 ? _ref4 : defaultOptions.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
-
-  if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
-    throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
-  }
-
-  var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref5 = (_ref6 = (_ref7 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale3 = options.locale) === null || _options$locale3 === void 0 ? void 0 : (_options$locale3$opti = _options$locale3.options) === null || _options$locale3$opti === void 0 ? void 0 : _options$locale3$opti.weekStartsOn) !== null && _ref7 !== void 0 ? _ref7 : defaultOptions.weekStartsOn) !== null && _ref6 !== void 0 ? _ref6 : (_defaultOptions$local3 = defaultOptions.locale) === null || _defaultOptions$local3 === void 0 ? void 0 : (_defaultOptions$local4 = _defaultOptions$local3.options) === null || _defaultOptions$local4 === void 0 ? void 0 : _defaultOptions$local4.weekStartsOn) !== null && _ref5 !== void 0 ? _ref5 : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
-
-  if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
-    throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
-  }
-
-  if (!locale.localize) {
-    throw new RangeError('locale must contain localize property');
-  }
-
-  if (!locale.formatLong) {
-    throw new RangeError('locale must contain formatLong property');
-  }
-
-  var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
-
-  if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(originalDate)) {
-    throw new RangeError('Invalid time value');
-  } // Convert the date in system timezone to the same date in UTC+00:00 timezone.
-  // This ensures that when UTC functions will be implemented, locales will be compatible with them.
-  // See an issue about UTC functions: https://github.com/date-fns/date-fns/issues/376
-
-
-  var timezoneOffset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(originalDate);
-  var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate, timezoneOffset);
-  var formatterOptions = {
-    firstWeekContainsDate: firstWeekContainsDate,
-    weekStartsOn: weekStartsOn,
-    locale: locale,
-    _originalDate: originalDate
-  };
-  var result = formatStr.match(longFormattingTokensRegExp).map(function (substring) {
-    var firstCharacter = substring[0];
-
-    if (firstCharacter === 'p' || firstCharacter === 'P') {
-      var longFormatter = _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_4__["default"][firstCharacter];
-      return longFormatter(substring, locale.formatLong);
+    var _ref, _options$locale, _ref2, _ref3, _ref4, _options$firstWeekCon, _options$locale2, _options$locale2$opti, _defaultOptions$local, _defaultOptions$local2, _ref5, _ref6, _ref7, _options$weekStartsOn, _options$locale3, _options$locale3$opti, _defaultOptions$local3, _defaultOptions$local4;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_8__["default"])(2, arguments);
+    var formatStr = String(dirtyFormatStr);
+    var defaultOptions = Object(_lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_9__["getDefaultOptions"])();
+    var locale = (_ref = (_options$locale = options === null || options === void 0 ? void 0 : options.locale) !== null && _options$locale !== void 0 ? _options$locale : defaultOptions.locale) !== null && _ref !== void 0 ? _ref : _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_10__["default"];
+    var firstWeekContainsDate = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref2 = (_ref3 = (_ref4 = (_options$firstWeekCon = options === null || options === void 0 ? void 0 : options.firstWeekContainsDate) !== null && _options$firstWeekCon !== void 0 ? _options$firstWeekCon : options === null || options === void 0 ? void 0 : (_options$locale2 = options.locale) === null || _options$locale2 === void 0 ? void 0 : (_options$locale2$opti = _options$locale2.options) === null || _options$locale2$opti === void 0 ? void 0 : _options$locale2$opti.firstWeekContainsDate) !== null && _ref4 !== void 0 ? _ref4 : defaultOptions.firstWeekContainsDate) !== null && _ref3 !== void 0 ? _ref3 : (_defaultOptions$local = defaultOptions.locale) === null || _defaultOptions$local === void 0 ? void 0 : (_defaultOptions$local2 = _defaultOptions$local.options) === null || _defaultOptions$local2 === void 0 ? void 0 : _defaultOptions$local2.firstWeekContainsDate) !== null && _ref2 !== void 0 ? _ref2 : 1); // Test if weekStartsOn is between 1 and 7 _and_ is not NaN
+    if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7)) {
+        throw new RangeError('firstWeekContainsDate must be between 1 and 7 inclusively');
     }
-
-    return substring;
-  }).join('').match(formattingTokensRegExp).map(function (substring) {
-    // Replace two single quote characters with one single quote character
-    if (substring === "''") {
-      return "'";
+    var weekStartsOn = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_7__["default"])((_ref5 = (_ref6 = (_ref7 = (_options$weekStartsOn = options === null || options === void 0 ? void 0 : options.weekStartsOn) !== null && _options$weekStartsOn !== void 0 ? _options$weekStartsOn : options === null || options === void 0 ? void 0 : (_options$locale3 = options.locale) === null || _options$locale3 === void 0 ? void 0 : (_options$locale3$opti = _options$locale3.options) === null || _options$locale3$opti === void 0 ? void 0 : _options$locale3$opti.weekStartsOn) !== null && _ref7 !== void 0 ? _ref7 : defaultOptions.weekStartsOn) !== null && _ref6 !== void 0 ? _ref6 : (_defaultOptions$local3 = defaultOptions.locale) === null || _defaultOptions$local3 === void 0 ? void 0 : (_defaultOptions$local4 = _defaultOptions$local3.options) === null || _defaultOptions$local4 === void 0 ? void 0 : _defaultOptions$local4.weekStartsOn) !== null && _ref5 !== void 0 ? _ref5 : 0); // Test if weekStartsOn is between 0 and 6 _and_ is not NaN
+    if (!(weekStartsOn >= 0 && weekStartsOn <= 6)) {
+        throw new RangeError('weekStartsOn must be between 0 and 6 inclusively');
     }
-
-    var firstCharacter = substring[0];
-
-    if (firstCharacter === "'") {
-      return cleanEscapedString(substring);
+    if (!locale.localize) {
+        throw new RangeError('locale must contain localize property');
     }
-
-    var formatter = _lib_format_formatters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"][firstCharacter];
-
-    if (formatter) {
-      if (!(options !== null && options !== void 0 && options.useAdditionalWeekYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedWeekYearToken"])(substring)) {
-        Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(substring, dirtyFormatStr, String(dirtyDate));
-      }
-
-      if (!(options !== null && options !== void 0 && options.useAdditionalDayOfYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedDayOfYearToken"])(substring)) {
-        Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(substring, dirtyFormatStr, String(dirtyDate));
-      }
-
-      return formatter(utcDate, substring, locale.localize, formatterOptions);
+    if (!locale.formatLong) {
+        throw new RangeError('locale must contain formatLong property');
     }
-
-    if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
-      throw new RangeError('Format string contains an unescaped latin alphabet character `' + firstCharacter + '`');
-    }
-
-    return substring;
-  }).join('');
-  return result;
+    var originalDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDate);
+    if (!Object(_isValid_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(originalDate)) {
+        throw new RangeError('Invalid time value');
+    } // Convert the date in system timezone to the same date in UTC+00:00 timezone.
+    // This ensures that when UTC functions will be implemented, locales will be compatible with them.
+    // See an issue about UTC functions: https://github.com/date-fns/date-fns/issues/376
+    var timezoneOffset = Object(_lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_5__["default"])(originalDate);
+    var utcDate = Object(_subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(originalDate, timezoneOffset);
+    var formatterOptions = {
+        firstWeekContainsDate: firstWeekContainsDate,
+        weekStartsOn: weekStartsOn,
+        locale: locale,
+        _originalDate: originalDate
+    };
+    var result = formatStr.match(longFormattingTokensRegExp).map(function (substring) {
+        var firstCharacter = substring[0];
+        if (firstCharacter === 'p' || firstCharacter === 'P') {
+            var longFormatter = _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_4__["default"][firstCharacter];
+            return longFormatter(substring, locale.formatLong);
+        }
+        return substring;
+    }).join('').match(formattingTokensRegExp).map(function (substring) {
+        // Replace two single quote characters with one single quote character
+        if (substring === "''") {
+            return "'";
+        }
+        var firstCharacter = substring[0];
+        if (firstCharacter === "'") {
+            return cleanEscapedString(substring);
+        }
+        var formatter = _lib_format_formatters_index_js__WEBPACK_IMPORTED_MODULE_3__["default"][firstCharacter];
+        if (formatter) {
+            if (!(options !== null && options !== void 0 && options.useAdditionalWeekYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedWeekYearToken"])(substring)) {
+                Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(substring, dirtyFormatStr, String(dirtyDate));
+            }
+            if (!(options !== null && options !== void 0 && options.useAdditionalDayOfYearTokens) && Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["isProtectedDayOfYearToken"])(substring)) {
+                Object(_lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_6__["throwProtectedError"])(substring, dirtyFormatStr, String(dirtyDate));
+            }
+            return formatter(utcDate, substring, locale.localize, formatterOptions);
+        }
+        if (firstCharacter.match(unescapedLatinCharacterRegExp)) {
+            throw new RangeError('Format string contains an unescaped latin alphabet character `' + firstCharacter + '`');
+        }
+        return substring;
+    }).join('');
+    return result;
 }
-
 function cleanEscapedString(input) {
-  var matched = input.match(escapedStringRegExp);
-
-  if (!matched) {
-    return input;
-  }
-
-  return matched[1].replace(doubleQuoteRegExp, "'");
+    var matched = input.match(escapedStringRegExp);
+    if (!matched) {
+        return input;
+    }
+    return matched[1].replace(doubleQuoteRegExp, "'");
 }
+
+
 
 /***/ }),
 
@@ -19254,12 +18986,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = subYears(new Date(2014, 8, 1), 5)
  * //=> Tue Sep 01 2009 00:00:00
  */
-
 function subYears(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, -amount);
 }
+
+
 
 /***/ }),
 
@@ -19300,12 +19033,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = secondsToHours(7199)
  * //=> 1
  */
-
 function secondsToHours(seconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var hours = seconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInHour"];
-  return Math.floor(hours);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var hours = seconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInHour"];
+    return Math.floor(hours);
 }
+
+
 
 /***/ }),
 
@@ -19345,12 +19079,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = monthsToYears(40)
  * //=> 3
  */
-
 function monthsToYears(months) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var years = months / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInYear"];
-  return Math.floor(years);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var years = months / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInYear"];
+    return Math.floor(years);
 }
+
+
 
 /***/ }),
 
@@ -19366,51 +19101,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "numericPatterns", function() { return numericPatterns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "timezonePatterns", function() { return timezonePatterns; });
 var numericPatterns = {
-  month: /^(1[0-2]|0?\d)/,
-  // 0 to 12
-  date: /^(3[0-1]|[0-2]?\d)/,
-  // 0 to 31
-  dayOfYear: /^(36[0-6]|3[0-5]\d|[0-2]?\d?\d)/,
-  // 0 to 366
-  week: /^(5[0-3]|[0-4]?\d)/,
-  // 0 to 53
-  hour23h: /^(2[0-3]|[0-1]?\d)/,
-  // 0 to 23
-  hour24h: /^(2[0-4]|[0-1]?\d)/,
-  // 0 to 24
-  hour11h: /^(1[0-1]|0?\d)/,
-  // 0 to 11
-  hour12h: /^(1[0-2]|0?\d)/,
-  // 0 to 12
-  minute: /^[0-5]?\d/,
-  // 0 to 59
-  second: /^[0-5]?\d/,
-  // 0 to 59
-  singleDigit: /^\d/,
-  // 0 to 9
-  twoDigits: /^\d{1,2}/,
-  // 0 to 99
-  threeDigits: /^\d{1,3}/,
-  // 0 to 999
-  fourDigits: /^\d{1,4}/,
-  // 0 to 9999
-  anyDigitsSigned: /^-?\d+/,
-  singleDigitSigned: /^-?\d/,
-  // 0 to 9, -0 to -9
-  twoDigitsSigned: /^-?\d{1,2}/,
-  // 0 to 99, -0 to -99
-  threeDigitsSigned: /^-?\d{1,3}/,
-  // 0 to 999, -0 to -999
-  fourDigitsSigned: /^-?\d{1,4}/ // 0 to 9999, -0 to -9999
-
+    month: /^(1[0-2]|0?\d)/,
+    // 0 to 12
+    date: /^(3[0-1]|[0-2]?\d)/,
+    // 0 to 31
+    dayOfYear: /^(36[0-6]|3[0-5]\d|[0-2]?\d?\d)/,
+    // 0 to 366
+    week: /^(5[0-3]|[0-4]?\d)/,
+    // 0 to 53
+    hour23h: /^(2[0-3]|[0-1]?\d)/,
+    // 0 to 23
+    hour24h: /^(2[0-4]|[0-1]?\d)/,
+    // 0 to 24
+    hour11h: /^(1[0-1]|0?\d)/,
+    // 0 to 11
+    hour12h: /^(1[0-2]|0?\d)/,
+    // 0 to 12
+    minute: /^[0-5]?\d/,
+    // 0 to 59
+    second: /^[0-5]?\d/,
+    // 0 to 59
+    singleDigit: /^\d/,
+    // 0 to 9
+    twoDigits: /^\d{1,2}/,
+    // 0 to 99
+    threeDigits: /^\d{1,3}/,
+    // 0 to 999
+    fourDigits: /^\d{1,4}/,
+    // 0 to 9999
+    anyDigitsSigned: /^-?\d+/,
+    singleDigitSigned: /^-?\d/,
+    // 0 to 9, -0 to -9
+    twoDigitsSigned: /^-?\d{1,2}/,
+    // 0 to 99, -0 to -99
+    threeDigitsSigned: /^-?\d{1,3}/,
+    // 0 to 999, -0 to -999
+    fourDigitsSigned: /^-?\d{1,4}/ // 0 to 9999, -0 to -9999
 };
 var timezonePatterns = {
-  basicOptionalMinutes: /^([+-])(\d{2})(\d{2})?|Z/,
-  basic: /^([+-])(\d{2})(\d{2})|Z/,
-  basicOptionalSeconds: /^([+-])(\d{2})(\d{2})((\d{2}))?|Z/,
-  extended: /^([+-])(\d{2}):(\d{2})|Z/,
-  extendedOptionalSeconds: /^([+-])(\d{2}):(\d{2})(:(\d{2}))?|Z/
+    basicOptionalMinutes: /^([+-])(\d{2})(\d{2})?|Z/,
+    basic: /^([+-])(\d{2})(\d{2})|Z/,
+    basicOptionalSeconds: /^([+-])(\d{2})(\d{2})((\d{2}))?|Z/,
+    extended: /^([+-])(\d{2}):(\d{2})|Z/,
+    extendedOptionalSeconds: /^([+-])(\d{2}):(\d{2})(:(\d{2}))?|Z/
 };
+
+
 
 /***/ }),
 
@@ -19451,12 +19187,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = millisecondsToSeconds(1999)
  * //=> 1
  */
-
 function millisecondsToSeconds(milliseconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var seconds = milliseconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInSecond"];
-  return Math.floor(seconds);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var seconds = milliseconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["millisecondsInSecond"];
+    return Math.floor(seconds);
 }
+
+
 
 /***/ }),
 
@@ -19494,14 +19231,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setDate(new Date(2014, 8, 1), 30)
  * //=> Tue Sep 30 2014 00:00:00
  */
-
 function setDate(dirtyDate, dirtyDayOfMonth) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var dayOfMonth = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDayOfMonth);
-  date.setDate(dayOfMonth);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var dayOfMonth = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDayOfMonth);
+    date.setDate(dayOfMonth);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -19537,11 +19275,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = quartersToMonths(2)
  * //=> 6
  */
-
 function quartersToMonths(quarters) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  return Math.floor(quarters * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInQuarter"]);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    return Math.floor(quarters * _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["monthsInQuarter"]);
 }
+
+
 
 /***/ }),
 
@@ -19579,13 +19318,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addQuarters(new Date(2014, 8, 1), 1)
  * //=> Mon Dec 01 2014 00:00:00
  */
-
 function addQuarters(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  var months = amount * 3;
-  return Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, months);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    var months = amount * 3;
+    return Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, months);
 }
+
+
 
 /***/ }),
 
@@ -19635,31 +19375,28 @@ var MILLISECONDS_IN_DAY = 24 * 60 * 60 * 1000;
  * )
  * //=> 0
  */
-
 function getOverlappingDaysInIntervals(dirtyIntervalLeft, dirtyIntervalRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var intervalLeft = dirtyIntervalLeft || {};
-  var intervalRight = dirtyIntervalRight || {};
-  var leftStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft.start).getTime();
-  var leftEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft.end).getTime();
-  var rightStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight.start).getTime();
-  var rightEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight.end).getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
-
-  if (!(leftStartTime <= leftEndTime && rightStartTime <= rightEndTime)) {
-    throw new RangeError('Invalid interval');
-  }
-
-  var isOverlapping = leftStartTime < rightEndTime && rightStartTime < leftEndTime;
-
-  if (!isOverlapping) {
-    return 0;
-  }
-
-  var overlapStartDate = rightStartTime < leftStartTime ? leftStartTime : rightStartTime;
-  var overlapEndDate = rightEndTime > leftEndTime ? leftEndTime : rightEndTime;
-  var differenceInMs = overlapEndDate - overlapStartDate;
-  return Math.ceil(differenceInMs / MILLISECONDS_IN_DAY);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var intervalLeft = dirtyIntervalLeft || {};
+    var intervalRight = dirtyIntervalRight || {};
+    var leftStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft.start).getTime();
+    var leftEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalLeft.end).getTime();
+    var rightStartTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight.start).getTime();
+    var rightEndTime = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(intervalRight.end).getTime(); // Throw an exception if start date is after end date or if any date is `Invalid Date`
+    if (!(leftStartTime <= leftEndTime && rightStartTime <= rightEndTime)) {
+        throw new RangeError('Invalid interval');
+    }
+    var isOverlapping = leftStartTime < rightEndTime && rightStartTime < leftEndTime;
+    if (!isOverlapping) {
+        return 0;
+    }
+    var overlapStartDate = rightStartTime < leftStartTime ? leftStartTime : rightStartTime;
+    var overlapEndDate = rightEndTime > leftEndTime ? leftEndTime : rightEndTime;
+    var differenceInMs = overlapEndDate - overlapStartDate;
+    return Math.ceil(differenceInMs / MILLISECONDS_IN_DAY);
 }
+
+
 
 /***/ }),
 
@@ -19678,15 +19415,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function startOfUTCISOWeek(dirtyDate) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var weekStartsOn = 1;
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var day = date.getUTCDay();
-  var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
-  date.setUTCDate(date.getUTCDate() - diff);
-  date.setUTCHours(0, 0, 0, 0);
-  return date;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var weekStartsOn = 1;
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var day = date.getUTCDay();
+    var diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
+    date.setUTCDate(date.getUTCDate() - diff);
+    date.setUTCHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -19725,11 +19464,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisMonth(new Date(2014, 8, 15))
  * //=> true
  */
-
 function isThisMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameMonth_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameMonth_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
 }
+
+
 
 /***/ }),
 
@@ -19770,12 +19510,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = secondsToMinutes(119)
  * //=> 1
  */
-
 function secondsToMinutes(seconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
-  var minutes = seconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInMinute"];
-  return Math.floor(minutes);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(1, arguments);
+    var minutes = seconds / _constants_index_js__WEBPACK_IMPORTED_MODULE_1__["secondsInMinute"];
+    return Math.floor(minutes);
 }
+
+
 
 /***/ }),
 
@@ -19814,11 +19555,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isFuture(new Date(2014, 11, 31))
  * //=> true
  */
-
 function isFuture(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getTime() > Date.now();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getTime() > Date.now();
 }
+
+
 
 /***/ }),
 
@@ -19865,22 +19607,21 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> 1
  */
-
 function differenceInISOWeekYears(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
-  var difference = Math.abs(Object(_differenceInCalendarISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
-  dateLeft = Object(_subISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, sign * difference); // Math.abs(diff in full ISO years - diff in calendar ISO years) === 1
-  // if last calendar ISO year is not full
-  // If so, result must be decreased by 1 in absolute value
-
-  var isLastISOWeekYearNotFull = Number(Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign);
-  var result = sign * (difference - isLastISOWeekYearNotFull); // Prevent negative zero
-
-  return result === 0 ? 0 : result;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_4__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    var sign = Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight);
+    var difference = Math.abs(Object(_differenceInCalendarISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dateLeft, dateRight));
+    dateLeft = Object(_subISOWeekYears_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(dateLeft, sign * difference); // Math.abs(diff in full ISO years - diff in calendar ISO years) === 1
+    // if last calendar ISO year is not full
+    // If so, result must be decreased by 1 in absolute value
+    var isLastISOWeekYearNotFull = Number(Object(_compareAsc_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dateLeft, dateRight) === -sign);
+    var result = sign * (difference - isLastISOWeekYearNotFull); // Prevent negative zero
+    return result === 0 ? 0 : result;
 }
+
+
 
 /***/ }),
 
@@ -19916,16 +19657,17 @@ __webpack_require__.r(__webpack_exports__);
  * const result = startOfQuarter(new Date(2014, 8, 2, 11, 55, 0))
  * //=> Tue Jul 01 2014 00:00:00
  */
-
 function startOfQuarter(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var currentMonth = date.getMonth();
-  var month = currentMonth - currentMonth % 3;
-  date.setMonth(month, 1);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var currentMonth = date.getMonth();
+    var month = currentMonth - currentMonth % 3;
+    date.setMonth(month, 1);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -19940,22 +19682,26 @@ function startOfQuarter(dirtyDate) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildMatchPatternFn; });
 function buildMatchPatternFn(args) {
-  return function (string) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var matchResult = string.match(args.matchPattern);
-    if (!matchResult) return null;
-    var matchedString = matchResult[0];
-    var parseResult = string.match(args.parsePattern);
-    if (!parseResult) return null;
-    var value = args.valueCallback ? args.valueCallback(parseResult[0]) : parseResult[0];
-    value = options.valueCallback ? options.valueCallback(value) : value;
-    var rest = string.slice(matchedString.length);
-    return {
-      value: value,
-      rest: rest
+    return function (string) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        var matchResult = string.match(args.matchPattern);
+        if (!matchResult)
+            return null;
+        var matchedString = matchResult[0];
+        var parseResult = string.match(args.parsePattern);
+        if (!parseResult)
+            return null;
+        var value = args.valueCallback ? args.valueCallback(parseResult[0]) : parseResult[0];
+        value = options.valueCallback ? options.valueCallback(value) : value;
+        var rest = string.slice(matchedString.length);
+        return {
+            value: value,
+            rest: rest
+        };
     };
-  };
 }
+
+
 
 /***/ }),
 
@@ -19972,11 +19718,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setDefaultOptions", function() { return setDefaultOptions; });
 var defaultOptions = {};
 function getDefaultOptions() {
-  return defaultOptions;
+    return defaultOptions;
 }
 function setDefaultOptions(newOptions) {
-  defaultOptions = newOptions;
+    defaultOptions = newOptions;
 }
+
+
 
 /***/ }),
 
@@ -20015,11 +19763,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isThisQuarter(new Date(2014, 6, 2))
  * //=> true
  */
-
 function isThisQuarter(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_isSameQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_isSameQuarter_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(Date.now(), dirtyDate);
 }
+
+
 
 /***/ }),
 
@@ -20071,7 +19820,6 @@ var daysInWeek = 7;
  * @type {number}
  * @default
  */
-
 var daysInYear = 365.2425;
 /**
  * Maximum allowed time.
@@ -20081,7 +19829,6 @@ var daysInYear = 365.2425;
  * @type {number}
  * @default
  */
-
 var maxTime = Math.pow(10, 8) * 24 * 60 * 60 * 1000;
 /**
  * Milliseconds in 1 minute
@@ -20091,7 +19838,6 @@ var maxTime = Math.pow(10, 8) * 24 * 60 * 60 * 1000;
  * @type {number}
  * @default
  */
-
 var millisecondsInMinute = 60000;
 /**
  * Milliseconds in 1 hour
@@ -20101,7 +19847,6 @@ var millisecondsInMinute = 60000;
  * @type {number}
  * @default
  */
-
 var millisecondsInHour = 3600000;
 /**
  * Milliseconds in 1 second
@@ -20111,7 +19856,6 @@ var millisecondsInHour = 3600000;
  * @type {number}
  * @default
  */
-
 var millisecondsInSecond = 1000;
 /**
  * Minimum allowed time.
@@ -20121,7 +19865,6 @@ var millisecondsInSecond = 1000;
  * @type {number}
  * @default
  */
-
 var minTime = -maxTime;
 /**
  * Minutes in 1 hour
@@ -20131,7 +19874,6 @@ var minTime = -maxTime;
  * @type {number}
  * @default
  */
-
 var minutesInHour = 60;
 /**
  * Months in 1 quarter
@@ -20141,7 +19883,6 @@ var minutesInHour = 60;
  * @type {number}
  * @default
  */
-
 var monthsInQuarter = 3;
 /**
  * Months in 1 year
@@ -20151,7 +19892,6 @@ var monthsInQuarter = 3;
  * @type {number}
  * @default
  */
-
 var monthsInYear = 12;
 /**
  * Quarters in 1 year
@@ -20161,7 +19901,6 @@ var monthsInYear = 12;
  * @type {number}
  * @default
  */
-
 var quartersInYear = 4;
 /**
  * Seconds in 1 hour
@@ -20171,7 +19910,6 @@ var quartersInYear = 4;
  * @type {number}
  * @default
  */
-
 var secondsInHour = 3600;
 /**
  * Seconds in 1 minute
@@ -20181,7 +19919,6 @@ var secondsInHour = 3600;
  * @type {number}
  * @default
  */
-
 var secondsInMinute = 60;
 /**
  * Seconds in 1 day
@@ -20191,7 +19928,6 @@ var secondsInMinute = 60;
  * @type {number}
  * @default
  */
-
 var secondsInDay = secondsInHour * 24;
 /**
  * Seconds in 1 week
@@ -20201,7 +19937,6 @@ var secondsInDay = secondsInHour * 24;
  * @type {number}
  * @default
  */
-
 var secondsInWeek = secondsInDay * 7;
 /**
  * Seconds in 1 year
@@ -20211,7 +19946,6 @@ var secondsInWeek = secondsInDay * 7;
  * @type {number}
  * @default
  */
-
 var secondsInYear = secondsInDay * daysInYear;
 /**
  * Seconds in 1 month
@@ -20221,7 +19955,6 @@ var secondsInYear = secondsInDay * daysInYear;
  * @type {number}
  * @default
  */
-
 var secondsInMonth = secondsInYear / 12;
 /**
  * Seconds in 1 quarter
@@ -20231,8 +19964,9 @@ var secondsInMonth = secondsInYear / 12;
  * @type {number}
  * @default
  */
-
 var secondsInQuarter = secondsInMonth * 3;
+
+
 
 /***/ }),
 
@@ -20267,11 +20001,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isFirstDayOfMonth(new Date(2014, 8, 1))
  * //=> true
  */
-
 function isFirstDayOfMonth(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDate() === 1;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate).getDate() === 1;
 }
+
+
 
 /***/ }),
 
@@ -20307,15 +20042,16 @@ __webpack_require__.r(__webpack_exports__);
  * const result = lastDayOfYear(new Date(2014, 8, 2, 11, 55, 00))
  * //=> Wed Dec 31 2014 00:00:00
  */
-
 function lastDayOfYear(dirtyDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var year = date.getFullYear();
-  date.setFullYear(year + 1, 0, 0);
-  date.setHours(0, 0, 0, 0);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var year = date.getFullYear();
+    date.setFullYear(year + 1, 0, 0);
+    date.setHours(0, 0, 0, 0);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -20350,11 +20086,12 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isMonday(new Date(2014, 8, 22))
  * //=> true
  */
-
 function isMonday(date) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
-  return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date).getDay() === 1;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(1, arguments);
+    return Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(date).getDay() === 1;
 }
+
+
 
 /***/ }),
 
@@ -20392,14 +20129,15 @@ __webpack_require__.r(__webpack_exports__);
  * const result = setSeconds(new Date(2014, 8, 1, 11, 30, 40), 45)
  * //=> Mon Sep 01 2014 11:30:45
  */
-
 function setSeconds(dirtyDate, dirtySeconds) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var seconds = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtySeconds);
-  date.setSeconds(seconds);
-  return date;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var seconds = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtySeconds);
+    date.setSeconds(seconds);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -20441,42 +20179,41 @@ __webpack_require__.r(__webpack_exports__);
  * const result = closestIndexTo(dateToCompare, datesArray)
  * //=> 1
  */
-
 function closestIndexTo(dirtyDateToCompare, dirtyDatesArray) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
-  if (isNaN(Number(dateToCompare))) return NaN;
-  var timeToCompare = dateToCompare.getTime();
-  var datesArray; // `dirtyDatesArray` is undefined or null
-
-  if (dirtyDatesArray == null) {
-    datesArray = []; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
-  } else if (typeof dirtyDatesArray.forEach === 'function') {
-    datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array. Otherwise, make it empty Array
-  } else {
-    datesArray = Array.prototype.slice.call(dirtyDatesArray);
-  }
-
-  var result;
-  var minDistance;
-  datesArray.forEach(function (dirtyDate, index) {
-    var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-
-    if (isNaN(Number(currentDate))) {
-      result = NaN;
-      minDistance = NaN;
-      return;
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateToCompare = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateToCompare);
+    if (isNaN(Number(dateToCompare)))
+        return NaN;
+    var timeToCompare = dateToCompare.getTime();
+    var datesArray; // `dirtyDatesArray` is undefined or null
+    if (dirtyDatesArray == null) {
+        datesArray = []; // `dirtyDatesArray` is Array, Set or Map, or object with custom `forEach` method
     }
-
-    var distance = Math.abs(timeToCompare - currentDate.getTime());
-
-    if (result == null || distance < Number(minDistance)) {
-      result = index;
-      minDistance = distance;
+    else if (typeof dirtyDatesArray.forEach === 'function') {
+        datesArray = dirtyDatesArray; // If `dirtyDatesArray` is Array-like Object, convert to Array. Otherwise, make it empty Array
     }
-  });
-  return result;
+    else {
+        datesArray = Array.prototype.slice.call(dirtyDatesArray);
+    }
+    var result;
+    var minDistance;
+    datesArray.forEach(function (dirtyDate, index) {
+        var currentDate = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+        if (isNaN(Number(currentDate))) {
+            result = NaN;
+            minDistance = NaN;
+            return;
+        }
+        var distance = Math.abs(timeToCompare - currentDate.getTime());
+        if (result == null || distance < Number(minDistance)) {
+            result = index;
+            minDistance = distance;
+        }
+    });
+    return result;
 }
+
+
 
 /***/ }),
 
@@ -20491,53 +20228,49 @@ function closestIndexTo(dirtyDateToCompare, dirtyDatesArray) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildMatchFn; });
 function buildMatchFn(args) {
-  return function (string) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var width = options.width;
-    var matchPattern = width && args.matchPatterns[width] || args.matchPatterns[args.defaultMatchWidth];
-    var matchResult = string.match(matchPattern);
-
-    if (!matchResult) {
-      return null;
-    }
-
-    var matchedString = matchResult[0];
-    var parsePatterns = width && args.parsePatterns[width] || args.parsePatterns[args.defaultParseWidth];
-    var key = Array.isArray(parsePatterns) ? findIndex(parsePatterns, function (pattern) {
-      return pattern.test(matchedString);
-    }) : findKey(parsePatterns, function (pattern) {
-      return pattern.test(matchedString);
-    });
-    var value;
-    value = args.valueCallback ? args.valueCallback(key) : key;
-    value = options.valueCallback ? options.valueCallback(value) : value;
-    var rest = string.slice(matchedString.length);
-    return {
-      value: value,
-      rest: rest
+    return function (string) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+        var width = options.width;
+        var matchPattern = width && args.matchPatterns[width] || args.matchPatterns[args.defaultMatchWidth];
+        var matchResult = string.match(matchPattern);
+        if (!matchResult) {
+            return null;
+        }
+        var matchedString = matchResult[0];
+        var parsePatterns = width && args.parsePatterns[width] || args.parsePatterns[args.defaultParseWidth];
+        var key = Array.isArray(parsePatterns) ? findIndex(parsePatterns, function (pattern) {
+            return pattern.test(matchedString);
+        }) : findKey(parsePatterns, function (pattern) {
+            return pattern.test(matchedString);
+        });
+        var value;
+        value = args.valueCallback ? args.valueCallback(key) : key;
+        value = options.valueCallback ? options.valueCallback(value) : value;
+        var rest = string.slice(matchedString.length);
+        return {
+            value: value,
+            rest: rest
+        };
     };
-  };
 }
-
 function findKey(object, predicate) {
-  for (var key in object) {
-    if (object.hasOwnProperty(key) && predicate(object[key])) {
-      return key;
+    for (var key in object) {
+        if (object.hasOwnProperty(key) && predicate(object[key])) {
+            return key;
+        }
     }
-  }
-
-  return undefined;
+    return undefined;
 }
-
 function findIndex(array, predicate) {
-  for (var key = 0; key < array.length; key++) {
-    if (predicate(array[key])) {
-      return key;
+    for (var key = 0; key < array.length; key++) {
+        if (predicate(array[key])) {
+            return key;
+        }
     }
-  }
-
-  return undefined;
+    return undefined;
 }
+
+
 
 /***/ }),
 
@@ -20553,38 +20286,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../_lib/buildFormatLongFn/index.js */ "zMQz");
 
 var dateFormats = {
-  full: 'EEEE, MMMM do, y',
-  long: 'MMMM do, y',
-  medium: 'MMM d, y',
-  short: 'MM/dd/yyyy'
+    full: 'EEEE, MMMM do, y',
+    long: 'MMMM do, y',
+    medium: 'MMM d, y',
+    short: 'MM/dd/yyyy'
 };
 var timeFormats = {
-  full: 'h:mm:ss a zzzz',
-  long: 'h:mm:ss a z',
-  medium: 'h:mm:ss a',
-  short: 'h:mm a'
+    full: 'h:mm:ss a zzzz',
+    long: 'h:mm:ss a z',
+    medium: 'h:mm:ss a',
+    short: 'h:mm a'
 };
 var dateTimeFormats = {
-  full: "{{date}} 'at' {{time}}",
-  long: "{{date}} 'at' {{time}}",
-  medium: '{{date}}, {{time}}',
-  short: '{{date}}, {{time}}'
+    full: "{{date}} 'at' {{time}}",
+    long: "{{date}} 'at' {{time}}",
+    medium: '{{date}}, {{time}}',
+    short: '{{date}}, {{time}}'
 };
 var formatLong = {
-  date: Object(_lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    formats: dateFormats,
-    defaultWidth: 'full'
-  }),
-  time: Object(_lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    formats: timeFormats,
-    defaultWidth: 'full'
-  }),
-  dateTime: Object(_lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    formats: dateTimeFormats,
-    defaultWidth: 'full'
-  })
+    date: Object(_lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        formats: dateFormats,
+        defaultWidth: 'full'
+    }),
+    time: Object(_lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        formats: timeFormats,
+        defaultWidth: 'full'
+    }),
+    dateTime: Object(_lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        formats: dateTimeFormats,
+        defaultWidth: 'full'
+    })
 };
 /* harmony default export */ __webpack_exports__["default"] = (formatLong);
+
+
 
 /***/ }),
 
@@ -20607,13 +20342,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function setUTCWeek(dirtyDate, dirtyWeek, options) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
-  var week = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyWeek);
-  var diff = Object(_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, options) - week;
-  date.setUTCDate(date.getUTCDate() - diff * 7);
-  return date;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_3__["default"])(2, arguments);
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate);
+    var week = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyWeek);
+    var diff = Object(_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(date, options) - week;
+    date.setUTCDate(date.getUTCDate() - diff * 7);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -20628,18 +20365,19 @@ function setUTCWeek(dirtyDate, dirtyWeek, options) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRoundingMethod", function() { return getRoundingMethod; });
 var roundingMap = {
-  ceil: Math.ceil,
-  round: Math.round,
-  floor: Math.floor,
-  trunc: function (value) {
-    return value < 0 ? Math.ceil(value) : Math.floor(value);
-  } // Math.trunc is not supported by IE
-
+    ceil: Math.ceil,
+    round: Math.round,
+    floor: Math.floor,
+    trunc: function (value) {
+        return value < 0 ? Math.ceil(value) : Math.floor(value);
+    } // Math.trunc is not supported by IE
 };
 var defaultRoundingMethod = 'trunc';
 function getRoundingMethod(method) {
-  return method ? roundingMap[method] : roundingMap[defaultRoundingMethod];
+    return method ? roundingMap[method] : roundingMap[defaultRoundingMethod];
 }
+
+
 
 /***/ }),
 
@@ -20680,13 +20418,14 @@ __webpack_require__.r(__webpack_exports__);
  * const result = isSameHour(new Date(2014, 8, 4, 6, 0), new Date(2014, 8, 5, 6, 0))
  * //=> false
  */
-
 function isSameHour(dirtyDateLeft, dirtyDateRight) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeftStartOfHour = Object(_startOfHour_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
-  var dateRightStartOfHour = Object(_startOfHour_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
-  return dateLeftStartOfHour.getTime() === dateRightStartOfHour.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeftStartOfHour = Object(_startOfHour_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateLeft);
+    var dateRightStartOfHour = Object(_startOfHour_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDateRight);
+    return dateLeftStartOfHour.getTime() === dateRightStartOfHour.getTime();
 }
+
+
 
 /***/ }),
 
@@ -20725,13 +20464,14 @@ __webpack_require__.r(__webpack_exports__);
  * )
  * //=> false
  */
-
 function isEqual(dirtyLeftDate, dirtyRightDate) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyLeftDate);
-  var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyRightDate);
-  return dateLeft.getTime() === dateRight.getTime();
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var dateLeft = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyLeftDate);
+    var dateRight = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyRightDate);
+    return dateLeft.getTime() === dateRight.getTime();
 }
+
+
 
 /***/ }),
 
@@ -20746,14 +20486,16 @@ function isEqual(dirtyLeftDate, dirtyRightDate) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return buildFormatLongFn; });
 function buildFormatLongFn(args) {
-  return function () {
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    // TODO: Remove String()
-    var width = options.width ? String(options.width) : args.defaultWidth;
-    var format = args.formats[width] || args.formats[args.defaultWidth];
-    return format;
-  };
+    return function () {
+        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        // TODO: Remove String()
+        var width = options.width ? String(options.width) : args.defaultWidth;
+        var format = args.formats[width] || args.formats[args.defaultWidth];
+        return format;
+    };
 }
+
+
 
 /***/ }),
 
@@ -20774,22 +20516,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function setUTCISODay(dirtyDate, dirtyDay) {
-  Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
-  var day = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDay);
-
-  if (day % 7 === 0) {
-    day = day - 7;
-  }
-
-  var weekStartsOn = 1;
-  var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
-  var currentDay = date.getUTCDay();
-  var remainder = day % 7;
-  var dayIndex = (remainder + 7) % 7;
-  var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
-  date.setUTCDate(date.getUTCDate() + diff);
-  return date;
+    Object(_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(2, arguments);
+    var day = Object(_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(dirtyDay);
+    if (day % 7 === 0) {
+        day = day - 7;
+    }
+    var weekStartsOn = 1;
+    var date = Object(_toDate_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyDate);
+    var currentDay = date.getUTCDay();
+    var remainder = day % 7;
+    var dayIndex = (remainder + 7) % 7;
+    var diff = (dayIndex < weekStartsOn ? 7 : 0) + day - currentDay;
+    date.setUTCDate(date.getUTCDate() + diff);
+    return date;
 }
+
+
 
 /***/ }),
 
@@ -20827,12 +20569,13 @@ __webpack_require__.r(__webpack_exports__);
  * const result = addYears(new Date(2014, 8, 1), 5)
  * //=> Sun Sep 01 2019 00:00:00
  */
-
 function addYears(dirtyDate, dirtyAmount) {
-  Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
-  var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
-  return Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * 12);
+    Object(_lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_2__["default"])(2, arguments);
+    var amount = Object(_lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_0__["default"])(dirtyAmount);
+    return Object(_addMonths_index_js__WEBPACK_IMPORTED_MODULE_1__["default"])(dirtyDate, amount * 12);
 }
+
+
 
 /***/ })
 

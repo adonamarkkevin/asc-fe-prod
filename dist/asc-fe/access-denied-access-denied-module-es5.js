@@ -28,49 +28,59 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _access_denied_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _access_denied_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./access-denied-routing.module */
       "o080");
       /* harmony import */
 
 
-      var _access_denied_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _access_denied_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./access-denied.component */
       "zV6t");
       /* harmony import */
 
 
-      var _utils_angular_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _utils_angular_material_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ../utils/angular-material.module */
       "ZN+y");
 
-      var AccessDeniedModule = /*#__PURE__*/_createClass(function AccessDeniedModule() {
-        _classCallCheck(this, AccessDeniedModule);
-      });
+      var AccessDeniedModule = /*@__PURE__*/function () {
+        var AccessDeniedModule = /*#__PURE__*/_createClass(function AccessDeniedModule() {
+          _classCallCheck(this, AccessDeniedModule);
+        });
 
-      AccessDeniedModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_access_denied_component__WEBPACK_IMPORTED_MODULE_4__["AccessDeniedComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _access_denied_routing_module__WEBPACK_IMPORTED_MODULE_3__["AccessDeniedRoutingModule"], _utils_angular_material_module__WEBPACK_IMPORTED_MODULE_5__["AngularMaterialModule"]]
-      })], AccessDeniedModule);
+        AccessDeniedModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: AccessDeniedModule
+        });
+        AccessDeniedModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function AccessDeniedModule_Factory(t) {
+            return new (t || AccessDeniedModule)();
+          },
+          imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _access_denied_routing_module__WEBPACK_IMPORTED_MODULE_2__["AccessDeniedRoutingModule"], _utils_angular_material_module__WEBPACK_IMPORTED_MODULE_4__["AngularMaterialModule"]]]
+        });
+        return AccessDeniedModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AccessDeniedModule, {
+          declarations: [_access_denied_component__WEBPACK_IMPORTED_MODULE_3__["AccessDeniedComponent"]],
+          imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _access_denied_routing_module__WEBPACK_IMPORTED_MODULE_2__["AccessDeniedRoutingModule"], _utils_angular_material_module__WEBPACK_IMPORTED_MODULE_4__["AngularMaterialModule"]]
+        });
+      })();
       /***/
+
     },
 
     /***/
@@ -95,42 +105,52 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! @angular/core */
       "fXoL");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _access_denied_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _access_denied_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./access-denied.component */
       "zV6t");
 
       var routes = [{
         path: '',
-        component: _access_denied_component__WEBPACK_IMPORTED_MODULE_3__["AccessDeniedComponent"]
+        component: _access_denied_component__WEBPACK_IMPORTED_MODULE_2__["AccessDeniedComponent"]
       }];
 
-      var AccessDeniedRoutingModule = /*#__PURE__*/_createClass(function AccessDeniedRoutingModule() {
-        _classCallCheck(this, AccessDeniedRoutingModule);
-      });
+      var AccessDeniedRoutingModule = /*@__PURE__*/function () {
+        var AccessDeniedRoutingModule = /*#__PURE__*/_createClass(function AccessDeniedRoutingModule() {
+          _classCallCheck(this, AccessDeniedRoutingModule);
+        });
 
-      AccessDeniedRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      })], AccessDeniedRoutingModule);
+        AccessDeniedRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+          type: AccessDeniedRoutingModule
+        });
+        AccessDeniedRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+          factory: function AccessDeniedRoutingModule_Factory(t) {
+            return new (t || AccessDeniedRoutingModule)();
+          },
+          imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+        return AccessDeniedRoutingModule;
+      }();
+
+      (function () {
+        (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AccessDeniedRoutingModule, {
+          imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]],
+          exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]]
+        });
+      })();
       /***/
+
     }
   }]);
 })();
