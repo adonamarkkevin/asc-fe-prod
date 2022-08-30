@@ -15996,7 +15996,7 @@ let AddS1ApplicationComponent = /*@__PURE__*/ (() => {
             }
         }
         setTypeOfMediumDisplay() {
-            var _a, _b, _c, _d, _e;
+            var _a, _b, _c, _d, _e, _f;
             console.log("3a");
             if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].SINGLE_MEDIA) {
                 this.s1Application.typeOfMedium = (_b = (_a = this.materialInformation) === null || _a === void 0 ? void 0 : _a.typeOfMedium) === null || _b === void 0 ? void 0 : _b.description;
@@ -16006,19 +16006,29 @@ let AddS1ApplicationComponent = /*@__PURE__*/ (() => {
                 if (this.s1Application.typeOfMedium) {
                     movingStatic = this.s1Application.typeOfMedium;
                 }
-                this.mediaTypeListTemp.forEach((element) => {
-                    if (movingStatic === "") {
-                        movingStatic = element.description;
+                if ((_c = this.mediaTypeListTemp) === null || _c === void 0 ? void 0 : _c.length) {
+                    this.mediaTypeListTemp.forEach((element) => {
+                        if (movingStatic === "") {
+                            movingStatic = element.description;
+                        }
+                        else if (!movingStatic.includes(element.description)) {
+                            movingStatic = movingStatic + "/" + element.description;
+                        }
+                        this.s1Application.typeOfMedium = movingStatic;
+                    });
+                }
+                else {
+                    if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING) {
+                        this.s1Application.typeOfMedium = 'DIGITAL VIDEO';
                     }
-                    else if (!movingStatic.includes(element.description)) {
-                        movingStatic = movingStatic + "/" + element.description;
+                    if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_STATIC) {
+                        this.s1Application.typeOfMedium = 'DIGITAL STATIC';
                     }
-                    this.s1Application.typeOfMedium = movingStatic;
-                });
+                }
                 // removed multimediaToDelete
-                if (((_c = this.materialInformation) === null || _c === void 0 ? void 0 : _c.toDeleteMultimediaList.length) > 0) {
+                if (((_d = this.materialInformation) === null || _d === void 0 ? void 0 : _d.toDeleteMultimediaList.length) > 0) {
                     let currentTOM = this.s1Application.typeOfMedium;
-                    (_e = (_d = this.materialInformation) === null || _d === void 0 ? void 0 : _d.toDeleteMultimediaList) === null || _e === void 0 ? void 0 : _e.forEach((multimediaToDelete) => {
+                    (_f = (_e = this.materialInformation) === null || _e === void 0 ? void 0 : _e.toDeleteMultimediaList) === null || _f === void 0 ? void 0 : _f.forEach((multimediaToDelete) => {
                         console.log("REMOVE: ", multimediaToDelete.typeOfMedium.description);
                         currentTOM = currentTOM.replace(multimediaToDelete.typeOfMedium.description + "/", "");
                         currentTOM = currentTOM.replace("/" + multimediaToDelete.typeOfMedium.description, "");

@@ -27152,7 +27152,7 @@
             value: function setTypeOfMediumDisplay() {
               var _this110 = this;
 
-              var _a, _b, _c, _d, _e;
+              var _a, _b, _c, _d, _e, _f;
 
               console.log("3a");
 
@@ -27165,19 +27165,30 @@
                   movingStatic = this.s1Application.typeOfMedium;
                 }
 
-                this.mediaTypeListTemp.forEach(function (element) {
-                  if (movingStatic === "") {
-                    movingStatic = element.description;
-                  } else if (!movingStatic.includes(element.description)) {
-                    movingStatic = movingStatic + "/" + element.description;
+                if ((_c = this.mediaTypeListTemp) === null || _c === void 0 ? void 0 : _c.length) {
+                  this.mediaTypeListTemp.forEach(function (element) {
+                    if (movingStatic === "") {
+                      movingStatic = element.description;
+                    } else if (!movingStatic.includes(element.description)) {
+                      movingStatic = movingStatic + "/" + element.description;
+                    }
+
+                    _this110.s1Application.typeOfMedium = movingStatic;
+                  });
+                } else {
+                  if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING) {
+                    this.s1Application.typeOfMedium = 'DIGITAL VIDEO';
                   }
 
-                  _this110.s1Application.typeOfMedium = movingStatic;
-                }); // removed multimediaToDelete
+                  if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_STATIC) {
+                    this.s1Application.typeOfMedium = 'DIGITAL STATIC';
+                  }
+                } // removed multimediaToDelete
 
-                if (((_c = this.materialInformation) === null || _c === void 0 ? void 0 : _c.toDeleteMultimediaList.length) > 0) {
+
+                if (((_d = this.materialInformation) === null || _d === void 0 ? void 0 : _d.toDeleteMultimediaList.length) > 0) {
                   var currentTOM = this.s1Application.typeOfMedium;
-                  (_e = (_d = this.materialInformation) === null || _d === void 0 ? void 0 : _d.toDeleteMultimediaList) === null || _e === void 0 ? void 0 : _e.forEach(function (multimediaToDelete) {
+                  (_f = (_e = this.materialInformation) === null || _e === void 0 ? void 0 : _e.toDeleteMultimediaList) === null || _f === void 0 ? void 0 : _f.forEach(function (multimediaToDelete) {
                     console.log("REMOVE: ", multimediaToDelete.typeOfMedium.description);
                     currentTOM = currentTOM.replace(multimediaToDelete.typeOfMedium.description + "/", "");
                     currentTOM = currentTOM.replace("/" + multimediaToDelete.typeOfMedium.description, "");
