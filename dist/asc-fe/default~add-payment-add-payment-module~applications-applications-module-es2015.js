@@ -1402,13 +1402,18 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             this.validateFieldService = validateFieldService;
             this.spinner = spinner;
             this.sweetAlertService = sweetAlertService;
-            this.displayedColumns = ['referenceCode', 'adTitle', 'mediumAndLength', 'amount'];
+            this.displayedColumns = [
+                "referenceCode",
+                "adTitle",
+                "mediumAndLength",
+                "amount",
+            ];
             this.multipleApplicationList = [];
-            this.paymentTypeFromUrl = '';
+            this.paymentTypeFromUrl = "";
             this.s1Application = new _models__WEBPACK_IMPORTED_MODULE_1__["S1Application"]();
             this.attachmentDocument = new _models__WEBPACK_IMPORTED_MODULE_1__["AttachmentDocument"]();
             this.applicationSingleMedia = new app_core_models_application_single_media_model__WEBPACK_IMPORTED_MODULE_8__["ApplicationSingleMedia"]();
-            this.typeOfMediumDisplay = '';
+            this.typeOfMediumDisplay = "";
             this.paymentTypeList = [];
             this.attachmentDocuments = [];
             this.payment = new _models__WEBPACK_IMPORTED_MODULE_1__["Payment"]();
@@ -1424,45 +1429,51 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             this.isShowUploadButton = false;
             this.previewDocument = false;
             this.proofOfPayment = [
-                { id: 1, name: 'Schedule of Fees - Individual' },
-                { id: 2, name: 'Schedule of Fees - Multiple' },
-                { id: 3, name: 'Schedule of Fees - Special' },
-                { id: 4, name: 'Settlement of Delinquent Status' },
-                { id: 5, name: 'Settlement of Brand Penalties' },
-                { id: 6, name: 'Settlement of Company Penalties' }
+                { id: 1, name: "Schedule of Fees - Individual" },
+                { id: 2, name: "Schedule of Fees - Multiple" },
+                { id: 3, name: "Schedule of Fees - Special" },
+                { id: 4, name: "Settlement of Delinquent Status" },
+                { id: 5, name: "Settlement of Brand Penalties" },
+                { id: 6, name: "Settlement of Company Penalties" },
             ];
             this.multimediaDTO = {};
         }
         ngOnInit() {
             this.currentUser = this.dataStorage.getUserAccount();
-            this.paymentTypeFromUrl = this.route.snapshot.paramMap.get('id').split('-')[0];
-            this.id = this.route.snapshot.paramMap.get('id').split('-')[1];
+            this.paymentTypeFromUrl = this.route.snapshot.paramMap
+                .get("id")
+                .split("-")[0];
+            this.id = this.route.snapshot.paramMap.get("id").split("-")[1];
             this.getPaymentList();
             this.setFormValidator();
             this.initData();
         }
         initData() {
             var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
-            if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === 'for_payment') {
+            if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "for_payment") {
                 this.isForPayment = true;
             }
-            if (((_b = this.paymentTypeFromUrl) === null || _b === void 0 ? void 0 : _b.toLowerCase()) === 'for_approval') {
+            if (((_b = this.paymentTypeFromUrl) === null || _b === void 0 ? void 0 : _b.toLowerCase()) === "for_approval") {
                 this.isForApproval = true;
             }
-            if ((_f = (_e = (_d = (_c = this.route) === null || _c === void 0 ? void 0 : _c.snapshot) === null || _d === void 0 ? void 0 : _d.paramMap) === null || _e === void 0 ? void 0 : _e.get('status')) === null || _f === void 0 ? void 0 : _f.includes('multiple-')) {
+            if ((_f = (_e = (_d = (_c = this.route) === null || _c === void 0 ? void 0 : _c.snapshot) === null || _d === void 0 ? void 0 : _d.paramMap) === null || _e === void 0 ? void 0 : _e.get("status")) === null || _f === void 0 ? void 0 : _f.includes("multiple-")) {
                 this.isMultiple = true;
-                this.paymentTypeFromUrl = 'multiple';
+                this.paymentTypeFromUrl = "multiple";
             }
-            if ((_j = (_h = (_g = this.route) === null || _g === void 0 ? void 0 : _g.snapshot) === null || _h === void 0 ? void 0 : _h.params) === null || _j === void 0 ? void 0 : _j.id.includes('special-')) {
+            if ((_j = (_h = (_g = this.route) === null || _g === void 0 ? void 0 : _g.snapshot) === null || _h === void 0 ? void 0 : _h.params) === null || _j === void 0 ? void 0 : _j.id.includes("special-")) {
                 this.isSpecial = true;
-                this.paymentTypeFromUrl = 'special';
+                this.paymentTypeFromUrl = "special";
             }
-            if ((_o = (_m = (_l = (_k = this.route) === null || _k === void 0 ? void 0 : _k.snapshot) === null || _l === void 0 ? void 0 : _l.paramMap) === null || _m === void 0 ? void 0 : _m.get('status')) === null || _o === void 0 ? void 0 : _o.includes('delinquent-')) {
+            if ((_o = (_m = (_l = (_k = this.route) === null || _k === void 0 ? void 0 : _k.snapshot) === null || _l === void 0 ? void 0 : _l.paramMap) === null || _m === void 0 ? void 0 : _m.get("status")) === null || _o === void 0 ? void 0 : _o.includes("delinquent-")) {
                 this.isDelinquent = true;
-                this.paymentTypeFromUrl = 'delinquent';
+                this.paymentTypeFromUrl = "delinquent";
             }
-            if (this.id !== 0 && this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_ACCOUNTING) {
-                if (this.isForPayment || this.isSpecial || ((_p = this.paymentTypeFromUrl) === null || _p === void 0 ? void 0 : _p.toLowerCase()) === 'unpaid' || this.isMultiple) {
+            if (this.id !== 0 &&
+                this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_ACCOUNTING) {
+                if (this.isForPayment ||
+                    this.isSpecial ||
+                    ((_p = this.paymentTypeFromUrl) === null || _p === void 0 ? void 0 : _p.toLowerCase()) === "unpaid" ||
+                    this.isMultiple) {
                     this.getPaymentDetails();
                 }
                 else {
@@ -1475,30 +1486,30 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
         }
         setFormValidator() {
             this.paymentForm = this.formBuilder.group({
-                paymentType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-                referenceNo: [''],
-                amount: [''],
-                paymentDate: [''],
-                bankName: [''],
-                bankBranch: [''],
-                controlNo: [''],
-                referenceNumber: [''],
-                typeOfMaterial: [''],
-                length: [''],
-                baseRate: [''],
-                vat: [''],
-                total: [''],
-                remarks: [''],
-                applicantCompanyDetails: [''],
-                accumulatedAmountToBeSettled: [''],
-                clientCompanyDetails: [''],
-                discount: [''],
-                amountReceive: [''],
-                filedBirForm: [''],
+                paymentType: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                referenceNo: [""],
+                amount: [""],
+                paymentDate: [""],
+                bankName: [""],
+                bankBranch: [""],
+                controlNo: [""],
+                referenceNumber: [""],
+                typeOfMaterial: [""],
+                length: [""],
+                baseRate: [""],
+                vat: [""],
+                total: [""],
+                remarks: [""],
+                applicantCompanyDetails: [""],
+                accumulatedAmountToBeSettled: [""],
+                clientCompanyDetails: [""],
+                discount: [""],
+                amountReceive: [""],
+                filedBirForm: [""],
                 withholdingTax: [0],
-                orNo: [''],
-                ccConfirmationCode: [''],
-                checkNo: ['']
+                orNo: [""],
+                ccConfirmationCode: [""],
+                checkNo: [""],
             });
         }
         approvePenalty() {
@@ -1507,20 +1518,25 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             }
             else {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                    text: 'Are you sure you want to approve this Delinquent Company?',
-                    icon: 'question',
+                    text: "Are you sure you want to approve this Delinquent Company?",
+                    icon: "question",
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Confirm'
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Confirm",
                 }).then((result) => {
                     if (result.value) {
                         this.payment.paymentMethod = this.paymentMethod;
                         this.payment.amountReceive = Number(this.paymentMethod.amount);
-                        this.apiService.save(`${_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].approveDelinquentCompany}`, this.payment).subscribe((res) => {
-                            this.sweetAlertService.customSuccessMessage('Delinquent company approved successfully.');
-                            this.router.navigate(['asc/page/accounting/payments/', 'delinquent-companies']);
-                        }, err => {
+                        this.apiService
+                            .save(`${_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].approveDelinquentCompany}`, this.payment)
+                            .subscribe((res) => {
+                            this.sweetAlertService.customSuccessMessage("Delinquent company approved successfully.");
+                            this.router.navigate([
+                                "asc/page/accounting/payments/",
+                                "delinquent-companies",
+                            ]);
+                        }, (err) => {
                             if (!err.error.message) {
                                 err.error.message = err.error.responseMessage;
                             }
@@ -1536,28 +1552,40 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             let b = (_b = (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.paymentType) === null || _b === void 0 ? void 0 : _b.paymentDescription;
             if (b === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].GCASH || b === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].CASH) {
                 if (a.referenceNo && a.paymentDate && a.amount
-                    ? this.isPaymentTypeValid = true : this.isPaymentTypeValid = false) { }
+                    ? (this.isPaymentTypeValid = true)
+                    : (this.isPaymentTypeValid = false)) {
+                }
             }
             else if (b === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].PAYMAYA) {
                 if (a.referenceNo && a.paymentDate && a.amount && a.ccConfirmationCode
-                    ? this.isPaymentTypeValid = true : this.isPaymentTypeValid = false) { }
+                    ? (this.isPaymentTypeValid = true)
+                    : (this.isPaymentTypeValid = false)) {
+                }
             }
             else if (b === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].BANK) {
                 if (a.bankName && a.paymentDate && a.amount && a.bankBranch
-                    ? this.isPaymentTypeValid = true : this.isPaymentTypeValid = false) { }
+                    ? (this.isPaymentTypeValid = true)
+                    : (this.isPaymentTypeValid = false)) {
+                }
             }
             else if (b === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].VOUCHER) {
-                if (a.controlNo ? this.isPaymentTypeValid = true : this.isPaymentTypeValid = false) { }
+                if (a.controlNo
+                    ? (this.isPaymentTypeValid = true)
+                    : (this.isPaymentTypeValid = false)) {
+                }
             }
             else if (b === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].CHECK) {
                 if (a.bankName && a.checkNo && a.amount
-                    ? this.isPaymentTypeValid = true : this.isPaymentTypeValid = false) { }
+                    ? (this.isPaymentTypeValid = true)
+                    : (this.isPaymentTypeValid = false)) {
+                }
             }
         }
         resetPaymentTypeValidation() {
             var _a, _b;
             this.isPaymentTypeValid = false;
-            if (((_b = (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.paymentType) === null || _b === void 0 ? void 0 : _b.paymentDescription) === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].PROMISORRY_NOTE) {
+            if (((_b = (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.paymentType) === null || _b === void 0 ? void 0 : _b.paymentDescription) ===
+                _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_MODE"].PROMISORRY_NOTE) {
                 this.isPaymentTypeValid = true;
             }
         }
@@ -1583,28 +1611,43 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                 var _a, _b, _c, _d, _e, _f, _g, _h, _j;
                 if (res.responseData) {
                     this.payment = res.responseData.data;
-                    this.payment ? (this.payment.filedBirForm = this.payment.filedBirForm ? this.payment.filedBirForm : false) : null;
-                    this.paymentMethod = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.paymentMethod) ? this.payment.paymentMethod : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
+                    this.payment
+                        ? (this.payment.filedBirForm = this.payment.filedBirForm
+                            ? this.payment.filedBirForm
+                            : false)
+                        : null;
+                    this.paymentMethod = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.paymentMethod) ? this.payment.paymentMethod
+                        : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
                 }
                 else if (res.data) {
                     this.payment = res.data[0];
-                    this.payment ? (this.payment.filedBirForm = this.payment.filedBirForm ? this.payment.filedBirForm : false) : null;
-                    this.paymentMethod = ((_b = this.payment) === null || _b === void 0 ? void 0 : _b.paymentMethod) ? this.payment.paymentMethod : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
+                    this.payment
+                        ? (this.payment.filedBirForm = this.payment.filedBirForm
+                            ? this.payment.filedBirForm
+                            : false)
+                        : null;
+                    this.paymentMethod = ((_b = this.payment) === null || _b === void 0 ? void 0 : _b.paymentMethod) ? this.payment.paymentMethod
+                        : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
                 }
                 else {
                     this.payment = res;
-                    this.payment ? (this.payment.filedBirForm = this.payment.filedBirForm ? this.payment.filedBirForm : false) : null;
-                    this.paymentMethod = ((_c = this.payment) === null || _c === void 0 ? void 0 : _c.paymentMethod) ? this.payment.paymentMethod : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
+                    this.payment
+                        ? (this.payment.filedBirForm = this.payment.filedBirForm
+                            ? this.payment.filedBirForm
+                            : false)
+                        : null;
+                    this.paymentMethod = ((_c = this.payment) === null || _c === void 0 ? void 0 : _c.paymentMethod) ? this.payment.paymentMethod
+                        : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
                 }
                 switch (((_e = (_d = this.payment) === null || _d === void 0 ? void 0 : _d.applicationForm) === null || _e === void 0 ? void 0 : _e.refTypeOfMedium) || ((_h = (_g = (_f = this.payment) === null || _f === void 0 ? void 0 : _f.applicationFormS2) === null || _g === void 0 ? void 0 : _g.applicationForm) === null || _h === void 0 ? void 0 : _h.refTypeOfMedium)) {
-                    case 'SINGLE MEDIA':
+                    case "SINGLE MEDIA":
                         this.getApplicationSingleMedia();
                         break;
-                    case 'MULTIMEDIA-MOVING':
+                    case "MULTIMEDIA-MOVING":
                         this.getMultimediaMoving();
                         this.fetchMultimedia();
                         break;
-                    case 'MULTIMEDIA-STATIC':
+                    case "MULTIMEDIA-STATIC":
                         this.getMultimediaStatic();
                         this.fetchMultimedia();
                         break;
@@ -1621,8 +1664,7 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].paymentType).subscribe((res) => {
                 this.paymentTypeList = res.responseData.data;
                 if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_APPLICANT) {
-                    const creditCardIndex = this.paymentTypeList
-                        .findIndex((element) => element.paymentDescription === 'Credit Card');
+                    const creditCardIndex = this.paymentTypeList.findIndex((element) => element.paymentDescription === "Credit Card");
                     this.paymentTypeList.splice(creditCardIndex, 1);
                 }
             });
@@ -1639,7 +1681,7 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                 }
             }
             else {
-                if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === 'for_payment') {
+                if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "for_payment") {
                     if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_ACCOUNTING) {
                         endpoint = `${_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].paymentDetailsAccounting}`;
                     }
@@ -1653,30 +1695,35 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                 if (res.responseData) {
                     this.payment = res.responseData.data;
                     if (this.payment) {
-                        this.payment.filedBirForm = this.payment.filedBirForm ? this.payment.filedBirForm : false;
+                        this.payment.filedBirForm = this.payment.filedBirForm
+                            ? this.payment.filedBirForm
+                            : false;
                     }
                 }
                 else {
                     this.payment = res;
                     if (this.payment) {
-                        this.payment.filedBirForm = this.payment.filedBirForm ? this.payment.filedBirForm : false;
+                        this.payment.filedBirForm = this.payment.filedBirForm
+                            ? this.payment.filedBirForm
+                            : false;
                     }
                 }
-                this.paymentMethod = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.paymentMethod) ? this.payment.paymentMethod : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
+                this.paymentMethod = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.paymentMethod) ? this.payment.paymentMethod
+                    : new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_5__["PaymentMethod"]();
                 this.paymentMode = (_c = (_b = this.paymentMethod) === null || _b === void 0 ? void 0 : _b.paymentType) === null || _c === void 0 ? void 0 : _c.paymentDescription;
                 // this.paymentTemp = this.payment;
                 if ((_d = this.payment) === null || _d === void 0 ? void 0 : _d.paymentAttachmentReference) {
                     this.getAttachmentDocumentDisplay(this.payment.paymentAttachmentReference);
                 }
                 switch (((_f = (_e = this.payment) === null || _e === void 0 ? void 0 : _e.applicationForm) === null || _f === void 0 ? void 0 : _f.refTypeOfMedium) || ((_j = (_h = (_g = this.payment) === null || _g === void 0 ? void 0 : _g.applicationFormS2) === null || _h === void 0 ? void 0 : _h.applicationForm) === null || _j === void 0 ? void 0 : _j.refTypeOfMedium)) {
-                    case 'SINGLE MEDIA':
+                    case "SINGLE MEDIA":
                         this.getApplicationSingleMedia();
                         break;
-                    case 'MULTIMEDIA-MOVING':
+                    case "MULTIMEDIA-MOVING":
                         this.getMultimediaMoving();
                         this.fetchMultimedia();
                         break;
-                    case 'MULTIMEDIA-STATIC':
+                    case "MULTIMEDIA-STATIC":
                         this.getMultimediaStatic();
                         this.fetchMultimedia();
                         break;
@@ -1686,7 +1733,8 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             });
         }
         getAttachmentDocumentDisplay(paymentAttachmentReference) {
-            this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, `payment-attachment-reference/` + paymentAttachmentReference)
+            this.apiService
+                .findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, `payment-attachment-reference/` + paymentAttachmentReference)
                 .subscribe((res1) => {
                 if (res1.responseData.data) {
                     this.attachmentDocuments = res1.responseData.data;
@@ -1699,18 +1747,20 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             });
         }
         getMultipleApplicationList() {
-            this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].getMultipleAppFormsWithNoRejected + this.id).subscribe((res) => {
+            this.apiService
+                .findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].getMultipleAppFormsWithNoRejected + this.id)
+                .subscribe((res) => {
                 this.multipleApplicationList = res.responseData.data;
                 this.multipleApplicationList.forEach((multipleApplication) => {
                     var _a, _b;
                     switch ((multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.refTypeOfMedium) || ((_b = (_a = multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.applicationFormS2) === null || _a === void 0 ? void 0 : _a.applicationForm) === null || _b === void 0 ? void 0 : _b.refTypeOfMedium)) {
-                        case 'SINGLE MEDIA':
+                        case "SINGLE MEDIA":
                             this.getApplicationSingleMedia(multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.appFormReference);
                             break;
-                        case 'MULTIMEDIA-MOVING':
+                        case "MULTIMEDIA-MOVING":
                             this.getMultimediaMoving(multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.appFormReference);
                             break;
-                        case 'MULTIMEDIA-STATIC':
+                        case "MULTIMEDIA-STATIC":
                             this.getMultimediaStatic(multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.appFormReference);
                             break;
                         default:
@@ -1730,18 +1780,19 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             var _a, _b, _c;
             const amountTransferred = Number.parseFloat((_b = (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.amount) === null || _b === void 0 ? void 0 : _b.toString());
             const toPay = this.payment.amountDue - ((_c = this.payment) === null || _c === void 0 ? void 0 : _c.withholdingTax);
-            if (this.paymentMethod.paymentType.paymentDescription === 'Voucher' ||
-                this.paymentMethod.paymentType.paymentDescription === 'Promisorry Note' ||
-                (this.paymentMethod.paymentType.paymentDescription !== 'Voucher'
-                    && this.paymentMethod.paymentType.paymentDescription !== 'Promisorry Note'
-                    && amountTransferred >= toPay)) {
+            if (this.paymentMethod.paymentType.paymentDescription === "Voucher" ||
+                this.paymentMethod.paymentType.paymentDescription === "Promisorry Note" ||
+                (this.paymentMethod.paymentType.paymentDescription !== "Voucher" &&
+                    this.paymentMethod.paymentType.paymentDescription !==
+                        "Promisorry Note" &&
+                    amountTransferred >= toPay)) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                    text: 'Are you sure you want to process this PAYMENT?',
-                    icon: 'question',
+                    text: "Are you sure you want to process this PAYMENT?",
+                    icon: "question",
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Confirm'
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Confirm",
                 }).then((result) => {
                     if (result.value) {
                         this.payment.paymentStatus = _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID;
@@ -1757,9 +1808,12 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                             endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].accountingSpecialPaymentApprove;
                         }
                         this.apiService.save(endpoint, this.payment).subscribe((res) => {
-                            this.sweetAlertService.customSuccessMessage('Payment successfully processed.');
+                            this.sweetAlertService.customSuccessMessage("Payment successfully processed.");
                             // console.log('SAVED DATA: ', res);
-                            this.router.navigate(['asc/page/accounting/payments/', `schedule-of-fees-${this.paymentTypeFromUrl}`]);
+                            this.router.navigate([
+                                "asc/page/accounting/payments/",
+                                `schedule-of-fees-${this.paymentTypeFromUrl}`,
+                            ]);
                         });
                     }
                 });
@@ -1803,19 +1857,21 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
         computeWithholding() {
             var _a;
             if (this.payment) {
-                this.payment.withholdingTax = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.filedBirForm) ? this.payment.basicRate * 0.02 : 0;
+                this.payment.withholdingTax = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.filedBirForm) ? this.payment.basicRate * 0.02
+                    : 0;
             }
         }
         getAmountDue() {
             var _a, _b;
-            let amountDue = Number((Math.round(((_a = this.payment) === null || _a === void 0 ? void 0 : _a.amountDue) * 100) / 100).toFixed(2));
-            let withholding = Number((Math.round(((_b = this.payment) === null || _b === void 0 ? void 0 : _b.withholdingTax) * 100) / 100).toFixed(2));
+            let amountDue = (_a = this.payment) === null || _a === void 0 ? void 0 : _a.amountDue;
+            let withholding = (_b = this.payment) === null || _b === void 0 ? void 0 : _b.withholdingTax;
             let result = amountDue - withholding;
             return result ? result : 0;
         }
         validatePaymentStatus() {
             var _a, _b;
-            if (((_a = this.payment) === null || _a === void 0 ? void 0 : _a.paymentStatus) !== _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID && ((_b = this.payment) === null || _b === void 0 ? void 0 : _b.paymentStatus) !== _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].UNPAID) {
+            if (((_a = this.payment) === null || _a === void 0 ? void 0 : _a.paymentStatus) !== _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID &&
+                ((_b = this.payment) === null || _b === void 0 ? void 0 : _b.paymentStatus) !== _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].UNPAID) {
                 return true;
             }
             return false;
@@ -1831,7 +1887,7 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                 this.fileSize = event.target.files[0].size;
                 if (this.fileSize > 15000000) {
                     this.sweetAlertService.customErrorMessage(`Attachments' total file size should not exceed 15MB.`);
-                    event.target.value = '';
+                    event.target.value = "";
                     return;
                 }
                 else {
@@ -1842,8 +1898,7 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                     const reader = new FileReader();
                     const [file] = event.target.files;
                     reader.readAsDataURL(file);
-                    reader.onload = () => {
-                    };
+                    reader.onload = () => { };
                     this.selectedFile = event.target.files[0];
                 }
             }
@@ -1858,24 +1913,29 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
         }
         uploadProofOfPayment() {
             sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                text: 'Are you sure you want to submit this as proof of payment?',
-                icon: 'question',
+                text: "Are you sure you want to submit this as proof of payment?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
             }).then((result) => {
                 if (result.value) {
                     this.spinner.show();
-                    let params = '';
-                    params = '?&attachmentType=' + _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].PAYMENT + '&submissionType=' + _shared__WEBPACK_IMPORTED_MODULE_2__["SUBMISSION_TYPE"].ORIGINAL;
-                    this.fileStorageService.pushFileToStorage(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, this.selectedFile, params)
+                    let params = "";
+                    params =
+                        "?&attachmentType=" +
+                            _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].PAYMENT +
+                            "&submissionType=" +
+                            _shared__WEBPACK_IMPORTED_MODULE_2__["SUBMISSION_TYPE"].ORIGINAL;
+                    this.fileStorageService
+                        .pushFileToStorage(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, this.selectedFile, params)
                         .subscribe((res) => {
                         this.uploadedPaymentFile = res.responseData.data;
                         this.payment.paymentAttachmentReference = this.uploadedPaymentFile.paymentAttachmentReference;
                         this.addToAttachmentDocuments(this.uploadedPaymentFile);
                         this.hideSpinner();
-                        this.sweetAlertService.customSuccessMessage('Attachment successfully uploaded.');
+                        this.sweetAlertService.customSuccessMessage("Attachment successfully uploaded.");
                         this.selectedFile = null;
                         this.getAttachmentDocument();
                     }, (err) => {
@@ -1891,7 +1951,8 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             });
         }
         addToAttachmentDocuments(obj) {
-            this.attachmentDocument.paymentAttachmentReference = obj.paymentAttachmentReference;
+            this.attachmentDocument.paymentAttachmentReference =
+                obj.paymentAttachmentReference;
             this.attachmentDocument.id = obj.id;
             this.attachmentDocument.originalFilename = obj.originalFilename;
             this.attachmentDocument.filename = obj.filename;
@@ -1907,7 +1968,9 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
         }
         getAttachmentDocument() {
             this.spinner.show();
-            this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].paymentAttachmentReference, this.attachmentDocument.paymentAttachmentReference).subscribe((res) => {
+            this.apiService
+                .findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].paymentAttachmentReference, this.attachmentDocument.paymentAttachmentReference)
+                .subscribe((res) => {
                 if (res) {
                     this.attachmentDocument = res.responseData.data;
                 }
@@ -1918,7 +1981,9 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             });
         }
         getAttachmentDocuments() {
-            this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, `brand-penalty-attachment-reference/${this.payment.paymentAttachmentReference}`).subscribe((res) => {
+            this.apiService
+                .findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, `brand-penalty-attachment-reference/${this.payment.paymentAttachmentReference}`)
+                .subscribe((res) => {
                 if (res) {
                     this.attachmentDocument = res;
                 }
@@ -1927,29 +1992,36 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             });
         }
         navigateToList() {
-            if (this.payment.paymentStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID || this.payment.paymentStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].UNPAID) {
+            if (this.payment.paymentStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID ||
+                this.payment.paymentStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].UNPAID) {
                 if (this.paymentTypeFromUrl) {
-                    this.router.navigate(['asc/page/accounting/payments/', `schedule-of-fees-${this.paymentTypeFromUrl}`]);
+                    this.router.navigate([
+                        "asc/page/accounting/payments/",
+                        `schedule-of-fees-${this.paymentTypeFromUrl}`,
+                    ]);
                 }
                 else {
-                    this.router.navigate(['asc/page/accounting/payments/']);
+                    this.router.navigate(["asc/page/accounting/payments/"]);
                 }
             }
             else {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                    text: 'Are you sure you want to go back to payment list?',
-                    icon: 'question',
+                    text: "Are you sure you want to go back to payment list?",
+                    icon: "question",
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Confirm'
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Confirm",
                 }).then((result) => {
                     if (result.value) {
                         if (this.paymentTypeFromUrl) {
-                            this.router.navigate(['asc/page/accounting/payments/', `schedule-of-fees-${this.paymentTypeFromUrl}`]);
+                            this.router.navigate([
+                                "asc/page/accounting/payments/",
+                                `schedule-of-fees-${this.paymentTypeFromUrl}`,
+                            ]);
                         }
                         else {
-                            this.router.navigate(['asc/page/accounting/payments/']);
+                            this.router.navigate(["asc/page/accounting/payments/"]);
                         }
                     }
                 });
@@ -1963,7 +2035,9 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             if ((_e = (_d = (_c = this.payment) === null || _c === void 0 ? void 0 : _c.applicationFormS2) === null || _d === void 0 ? void 0 : _d.applicationForm) === null || _e === void 0 ? void 0 : _e.refTypeOfMedium) {
                 appFormReference = (_h = (_g = (_f = this.payment) === null || _f === void 0 ? void 0 : _f.applicationFormS2) === null || _g === void 0 ? void 0 : _g.applicationForm) === null || _h === void 0 ? void 0 : _h.appFormReference;
             }
-            this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationSingleMedia, `app-form-reference/${appFormReference}`).subscribe((res) => {
+            this.apiService
+                .findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationSingleMedia, `app-form-reference/${appFormReference}`)
+                .subscribe((res) => {
                 var _a, _b, _c, _d;
                 if (res.responseData.data.length > 0) {
                     this.applicationSingleMedia = res.responseData.data[0];
@@ -1980,11 +2054,11 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                 }
                 else {
                     this.applicationSingleMedia = new app_core_models_application_single_media_model__WEBPACK_IMPORTED_MODULE_8__["ApplicationSingleMedia"]();
-                    this.typeOfMediumDisplay = '';
+                    this.typeOfMediumDisplay = "";
                 }
             }, (err) => {
                 this.applicationSingleMedia = new app_core_models_application_single_media_model__WEBPACK_IMPORTED_MODULE_8__["ApplicationSingleMedia"]();
-                this.typeOfMediumDisplay = '';
+                this.typeOfMediumDisplay = "";
             });
         }
         getMultimediaStatic(appFormReference) {
@@ -1992,10 +2066,12 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             if (appFormReference === void 0) {
                 appFormReference = (_b = (_a = this.payment) === null || _a === void 0 ? void 0 : _a.applicationForm) === null || _b === void 0 ? void 0 : _b.appFormReference;
             }
-            this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia, `app-form-reference/${appFormReference}`).subscribe((res) => {
+            this.apiService
+                .findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia, `app-form-reference/${appFormReference}`)
+                .subscribe((res) => {
                 if (res.responseData.data.length > 0) {
-                    const multimediaList = new Set(res.responseData.data.map(mappedList => { var _a; return `${(_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description} (${mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength})`; }));
-                    this.typeOfMediumDisplay = '';
+                    const multimediaList = new Set(res.responseData.data.map((mappedList) => { var _a; return `${(_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description} (${mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength})`; }));
+                    this.typeOfMediumDisplay = "";
                     let mediaCtrl = 1;
                     for (const media of multimediaList) {
                         if (mediaCtrl !== multimediaList.size) {
@@ -2017,10 +2093,10 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                     }
                 }
                 else {
-                    this.typeOfMediumDisplay = '';
+                    this.typeOfMediumDisplay = "";
                 }
             }, (err) => {
-                this.typeOfMediumDisplay = '';
+                this.typeOfMediumDisplay = "";
             });
         }
         getMultimediaMoving(appFormReference) {
@@ -2028,10 +2104,12 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             if (appFormReference === void 0) {
                 appFormReference = (_b = (_a = this.payment) === null || _a === void 0 ? void 0 : _a.applicationForm) === null || _b === void 0 ? void 0 : _b.appFormReference;
             }
-            this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia, `app-form-reference/${appFormReference}`).subscribe((res) => {
+            this.apiService
+                .findByParam(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia, `app-form-reference/${appFormReference}`)
+                .subscribe((res) => {
                 if (res.responseData.data.length > 0) {
-                    const multimediaList = new Set(res.responseData.data.map(mappedList => { var _a; return `${(_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description} (${mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength})`; }));
-                    this.typeOfMediumDisplay = '';
+                    const multimediaList = new Set(res.responseData.data.map((mappedList) => { var _a; return `${(_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description} (${mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength})`; }));
+                    this.typeOfMediumDisplay = "";
                     let mediaCtrl = 1;
                     for (const media of multimediaList) {
                         if (mediaCtrl !== multimediaList.size) {
@@ -2053,20 +2131,20 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                     }
                 }
                 else {
-                    this.typeOfMediumDisplay = '';
+                    this.typeOfMediumDisplay = "";
                 }
             }, (err) => {
-                this.typeOfMediumDisplay = '';
+                this.typeOfMediumDisplay = "";
             });
         }
         rejectPayment() {
             sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                text: 'Are you sure you want to reject this roof of payment?',
-                icon: 'question',
+                text: "Are you sure you want to reject this roof of payment?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
             }).then((result) => {
                 if (result.value) {
                     this.spinner.show();
@@ -2077,15 +2155,17 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                     else if (this.isSpecial) {
                         rejectEndpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].accountingRejectSpecial;
                     }
-                    this.apiService.save(rejectEndpoint, this.payment)
-                        .subscribe((res) => {
+                    this.apiService.save(rejectEndpoint, this.payment).subscribe((res) => {
                         this.hideSpinner();
-                        this.sweetAlertService.customSuccessMessage('Successfully rejected.');
+                        this.sweetAlertService.customSuccessMessage("Successfully rejected.");
                         if (this.paymentTypeFromUrl) {
-                            this.router.navigate(['asc/page/accounting/payments/', `schedule-of-fees-${this.paymentTypeFromUrl}`]);
+                            this.router.navigate([
+                                "asc/page/accounting/payments/",
+                                `schedule-of-fees-${this.paymentTypeFromUrl}`,
+                            ]);
                         }
                         else {
-                            this.router.navigate(['asc/page/accounting/payments/']);
+                            this.router.navigate(["asc/page/accounting/payments/"]);
                         }
                     }, (err) => {
                         this.hideSpinner();
@@ -2098,9 +2178,17 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
         }
         fetchMultimedia() {
             var _a, _b;
-            let typeofMedium = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.applicationForm.refTypeOfMedium) === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING ? 'moving' : 'static';
-            let endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia + '-' + typeofMedium + '/app-form-reference';
-            this.apiService.findByParam(endpoint, (_b = this.payment) === null || _b === void 0 ? void 0 : _b.applicationForm.appFormReference).subscribe(multimedia => {
+            let typeofMedium = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.applicationForm.refTypeOfMedium) ===
+                _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING
+                ? "moving"
+                : "static";
+            let endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia +
+                "-" +
+                typeofMedium +
+                "/app-form-reference";
+            this.apiService
+                .findByParam(endpoint, (_b = this.payment) === null || _b === void 0 ? void 0 : _b.applicationForm.appFormReference)
+                .subscribe((multimedia) => {
                 if (multimedia)
                     this.multimediaDTO = multimedia.responseData.data;
             });

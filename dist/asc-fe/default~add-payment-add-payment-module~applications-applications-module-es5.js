@@ -2770,13 +2770,13 @@
             this.validateFieldService = validateFieldService;
             this.spinner = spinner;
             this.sweetAlertService = sweetAlertService;
-            this.displayedColumns = ['referenceCode', 'adTitle', 'mediumAndLength', 'amount'];
+            this.displayedColumns = ["referenceCode", "adTitle", "mediumAndLength", "amount"];
             this.multipleApplicationList = [];
-            this.paymentTypeFromUrl = '';
+            this.paymentTypeFromUrl = "";
             this.s1Application = new _models__WEBPACK_IMPORTED_MODULE_1__["S1Application"]();
             this.attachmentDocument = new _models__WEBPACK_IMPORTED_MODULE_1__["AttachmentDocument"]();
             this.applicationSingleMedia = new app_core_models_application_single_media_model__WEBPACK_IMPORTED_MODULE_8__["ApplicationSingleMedia"]();
-            this.typeOfMediumDisplay = '';
+            this.typeOfMediumDisplay = "";
             this.paymentTypeList = [];
             this.attachmentDocuments = [];
             this.payment = new _models__WEBPACK_IMPORTED_MODULE_1__["Payment"]();
@@ -2793,22 +2793,22 @@
             this.previewDocument = false;
             this.proofOfPayment = [{
               id: 1,
-              name: 'Schedule of Fees - Individual'
+              name: "Schedule of Fees - Individual"
             }, {
               id: 2,
-              name: 'Schedule of Fees - Multiple'
+              name: "Schedule of Fees - Multiple"
             }, {
               id: 3,
-              name: 'Schedule of Fees - Special'
+              name: "Schedule of Fees - Special"
             }, {
               id: 4,
-              name: 'Settlement of Delinquent Status'
+              name: "Settlement of Delinquent Status"
             }, {
               id: 5,
-              name: 'Settlement of Brand Penalties'
+              name: "Settlement of Brand Penalties"
             }, {
               id: 6,
-              name: 'Settlement of Company Penalties'
+              name: "Settlement of Company Penalties"
             }];
             this.multimediaDTO = {};
           }
@@ -2817,8 +2817,8 @@
             key: "ngOnInit",
             value: function ngOnInit() {
               this.currentUser = this.dataStorage.getUserAccount();
-              this.paymentTypeFromUrl = this.route.snapshot.paramMap.get('id').split('-')[0];
-              this.id = this.route.snapshot.paramMap.get('id').split('-')[1];
+              this.paymentTypeFromUrl = this.route.snapshot.paramMap.get("id").split("-")[0];
+              this.id = this.route.snapshot.paramMap.get("id").split("-")[1];
               this.getPaymentList();
               this.setFormValidator();
               this.initData();
@@ -2828,31 +2828,31 @@
             value: function initData() {
               var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
 
-              if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === 'for_payment') {
+              if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "for_payment") {
                 this.isForPayment = true;
               }
 
-              if (((_b = this.paymentTypeFromUrl) === null || _b === void 0 ? void 0 : _b.toLowerCase()) === 'for_approval') {
+              if (((_b = this.paymentTypeFromUrl) === null || _b === void 0 ? void 0 : _b.toLowerCase()) === "for_approval") {
                 this.isForApproval = true;
               }
 
-              if ((_f = (_e = (_d = (_c = this.route) === null || _c === void 0 ? void 0 : _c.snapshot) === null || _d === void 0 ? void 0 : _d.paramMap) === null || _e === void 0 ? void 0 : _e.get('status')) === null || _f === void 0 ? void 0 : _f.includes('multiple-')) {
+              if ((_f = (_e = (_d = (_c = this.route) === null || _c === void 0 ? void 0 : _c.snapshot) === null || _d === void 0 ? void 0 : _d.paramMap) === null || _e === void 0 ? void 0 : _e.get("status")) === null || _f === void 0 ? void 0 : _f.includes("multiple-")) {
                 this.isMultiple = true;
-                this.paymentTypeFromUrl = 'multiple';
+                this.paymentTypeFromUrl = "multiple";
               }
 
-              if ((_j = (_h = (_g = this.route) === null || _g === void 0 ? void 0 : _g.snapshot) === null || _h === void 0 ? void 0 : _h.params) === null || _j === void 0 ? void 0 : _j.id.includes('special-')) {
+              if ((_j = (_h = (_g = this.route) === null || _g === void 0 ? void 0 : _g.snapshot) === null || _h === void 0 ? void 0 : _h.params) === null || _j === void 0 ? void 0 : _j.id.includes("special-")) {
                 this.isSpecial = true;
-                this.paymentTypeFromUrl = 'special';
+                this.paymentTypeFromUrl = "special";
               }
 
-              if ((_o = (_m = (_l = (_k = this.route) === null || _k === void 0 ? void 0 : _k.snapshot) === null || _l === void 0 ? void 0 : _l.paramMap) === null || _m === void 0 ? void 0 : _m.get('status')) === null || _o === void 0 ? void 0 : _o.includes('delinquent-')) {
+              if ((_o = (_m = (_l = (_k = this.route) === null || _k === void 0 ? void 0 : _k.snapshot) === null || _l === void 0 ? void 0 : _l.paramMap) === null || _m === void 0 ? void 0 : _m.get("status")) === null || _o === void 0 ? void 0 : _o.includes("delinquent-")) {
                 this.isDelinquent = true;
-                this.paymentTypeFromUrl = 'delinquent';
+                this.paymentTypeFromUrl = "delinquent";
               }
 
               if (this.id !== 0 && this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_ACCOUNTING) {
-                if (this.isForPayment || this.isSpecial || ((_p = this.paymentTypeFromUrl) === null || _p === void 0 ? void 0 : _p.toLowerCase()) === 'unpaid' || this.isMultiple) {
+                if (this.isForPayment || this.isSpecial || ((_p = this.paymentTypeFromUrl) === null || _p === void 0 ? void 0 : _p.toLowerCase()) === "unpaid" || this.isMultiple) {
                   this.getPaymentDetails();
                 } else {
                   this.viewPayment();
@@ -2867,30 +2867,30 @@
             key: "setFormValidator",
             value: function setFormValidator() {
               this.paymentForm = this.formBuilder.group({
-                paymentType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
-                referenceNo: [''],
-                amount: [''],
-                paymentDate: [''],
-                bankName: [''],
-                bankBranch: [''],
-                controlNo: [''],
-                referenceNumber: [''],
-                typeOfMaterial: [''],
-                length: [''],
-                baseRate: [''],
-                vat: [''],
-                total: [''],
-                remarks: [''],
-                applicantCompanyDetails: [''],
-                accumulatedAmountToBeSettled: [''],
-                clientCompanyDetails: [''],
-                discount: [''],
-                amountReceive: [''],
-                filedBirForm: [''],
+                paymentType: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                referenceNo: [""],
+                amount: [""],
+                paymentDate: [""],
+                bankName: [""],
+                bankBranch: [""],
+                controlNo: [""],
+                referenceNumber: [""],
+                typeOfMaterial: [""],
+                length: [""],
+                baseRate: [""],
+                vat: [""],
+                total: [""],
+                remarks: [""],
+                applicantCompanyDetails: [""],
+                accumulatedAmountToBeSettled: [""],
+                clientCompanyDetails: [""],
+                discount: [""],
+                amountReceive: [""],
+                filedBirForm: [""],
                 withholdingTax: [0],
-                orNo: [''],
-                ccConfirmationCode: [''],
-                checkNo: ['']
+                orNo: [""],
+                ccConfirmationCode: [""],
+                checkNo: [""]
               });
             }
           }, {
@@ -2902,21 +2902,21 @@
                 this.sweetAlertService.customErrorMessage("Amount Received/Transferred is lower than Amount Due.");
               } else {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                  text: 'Are you sure you want to approve this Delinquent Company?',
-                  icon: 'question',
+                  text: "Are you sure you want to approve this Delinquent Company?",
+                  icon: "question",
                   showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Confirm'
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Confirm"
                 }).then(function (result) {
                   if (result.value) {
                     _this2.payment.paymentMethod = _this2.paymentMethod;
                     _this2.payment.amountReceive = Number(_this2.paymentMethod.amount);
 
                     _this2.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].approveDelinquentCompany), _this2.payment).subscribe(function (res) {
-                      _this2.sweetAlertService.customSuccessMessage('Delinquent company approved successfully.');
+                      _this2.sweetAlertService.customSuccessMessage("Delinquent company approved successfully.");
 
-                      _this2.router.navigate(['asc/page/accounting/payments/', 'delinquent-companies']);
+                      _this2.router.navigate(["asc/page/accounting/payments/", "delinquent-companies"]);
                     }, function (err) {
                       if (!err.error.message) {
                         err.error.message = err.error.responseMessage;
@@ -3000,19 +3000,19 @@
                 }
 
                 switch (((_e = (_d = _this3.payment) === null || _d === void 0 ? void 0 : _d.applicationForm) === null || _e === void 0 ? void 0 : _e.refTypeOfMedium) || ((_h = (_g = (_f = _this3.payment) === null || _f === void 0 ? void 0 : _f.applicationFormS2) === null || _g === void 0 ? void 0 : _g.applicationForm) === null || _h === void 0 ? void 0 : _h.refTypeOfMedium)) {
-                  case 'SINGLE MEDIA':
+                  case "SINGLE MEDIA":
                     _this3.getApplicationSingleMedia();
 
                     break;
 
-                  case 'MULTIMEDIA-MOVING':
+                  case "MULTIMEDIA-MOVING":
                     _this3.getMultimediaMoving();
 
                     _this3.fetchMultimedia();
 
                     break;
 
-                  case 'MULTIMEDIA-STATIC':
+                  case "MULTIMEDIA-STATIC":
                     _this3.getMultimediaStatic();
 
                     _this3.fetchMultimedia();
@@ -3039,7 +3039,7 @@
 
                 if (_this4.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_APPLICANT) {
                   var creditCardIndex = _this4.paymentTypeList.findIndex(function (element) {
-                    return element.paymentDescription === 'Credit Card';
+                    return element.paymentDescription === "Credit Card";
                   });
 
                   _this4.paymentTypeList.splice(creditCardIndex, 1);
@@ -3062,7 +3062,7 @@
                   endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].paymentMultipleMonitoring;
                 }
               } else {
-                if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === 'for_payment') {
+                if (((_a = this.paymentTypeFromUrl) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "for_payment") {
                   if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_ACCOUNTING) {
                     endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].paymentDetailsAccounting);
                   } else {
@@ -3096,19 +3096,19 @@
                 }
 
                 switch (((_f = (_e = _this5.payment) === null || _e === void 0 ? void 0 : _e.applicationForm) === null || _f === void 0 ? void 0 : _f.refTypeOfMedium) || ((_j = (_h = (_g = _this5.payment) === null || _g === void 0 ? void 0 : _g.applicationFormS2) === null || _h === void 0 ? void 0 : _h.applicationForm) === null || _j === void 0 ? void 0 : _j.refTypeOfMedium)) {
-                  case 'SINGLE MEDIA':
+                  case "SINGLE MEDIA":
                     _this5.getApplicationSingleMedia();
 
                     break;
 
-                  case 'MULTIMEDIA-MOVING':
+                  case "MULTIMEDIA-MOVING":
                     _this5.getMultimediaMoving();
 
                     _this5.fetchMultimedia();
 
                     break;
 
-                  case 'MULTIMEDIA-STATIC':
+                  case "MULTIMEDIA-STATIC":
                     _this5.getMultimediaStatic();
 
                     _this5.fetchMultimedia();
@@ -3147,17 +3147,17 @@
                   var _a, _b;
 
                   switch ((multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.refTypeOfMedium) || ((_b = (_a = multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.applicationFormS2) === null || _a === void 0 ? void 0 : _a.applicationForm) === null || _b === void 0 ? void 0 : _b.refTypeOfMedium)) {
-                    case 'SINGLE MEDIA':
+                    case "SINGLE MEDIA":
                       _this7.getApplicationSingleMedia(multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.appFormReference);
 
                       break;
 
-                    case 'MULTIMEDIA-MOVING':
+                    case "MULTIMEDIA-MOVING":
                       _this7.getMultimediaMoving(multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.appFormReference);
 
                       break;
 
-                    case 'MULTIMEDIA-STATIC':
+                    case "MULTIMEDIA-STATIC":
                       _this7.getMultimediaStatic(multipleApplication === null || multipleApplication === void 0 ? void 0 : multipleApplication.appFormReference);
 
                       break;
@@ -3187,14 +3187,14 @@
               var amountTransferred = Number.parseFloat((_b = (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.amount) === null || _b === void 0 ? void 0 : _b.toString());
               var toPay = this.payment.amountDue - ((_c = this.payment) === null || _c === void 0 ? void 0 : _c.withholdingTax);
 
-              if (this.paymentMethod.paymentType.paymentDescription === 'Voucher' || this.paymentMethod.paymentType.paymentDescription === 'Promisorry Note' || this.paymentMethod.paymentType.paymentDescription !== 'Voucher' && this.paymentMethod.paymentType.paymentDescription !== 'Promisorry Note' && amountTransferred >= toPay) {
+              if (this.paymentMethod.paymentType.paymentDescription === "Voucher" || this.paymentMethod.paymentType.paymentDescription === "Promisorry Note" || this.paymentMethod.paymentType.paymentDescription !== "Voucher" && this.paymentMethod.paymentType.paymentDescription !== "Promisorry Note" && amountTransferred >= toPay) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                  text: 'Are you sure you want to process this PAYMENT?',
-                  icon: 'question',
+                  text: "Are you sure you want to process this PAYMENT?",
+                  icon: "question",
                   showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Confirm'
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Confirm"
                 }).then(function (result) {
                   if (result.value) {
                     _this8.payment.paymentStatus = _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID;
@@ -3211,10 +3211,10 @@
                     }
 
                     _this8.apiService.save(endpoint, _this8.payment).subscribe(function (res) {
-                      _this8.sweetAlertService.customSuccessMessage('Payment successfully processed.'); // console.log('SAVED DATA: ', res);
+                      _this8.sweetAlertService.customSuccessMessage("Payment successfully processed."); // console.log('SAVED DATA: ', res);
 
 
-                      _this8.router.navigate(['asc/page/accounting/payments/', "schedule-of-fees-".concat(_this8.paymentTypeFromUrl)]);
+                      _this8.router.navigate(["asc/page/accounting/payments/", "schedule-of-fees-".concat(_this8.paymentTypeFromUrl)]);
                     });
                   }
                 });
@@ -3272,8 +3272,8 @@
             value: function getAmountDue() {
               var _a, _b;
 
-              var amountDue = Number((Math.round(((_a = this.payment) === null || _a === void 0 ? void 0 : _a.amountDue) * 100) / 100).toFixed(2));
-              var withholding = Number((Math.round(((_b = this.payment) === null || _b === void 0 ? void 0 : _b.withholdingTax) * 100) / 100).toFixed(2));
+              var amountDue = (_a = this.payment) === null || _a === void 0 ? void 0 : _a.amountDue;
+              var withholding = (_b = this.payment) === null || _b === void 0 ? void 0 : _b.withholdingTax;
               var result = amountDue - withholding;
               return result ? result : 0;
             }
@@ -3305,7 +3305,7 @@
 
                 if (this.fileSize > 15000000) {
                   this.sweetAlertService.customErrorMessage("Attachments' total file size should not exceed 15MB.");
-                  event.target.value = '';
+                  event.target.value = "";
                   return;
                 } else {
                   this.isShowUploadButton = true;
@@ -3340,18 +3340,18 @@
               var _this9 = this;
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                text: 'Are you sure you want to submit this as proof of payment?',
-                icon: 'question',
+                text: "Are you sure you want to submit this as proof of payment?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
                   _this9.spinner.show();
 
-                  var params = '';
-                  params = '?&attachmentType=' + _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].PAYMENT + '&submissionType=' + _shared__WEBPACK_IMPORTED_MODULE_2__["SUBMISSION_TYPE"].ORIGINAL;
+                  var params = "";
+                  params = "?&attachmentType=" + _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].PAYMENT + "&submissionType=" + _shared__WEBPACK_IMPORTED_MODULE_2__["SUBMISSION_TYPE"].ORIGINAL;
 
                   _this9.fileStorageService.pushFileToStorage(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument, _this9.selectedFile, params).subscribe(function (res) {
                     _this9.uploadedPaymentFile = res.responseData.data;
@@ -3361,7 +3361,7 @@
 
                     _this9.hideSpinner();
 
-                    _this9.sweetAlertService.customSuccessMessage('Attachment successfully uploaded.');
+                    _this9.sweetAlertService.customSuccessMessage("Attachment successfully uploaded.");
 
                     _this9.selectedFile = null;
 
@@ -3437,24 +3437,24 @@
 
               if (this.payment.paymentStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].PAID || this.payment.paymentStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["PAYMENT_STATUS"].UNPAID) {
                 if (this.paymentTypeFromUrl) {
-                  this.router.navigate(['asc/page/accounting/payments/', "schedule-of-fees-".concat(this.paymentTypeFromUrl)]);
+                  this.router.navigate(["asc/page/accounting/payments/", "schedule-of-fees-".concat(this.paymentTypeFromUrl)]);
                 } else {
-                  this.router.navigate(['asc/page/accounting/payments/']);
+                  this.router.navigate(["asc/page/accounting/payments/"]);
                 }
               } else {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                  text: 'Are you sure you want to go back to payment list?',
-                  icon: 'question',
+                  text: "Are you sure you want to go back to payment list?",
+                  icon: "question",
                   showCancelButton: true,
-                  confirmButtonColor: '#3085d6',
-                  cancelButtonColor: '#d33',
-                  confirmButtonText: 'Confirm'
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Confirm"
                 }).then(function (result) {
                   if (result.value) {
                     if (_this13.paymentTypeFromUrl) {
-                      _this13.router.navigate(['asc/page/accounting/payments/', "schedule-of-fees-".concat(_this13.paymentTypeFromUrl)]);
+                      _this13.router.navigate(["asc/page/accounting/payments/", "schedule-of-fees-".concat(_this13.paymentTypeFromUrl)]);
                     } else {
-                      _this13.router.navigate(['asc/page/accounting/payments/']);
+                      _this13.router.navigate(["asc/page/accounting/payments/"]);
                     }
                   }
                 });
@@ -3496,11 +3496,11 @@
                   }
                 } else {
                   _this14.applicationSingleMedia = new app_core_models_application_single_media_model__WEBPACK_IMPORTED_MODULE_8__["ApplicationSingleMedia"]();
-                  _this14.typeOfMediumDisplay = '';
+                  _this14.typeOfMediumDisplay = "";
                 }
               }, function (err) {
                 _this14.applicationSingleMedia = new app_core_models_application_single_media_model__WEBPACK_IMPORTED_MODULE_8__["ApplicationSingleMedia"]();
-                _this14.typeOfMediumDisplay = '';
+                _this14.typeOfMediumDisplay = "";
               });
             }
           }, {
@@ -3521,7 +3521,7 @@
 
                     return "".concat((_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description, " (").concat(mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength, ")");
                   }));
-                  _this15.typeOfMediumDisplay = '';
+                  _this15.typeOfMediumDisplay = "";
                   var mediaCtrl = 1;
 
                   var _iterator = _createForOfIteratorHelper(multimediaList),
@@ -3557,10 +3557,10 @@
                     _this15.dataSource.paginator = _this15.paginator;
                   }
                 } else {
-                  _this15.typeOfMediumDisplay = '';
+                  _this15.typeOfMediumDisplay = "";
                 }
               }, function (err) {
-                _this15.typeOfMediumDisplay = '';
+                _this15.typeOfMediumDisplay = "";
               });
             }
           }, {
@@ -3581,7 +3581,7 @@
 
                     return "".concat((_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description, " (").concat(mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength, ")");
                   }));
-                  _this16.typeOfMediumDisplay = '';
+                  _this16.typeOfMediumDisplay = "";
                   var mediaCtrl = 1;
 
                   var _iterator2 = _createForOfIteratorHelper(multimediaList),
@@ -3617,10 +3617,10 @@
                     _this16.dataSource.paginator = _this16.paginator;
                   }
                 } else {
-                  _this16.typeOfMediumDisplay = '';
+                  _this16.typeOfMediumDisplay = "";
                 }
               }, function (err) {
-                _this16.typeOfMediumDisplay = '';
+                _this16.typeOfMediumDisplay = "";
               });
             }
           }, {
@@ -3629,12 +3629,12 @@
               var _this17 = this;
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
-                text: 'Are you sure you want to reject this roof of payment?',
-                icon: 'question',
+                text: "Are you sure you want to reject this roof of payment?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
                   _this17.spinner.show();
@@ -3650,12 +3650,12 @@
                   _this17.apiService.save(rejectEndpoint, _this17.payment).subscribe(function (res) {
                     _this17.hideSpinner();
 
-                    _this17.sweetAlertService.customSuccessMessage('Successfully rejected.');
+                    _this17.sweetAlertService.customSuccessMessage("Successfully rejected.");
 
                     if (_this17.paymentTypeFromUrl) {
-                      _this17.router.navigate(['asc/page/accounting/payments/', "schedule-of-fees-".concat(_this17.paymentTypeFromUrl)]);
+                      _this17.router.navigate(["asc/page/accounting/payments/", "schedule-of-fees-".concat(_this17.paymentTypeFromUrl)]);
                     } else {
-                      _this17.router.navigate(['asc/page/accounting/payments/']);
+                      _this17.router.navigate(["asc/page/accounting/payments/"]);
                     }
                   }, function (err) {
                     _this17.hideSpinner();
@@ -3673,8 +3673,8 @@
 
               var _a, _b;
 
-              var typeofMedium = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.applicationForm.refTypeOfMedium) === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING ? 'moving' : 'static';
-              var endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia + '-' + typeofMedium + '/app-form-reference';
+              var typeofMedium = ((_a = this.payment) === null || _a === void 0 ? void 0 : _a.applicationForm.refTypeOfMedium) === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING ? "moving" : "static";
+              var endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].applicationMultimedia + "-" + typeofMedium + "/app-form-reference";
               this.apiService.findByParam(endpoint, (_b = this.payment) === null || _b === void 0 ? void 0 : _b.applicationForm.appFormReference).subscribe(function (multimedia) {
                 if (multimedia) _this18.multimediaDTO = multimedia.responseData.data;
               });

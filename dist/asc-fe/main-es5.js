@@ -4373,7 +4373,7 @@
         environment: 'PROD',
         production: true,
         ASC_API: 'http://18.136.32.45:9095/asc/',
-        websocketUri: 'http://asconlineapp.com'
+        websocketUri: 'http://localhost:3000'
       };
       /***/
     },
