@@ -24,7 +24,7 @@ class TypeOfDocument {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\asc\asc-frontend\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -2692,7 +2692,7 @@ const environment = {
     environment: 'PROD',
     production: true,
     ASC_API: 'http://18.136.32.45:9095/asc/',
-    websocketUri: 'http://asconlineapp.com/websocket'
+    websocketUri: 'http://asconlineapp.com'
 };
 
 

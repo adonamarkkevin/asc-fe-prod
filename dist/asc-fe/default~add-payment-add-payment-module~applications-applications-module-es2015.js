@@ -1777,9 +1777,9 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
             });
         }
         processPayment(remarks) {
-            var _a, _b, _c;
+            var _a, _b, _c, _d;
             const amountTransferred = Number.parseFloat((_b = (_a = this.paymentMethod) === null || _a === void 0 ? void 0 : _a.amount) === null || _b === void 0 ? void 0 : _b.toString());
-            const toPay = this.payment.amountDue - ((_c = this.payment) === null || _c === void 0 ? void 0 : _c.withholdingTax);
+            const toPay = +((_d = Number(this.payment.amountDue - ((_c = this.payment) === null || _c === void 0 ? void 0 : _c.withholdingTax))) === null || _d === void 0 ? void 0 : _d.toFixed(2));
             if (this.paymentMethod.paymentType.paymentDescription === "Voucher" ||
                 this.paymentMethod.paymentType.paymentDescription === "Promisorry Note" ||
                 (this.paymentMethod.paymentType.paymentDescription !== "Voucher" &&
@@ -1799,6 +1799,7 @@ let AddPaymentComponent = /*@__PURE__*/ (() => {
                         this.payment.paymentDate = new Date();
                         this.payment.paymentMethod = this.paymentMethod;
                         this.payment.amountReceive = this.paymentMethod.amount;
+                        this.payment.amountDue = toPay;
                         // this.payment.paymentAttachmentReference = this.attachmentDocument.paymentAttachmentReference;
                         let endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].accountingPaymentApprove;
                         if (this.isMultiple) {
