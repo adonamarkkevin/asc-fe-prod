@@ -6469,6 +6469,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
             const dialogRef = this.dialog.open(app_modules_fragments_incomplete_disapproved_rationale_incomplete_disapproved_rationale_component__WEBPACK_IMPORTED_MODULE_11__["IncompleteDisapprovedRationaleComponent"], {
                 width: "40%",
                 height: "65%",
+                disableClose: true,
                 data: {
                     s2Application: this.s2Application,
                     ascUser: ascUser,
@@ -6509,7 +6510,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 this.s2Application.applicationForm.appFormReference)
                 .subscribe((res) => {
                 this.attachmentDocuments = res.responseData.data;
-                this.originalAttachmentDocuments = this.attachmentDocuments.originalAttachmentDocuments;
+                this.originalAttachmentDocuments = JSON.parse(JSON.stringify(res.responseData.data.originalAttachmentDocuments));
                 this.revisionAttachmentDocuments = this.attachmentDocuments.revisionAttachmentDocuments;
                 this.complianceAttachmentDocuments = this.attachmentDocuments.complianceAttachmentDocuments;
                 console.log(this.originalAttachmentDocuments);
@@ -6520,9 +6521,10 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                     this.materialInformation.complianceAttachmentDocuments = this.attachmentDocuments.complianceAttachmentDocuments;
                 }
                 console.log("view S2 attachmentDocuments: ", this.attachmentDocuments);
+                this.s2OriginalAttachmentDocuments = this.attachmentDocuments.originalAttachmentDocuments;
                 this.s2OriginalAttachmentObservable.next({
                     type: "document",
-                    value: this.originalAttachmentDocuments,
+                    value: JSON.parse(JSON.stringify(this.originalAttachmentDocuments)),
                 });
                 this.s2OriginalAttachmentObservable.next({
                     type: "application",
@@ -6988,7 +6990,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.myFinalMaterialFileC = _t.first);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.attachmentComponent = _t.first);
             }
-        }, outputs: { spinnerMessageEmitter: "spinnerMessageEmitter" }, decls: 126, vars: 53, consts: [[1, "container-fluid"], [1, "details-title"], [1, "details"], [1, "action-buttons"], ["mat-button", "", 1, "button-red", 3, "click"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "routerLink"], ["class", "action-buttons", 4, "ngIf"], [1, "row"], [1, "col-md-12"], ["mat-raised-button", "", "class", "button-right button-red", 3, "click", 4, "ngIf"], ["multi", "", 1, "headers-align"], [3, "s2Application"], [3, "s1Application", "s2Application", "originalAttachmentDocuments", "revisionAttachmentDocuments", "complianceAttachmentDocuments", "selectedMultimediaList", "applicationSingleMedia"], [3, "expanded"], ["appearance", "outline", 1, "col-md-12"], [1, "row", "fields"], [1, "material-icons"], [4, "ngIf"], ["matInput", "", "disabled", "", 3, "value", 4, "ngIf"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 3, "hidden", "change", 4, "ngIf"], ["class", "col-md-12", "appearance", "outline", 4, "ngIf"], [3, "s1Application", "labelMainDocument", "isAscUser", "s2Appplication", "complianceAttachmentDocuments", "s2SupportAttchmentDocuments", "s2DocObservable", "applicationStage", "S2SupportDoc"], [3, "commentS2Application", 4, "ngIf"], [1, "row", 3, "hidden", "formGroup"], ["class", "col-md-6", "appearance", "outline", 4, "ngIf"], ["class", "row", 3, "hidden", 4, "ngIf"], [1, "col"], ["mat-raised-button", "", "class", "button-red", 3, "hidden", "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "click", 4, "ngIf"], [1, "badge", "bg-warning", "text-dark"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "click"], [1, "material-icons", "color__white"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 3, "hidden", "change", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "hidden", "click", 4, "ngIf"], ["matInput", "", "disabled", "", 3, "value"], ["finalMaterialFileInputC", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFileC", ""], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "click"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "hidden", "click"], ["finalMaterialFileInput", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFile", ""], ["class", "row", 4, "ngFor", "ngForOf"], ["class", "no-record", 4, "ngIf"], [1, "material-icons", "add-document"], ["mainInput", ""], [1, "no-record"], [3, "commentS2Application"], [3, "previewAttachmentsList", "displayedColumns", "dataSource"], ["appearance", "outline", 1, "col-md-6"], ["name", "decisionStatus", "formControlName", "decisionStatus", 3, "selectionChange"], ["value", "APPROVED"], ["value", "INCOMPLETE", 4, "ngIf"], ["value", "DISAPPROVED"], ["value", "INCOMPLETE"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "expiresOn", "formControlName", "validityDate", 3, "matDatepicker", "min", "ngModel", "readonly", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn"], ["validityDate", ""], [1, "row", 3, "hidden"], [1, "col-md-6", "rationale"], ["class", "rationale-list", 4, "ngIf"], ["class", "rational-other-comment", 4, "ngIf"], [1, "rationale-list"], [4, "ngFor", "ngForOf"], [1, "rational-other-comment"], ["mat-raised-button", "", 1, "button-red", 3, "hidden", "disabled", "click"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "click"], [3, "hidden", 4, "ngIf"], [3, "hidden"], ["mat-raised-button", "", 1, "button-red", 3, "click"]], template: function AddS2ApplicationComponent_Template(rf, ctx) {
+        }, outputs: { spinnerMessageEmitter: "spinnerMessageEmitter" }, decls: 126, vars: 54, consts: [[1, "container-fluid"], [1, "details-title"], [1, "details"], [1, "action-buttons"], ["mat-button", "", 1, "button-red", 3, "click"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "routerLink"], ["class", "action-buttons", 4, "ngIf"], [1, "row"], [1, "col-md-12"], ["mat-raised-button", "", "class", "button-right button-red", 3, "click", 4, "ngIf"], ["multi", "", 1, "headers-align"], [3, "s2Application"], [3, "s1Application", "s2Application", "originalAttachmentDocuments", "revisionAttachmentDocuments", "complianceAttachmentDocuments", "selectedMultimediaList", "applicationSingleMedia"], [3, "expanded"], ["appearance", "outline", 1, "col-md-12"], [1, "row", "fields"], [1, "material-icons"], [4, "ngIf"], ["matInput", "", "disabled", "", 3, "value", 4, "ngIf"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 3, "hidden", "change", 4, "ngIf"], ["class", "col-md-12", "appearance", "outline", 4, "ngIf"], [3, "s1Application", "labelMainDocument", "isAscUser", "s2Appplication", "complianceAttachmentDocuments", "s2SupportAttchmentDocuments", "sSupportAttchmentDocuments", "s2DocObservable", "applicationStage", "S2SupportDoc", "s2SupportAttchmentDocumentsChange", "sSupportAttchmentDocumentsChange"], [3, "commentS2Application", 4, "ngIf"], [1, "row", 3, "hidden", "formGroup"], ["class", "col-md-6", "appearance", "outline", 4, "ngIf"], ["class", "row", 3, "hidden", 4, "ngIf"], [1, "col"], ["mat-raised-button", "", "class", "button-red", 3, "hidden", "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "click", 4, "ngIf"], [1, "badge", "bg-warning", "text-dark"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "click"], [1, "material-icons", "color__white"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 3, "hidden", "change", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "hidden", "click", 4, "ngIf"], ["matInput", "", "disabled", "", 3, "value"], ["finalMaterialFileInputC", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFileC", ""], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "click"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "hidden", "click"], ["finalMaterialFileInput", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFile", ""], ["class", "row", 4, "ngFor", "ngForOf"], ["class", "no-record", 4, "ngIf"], [1, "material-icons", "add-document"], ["mainInput", ""], [1, "no-record"], [3, "commentS2Application"], [3, "previewAttachmentsList", "displayedColumns", "dataSource"], ["appearance", "outline", 1, "col-md-6"], ["name", "decisionStatus", "formControlName", "decisionStatus", 3, "selectionChange"], ["value", "APPROVED"], ["value", "INCOMPLETE", 4, "ngIf"], ["value", "DISAPPROVED"], ["value", "INCOMPLETE"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "expiresOn", "formControlName", "validityDate", 3, "matDatepicker", "min", "ngModel", "readonly", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn"], ["validityDate", ""], [1, "row", 3, "hidden"], [1, "col-md-6", "rationale"], ["class", "rationale-list", 4, "ngIf"], ["class", "rational-other-comment", 4, "ngIf"], [1, "rationale-list"], [4, "ngFor", "ngForOf"], [1, "rational-other-comment"], ["mat-raised-button", "", 1, "button-red", 3, "hidden", "disabled", "click"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "click"], [3, "hidden", 4, "ngIf"], [3, "hidden"], ["mat-raised-button", "", 1, "button-red", 3, "click"]], template: function AddS2ApplicationComponent_Template(rf, ctx) {
             if (rf & 1) {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "form");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 0);
@@ -7149,7 +7151,9 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](106, "br");
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](107, "app-attachment-document", 21);
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](107, "app-attachment-document", 21);
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("s2SupportAttchmentDocumentsChange", function AddS2ApplicationComponent_Template_app_attachment_document_s2SupportAttchmentDocumentsChange_107_listener($event) { return ctx.originalAttachmentDocuments = $event; })("sSupportAttchmentDocumentsChange", function AddS2ApplicationComponent_Template_app_attachment_document_sSupportAttchmentDocumentsChange_107_listener($event) { return ctx.originalAttachmentDocuments = $event; });
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](108, AddS2ApplicationComponent_app_comment_108_Template, 1, 1, "app-comment", 22);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -7180,11 +7184,11 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
             }
             if (rf & 2) {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](8);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"]((ctx.s2Application == null ? null : ctx.s2Application.externalStatus) == "S2_APPLICATION_REJECTED" ? ctx.s2Application == null ? null : ctx.s2Application.referenceCodeRejected : _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](9, 48, ctx.s2Application == null ? null : ctx.s2Application.applicationForm == null ? null : ctx.s2Application.applicationForm.referenceCode));
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"]((ctx.s2Application == null ? null : ctx.s2Application.externalStatus) == "S2_APPLICATION_REJECTED" ? ctx.s2Application == null ? null : ctx.s2Application.referenceCodeRejected : _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](9, 49, ctx.s2Application == null ? null : ctx.s2Application.applicationForm == null ? null : ctx.s2Application.applicationForm.referenceCode));
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction0"](52, _c4));
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction0"](53, _c4));
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](9);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](29, 50, ctx.s2Application == null ? null : ctx.s2Application.externalStatus == null ? null : ctx.s2Application.externalStatus.replaceAll("_", " ")));
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](29, 51, ctx.s2Application == null ? null : ctx.s2Application.externalStatus == null ? null : ctx.s2Application.externalStatus.replaceAll("_", " ")));
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", (ctx.s2Application == null ? null : ctx.s2Application.amount) && (ctx.s2Application == null ? null : ctx.s2Application.submissionType) === "ORIGINAL");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
@@ -7220,7 +7224,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("expanded", true);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
-                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("s1Application", ctx.s1Application)("labelMainDocument", "Support Document")("isAscUser", ctx.isAscUser)("s2Appplication", ctx.s2Application)("complianceAttachmentDocuments", ctx.complianceAttachmentDocuments)("s2SupportAttchmentDocuments", ctx.s2OriginalAttachmentDocuments)("s2DocObservable", ctx.s2OriginalAttachmentObservable)("applicationStage", ctx.applicationStage)("S2SupportDoc", true);
+                _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("s1Application", ctx.s1Application)("labelMainDocument", "Support Document")("isAscUser", ctx.isAscUser)("s2Appplication", ctx.s2Application)("complianceAttachmentDocuments", ctx.complianceAttachmentDocuments)("s2SupportAttchmentDocuments", ctx.originalAttachmentDocuments)("sSupportAttchmentDocuments", ctx.originalAttachmentDocuments)("s2DocObservable", ctx.s2OriginalAttachmentObservable)("applicationStage", ctx.applicationStage)("S2SupportDoc", true);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.isApplicant);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
@@ -8760,6 +8764,7 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
             this.revisionAttachmentDocuments = [];
             this.complianceAttachmentDocuments = [];
             this.s2SupportAttchmentDocuments = [];
+            this.sSupportAttchmentDocuments = [];
             this.s2DocObservable = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
             this.s2SupportDocument = {};
             this.S2SupportDoc = false;
@@ -8798,7 +8803,12 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
             this.progress = { percentage: 0 };
             this.attachmentDocument = new _models__WEBPACK_IMPORTED_MODULE_3__["AttachmentDocument"]();
         }
-        ngOnChanges(changes) { }
+        ngOnChanges(changes) {
+            console.log(this.sSupportAttchmentDocuments);
+            if (this.s2SupportAttchmentDocuments) {
+                this.s2SupportDocument = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1];
+            }
+        }
         get submitComplianceEnabled() {
             const hasMain = Boolean(this.complianceAttachmentDocuments.find((c) => c.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].MAIN));
             const hasSupportive = Boolean(this.complianceAttachmentDocuments.find((c) => c.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE));
@@ -8806,7 +8816,7 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
                 (hasMain && this.s1Application.hasNoSupportingDocs));
         }
         ngOnInit() {
-            console.log(this.s2SupportAttchmentDocuments);
+            console.log(this.sSupportAttchmentDocuments);
             this.id = Number(this.route.snapshot.paramMap.get("id"));
             this.currentUser = this.dataStorage.getUserAccount();
             this.setFormValidator();
@@ -9249,7 +9259,7 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
                     this.tempRevisionAttachmentDocuments = JSON.parse(JSON.stringify(this.attachmentDocuments));
                 }
                 else if (this.s1Application.decisionStatus === _shared__WEBPACK_IMPORTED_MODULE_2__["APP_DECISION_STATUS"].INCOMPLETE) {
-                    // this.complianceAttachmentDocuments = this.attachmentDocuments;
+                    this.complianceAttachmentDocuments = this.attachmentDocuments;
                     this.tempComplianceAttachmentDocuments = JSON.parse(JSON.stringify(this.attachmentDocuments));
                 }
                 else {
@@ -9372,17 +9382,17 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
                             this.s2Appplication.internalStatus === undefined)) {
                         this.attachmentDocuments = this.s2SupportAttchmentDocuments;
                     }
-                    let id = this.attachmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1].id;
+                    let id = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1].id;
                     this.supportDocAttachmentSize = 0;
                     // this.attachmentDocuments[this.s1Application.hasNoSupportingDocs? 0 : 1] = null;
-                    this.s2SupportDocument = {};
+                    this.s2SupportDocument = null;
                     this.s2Appplication.supportingAttachmentReference = null;
                     // this.showSupportiveDocumentViewButton = false;
                     // this.showSupportiveDocumentUploadButton = false;
                     // this.mySupportiveFile.nativeElement.value = null;
                     // this.mySupportiveInput.nativeElement.value = null;
                     // this.s1Application.supportingAttachmentReference = null;
-                    console.log("result", result);
+                    console.log("result", result, id);
                     this.apiService
                         .save(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].attachmentDocument + `/id/${id}`, null)
                         .subscribe((res) => {
@@ -9570,7 +9580,7 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.myRevisionLetterFile = _t.first);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵloadQuery"]()) && (ctx.myRevisionLetterInput = _t.first);
             }
-        }, inputs: { originalAttachmentDocuments: "originalAttachmentDocuments", revisionAttachmentDocuments: "revisionAttachmentDocuments", complianceAttachmentDocuments: "complianceAttachmentDocuments", s2SupportAttchmentDocuments: "s2SupportAttchmentDocuments", s2DocObservable: "s2DocObservable", S2SupportDoc: "S2SupportDoc", s2Appplication: "s2Appplication", s1Application: "s1Application", labelMainDocument: "labelMainDocument", isAscUser: "isAscUser", isDisableFieldOnUpdate: "isDisableFieldOnUpdate", applicationStage: "applicationStage" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]], decls: 8, vars: 6, consts: [[1, "row"], [4, "ngIf"], [3, "formGroup"], ["mat-align-tabs", "center", 1, "mat-tab-group", 3, "selectedTabChange"], ["label", "SUPPORT DOCUMENT", 4, "ngIf"], ["label", "ORIGINAL", 4, "ngIf"], ["label", "REVISION", 4, "ngIf"], ["label", "COMPLIANCE", 4, "ngIf"], [1, "material-icons"], ["label", "SUPPORT DOCUMENT"], [1, "mat-tab"], [1, "col", "comment"], ["appearance", "outline", 1, "col-md-12"], ["matInput", "", "disabled", "", 3, "value", 4, "ngIf"], ["class", "file-upload", "type", "file", "accept", ".pdf", 3, "hidden", "change", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "disabled", "hidden", "click", 4, "ngIf"], ["matInput", "", "disabled", "", 3, "value"], ["mainInput", ""], ["type", "file", "accept", ".pdf", 1, "file-upload", 3, "hidden", "change"], ["mainFile", ""], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "click"], [1, "material-icons", "add-document"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "disabled", "hidden", "click"], ["label", "ORIGINAL"], ["mat-raised-button", "", "class", "button-red button-right", 3, "hidden", "click", 4, "ngIf"], [1, "col-md-12"], ["class", "row", 4, "ngIf"], ["class", "no-record", 4, "ngIf"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "hidden", "click"], ["class", "col-md-12", "appearance", "outline", 3, "hidden", 4, "ngIf"], [3, "hidden", 4, "ngIf"], ["appearance", "outline", 1, "col-md-12", 3, "hidden"], ["formControlName", "hasNoSupportingDocs", 3, "ngModel", "hidden", "click", "ngModelChange", "checked", 4, "ngIf"], ["formControlName", "hasNoSupportingDocs", 3, "ngModel", "hidden", "click", "ngModelChange", "checked"], [3, "hidden"], ["supportiveInput", ""], ["supportiveFile", ""], [1, "no-record"], ["label", "REVISION"], ["class", "row", 3, "hidden", 4, "ngIf"], ["class", "row", 4, "ngFor", "ngForOf"], [1, "row", 3, "hidden"], ["revisionLetterInput", ""], ["revisionLetterFile", ""], ["class", "col-md-12", "appearance", "outline", 4, "ngIf"], ["label", "COMPLIANCE"]], template: function AttachmentDocumentComponent_Template(rf, ctx) {
+        }, inputs: { originalAttachmentDocuments: "originalAttachmentDocuments", revisionAttachmentDocuments: "revisionAttachmentDocuments", complianceAttachmentDocuments: "complianceAttachmentDocuments", s2SupportAttchmentDocuments: "s2SupportAttchmentDocuments", sSupportAttchmentDocuments: "sSupportAttchmentDocuments", s2DocObservable: "s2DocObservable", S2SupportDoc: "S2SupportDoc", s2Appplication: "s2Appplication", s1Application: "s1Application", labelMainDocument: "labelMainDocument", isAscUser: "isAscUser", isDisableFieldOnUpdate: "isDisableFieldOnUpdate", applicationStage: "applicationStage" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵNgOnChangesFeature"]], decls: 8, vars: 6, consts: [[1, "row"], [4, "ngIf"], [3, "formGroup"], ["mat-align-tabs", "center", 1, "mat-tab-group", 3, "selectedTabChange"], ["label", "SUPPORT DOCUMENT", 4, "ngIf"], ["label", "ORIGINAL", 4, "ngIf"], ["label", "REVISION", 4, "ngIf"], ["label", "COMPLIANCE", 4, "ngIf"], [1, "material-icons"], ["label", "SUPPORT DOCUMENT"], [1, "mat-tab"], [1, "col", "comment"], ["appearance", "outline", 1, "col-md-12"], ["matInput", "", "disabled", "", 3, "value", 4, "ngIf"], ["class", "file-upload", "type", "file", "accept", ".pdf", 3, "hidden", "change", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "disabled", "hidden", "click", 4, "ngIf"], ["matInput", "", "disabled", "", 3, "value"], ["mainInput", ""], ["type", "file", "accept", ".pdf", 1, "file-upload", 3, "hidden", "change"], ["mainFile", ""], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "click"], [1, "material-icons", "add-document"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "disabled", "hidden", "click"], ["label", "ORIGINAL"], ["mat-raised-button", "", "class", "button-red button-right", 3, "hidden", "click", 4, "ngIf"], [1, "col-md-12"], ["class", "row", 4, "ngIf"], ["class", "no-record", 4, "ngIf"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "hidden", "click"], ["class", "col-md-12", "appearance", "outline", 3, "hidden", 4, "ngIf"], [3, "hidden", 4, "ngIf"], ["appearance", "outline", 1, "col-md-12", 3, "hidden"], ["formControlName", "hasNoSupportingDocs", 3, "ngModel", "hidden", "click", "ngModelChange", "checked", 4, "ngIf"], ["formControlName", "hasNoSupportingDocs", 3, "ngModel", "hidden", "click", "ngModelChange", "checked"], [3, "hidden"], ["supportiveInput", ""], ["supportiveFile", ""], [1, "no-record"], ["label", "REVISION"], ["class", "row", 3, "hidden", 4, "ngIf"], ["class", "row", 4, "ngFor", "ngForOf"], [1, "row", 3, "hidden"], ["revisionLetterInput", ""], ["revisionLetterFile", ""], ["class", "col-md-12", "appearance", "outline", 4, "ngIf"], ["label", "COMPLIANCE"]], template: function AttachmentDocumentComponent_Template(rf, ctx) {
             if (rf & 1) {
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
                 _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, AttachmentDocumentComponent_b_1_Template, 4, 0, "b", 1);
@@ -16016,11 +16026,13 @@ let AddS1ApplicationComponent = /*@__PURE__*/ (() => {
                     });
                 }
                 else {
-                    if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING) {
-                        this.s1Application.typeOfMedium = 'DIGITAL VIDEO';
+                    if (this.s1Application.refTypeOfMedium ===
+                        _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING) {
+                        this.s1Application.typeOfMedium = "DIGITAL VIDEO";
                     }
-                    if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_STATIC) {
-                        this.s1Application.typeOfMedium = 'DIGITAL STATIC';
+                    if (this.s1Application.refTypeOfMedium ===
+                        _shared__WEBPACK_IMPORTED_MODULE_5__["TYPE_OF_MEDIUM"].MULTIMEDIA_STATIC) {
+                        this.s1Application.typeOfMedium = "DIGITAL STATIC";
                     }
                 }
                 // removed multimediaToDelete
@@ -16066,16 +16078,14 @@ let AddS1ApplicationComponent = /*@__PURE__*/ (() => {
         saveUpdateMultimedia(status, ascUser, action) {
             let typeOfMultimedia = "";
             this.multimediaDTO.appFormReference = this.s1Application.appFormReference;
-            if (action === 'submit') {
+            if (action === "submit") {
                 if (this.multimediaDTO.applicationMultimediaMovingList) {
-                    this.multimediaDTO.applicationMultimediaMovingList = this.multimediaDTO.applicationMultimediaMovingList
-                        .map((e) => {
+                    this.multimediaDTO.applicationMultimediaMovingList = this.multimediaDTO.applicationMultimediaMovingList.map((e) => {
                         return Object.assign(Object.assign({}, e), { id: 0 });
                     });
                 }
                 if (this.multimediaDTO.applicationMultimediaStaticList) {
-                    this.multimediaDTO.applicationMultimediaStaticList = this.multimediaDTO.applicationMultimediaStaticList
-                        .map((e) => {
+                    this.multimediaDTO.applicationMultimediaStaticList = this.multimediaDTO.applicationMultimediaStaticList.map((e) => {
                         return Object.assign(Object.assign({}, e), { id: 0 });
                     });
                 }
@@ -17058,6 +17068,7 @@ let AddS1ApplicationComponent = /*@__PURE__*/ (() => {
             const dialogRef = this.dialog.open(app_modules_fragments_incomplete_disapproved_rationale_incomplete_disapproved_rationale_component__WEBPACK_IMPORTED_MODULE_15__["IncompleteDisapprovedRationaleComponent"], {
                 width: "50%",
                 height: "65%",
+                disableClose: true,
                 data: {
                     s1Application: this.s1Application,
                     applicationStage: "s1",
@@ -23012,22 +23023,38 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             this.isUpdate = false;
             this.attachmentType = _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].MAIN;
             this.progress = { percentage: 0 };
-            this.mediaType = '';
-            this.labelMainDocument = 'MAIN DOCUMENT';
-            this.savedTypeOfMedium = '';
+            this.mediaType = "";
+            this.labelMainDocument = "MAIN DOCUMENT";
+            this.savedTypeOfMedium = "";
             this.ngUnsubscribe = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
-            this.selectedTypeOfMedium = 'SINGLE MEDIA';
+            this.selectedTypeOfMedium = "SINGLE MEDIA";
             this.multimediaDTO = {};
             this.multimediaMovingDTO = new _models__WEBPACK_IMPORTED_MODULE_4__["ApplicationMultimediaMovingDTO"]();
             this.multimediaStaticDTO = new _models__WEBPACK_IMPORTED_MODULE_4__["ApplicationMultimediaStaticDTO"]();
         }
         ngOnInit() {
+            console.log(this.originalAttachmentDocuments);
             this.currentUser = this.dataStorage.getUserAccount();
             if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_2__["USER_ROLES"].ROLE_AD_SPECIALIST) {
-                this.displayedColumns = ['typeOfDocument', 'input', 'variant', 'expiresOn', 'basedOn', 'remarks', 'action'];
+                this.displayedColumns = [
+                    "typeOfDocument",
+                    "input",
+                    "variant",
+                    "expiresOn",
+                    "basedOn",
+                    "remarks",
+                    "action",
+                ];
             }
             else {
-                this.displayedColumns = ['typeOfDocument', 'input', 'variant', 'expiresOn', 'basedOn', 'remarks'];
+                this.displayedColumns = [
+                    "typeOfDocument",
+                    "input",
+                    "variant",
+                    "expiresOn",
+                    "basedOn",
+                    "remarks",
+                ];
             }
             this.setFormValidator();
             this.getTypeOfDocumentList();
@@ -23042,9 +23069,11 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             var _a;
             if (changes) {
                 if (this.multimediaDTO) {
-                    if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING)
+                    if (this.s1Application.refTypeOfMedium ===
+                        _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING)
                         this.multimediaMovingDTO = this.multimediaDTO;
-                    if (this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_STATIC)
+                    if (this.s1Application.refTypeOfMedium ===
+                        _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_STATIC)
                         this.multimediaStaticDTO = this.multimediaDTO;
                 }
             }
@@ -23052,7 +23081,7 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
                 this.s1Application.refTypeOfMedium = _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].SINGLE_MEDIA;
                 this.getTypeOfMedium(_shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].SINGLE_MEDIA);
             }
-            else if (!this.applicationSingleMedia || ((_a = this.s1Application.refTypeOfMedium) === null || _a === void 0 ? void 0 : _a.includes('MULTIMEDIA'))) {
+            else if (!this.applicationSingleMedia || ((_a = this.s1Application.refTypeOfMedium) === null || _a === void 0 ? void 0 : _a.includes("MULTIMEDIA"))) {
                 this.getTypeOfMedium(this.s1Application.refTypeOfMedium);
             }
             else if (this.applicationSingleMedia) {
@@ -23069,39 +23098,39 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
         }
         setFormValidator() {
             this.materialInformationForm = this.formBuilder.group({
-                adTitle: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
-                referenceCode: [''],
-                previousRefCode: [''],
-                tagLine: [''],
-                refTypeOfMedium: [''],
-                appFormReference: [''],
+                adTitle: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required],
+                referenceCode: [""],
+                previousRefCode: [""],
+                tagLine: [""],
+                refTypeOfMedium: [""],
+                appFormReference: [""],
                 // this.attachmentDocumentForm = this.formBuilder.group({
-                attachmentReference: [''],
-                hasNoSupportingDocs: [''],
-                typeOfDocument: [''],
-                basedOn: [''],
-                variant: [''],
-                dateOfLaunch: [''],
-                expiresOn: [''],
-                remarks: [''],
-                input: [''],
-                typeOfMedium: [''],
-                mediumExecution: [''],
-                language: [''],
-                dialect: [''],
-                others: [''],
-                sizeLength: [''],
-                width: ['0'],
-                multimediaLength: [''],
-                multimediaSize: [''],
-                applicationSingleMedia: [''],
-                applicationMultimediaStatic: [''],
-                applicationMultimediaMoving: [''],
+                attachmentReference: [""],
+                hasNoSupportingDocs: [""],
+                typeOfDocument: [""],
+                basedOn: [""],
+                variant: [""],
+                dateOfLaunch: [""],
+                expiresOn: [""],
+                remarks: [""],
+                input: [""],
+                typeOfMedium: [""],
+                mediumExecution: [""],
+                language: [""],
+                dialect: [""],
+                others: [""],
+                sizeLength: [""],
+                width: ["0"],
+                multimediaLength: [""],
+                multimediaSize: [""],
+                applicationSingleMedia: [""],
+                applicationMultimediaStatic: [""],
+                applicationMultimediaMoving: [""],
             });
         }
         getTypeOfMedium(type) {
             this.typeOfMediumList = [];
-            let endpoint = '';
+            let endpoint = "";
             if (type === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].SINGLE_MEDIA) {
                 this.applicationSingleMedia = new _models__WEBPACK_IMPORTED_MODULE_4__["ApplicationSingleMedia"]();
                 endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfMediumSingleMedia;
@@ -23127,7 +23156,7 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             this.apiService.findAll(endpoint).subscribe((res) => {
                 this.typeOfMediumList = res.responseData.data;
                 if (type === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].SINGLE_MEDIA) {
-                    this.typeOfMedium = this.typeOfMediumList.filter(medium => medium.description === this.savedTypeOfMedium)[0];
+                    this.typeOfMedium = this.typeOfMediumList.filter((medium) => medium.description === this.savedTypeOfMedium)[0];
                 }
                 // if (this.selectedMultimediaList.length > 0) {
                 //   this.selectedMultimediaStringList = this.selectedMultimediaList.map(mappedList => mappedList?.typeOfMedium?.description);
@@ -23142,17 +23171,16 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
                 //   }
                 //   return medium;
                 // });
-            }, (err) => {
-            });
+            }, (err) => { });
         }
         resetValues() {
             this.applicationSingleMedia.dialect = null;
             this.applicationSingleMedia.language = null;
-            this.applicationSingleMedia.others = '';
-            this.applicationSingleMedia.sizeLength = '0';
+            this.applicationSingleMedia.others = "";
+            this.applicationSingleMedia.sizeLength = "0";
             this.applicationSingleMedia.amount = 0;
             this.applicationSingleMedia.mediumExecution = null;
-            this.applicationSingleMedia.width = '0';
+            this.applicationSingleMedia.width = "0";
         }
         setSingleMedia(typeofMedium) {
             this.resetValues();
@@ -23163,10 +23191,15 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
         }
         emitSingleMediaChanges() {
             var _a, _b, _c, _d;
-            if ((((_a = this.typeOfMedium) === null || _a === void 0 ? void 0 : _a.executionEnable) && !this.applicationSingleMedia.mediumExecution) ||
-                (((_b = this.typeOfMedium) === null || _b === void 0 ? void 0 : _b.lengthEnable) && !this.applicationSingleMedia.sizeLength) ||
-                (((_c = this.typeOfMedium) === null || _c === void 0 ? void 0 : _c.sizeLengthEnable) && !this.applicationSingleMedia.sizeLength) ||
-                ((!((_d = this.typeOfMedium) === null || _d === void 0 ? void 0 : _d.id) && !this.applicationSingleMedia.id) && !this.savedTypeOfMedium)) {
+            if ((((_a = this.typeOfMedium) === null || _a === void 0 ? void 0 : _a.executionEnable) &&
+                !this.applicationSingleMedia.mediumExecution) ||
+                (((_b = this.typeOfMedium) === null || _b === void 0 ? void 0 : _b.lengthEnable) &&
+                    !this.applicationSingleMedia.sizeLength) ||
+                (((_c = this.typeOfMedium) === null || _c === void 0 ? void 0 : _c.sizeLengthEnable) &&
+                    !this.applicationSingleMedia.sizeLength) ||
+                (!((_d = this.typeOfMedium) === null || _d === void 0 ? void 0 : _d.id) &&
+                    !this.applicationSingleMedia.id &&
+                    !this.savedTypeOfMedium)) {
                 this.disableSubmitButtonByMedia = true;
             }
             else {
@@ -23203,15 +23236,16 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             this.disableSubmitButtonByMedia = false;
             let data = {
                 type: this.s1Application.refTypeOfMedium,
-                data: this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING ? this.multimediaMovingDTO : this.multimediaStaticDTO
+                data: this.s1Application.refTypeOfMedium === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].MULTIMEDIA_MOVING
+                    ? this.multimediaMovingDTO
+                    : this.multimediaStaticDTO,
             };
             this.checkMultimediaChangesFunction.emit(data);
         }
         getTypeOfDocumentList() {
             this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfDocument).subscribe((res) => {
                 this.typeOfDocumentList = res.responseData.data;
-            }, (err) => {
-            });
+            }, (err) => { });
         }
         setTypeOfDocument(type) {
             this.typeOfDocument = type;
@@ -23223,7 +23257,8 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
         }
         compareMediumExecution(value, selected) {
             if (value && selected) {
-                return value.typeOfExecution.typeOfExecution === selected.typeOfExecution.typeOfExecution;
+                return (value.typeOfExecution.typeOfExecution ===
+                    selected.typeOfExecution.typeOfExecution);
             }
         }
         compareDialect(value, selected) {
@@ -23233,36 +23268,37 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
         }
         getExecutionDialectList() {
             if (this.typeOfMedium.id) {
-                this.apiService.findAll(`${_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfExecutionsByMedium}${this.typeOfMedium.id}`).subscribe((res) => {
+                this.apiService
+                    .findAll(`${_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfExecutionsByMedium}${this.typeOfMedium.id}`)
+                    .subscribe((res) => {
                     if (this.typeOfMedium.executionEnable) {
                         this.executionList = res.responseData.data;
                     }
                     else {
                         if (res.responseData.data.length === 0) {
-                            this.sweetAlertService.customErrorMessage('The selected type of medium has no execution.');
+                            this.sweetAlertService.customErrorMessage("The selected type of medium has no execution.");
                         }
                         else {
-                            this.applicationSingleMedia.mediumExecution = res.responseData.data[0];
+                            this.applicationSingleMedia.mediumExecution =
+                                res.responseData.data[0];
                         }
                     }
                     this.emitSingleMediaChanges();
-                }, (err) => {
-                });
+                }, (err) => { });
             }
             this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].dialects).subscribe((res) => {
                 this.dialectList = res.responseData.data;
-            }, (err) => {
-            });
+            }, (err) => { });
         }
         removeTypeOfDocument(index) {
             const keepValues = [];
             sweetalert2__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
-                text: 'Are you sure you want to delete this TYPE OF DOCUMENT?',
-                icon: 'question',
+                text: "Are you sure you want to delete this TYPE OF DOCUMENT?",
+                icon: "question",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Confirm",
             }).then((result) => {
                 if (result.value) {
                     this.supportiveDocumentList.forEach((element, key) => {
@@ -23276,7 +23312,7 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             });
         }
         addSupportiveDocument(supportingDocument) {
-            const checkIfDocumentAlreadyExist = this.supportiveDocumentList.filter(data => data.typeOfDocument.id === supportingDocument.typeOfDocument.id);
+            const checkIfDocumentAlreadyExist = this.supportiveDocumentList.filter((data) => data.typeOfDocument.id === supportingDocument.typeOfDocument.id);
             // if (checkIfDocumentAlreadyExist.length === 1) {
             //   this.sweetAlertService.customErrorMessage('Type of Document that is being added is already on the list.', 5);
             // } else {
@@ -23291,30 +23327,32 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
         }
         getTypeOfDocument(res, index) {
             this.isUpdate = true;
-            this.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfDocument, res.typeOfDocument.id).subscribe((data) => {
+            this.apiService
+                .findById(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfDocument, res.typeOfDocument.id)
+                .subscribe((data) => {
                 if (data) {
                     this.typeOfDocument = data.responseData.data;
                 }
             });
             this.supportingDocument.typeOfDocument = res.typeOfDocument;
-            if (res.typeOfDocument.description === 'DOH-FDA PERMIT') {
+            if (res.typeOfDocument.description === "DOH-FDA PERMIT") {
                 this.typeOfDocument.expiresOnEnable = true;
                 this.supportingDocument.expiresOn = res.expiresOn;
                 this.supportingDocumentIndex = index;
             }
-            else if (res.typeOfDocument.description === 'NMIS') {
+            else if (res.typeOfDocument.description === "NMIS") {
                 this.typeOfDocument.expiresOnEnable = false;
                 this.supportingDocument.expiresOn = null;
                 this.supportingDocumentIndex = index;
             }
-            else if (res.typeOfDocument.description === 'DOLE PERMIT') {
+            else if (res.typeOfDocument.description === "DOLE PERMIT") {
                 this.typeOfDocument.expiresOnEnable = false;
                 this.supportingDocument.expiresOn = null;
                 this.supportingDocumentIndex = index;
             }
         }
         modifyTypeOfDocument(res, id) {
-            const checkIfDocumentAlreadyExist = this.supportiveDocumentList.filter(data => data.typeOfDocument.id === res.typeOfDocument.id);
+            const checkIfDocumentAlreadyExist = this.supportiveDocumentList.filter((data) => data.typeOfDocument.id === res.typeOfDocument.id);
             //  if(checkIfDocumentAlreadyExist.length === 1){
             //   console.log("ALREADY EXIST");
             //  }else{
@@ -23339,14 +23377,14 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             this.isUpdate = false;
             this.dataSource.data = this.supportiveDocumentList;
             this.supportingDocument = new _models__WEBPACK_IMPORTED_MODULE_4__["SupportingDocument"]();
-            this.supportingDocumentIndex = '';
+            this.supportingDocumentIndex = "";
         }
         initializeMultimediaMovingObj() {
             this.multimediaMovingDTO = new _models__WEBPACK_IMPORTED_MODULE_4__["ApplicationMultimediaMovingDTO"]();
             let multimediaMovingList = new _core_models_media_models_multimedia_moving_const__WEBPACK_IMPORTED_MODULE_0__["MultiMediaMovingConstant"]().data;
             this.multimediaMovingDTO = {
                 applicationMultimediaMovingList: multimediaMovingList,
-                appFormReference: '',
+                appFormReference: "",
                 amount: 0,
                 id: 0,
                 sizeLength: 0,
@@ -23358,7 +23396,7 @@ let MaterialInformationComponent = /*@__PURE__*/ (() => {
             let multimediaStaticList = new app_core_models_media_models_mulstimedia_static_const__WEBPACK_IMPORTED_MODULE_10__["MultiMediaStaticConst"]().data;
             this.multimediaStaticDTO = {
                 applicationMultimediaStaticList: multimediaStaticList,
-                appFormReference: '',
+                appFormReference: "",
                 amount: 0,
                 id: 0,
                 typeOfMedium: null,
