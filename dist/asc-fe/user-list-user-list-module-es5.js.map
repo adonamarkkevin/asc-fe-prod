@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///src/app/core/models/email.model.ts"],"names":["Email"],"mappings":";;;;;;;;;;;;;;;;;;;;AAAA;AAAA;;;AAAA;AAAA;AAAA;;UAAaA,K","file":"user-list-user-list-module-es5.js","sourcesContent":["export class Email {\r\n    mailTo: String;\r\n    user: String;\r\n    verificationCode: Number;\r\n}\r\n"]}
