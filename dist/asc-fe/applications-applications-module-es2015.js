@@ -6142,6 +6142,9 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 this.viewS2Application();
             }
         }
+        ngOnChanges(changes) {
+            console.log(changes);
+        }
         initUserRole() {
             if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_7__["USER_ROLES"].ROLE_SUPER_ADMIN) {
                 this.isSuperAdmin = true;
@@ -6521,7 +6524,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                     this.materialInformation.complianceAttachmentDocuments = this.attachmentDocuments.complianceAttachmentDocuments;
                 }
                 console.log("view S2 attachmentDocuments: ", this.attachmentDocuments);
-                this.s2OriginalAttachmentDocuments = this.attachmentDocuments.originalAttachmentDocuments;
+                // this.s2OriginalAttachmentDocuments = this.attachmentDocuments.originalAttachmentDocuments;
                 this.s2OriginalAttachmentObservable.next({
                     type: "document",
                     value: JSON.parse(JSON.stringify(this.originalAttachmentDocuments)),
@@ -6990,7 +6993,7 @@ let AddS2ApplicationComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.myFinalMaterialFileC = _t.first);
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵloadQuery"]()) && (ctx.attachmentComponent = _t.first);
             }
-        }, outputs: { spinnerMessageEmitter: "spinnerMessageEmitter" }, decls: 126, vars: 54, consts: [[1, "container-fluid"], [1, "details-title"], [1, "details"], [1, "action-buttons"], ["mat-button", "", 1, "button-red", 3, "click"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "routerLink"], ["class", "action-buttons", 4, "ngIf"], [1, "row"], [1, "col-md-12"], ["mat-raised-button", "", "class", "button-right button-red", 3, "click", 4, "ngIf"], ["multi", "", 1, "headers-align"], [3, "s2Application"], [3, "s1Application", "s2Application", "originalAttachmentDocuments", "revisionAttachmentDocuments", "complianceAttachmentDocuments", "selectedMultimediaList", "applicationSingleMedia"], [3, "expanded"], ["appearance", "outline", 1, "col-md-12"], [1, "row", "fields"], [1, "material-icons"], [4, "ngIf"], ["matInput", "", "disabled", "", 3, "value", 4, "ngIf"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 3, "hidden", "change", 4, "ngIf"], ["class", "col-md-12", "appearance", "outline", 4, "ngIf"], [3, "s1Application", "labelMainDocument", "isAscUser", "s2Appplication", "complianceAttachmentDocuments", "s2SupportAttchmentDocuments", "sSupportAttchmentDocuments", "s2DocObservable", "applicationStage", "S2SupportDoc", "s2SupportAttchmentDocumentsChange", "sSupportAttchmentDocumentsChange"], [3, "commentS2Application", 4, "ngIf"], [1, "row", 3, "hidden", "formGroup"], ["class", "col-md-6", "appearance", "outline", 4, "ngIf"], ["class", "row", 3, "hidden", 4, "ngIf"], [1, "col"], ["mat-raised-button", "", "class", "button-red", 3, "hidden", "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "click", 4, "ngIf"], [1, "badge", "bg-warning", "text-dark"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "click"], [1, "material-icons", "color__white"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 3, "hidden", "change", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "hidden", "click", 4, "ngIf"], ["matInput", "", "disabled", "", 3, "value"], ["finalMaterialFileInputC", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFileC", ""], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "click"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "hidden", "click"], ["finalMaterialFileInput", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFile", ""], ["class", "row", 4, "ngFor", "ngForOf"], ["class", "no-record", 4, "ngIf"], [1, "material-icons", "add-document"], ["mainInput", ""], [1, "no-record"], [3, "commentS2Application"], [3, "previewAttachmentsList", "displayedColumns", "dataSource"], ["appearance", "outline", 1, "col-md-6"], ["name", "decisionStatus", "formControlName", "decisionStatus", 3, "selectionChange"], ["value", "APPROVED"], ["value", "INCOMPLETE", 4, "ngIf"], ["value", "DISAPPROVED"], ["value", "INCOMPLETE"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "expiresOn", "formControlName", "validityDate", 3, "matDatepicker", "min", "ngModel", "readonly", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn"], ["validityDate", ""], [1, "row", 3, "hidden"], [1, "col-md-6", "rationale"], ["class", "rationale-list", 4, "ngIf"], ["class", "rational-other-comment", 4, "ngIf"], [1, "rationale-list"], [4, "ngFor", "ngForOf"], [1, "rational-other-comment"], ["mat-raised-button", "", 1, "button-red", 3, "hidden", "disabled", "click"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "click"], [3, "hidden", 4, "ngIf"], [3, "hidden"], ["mat-raised-button", "", 1, "button-red", 3, "click"]], template: function AddS2ApplicationComponent_Template(rf, ctx) {
+        }, outputs: { spinnerMessageEmitter: "spinnerMessageEmitter" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵNgOnChangesFeature"]], decls: 126, vars: 54, consts: [[1, "container-fluid"], [1, "details-title"], [1, "details"], [1, "action-buttons"], ["mat-button", "", 1, "button-red", 3, "click"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "routerLink"], ["class", "action-buttons", 4, "ngIf"], [1, "row"], [1, "col-md-12"], ["mat-raised-button", "", "class", "button-right button-red", 3, "click", 4, "ngIf"], ["multi", "", 1, "headers-align"], [3, "s2Application"], [3, "s1Application", "s2Application", "originalAttachmentDocuments", "revisionAttachmentDocuments", "complianceAttachmentDocuments", "selectedMultimediaList", "applicationSingleMedia"], [3, "expanded"], ["appearance", "outline", 1, "col-md-12"], [1, "row", "fields"], [1, "material-icons"], [4, "ngIf"], ["matInput", "", "disabled", "", 3, "value", 4, "ngIf"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 3, "hidden", "change", 4, "ngIf"], ["class", "col-md-12", "appearance", "outline", 4, "ngIf"], [3, "s1Application", "labelMainDocument", "isAscUser", "s2Appplication", "complianceAttachmentDocuments", "s2SupportAttchmentDocuments", "sSupportAttchmentDocuments", "s2DocObservable", "applicationStage", "S2SupportDoc", "s2SupportAttchmentDocumentsChange", "sSupportAttchmentDocumentsChange"], [3, "commentS2Application", 4, "ngIf"], [1, "row", 3, "hidden", "formGroup"], ["class", "col-md-6", "appearance", "outline", 4, "ngIf"], ["class", "row", 3, "hidden", 4, "ngIf"], [1, "col"], ["mat-raised-button", "", "class", "button-red", 3, "hidden", "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "click", 4, "ngIf"], [1, "badge", "bg-warning", "text-dark"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "click"], [1, "material-icons", "color__white"], ["class", "file-upload", "type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 3, "hidden", "change", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red button-right", 3, "hidden", "click", 4, "ngIf"], ["matInput", "", "disabled", "", 3, "value"], ["finalMaterialFileInputC", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif, image/pdf, image/png", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFileC", ""], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "click"], ["mat-raised-button", "", 1, "button-red", "button-right", 3, "hidden", "click"], ["finalMaterialFileInput", ""], ["type", "file", "accept", "video/mp4, audio/mp3, image/jpg, image/jpeg, application/pdf, image/gif", 1, "file-upload", 3, "hidden", "change"], ["finalMaterialFile", ""], ["class", "row", 4, "ngFor", "ngForOf"], ["class", "no-record", 4, "ngIf"], [1, "material-icons", "add-document"], ["mainInput", ""], [1, "no-record"], [3, "commentS2Application"], [3, "previewAttachmentsList", "displayedColumns", "dataSource"], ["appearance", "outline", 1, "col-md-6"], ["name", "decisionStatus", "formControlName", "decisionStatus", 3, "selectionChange"], ["value", "APPROVED"], ["value", "INCOMPLETE", 4, "ngIf"], ["value", "DISAPPROVED"], ["value", "INCOMPLETE"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "expiresOn", "formControlName", "validityDate", 3, "matDatepicker", "min", "ngModel", "readonly", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn"], ["validityDate", ""], [1, "row", 3, "hidden"], [1, "col-md-6", "rationale"], ["class", "rationale-list", 4, "ngIf"], ["class", "rational-other-comment", 4, "ngIf"], [1, "rationale-list"], [4, "ngFor", "ngForOf"], [1, "rational-other-comment"], ["mat-raised-button", "", 1, "button-red", 3, "hidden", "disabled", "click"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "click"], [3, "hidden", 4, "ngIf"], [3, "hidden"], ["mat-raised-button", "", 1, "button-red", 3, "click"]], template: function AddS2ApplicationComponent_Template(rf, ctx) {
             if (rf & 1) {
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "form");
                 _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 0);
@@ -8804,9 +8807,12 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
             this.attachmentDocument = new _models__WEBPACK_IMPORTED_MODULE_3__["AttachmentDocument"]();
         }
         ngOnChanges(changes) {
-            console.log(this.sSupportAttchmentDocuments);
-            if (this.s2SupportAttchmentDocuments) {
-                this.s2SupportDocument = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1];
+            if (this.s2SupportAttchmentDocuments.length && this.S2SupportDoc) {
+                const s2SupportDocs = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE);
+                this.s2SupportDocument =
+                    s2SupportDocs[this.s1Application.hasNoSupportingDocs ? 0 : 1] ||
+                        s2SupportDocs[0];
+                console.log("here", this.s2SupportAttchmentDocuments, this.s2SupportDocument);
             }
         }
         get submitComplianceEnabled() {
@@ -8822,12 +8828,15 @@ let AttachmentDocumentComponent = /*@__PURE__*/ (() => {
             this.setFormValidator();
             console.log("----1 => ", this.s2Appplication);
             this.s2DocObservable.subscribe((res) => {
-                if (res.type === "application") {
-                    this.s2Appplication = res.value;
-                }
-                else if (res.type === "document") {
-                    console.log("s2 document", res.value);
-                    this.s2SupportDocument = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1];
+                console.log(res, this.s2SupportAttchmentDocuments);
+                if (this.s2SupportAttchmentDocuments) {
+                    if (res.type === "application") {
+                        this.s2Appplication = res.value;
+                    }
+                    else if (res.type === "document") {
+                        console.log("s2 document", res.value);
+                        this.s2SupportDocument = this.s2SupportAttchmentDocuments.filter((r) => r.attachmentType === _shared__WEBPACK_IMPORTED_MODULE_2__["ATTACHMENT_TYPE"].SUPPORTIVE)[this.s1Application.hasNoSupportingDocs ? 0 : 1];
+                    }
                 }
             });
             setTimeout(() => {
