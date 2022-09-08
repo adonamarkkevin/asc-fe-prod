@@ -880,10 +880,8 @@
             this.report = new app_core_models_report_model__WEBPACK_IMPORTED_MODULE_4__["Report"]();
             this.paymentMethod = new app_core_models_payment_method_model__WEBPACK_IMPORTED_MODULE_3__["PaymentMethod"]();
             this.reportTypes = _shared__WEBPACK_IMPORTED_MODULE_2__["REPORT_TYPE"];
-            this.reportTypeList = [{
-              name: _shared__WEBPACK_IMPORTED_MODULE_2__["REPORT_TYPE"].COLLECTION_REPORT,
-              filename: 'Collection_Report'
-            }, {
+            this.reportTypeList = [// { name: REPORT_TYPE.COLLECTION_REPORT, filename: 'Collection_Report' },
+            {
               name: _shared__WEBPACK_IMPORTED_MODULE_2__["REPORT_TYPE"].VAT_SUMMARY,
               filename: 'VAT_TAX_Summary'
             }, {

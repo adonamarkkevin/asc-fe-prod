@@ -2689,10 +2689,10 @@ class TypeOfApplication {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 const environment = {
-    environment: 'PROD',
+    environment: "PROD",
     production: true,
-    ASC_API: 'http://18.136.32.45:9095/asc/',
-    websocketUri: 'http://asconlineapp.com/websocket'
+    ASC_API: "https:asconlineapp.com/asc/",
+    websocketUri: "https://asconlineapp.com/websocket",
 };
 
 

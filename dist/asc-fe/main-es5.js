@@ -4370,10 +4370,10 @@
       });
 
       var environment = {
-        environment: 'PROD',
+        environment: "PROD",
         production: true,
-        ASC_API: 'http://18.136.32.45:9095/asc/',
-        websocketUri: 'http://asconlineapp.com/websocket'
+        ASC_API: "https:asconlineapp.com/asc/",
+        websocketUri: "https://asconlineapp.com/websocket"
       };
       /***/
     },
