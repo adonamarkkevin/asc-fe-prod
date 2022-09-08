@@ -2691,7 +2691,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     environment: "PROD",
     production: true,
-    ASC_API: "https:asconlineapp.com/asc/",
+    ASC_API: "https://asconlineapp.com/asc/",
     websocketUri: "https://asconlineapp.com/websocket",
 };
 

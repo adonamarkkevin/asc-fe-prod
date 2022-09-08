@@ -4372,7 +4372,7 @@
       var environment = {
         environment: "PROD",
         production: true,
-        ASC_API: "https:asconlineapp.com/asc/",
+        ASC_API: "https://asconlineapp.com/asc/",
         websocketUri: "https://asconlineapp.com/websocket"
       };
       /***/
