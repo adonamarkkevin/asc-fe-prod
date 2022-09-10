@@ -24031,7 +24031,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("selected", ctx_r114.s1Application.submissionDate)("minDate", ctx_r114.todayDate)("dateFilter", ctx_r114.disabledWeekEnds);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("selected", ctx_r114.s1Application.submissionDate)("minDate", ctx_r114.todayDate);
         }
       }
 
@@ -24097,7 +24097,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](15, AddS1ApplicationComponent_div_65_div_1_div_15_Template, 3, 4, "div", 62);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](15, AddS1ApplicationComponent_div_65_div_1_div_15_Template, 3, 3, "div", 62);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -26372,6 +26372,11 @@
             this.isAdSpecialist = false;
             this.isScreener = false;
             this.isReviewer = false;
+
+            this.disabledWeekEnds = function (d) {
+              return true;
+            };
+
             this.previewAttachmentsList = [];
             this.previewAttachmentsDisplayedColumns = ["decisionFormFilename", "viewDecisionFormIcon", "stampMaterialFilename", "viewStampMaterialIcon"];
             this.activeHolidayDates = [];
@@ -28258,16 +28263,6 @@
               }
             }
           }, {
-            key: "disabledWeekEnds",
-            value: function disabledWeekEnds(d) {
-              var day = (d || new Date()).getDay();
-              return (day !== 0 && day !== 6 || activeWeekendDates.find(function (weekendDate) {
-                return Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(d, "yyyy-MM-dd") === Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(weekendDate, "yyyy-MM-dd");
-              })) && !Boolean(activeHolidayDates.find(function (holidayDate) {
-                return Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(d, "yyyy-MM-dd") === Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(holidayDate, "yyyy-MM-dd");
-              }));
-            }
-          }, {
             key: "disableSaveAndSubmitButton",
             value: function disableSaveAndSubmitButton() {
               if (this.s1Application.autoSubmit === false) {
@@ -28636,23 +28631,45 @@
           }, {
             key: "getAllActiveHolidays",
             value: function getAllActiveHolidays() {
+              var _this136 = this;
+
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].holidays).subscribe(function (res) {
                 activeHolidayDates = res.responseData.data.filter(function (holidayDate) {
                   return holidayDate.status === "ACTIVE" && holidayDate.holidayType !== "WEEKEND";
                 }).map(function (holidayDate) {
                   return new Date(holidayDate.holidayDate);
                 });
+
+                _this136.disabledWeekEnds = function (d) {
+                  var day = (d || new Date()).getDay();
+                  return (day !== 0 && day !== 6 || activeWeekendDates.find(function (weekendDate) {
+                    return Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(d, "yyyy-MM-dd") === Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(weekendDate, "yyyy-MM-dd");
+                  })) && !Boolean(activeHolidayDates.find(function (holidayDate) {
+                    return Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(d, "yyyy-MM-dd") === Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(holidayDate, "yyyy-MM-dd");
+                  }));
+                };
               });
             }
           }, {
             key: "getAllActiveWeekends",
             value: function getAllActiveWeekends() {
+              var _this137 = this;
+
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].holidays).subscribe(function (res) {
                 activeWeekendDates = res.responseData.data.filter(function (holidayDate) {
                   return holidayDate.status === "ACTIVE" && holidayDate.holidayType === "WEEKEND";
                 }).map(function (holidayDate) {
                   return new Date(holidayDate.holidayDate);
                 });
+
+                _this137.disabledWeekEnds = function (d) {
+                  var day = (d || new Date()).getDay();
+                  return (day !== 0 && day !== 6 || activeWeekendDates.find(function (weekendDate) {
+                    return Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(d, "yyyy-MM-dd") === Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(weekendDate, "yyyy-MM-dd");
+                  })) && !Boolean(activeHolidayDates.find(function (holidayDate) {
+                    return Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(d, "yyyy-MM-dd") === Object(date_fns__WEBPACK_IMPORTED_MODULE_19__["format"])(holidayDate, "yyyy-MM-dd");
+                  }));
+                };
               });
             }
           }, {
@@ -28717,7 +28734,7 @@
           },
           decls: 108,
           vars: 69,
-          consts: [[1, "container-fluid"], [1, "row", "title"], [1, "col-md-12"], [4, "ngIf"], [3, "hidden", 4, "ngIf"], [1, "no-border"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "routerLink"], [1, "material-icons", "color__white"], [1, "row"], [1, "col-md-6"], ["class", "col-md-6", 4, "ngIf"], [1, "row", 3, "formGroup"], ["appearance", "outline", 1, "col-md-4", 3, "hidden"], ["name", "formType", "formControlName", "formType", "disabled", "", 3, "ngModel", "compareWith", "ngModelChange"], [3, "value", "click", 4, "ngFor", "ngForOf"], ["appearance", "outline", 1, "col-md-4"], ["name", "applicationType", "formControlName", "applicationType", "disabled", "", 3, "ngModel", "compareWith", "ngModelChange"], ["class", "col-md-4", "appearance", "outline", 4, "ngIf"], ["mat-raised-button", "", "class", "button-right button-red", 3, "click", 4, "ngIf"], ["multi", "", 1, "headers-align"], [3, "expanded", 4, "ngIf"], [3, "disabled", "hidden", "expanded", 4, "ngIf"], ["class", "row", 3, "formGroup", 4, "ngIf"], ["class", "col-md-6", "appearance", "outline", 3, "hidden", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", "matTooltip", "To enable this button, change the size/length of the application", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "row", "mt-4"], ["reAssignAdSpecialistTemp", ""], [1, "material-icons"], [3, "hidden"], [1, "submission-date"], [1, "badge", "bg-warning", "text-dark", "button-right"], [3, "value", "click"], ["matInput", "", "readonly", "", 3, "value"], ["matInput", "", "value", "FOR PRESENTATION", "readonly", ""], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "click"], [3, "expanded"], [3, "click"], ["class", "material-icons error", 4, "ngIf"], [3, "s1Application", "isAscUser", "isDisableFieldOnUpdate", "company", "checkInactiveAffiliation", "hasErrorFields"], ["class", "required-fields-note", 4, "ngIf"], [1, "material-icons", "error"], [1, "required-fields-note"], ["mat-raised-button", "", "color", "warn", 3, "click"], [1, "badge", "bg-warning", "text-dark"], ["class", "col-md-8", "appearance", "outline", 4, "ngIf"], ["appearance", "outline", 1, "col-md-7"], ["appearance", "outline", 1, "col-md-11"], [1, "required-field"], ["name", "s1Application.applicationOwner", 3, "ngModel", "ngModelChange"], ["appearance", "outline", 1, "col-md-8"], ["appearance", "outline", 1, "col-md-5"], [3, "disabled", "hidden", "expanded"], [3, "s1Application", "isAscUser", "multimediaDTO", "applicationSingleMedia", "originalAttachmentDocuments", "revisionAttachmentDocuments", "complianceAttachmentDocuments", "isDisableFieldOnUpdate", "supportiveDocumentList", "toDeleteMultimediaList", "savedTypeOfMedium", "complianceAttachmentDocumentsChange", "checkSingleMediaChangesFunction", "checkMultimediaChangesFunction", "hasErrorFields"], [3, "previewS1Application", "multimediaDTO"], [1, "row", "fields"], [3, "commentS1Application"], [3, "previewAttachmentsList", "displayedColumns", "dataSource"], ["class", "submission-date", 4, "ngIf"], ["matInput", "", "formControlName", "submissionDate", "name", "submissionDate", 3, "ngModel", "hidden", "ngModelChange"], ["matInput", "", "formControlName", "applicationRequest", "name", "applicationRequest", 3, "ngModel", "hidden", "ngModelChange"], ["class", "col-md-12", 3, "hidden", 4, "ngIf"], [1, "col-md-12", 3, "hidden"], [1, "demo-inline-calendar-card"], [3, "selected", "minDate", "dateFilter", "selectedChange"], ["color", "warn", "checked", "", 3, "change", 4, "ngIf"], ["color", "warn", 3, "change", 4, "ngIf"], ["class", "row fields", 4, "ngIf"], ["color", "warn", "checked", "", 3, "change"], ["color", "warn", 3, "change"], ["appearance", "outline", 1, "col-md-6"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "submissionDate", "formControlName", "submissionDate", 3, "matDatepicker", "min", "matDatepickerFilter", "ngModel", "dateChange", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn", "disabled", "false"], ["dp3", ""], ["name", "decisionStatus", "formControlName", "decisionStatus", 3, "ngModel", "ngModelChange", "click", "selectionChange"], ["value", "APPROVED"], ["value", "APPROVED W/ CAUTION"], ["value", "INCOMPLETE"], ["value", "DISAPPROVED"], ["appearance", "outline", 1, "col-md-6", 3, "hidden"], ["name", "assignedScreener", 3, "ngModel", "compareWith", "ngModelChange", "selectionChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "float", "right"], ["name", "assignedUserR", 3, "ngModel", "compareWith", "ngModelChange", "selectionChange"], [1, "rational-other-comment"], ["class", "col-md-6 rationale", 3, "hidden", 4, "ngIf"], [1, "col-md-6", "rationale", 3, "hidden"], [1, "rationale-list", 3, "hidden"], [4, "ngFor", "ngForOf"], [1, "rational-other-comment", 3, "hidden"], [1, "material-icons", 3, "hidden"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "expiresOn", "formControlName", "validityDate", 3, "matDatepicker", "min", "ngModel", "readonly", "ngModelChange"], ["color", "warn"], ["validityDate", ""], ["mat-raised-button", "", 1, "button-red", 3, "click"], ["mat-raised-button", "", "matTooltip", "To enable this button, change the size/length of the application", 1, "button-red"], ["mat-raised-button", "", "color", "primary", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", 1, "button-red", 3, "hidden", "disabled", "click"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "color", "primary", 3, "disabled", "click"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "click"], ["class", "warning-msg", 4, "ngIf"], [1, "warning-msg"], [3, "ngTemplateOutlet"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "hidden", "click", 4, "ngIf"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "hidden", "click"], ["name", "assignedAdSpecialist", 3, "ngModel", "compareWith", "ngModelChange", "selectionChange"], [1, "material-icons", "info-msg"]],
+          consts: [[1, "container-fluid"], [1, "row", "title"], [1, "col-md-12"], [4, "ngIf"], [3, "hidden", 4, "ngIf"], [1, "no-border"], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "routerLink"], [1, "material-icons", "color__white"], [1, "row"], [1, "col-md-6"], ["class", "col-md-6", 4, "ngIf"], [1, "row", 3, "formGroup"], ["appearance", "outline", 1, "col-md-4", 3, "hidden"], ["name", "formType", "formControlName", "formType", "disabled", "", 3, "ngModel", "compareWith", "ngModelChange"], [3, "value", "click", 4, "ngFor", "ngForOf"], ["appearance", "outline", 1, "col-md-4"], ["name", "applicationType", "formControlName", "applicationType", "disabled", "", 3, "ngModel", "compareWith", "ngModelChange"], ["class", "col-md-4", "appearance", "outline", 4, "ngIf"], ["mat-raised-button", "", "class", "button-right button-red", 3, "click", 4, "ngIf"], ["multi", "", 1, "headers-align"], [3, "expanded", 4, "ngIf"], [3, "disabled", "hidden", "expanded", 4, "ngIf"], ["class", "row", 3, "formGroup", 4, "ngIf"], ["class", "col-md-6", "appearance", "outline", 3, "hidden", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", 3, "click", 4, "ngIf"], ["mat-raised-button", "", "class", "button-red", "matTooltip", "To enable this button, change the size/length of the application", 4, "ngIf"], ["class", "row", 4, "ngIf"], [1, "row", "mt-4"], ["reAssignAdSpecialistTemp", ""], [1, "material-icons"], [3, "hidden"], [1, "submission-date"], [1, "badge", "bg-warning", "text-dark", "button-right"], [3, "value", "click"], ["matInput", "", "readonly", "", 3, "value"], ["matInput", "", "value", "FOR PRESENTATION", "readonly", ""], ["mat-raised-button", "", 1, "button-right", "button-red", 3, "click"], [3, "expanded"], [3, "click"], ["class", "material-icons error", 4, "ngIf"], [3, "s1Application", "isAscUser", "isDisableFieldOnUpdate", "company", "checkInactiveAffiliation", "hasErrorFields"], ["class", "required-fields-note", 4, "ngIf"], [1, "material-icons", "error"], [1, "required-fields-note"], ["mat-raised-button", "", "color", "warn", 3, "click"], [1, "badge", "bg-warning", "text-dark"], ["class", "col-md-8", "appearance", "outline", 4, "ngIf"], ["appearance", "outline", 1, "col-md-7"], ["appearance", "outline", 1, "col-md-11"], [1, "required-field"], ["name", "s1Application.applicationOwner", 3, "ngModel", "ngModelChange"], ["appearance", "outline", 1, "col-md-8"], ["appearance", "outline", 1, "col-md-5"], [3, "disabled", "hidden", "expanded"], [3, "s1Application", "isAscUser", "multimediaDTO", "applicationSingleMedia", "originalAttachmentDocuments", "revisionAttachmentDocuments", "complianceAttachmentDocuments", "isDisableFieldOnUpdate", "supportiveDocumentList", "toDeleteMultimediaList", "savedTypeOfMedium", "complianceAttachmentDocumentsChange", "checkSingleMediaChangesFunction", "checkMultimediaChangesFunction", "hasErrorFields"], [3, "previewS1Application", "multimediaDTO"], [1, "row", "fields"], [3, "commentS1Application"], [3, "previewAttachmentsList", "displayedColumns", "dataSource"], ["class", "submission-date", 4, "ngIf"], ["matInput", "", "formControlName", "submissionDate", "name", "submissionDate", 3, "ngModel", "hidden", "ngModelChange"], ["matInput", "", "formControlName", "applicationRequest", "name", "applicationRequest", 3, "ngModel", "hidden", "ngModelChange"], ["class", "col-md-12", 3, "hidden", 4, "ngIf"], [1, "col-md-12", 3, "hidden"], [1, "demo-inline-calendar-card"], [3, "selected", "minDate", "selectedChange"], ["color", "warn", "checked", "", 3, "change", 4, "ngIf"], ["color", "warn", 3, "change", 4, "ngIf"], ["class", "row fields", 4, "ngIf"], ["color", "warn", "checked", "", 3, "change"], ["color", "warn", 3, "change"], ["appearance", "outline", 1, "col-md-6"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "submissionDate", "formControlName", "submissionDate", 3, "matDatepicker", "min", "matDatepickerFilter", "ngModel", "dateChange", "ngModelChange"], ["matSuffix", "", 3, "for"], ["color", "warn", "disabled", "false"], ["dp3", ""], ["name", "decisionStatus", "formControlName", "decisionStatus", 3, "ngModel", "ngModelChange", "click", "selectionChange"], ["value", "APPROVED"], ["value", "APPROVED W/ CAUTION"], ["value", "INCOMPLETE"], ["value", "DISAPPROVED"], ["appearance", "outline", 1, "col-md-6", 3, "hidden"], ["name", "assignedScreener", 3, "ngModel", "compareWith", "ngModelChange", "selectionChange"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "float", "right"], ["name", "assignedUserR", 3, "ngModel", "compareWith", "ngModelChange", "selectionChange"], [1, "rational-other-comment"], ["class", "col-md-6 rationale", 3, "hidden", 4, "ngIf"], [1, "col-md-6", "rationale", 3, "hidden"], [1, "rationale-list", 3, "hidden"], [4, "ngFor", "ngForOf"], [1, "rational-other-comment", 3, "hidden"], [1, "material-icons", 3, "hidden"], ["matInput", "", "placeholder", "Date", "readonly", "", "name", "expiresOn", "formControlName", "validityDate", 3, "matDatepicker", "min", "ngModel", "readonly", "ngModelChange"], ["color", "warn"], ["validityDate", ""], ["mat-raised-button", "", 1, "button-red", 3, "click"], ["mat-raised-button", "", "matTooltip", "To enable this button, change the size/length of the application", 1, "button-red"], ["mat-raised-button", "", "color", "primary", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", 1, "button-red", 3, "hidden", "disabled", "click"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "click", 4, "ngIf"], ["mat-raised-button", "", "color", "primary", 3, "disabled", "click"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "click"], ["class", "warning-msg", 4, "ngIf"], [1, "warning-msg"], [3, "ngTemplateOutlet"], ["mat-raised-button", "", "class", "button-red", 3, "disabled", "hidden", "click", 4, "ngIf"], ["mat-raised-button", "", 1, "button-red", 3, "disabled", "hidden", "click"], ["name", "assignedAdSpecialist", 3, "ngModel", "compareWith", "ngModelChange", "selectionChange"], [1, "material-icons", "info-msg"]],
           template: function AddS1ApplicationComponent_Template(rf, ctx) {
             if (rf & 1) {
               _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "form");
@@ -29876,7 +29893,7 @@
           }, {
             key: "onApproveOrDisapprove",
             value: function onApproveOrDisapprove() {
-              var _this136 = this;
+              var _this138 = this;
 
               var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'APPROVED';
               var displayStatus = status === 'APPROVED' ? 'approve' : 'disapprove';
@@ -29891,16 +29908,16 @@
                 if (result.value) {
                   var endpointExtension = status === 'APPROVED' ? '/approve' : '/disapprove'; // this.s1Application.actionDate = new Date();
 
-                  _this136.s1Application.actionBy = _this136.currentUser.username;
+                  _this138.s1Application.actionBy = _this138.currentUser.username;
 
-                  _this136.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests).concat(endpointExtension, "/").concat(_this136.s1Application.id), _this136.s1Application).subscribe(function (res) {
-                    _this136.sweetAlertService.customSuccessMessage("Application successfully ".concat(status.toLowerCase(), "."));
+                  _this138.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].applicationRequests).concat(endpointExtension, "/").concat(_this138.s1Application.id), _this138.s1Application).subscribe(function (res) {
+                    _this138.sweetAlertService.customSuccessMessage("Application successfully ".concat(status.toLowerCase(), "."));
 
-                    _this136.router.navigate(['asc/page/application/s1/special']);
+                    _this138.router.navigate(['asc/page/application/s1/special']);
                   }, function (err) {
                     console.log(err);
                   }, function () {
-                    _this136.dialogRef.close(_this136.s1Application);
+                    _this138.dialogRef.close(_this138.s1Application);
                   });
                 }
               });
@@ -33999,7 +34016,7 @@
       var ListS1ApplicationComponent = /*@__PURE__*/function () {
         var ListS1ApplicationComponent = /*#__PURE__*/function () {
           function ListS1ApplicationComponent(apiService, dataStorage, router, sweetAlertService, dialog, spinner, route, commonService, webSocketService) {
-            var _this137 = this;
+            var _this139 = this;
 
             _classCallCheck(this, ListS1ApplicationComponent);
 
@@ -34069,23 +34086,23 @@
             this.paymentStatus = _shared__WEBPACK_IMPORTED_MODULE_6__["PAYMENT_STATUS"];
 
             this.doFilter = function (value) {
-              _this137.dataSource.filter = value.trim().toLocaleLowerCase();
+              _this139.dataSource.filter = value.trim().toLocaleLowerCase();
             };
 
             this.doFilterS1MultipleApplicationList = function (value) {
-              _this137.multipleApplicationDataSource.filter = value.trim().toLocaleLowerCase();
+              _this139.multipleApplicationDataSource.filter = value.trim().toLocaleLowerCase();
             };
 
             this.doFilterSpecialS1ApplicationList = function (value) {
-              _this137.specialApplicationDataSource.filter = value.trim().toLocaleLowerCase();
+              _this139.specialApplicationDataSource.filter = value.trim().toLocaleLowerCase();
             };
 
             this.doFilterAssignedS1ApplicationList = function (value) {
-              _this137.assignedApplicationDataSource.filter = value.trim().toLocaleLowerCase();
+              _this139.assignedApplicationDataSource.filter = value.trim().toLocaleLowerCase();
             };
 
             this.doFilterForReleaseApplicationList = function (value) {
-              _this137.forReleaseApplicationDataSource.filter = value.trim().toLocaleLowerCase();
+              _this139.forReleaseApplicationDataSource.filter = value.trim().toLocaleLowerCase();
             };
           }
 
@@ -34098,14 +34115,14 @@
           }, {
             key: "ngOnInit",
             value: function ngOnInit() {
-              var _this138 = this;
+              var _this140 = this;
 
               this.webSocketService.listen("broadcast").subscribe(function (res) {
                 console.log("test");
 
-                _this138.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].badgeCountByAscUser + _this138.currentUser.id).subscribe(function (res) {
-                  _this138.badgeCounter = res;
-                  console.log(_this138.badgeCounter);
+                _this140.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].badgeCountByAscUser + _this140.currentUser.id).subscribe(function (res) {
+                  _this140.badgeCounter = res;
+                  console.log(_this140.badgeCounter);
                 });
               }); // this.counterObservable = merge(timer(0, 5000))
               // .pipe(mergeMap(_ => this.apiService.findAll(ENDPOINTS.badgeCountByAscUser + this.currentUser.id)))
@@ -34180,7 +34197,7 @@
           }, {
             key: "getListCounts",
             value: function getListCounts() {
-              var _this139 = this;
+              var _this141 = this;
 
               var endpoint;
               var screenedCount = 0;
@@ -34195,17 +34212,17 @@
                 screenedCount = response.totalItems;
               });
               this.apiService.findAll(endpoint + this.currentUser.id).subscribe(function (res) {
-                _this139.badgeCounter = res;
+                _this141.badgeCounter = res;
 
-                _this139.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm + "/custom/search?assignedScreenerId=".concat(_this139.currentUser.id, "&page=").concat(_this139.currentPage, "&size=").concat(_this139.pageSize)).subscribe(function (response) {
-                  _this139.badgeCounter.screenedApplications = response.totalItems;
+                _this141.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm + "/custom/search?assignedScreenerId=".concat(_this141.currentUser.id, "&page=").concat(_this141.currentPage, "&size=").concat(_this141.pageSize)).subscribe(function (response) {
+                  _this141.badgeCounter.screenedApplications = response.totalItems;
                 });
               });
             }
           }, {
             key: "getList",
             value: function getList() {
-              var _this140 = this;
+              var _this142 = this;
 
               var submissionType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "ORIGINAL";
               this.currentPage = this.pageNo;
@@ -34257,17 +34274,17 @@
 
                 this.spinner.show();
                 this.apiService.findAll(endpoint).subscribe(function (res) {
-                  _this140.applicationList = res.data;
-                  _this140.totalItems = res.totalItems;
-                  console.log("applicationList: ", _this140.applicationList);
-                  _this140.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this140.applicationList); // this.dataSource.paginator = this.paginator;
+                  _this142.applicationList = res.data;
+                  _this142.totalItems = res.totalItems;
+                  console.log("applicationList: ", _this142.applicationList);
+                  _this142.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this142.applicationList); // this.dataSource.paginator = this.paginator;
 
                   setTimeout(function () {
-                    _this140.spinner.hide();
+                    _this142.spinner.hide();
                   }, 1);
                 }, function (err) {
                   setTimeout(function () {
-                    _this140.spinner.hide();
+                    _this142.spinner.hide();
                   }, 1);
                 });
               }
@@ -34309,7 +34326,7 @@
           }, {
             key: "getMultipleS1ApplicationList",
             value: function getMultipleS1ApplicationList() {
-              var _this141 = this;
+              var _this143 = this;
 
               var endpoint = "";
               var ascEndpoint = "/custom/search?page=".concat(this.currentPage, "&size=").concat(this.pageSize);
@@ -34335,49 +34352,49 @@
 
               console.log(endpoint);
               this.apiService.findAll(endpoint).subscribe(function (res) {
-                _this141.multipleApplicationList = res.data;
+                _this143.multipleApplicationList = res.data;
                 console.log("multipleApplicationList: ", res);
-                _this141.multipleTotalItems = res.totalItems;
+                _this143.multipleTotalItems = res.totalItems;
 
-                _this141.refreshApplicationBadgeCount();
+                _this143.refreshApplicationBadgeCount();
 
-                _this141.multipleApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this141.multipleApplicationList);
-                _this141.multipleApplicationDataSource.paginator = _this141.paginator;
-                _this141.multipleApplicationDataSource.sort = _this141.sort;
+                _this143.multipleApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this143.multipleApplicationList);
+                _this143.multipleApplicationDataSource.paginator = _this143.paginator;
+                _this143.multipleApplicationDataSource.sort = _this143.sort;
                 setTimeout(function () {
-                  _this141.spinner.hide();
+                  _this143.spinner.hide();
                 }, 1);
               }, function (err) {
                 setTimeout(function () {
-                  _this141.spinner.hide();
+                  _this143.spinner.hide();
                 }, 1);
               });
             }
           }, {
             key: "getSpecialS1ApplicationList",
             value: function getSpecialS1ApplicationList() {
-              var _this142 = this;
+              var _this144 = this;
 
               if (this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_ADMIN || this.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_SUPER_ADMIN) {
                 var obj = {
                   statuses: ["FOR_APPROVAL", "APPROVED", "DISAPPROVED"]
                 };
                 this.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s1SpecialApplicationRequestsAdmin, "?page=").concat(this.currentPage, "&size=").concat(this.pageSize), obj).subscribe(function (res) {
-                  _this142.specialApplicationList = res.data;
-                  _this142.specialTotalItems = res.totalItems;
+                  _this144.specialApplicationList = res.data;
+                  _this144.specialTotalItems = res.totalItems;
                   console.log("specialApplicationList: ", res);
 
-                  _this142.refreshApplicationBadgeCount();
+                  _this144.refreshApplicationBadgeCount();
 
-                  _this142.specialApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this142.specialApplicationList);
-                  _this142.specialApplicationDataSource.paginator = _this142.paginator;
-                  _this142.specialApplicationDataSource.sort = _this142.sort;
+                  _this144.specialApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this144.specialApplicationList);
+                  _this144.specialApplicationDataSource.paginator = _this144.paginator;
+                  _this144.specialApplicationDataSource.sort = _this144.sort;
                   setTimeout(function () {
-                    _this142.spinner.hide();
+                    _this144.spinner.hide();
                   }, 1);
                 }, function (err) {
                   setTimeout(function () {
-                    _this142.spinner.hide();
+                    _this144.spinner.hide();
                   }, 1);
                 });
               } else {
@@ -34386,21 +34403,21 @@
                   statuses: ["FOR_APPROVAL", "APPROVED", "DISAPPROVED"]
                 };
                 this.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s1SpecialApplicationRequests, "?page=").concat(this.currentPage, "&size=").concat(this.pageSize), _obj).subscribe(function (res) {
-                  _this142.specialApplicationList = res.data;
-                  _this142.specialTotalItems = res.totalItems;
+                  _this144.specialApplicationList = res.data;
+                  _this144.specialTotalItems = res.totalItems;
                   console.log("specialApplicationList: ", res);
 
-                  _this142.refreshApplicationBadgeCount();
+                  _this144.refreshApplicationBadgeCount();
 
-                  _this142.specialApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this142.specialApplicationList);
-                  _this142.specialApplicationDataSource.paginator = _this142.paginator;
-                  _this142.specialApplicationDataSource.sort = _this142.sort;
+                  _this144.specialApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this144.specialApplicationList);
+                  _this144.specialApplicationDataSource.paginator = _this144.paginator;
+                  _this144.specialApplicationDataSource.sort = _this144.sort;
                   setTimeout(function () {
-                    _this142.spinner.hide();
+                    _this144.spinner.hide();
                   }, 1);
                 }, function (err) {
                   setTimeout(function () {
-                    _this142.spinner.hide();
+                    _this144.spinner.hide();
                   }, 1);
                 });
               }
@@ -34408,7 +34425,7 @@
           }, {
             key: "getAssignAppFormBy",
             value: function getAssignAppFormBy() {
-              var _this143 = this;
+              var _this145 = this;
 
               var endpoint = "";
 
@@ -34420,26 +34437,26 @@
 
               this.spinner.show();
               this.apiService.findAll(endpoint).subscribe(function (res) {
-                _this143.assignedApplicationList = res.data;
-                _this143.retrieveReassignLength = res.totalItems;
+                _this145.assignedApplicationList = res.data;
+                _this145.retrieveReassignLength = res.totalItems;
 
-                _this143.refreshApplicationBadgeCount();
+                _this145.refreshApplicationBadgeCount();
 
-                _this143.assignedApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this143.assignedApplicationList);
-                _this143.assignedApplicationDataSource.sort = _this143.sort;
+                _this145.assignedApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this145.assignedApplicationList);
+                _this145.assignedApplicationDataSource.sort = _this145.sort;
                 setTimeout(function () {
-                  _this143.spinner.hide();
+                  _this145.spinner.hide();
                 }, 1);
               }, function (err) {
                 setTimeout(function () {
-                  _this143.spinner.hide();
+                  _this145.spinner.hide();
                 }, 1);
               });
             }
           }, {
             key: "getForReleaseApplicationList",
             value: function getForReleaseApplicationList() {
-              var _this144 = this;
+              var _this146 = this;
 
               var endpoint;
               var param = "&page=".concat(this.currentPage, "&size=").concat(this.pageSize);
@@ -34453,52 +34470,52 @@
               }
 
               this.apiService.findAll(endpoint).subscribe(function (res) {
-                _this144.forReleaseApplicationsList = res.data;
-                _this144.forReleaseTotalItems = res.totalItems;
+                _this146.forReleaseApplicationsList = res.data;
+                _this146.forReleaseTotalItems = res.totalItems;
 
-                _this144.refreshApplicationBadgeCount();
+                _this146.refreshApplicationBadgeCount();
 
-                console.log("getForReleaseApplicationList: ", _this144.forReleaseApplicationsList);
-                _this144.forReleaseApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this144.forReleaseApplicationsList);
-                _this144.forReleaseApplicationDataSource.paginator = _this144.paginatorFalse;
-                _this144.forReleaseApplicationDataSource.sort = _this144.sort;
+                console.log("getForReleaseApplicationList: ", _this146.forReleaseApplicationsList);
+                _this146.forReleaseApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this146.forReleaseApplicationsList);
+                _this146.forReleaseApplicationDataSource.paginator = _this146.paginatorFalse;
+                _this146.forReleaseApplicationDataSource.sort = _this146.sort;
                 setTimeout(function () {
-                  _this144.spinner.hide();
+                  _this146.spinner.hide();
                 }, 1);
               }, function (err) {
                 setTimeout(function () {
-                  _this144.spinner.hide();
+                  _this146.spinner.hide();
                 }, 1);
               });
             }
           }, {
             key: "getReleasedApplicationList",
             value: function getReleasedApplicationList() {
-              var _this145 = this;
+              var _this147 = this;
 
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].getReleaseApplicationsAdSpe + "?page=".concat(this.currentPage, "&size=").concat(this.pageSize)).subscribe(function (res) {
-                _this145.forReleaseApplicationsList = res.data;
-                console.log("getReleasedApplicationList: ", _this145.forReleaseApplicationsList);
-                _this145.forReleaseTotalItems = res.totalItems;
+                _this147.forReleaseApplicationsList = res.data;
+                console.log("getReleasedApplicationList: ", _this147.forReleaseApplicationsList);
+                _this147.forReleaseTotalItems = res.totalItems;
 
-                _this145.refreshApplicationBadgeCount();
+                _this147.refreshApplicationBadgeCount();
 
-                _this145.forReleaseApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this145.forReleaseApplicationsList);
-                _this145.forReleaseApplicationDataSource.paginator = _this145.paginatorFalse;
-                _this145.forReleaseApplicationDataSource.sort = _this145.sort;
+                _this147.forReleaseApplicationDataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this147.forReleaseApplicationsList);
+                _this147.forReleaseApplicationDataSource.paginator = _this147.paginatorFalse;
+                _this147.forReleaseApplicationDataSource.sort = _this147.sort;
                 setTimeout(function () {
-                  _this145.spinner.hide();
+                  _this147.spinner.hide();
                 }, 1);
               }, function (err) {
                 setTimeout(function () {
-                  _this145.spinner.hide();
+                  _this147.spinner.hide();
                 }, 1);
               });
             }
           }, {
             key: "getForDecisionAndComment",
             value: function getForDecisionAndComment(displayedContent) {
-              var _this146 = this;
+              var _this148 = this;
 
               var endpoint = ""; // APPEAL
 
@@ -34523,34 +34540,34 @@
 
                 if (res) {
                   if (res === null || res === void 0 ? void 0 : res.data) {
-                    _this146.applicationList = res === null || res === void 0 ? void 0 : res.data;
+                    _this148.applicationList = res === null || res === void 0 ? void 0 : res.data;
                   } else {
-                    _this146.applicationList = (_a = res === null || res === void 0 ? void 0 : res.responseData) === null || _a === void 0 ? void 0 : _a.data;
+                    _this148.applicationList = (_a = res === null || res === void 0 ? void 0 : res.responseData) === null || _a === void 0 ? void 0 : _a.data;
                   }
 
-                  console.log(displayedContent + ": ", _this146.applicationList);
+                  console.log(displayedContent + ": ", _this148.applicationList);
 
-                  _this146.refreshApplicationBadgeCount();
+                  _this148.refreshApplicationBadgeCount();
 
-                  _this146.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this146.applicationList);
-                  _this146.dataSource.paginator = _this146.paginatorFalse;
-                  _this146.dataSource.sort = _this146.sort;
+                  _this148.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this148.applicationList);
+                  _this148.dataSource.paginator = _this148.paginatorFalse;
+                  _this148.dataSource.sort = _this148.sort;
                   setTimeout(function () {
-                    _this146.spinner.hide();
+                    _this148.spinner.hide();
                   }, 1);
                 } else {
-                  _this146.applicationList = [];
+                  _this148.applicationList = [];
                 }
               }, function (err) {
                 setTimeout(function () {
-                  _this146.spinner.hide();
+                  _this148.spinner.hide();
                 }, 1);
               });
             }
           }, {
             key: "viewApplication",
             value: function viewApplication(data) {
-              var _this147 = this;
+              var _this149 = this;
 
               this.s1Application = data;
               console.log("S1 FORM: ", this.s1Application);
@@ -34567,42 +34584,42 @@
                   confirmButtonText: "Confirm"
                 }).then(function (result) {
                   if (result.value) {
-                    if (_this147.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_ENCODER) {
-                      _this147.s1Application.assignedEncoder = _this147.currentUser;
-                    } else if (_this147.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_AD_SPECIALIST) {
-                      _this147.s1Application.assignedAdSpecialist = _this147.currentUser;
-                    } else if (_this147.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_SCREENER) {
-                      _this147.s1Application.assignedScreener = _this147.currentUser;
-                    } else if (_this147.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_REVIEWER) {
-                      _this147.s1Application.assignedReviewer = _this147.currentUser;
+                    if (_this149.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_ENCODER) {
+                      _this149.s1Application.assignedEncoder = _this149.currentUser;
+                    } else if (_this149.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_AD_SPECIALIST) {
+                      _this149.s1Application.assignedAdSpecialist = _this149.currentUser;
+                    } else if (_this149.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_SCREENER) {
+                      _this149.s1Application.assignedScreener = _this149.currentUser;
+                    } else if (_this149.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_REVIEWER) {
+                      _this149.s1Application.assignedReviewer = _this149.currentUser;
                     }
 
-                    _this147.s1Application.currentAssignee = _this147.currentUser.userRole.name;
+                    _this149.s1Application.currentAssignee = _this149.currentUser.userRole.name;
                     var endpoint = "";
 
-                    if (_this147.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_ENCODER) {
+                    if (_this149.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_ENCODER) {
                       endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationFormEncoder;
                     } else {
                       endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationFormAdSpecialist;
                     }
 
-                    _this147.apiService.save(endpoint + _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].takeApplication, _this147.s1Application).subscribe(function (res) {
-                      _this147.sweetAlertService.customSuccessMessage("Application successfully assigned to you.", 3);
+                    _this149.apiService.save(endpoint + _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].takeApplication, _this149.s1Application).subscribe(function (res) {
+                      _this149.sweetAlertService.customSuccessMessage("Application successfully assigned to you.", 3);
 
-                      _this147.router.navigate(["asc/page/application/s1/update/", data.id]);
+                      _this149.router.navigate(["asc/page/application/s1/update/", data.id]);
 
-                      _this147.refreshApplicationBadgeCount();
+                      _this149.refreshApplicationBadgeCount();
                     }, function (err) {
                       console.log("error deep");
                       var lockedBy = "";
 
-                      if (_this147.s1Application.assignedUser) {
-                        lockedBy = " by ".concat(_this147.s1Application.assignedUser.firstName, " ").concat(_this147.s1Application.assignedUser.lastName, " ");
+                      if (_this149.s1Application.assignedUser) {
+                        lockedBy = " by ".concat(_this149.s1Application.assignedUser.firstName, " ").concat(_this149.s1Application.assignedUser.lastName, " ");
                       }
 
                       err.error.message = "Application has been locked".concat(lockedBy, " for processing. Kindly select another application to process.");
 
-                      _this147.sweetAlertService.error(err, 5); // location.reload();
+                      _this149.sweetAlertService.error(err, 5); // location.reload();
 
                     });
                   }
@@ -34629,7 +34646,7 @@
           }, {
             key: "viewMultipleApplication",
             value: function viewMultipleApplication(data) {
-              var _this148 = this;
+              var _this150 = this;
 
               this.multipleS1Application = data;
               console.log("multipleS1Application: ", this.multipleS1Application);
@@ -34651,14 +34668,14 @@
 
               dialogRef.afterClosed().subscribe(function (result) {
                 if (result) {
-                  _this148.getMultipleS1ApplicationList();
+                  _this150.getMultipleS1ApplicationList();
                 }
               });
             }
           }, {
             key: "viewSpecialApplication",
             value: function viewSpecialApplication(data) {
-              var _this149 = this;
+              var _this151 = this;
 
               this.applicationRequest = data;
               this.s1Application = new _models__WEBPACK_IMPORTED_MODULE_5__["S1Application"]();
@@ -34698,24 +34715,24 @@
 
               dialogRef.afterClosed().subscribe(function (result) {
                 if (result) {
-                  _this149.getSpecialS1ApplicationList();
+                  _this151.getSpecialS1ApplicationList();
                 }
               });
             }
           }, {
             key: "getCompanyById",
             value: function getCompanyById(id) {
-              var _this150 = this;
+              var _this152 = this;
 
               // updates company details in data storage
               var promise = new Promise(function (resolve, reject) {
-                _this150.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].company, id).subscribe(function (res) {
+                _this152.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].company, id).subscribe(function (res) {
                   if (res) {
-                    _this150.currentUser.company = res.responseData.data;
+                    _this152.currentUser.company = res.responseData.data;
 
-                    _this150.dataStorage.saveUserAccount(_this150.currentUser);
+                    _this152.dataStorage.saveUserAccount(_this152.currentUser);
 
-                    resolve(_this150.currentUser);
+                    resolve(_this152.currentUser);
                   }
                 }, function (err) {
                   reject(err);
@@ -34726,13 +34743,13 @@
           }, {
             key: "openFormTypeModal",
             value: function openFormTypeModal() {
-              var _this151 = this;
+              var _this153 = this;
 
               this.getCompanyById(this.currentUser.company.id).then(function (res) {
                 if (res.company.membersAffiliation.status === "INACTIVE") {
-                  _this151.sweetAlertService.customErrorMessage("Your Company's membership affiliation is no longer active. Cannot proceed with new application. Please contact ASC admin");
+                  _this153.sweetAlertService.customErrorMessage("Your Company's membership affiliation is no longer active. Cannot proceed with new application. Please contact ASC admin");
                 } else {
-                  var dialogRef = _this151.dialog.open(app_modules_fragments_s1_form_type_s1_form_type_component__WEBPACK_IMPORTED_MODULE_8__["S1FormTypeComponent"], {// width: '30%',
+                  var dialogRef = _this153.dialog.open(app_modules_fragments_s1_form_type_s1_form_type_component__WEBPACK_IMPORTED_MODULE_8__["S1FormTypeComponent"], {// width: '30%',
                     // height: '25%',
                   });
 
@@ -34747,7 +34764,7 @@
           }, {
             key: "applyForS2",
             value: function applyForS2(data) {
-              var _this152 = this;
+              var _this154 = this;
 
               var typeOfExecution;
 
@@ -34757,7 +34774,7 @@
                     typeOfExecution = res.responseData.data[0].mediumExecution.typeOfExecution;
                     data.typeOfExecution = typeOfExecution;
 
-                    var dialogRef = _this152.dialog.open(ListS1Dialog, {
+                    var dialogRef = _this154.dialog.open(ListS1Dialog, {
                       data: {
                         s2Application: data
                       }
@@ -34775,7 +34792,7 @@
           }, {
             key: "returnTo",
             value: function returnTo(process, s1App) {
-              var _this153 = this;
+              var _this155 = this;
 
               this.s1Application = s1App;
               sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
@@ -34787,41 +34804,41 @@
                 confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  _this153.spinner.show();
+                  _this155.spinner.show();
 
                   var endpoint = "";
-                  _this153.s1Application.actionBy = _this153.currentUser;
+                  _this155.s1Application.actionBy = _this155.currentUser;
 
-                  if (_this153.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_SCREENER) {
-                    _this153.s1Application.currentAssignee = _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_AD_SPECIALIST;
+                  if (_this155.currentUser.userRole.name === _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_SCREENER) {
+                    _this155.s1Application.currentAssignee = _shared__WEBPACK_IMPORTED_MODULE_6__["USER_ROLES"].ROLE_AD_SPECIALIST;
 
-                    if (_this153.s1Application.multipleApplication && _this153.s1Application.submissionType === _shared__WEBPACK_IMPORTED_MODULE_6__["SUBMISSION_TYPE"].ORIGINAL) {
-                      endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].multipleApplicationReturnToAdSpe).concat(_this153.s1Application.multipleApplication.id, "/return");
+                    if (_this155.s1Application.multipleApplication && _this155.s1Application.submissionType === _shared__WEBPACK_IMPORTED_MODULE_6__["SUBMISSION_TYPE"].ORIGINAL) {
+                      endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].multipleApplicationReturnToAdSpe).concat(_this155.s1Application.multipleApplication.id, "/return");
                     } else {
                       endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationFormScreener, "return");
                     }
                   } else {
-                    if (_this153.s1Application.multipleApplication && _this153.s1Application.submissionType === _shared__WEBPACK_IMPORTED_MODULE_6__["SUBMISSION_TYPE"].ORIGINAL) {
-                      endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].multipleApplicationReturnToScreener).concat(_this153.s1Application.multipleApplication.id, "/return");
+                    if (_this155.s1Application.multipleApplication && _this155.s1Application.submissionType === _shared__WEBPACK_IMPORTED_MODULE_6__["SUBMISSION_TYPE"].ORIGINAL) {
+                      endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].multipleApplicationReturnToScreener).concat(_this155.s1Application.multipleApplication.id, "/return");
                     } else {
                       endpoint = "".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationFormReviewer, "return");
                     }
                   } // console.log('TO SAVE: ', this.s1Application);
 
 
-                  _this153.apiService.save(endpoint, _this153.s1Application).subscribe(function (res) {
+                  _this155.apiService.save(endpoint, _this155.s1Application).subscribe(function (res) {
                     // console.log('RETURN: ', res.responseData.data);
                     if (res.code === 200) {
-                      _this153.spinner.hide();
+                      _this155.spinner.hide();
 
-                      _this153.getList();
+                      _this155.getList();
 
-                      _this153.sweetAlertService.customSuccessMessage("Successfully returned the application");
+                      _this155.sweetAlertService.customSuccessMessage("Successfully returned the application");
 
-                      _this153.refreshApplicationBadgeCount();
+                      _this155.refreshApplicationBadgeCount();
                     }
                   }, function (err) {
-                    _this153.spinner.hide();
+                    _this155.spinner.hide();
                   });
                 }
               });
@@ -34829,7 +34846,7 @@
           }, {
             key: "saveStatus",
             value: function saveStatus() {
-              var _this154 = this;
+              var _this156 = this;
 
               var ascUser = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
               var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
@@ -34849,31 +34866,31 @@
                 confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  _this154.dataStorage.setDisplayProgressbar(true);
+                  _this156.dataStorage.setDisplayProgressbar(true);
 
                   if (fetchedData.assignedUser && fetchedData.formStatus === _shared__WEBPACK_IMPORTED_MODULE_6__["FORM_STATUS"].LOCKED) {
-                    _this154.sweetAlertService.customErrorMessage("This form is already in process");
+                    _this156.sweetAlertService.customErrorMessage("This form is already in process");
 
                     return;
                   }
 
-                  _this154.apiService.update("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm, "/s1/").concat(ascUser, "/").concat(action), application).subscribe(function (res) {
+                  _this156.apiService.update("".concat(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm, "/s1/").concat(ascUser, "/").concat(action), application).subscribe(function (res) {
                     console.log("SAVED STATUS: ", res.responseData.data);
 
-                    _this154.sweetAlertService.customSuccessMessage("Application successfully canceled.");
+                    _this156.sweetAlertService.customSuccessMessage("Application successfully canceled.");
 
-                    _this154.getList();
+                    _this156.getList();
 
-                    _this154.refreshApplicationBadgeCount(); // this.router.navigate(['asc/page/application/s1/lists']);
+                    _this156.refreshApplicationBadgeCount(); // this.router.navigate(['asc/page/application/s1/lists']);
 
                   }, function (err) {
                     console.log(err);
 
-                    _this154.sweetAlertService.error(err);
+                    _this156.sweetAlertService.error(err);
 
-                    _this154.dataStorage.setDisplayProgressbar(false);
+                    _this156.dataStorage.setDisplayProgressbar(false);
                   }, function () {
-                    _this154.dataStorage.setDisplayProgressbar(false);
+                    _this156.dataStorage.setDisplayProgressbar(false);
                   });
                 }
               });
@@ -34881,7 +34898,7 @@
           }, {
             key: "changeTab",
             value: function changeTab(evt) {
-              var _this155 = this;
+              var _this157 = this;
 
               console.log("tab ---  ", evt);
 
@@ -34899,20 +34916,20 @@
                   var userType = this.isAdSpecialist ? "adSpeId" : "screenerId";
                   this.spinner.show();
                   this.apiService.findAll("".concat(this.isAdSpecialist ? _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].getAllAdSpeReturnedApps : _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].getAllScreenerReturnedApps, "/?&").concat(userType, "=").concat(this.currentUser.id, "&page=").concat(this.currentPage - 1, "&size=").concat(this.pageSize)).subscribe(function (respose) {
-                    _this155.applicationList = respose.data;
-                    _this155.totalItems = respose.totalItems;
-                    console.log("applicationList: ", _this155.applicationList);
-                    _this155.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this155.applicationList);
-                    _this155.dataSource.paginator = _this155.paginator;
+                    _this157.applicationList = respose.data;
+                    _this157.totalItems = respose.totalItems;
+                    console.log("applicationList: ", _this157.applicationList);
+                    _this157.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this157.applicationList);
+                    _this157.dataSource.paginator = _this157.paginator;
 
-                    _this155.assignedApplicationDisplayedColumns.splice(_this155.assignedApplicationDisplayedColumns.indexOf("icon"), 1);
+                    _this157.assignedApplicationDisplayedColumns.splice(_this157.assignedApplicationDisplayedColumns.indexOf("icon"), 1);
 
                     setTimeout(function () {
-                      _this155.spinner.hide();
+                      _this157.spinner.hide();
                     }, 1);
                   }, function (err) {
                     setTimeout(function () {
-                      _this155.spinner.hide();
+                      _this157.spinner.hide();
                     }, 1);
                   });
                 } else if (this.displayedContent === "Screened Applications") {
@@ -34945,7 +34962,7 @@
           }, {
             key: "unlockApplication",
             value: function unlockApplication(process, s1App) {
-              var _this156 = this;
+              var _this158 = this;
 
               this.s1Application = s1App;
               sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
@@ -34957,26 +34974,26 @@
                 confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  _this156.spinner.show();
+                  _this158.spinner.show();
 
                   var endpoint = "";
-                  _this156.s1Application.actionBy = _this156.currentUser;
-                  _this156.s1Application.formStatus = _shared__WEBPACK_IMPORTED_MODULE_6__["FORM_STATUS"].OPEN;
+                  _this158.s1Application.actionBy = _this158.currentUser;
+                  _this158.s1Application.formStatus = _shared__WEBPACK_IMPORTED_MODULE_6__["FORM_STATUS"].OPEN;
                   endpoint = _shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].applicationForm; // console.log('TO SAVE: ', this.s1Application);
 
-                  _this156.apiService.update(endpoint, _this156.s1Application).subscribe(function (res) {
+                  _this158.apiService.update(endpoint, _this158.s1Application).subscribe(function (res) {
                     // console.log('RETURN: ', res.responseData.data);
                     if (res.code === 200) {
-                      _this156.spinner.hide();
+                      _this158.spinner.hide();
 
-                      _this156.getList();
+                      _this158.getList();
 
-                      _this156.sweetAlertService.customSuccessMessage("Successfully unlocked the application");
+                      _this158.sweetAlertService.customSuccessMessage("Successfully unlocked the application");
 
-                      _this156.refreshApplicationBadgeCount();
+                      _this158.refreshApplicationBadgeCount();
                     }
                   }, function (err) {
-                    _this156.spinner.hide();
+                    _this158.spinner.hide();
                   });
                 }
               });
@@ -34990,22 +35007,22 @@
           }, {
             key: "startTimer",
             value: function startTimer() {
-              var _this157 = this;
+              var _this159 = this;
 
               this.interval = setInterval(function () {
-                _this157.timeLeft--;
+                _this159.timeLeft--;
 
-                if (_this157.timeLeft > 0) {
-                  _this157.refreshButtonEnabled = false;
-                  _this157.isTimerValueDisplay = true;
+                if (_this159.timeLeft > 0) {
+                  _this159.refreshButtonEnabled = false;
+                  _this159.isTimerValueDisplay = true;
                 } else {
-                  _this157.refreshButtonEnabled = true;
-                  _this157.isTimerValueDisplay = false;
-                  _this157.timeLeft = 60;
-                  clearInterval(_this157.interval);
+                  _this159.refreshButtonEnabled = true;
+                  _this159.isTimerValueDisplay = false;
+                  _this159.timeLeft = 60;
+                  clearInterval(_this159.interval);
                 }
 
-                _this157.timerDisplay = _this157.transform(_this157.timeLeft);
+                _this159.timerDisplay = _this159.transform(_this159.timeLeft);
               }, 1000);
             }
           }, {
@@ -35221,7 +35238,7 @@
           }, {
             key: "proceedToS2",
             value: function proceedToS2(isS2) {
-              var _this158 = this;
+              var _this160 = this;
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
                 text: "Are you sure you want to apply for ".concat(isS2 ? "S2" : "TOA", "?"),
@@ -35232,26 +35249,26 @@
                 confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  _this158.s2Application.submissionType = _this158.data.s2Application.submissionType;
-                  _this158.s2Application.applicationForm = _this158.data.s2Application;
-                  _this158.s2Application.submissionType = _shared__WEBPACK_IMPORTED_MODULE_6__["SUBMISSION_TYPE"].ORIGINAL; // this.s2Application.applicationForm.submissionType;
+                  _this160.s2Application.submissionType = _this160.data.s2Application.submissionType;
+                  _this160.s2Application.applicationForm = _this160.data.s2Application;
+                  _this160.s2Application.submissionType = _shared__WEBPACK_IMPORTED_MODULE_6__["SUBMISSION_TYPE"].ORIGINAL; // this.s2Application.applicationForm.submissionType;
 
                   if (!isS2) {
-                    _this158.s2Application.hasToa = true; // this.s2Application.submissionType = SUBMISSION_TYPE.TOA;
+                    _this160.s2Application.hasToa = true; // this.s2Application.submissionType = SUBMISSION_TYPE.TOA;
                   }
 
-                  _this158.s2Application.internalStatus = "SAVED";
-                  _this158.s2Application.externalStatus = "SAVED";
-                  console.log("View S2:", _this158.data.s2Application);
+                  _this160.s2Application.internalStatus = "SAVED";
+                  _this160.s2Application.externalStatus = "SAVED";
+                  console.log("View S2:", _this160.data.s2Application);
 
-                  _this158.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, _this158.s2Application).subscribe(function (res) {
+                  _this160.apiService.save(_shared__WEBPACK_IMPORTED_MODULE_6__["ENDPOINTS"].s2ApplicationFormPresentorSave, _this160.s2Application).subscribe(function (res) {
                     console.log(res);
 
-                    _this158.router.navigate(["asc/page/application/s2/update", res.responseData.data.id]);
+                    _this160.router.navigate(["asc/page/application/s2/update", res.responseData.data.id]);
 
-                    _this158.commonService.sendClickEvent();
+                    _this160.commonService.sendClickEvent();
 
-                    _this158.dialogRef.close();
+                    _this160.dialogRef.close();
                   }, function (err) {});
                 }
               });
@@ -35259,7 +35276,7 @@
           }, {
             key: "requestForClearingAndClearance",
             value: function requestForClearingAndClearance() {
-              var _this159 = this;
+              var _this161 = this;
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
                 text: "Are you sure you want to request approval for special clearing?",
@@ -35270,21 +35287,21 @@
                 confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  _this159.dialogRef.close();
+                  _this161.dialogRef.close();
 
                   var dialogRef;
-                  _this159.applicationRequest.hasSpecialClearing = true;
-                  _this159.applicationRequest.applicationForm = _this159.s1Application;
-                  dialogRef = _this159.dialog.open(app_modules_fragments_request_for_special_clearing_request_for_special_clearing_component__WEBPACK_IMPORTED_MODULE_14__["RequestForSpecialClearingComponent"], {
+                  _this161.applicationRequest.hasSpecialClearing = true;
+                  _this161.applicationRequest.applicationForm = _this161.s1Application;
+                  dialogRef = _this161.dialog.open(app_modules_fragments_request_for_special_clearing_request_for_special_clearing_component__WEBPACK_IMPORTED_MODULE_14__["RequestForSpecialClearingComponent"], {
                     width: "80%",
                     height: "85%",
                     data: {
-                      applicationRequest: _this159.applicationRequest,
+                      applicationRequest: _this161.applicationRequest,
                       applicationType: "Request for Special Clearing"
                     }
                   });
 
-                  _this159.commonService.sendClickEvent();
+                  _this161.commonService.sendClickEvent();
                 }
               });
             }
@@ -38386,7 +38403,7 @@
           }, {
             key: "getTypeOfMedium",
             value: function getTypeOfMedium(type) {
-              var _this160 = this;
+              var _this162 = this;
 
               this.typeOfMediumList = [];
               var endpoint = "";
@@ -38413,11 +38430,11 @@
 
 
               this.apiService.findAll(endpoint).subscribe(function (res) {
-                _this160.typeOfMediumList = res.responseData.data;
+                _this162.typeOfMediumList = res.responseData.data;
 
                 if (type === _shared__WEBPACK_IMPORTED_MODULE_2__["TYPE_OF_MEDIUM"].SINGLE_MEDIA) {
-                  _this160.typeOfMedium = _this160.typeOfMediumList.filter(function (medium) {
-                    return medium.description === _this160.savedTypeOfMedium;
+                  _this162.typeOfMedium = _this162.typeOfMediumList.filter(function (medium) {
+                    return medium.description === _this162.savedTypeOfMedium;
                   })[0];
                 } // if (this.selectedMultimediaList.length > 0) {
                 //   this.selectedMultimediaStringList = this.selectedMultimediaList.map(mappedList => mappedList?.typeOfMedium?.description);
@@ -38506,10 +38523,10 @@
           }, {
             key: "getTypeOfDocumentList",
             value: function getTypeOfDocumentList() {
-              var _this161 = this;
+              var _this163 = this;
 
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfDocument).subscribe(function (res) {
-                _this161.typeOfDocumentList = res.responseData.data;
+                _this163.typeOfDocumentList = res.responseData.data;
               }, function (err) {});
             }
           }, {
@@ -38541,32 +38558,32 @@
           }, {
             key: "getExecutionDialectList",
             value: function getExecutionDialectList() {
-              var _this162 = this;
+              var _this164 = this;
 
               if (this.typeOfMedium.id) {
                 this.apiService.findAll("".concat(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfExecutionsByMedium).concat(this.typeOfMedium.id)).subscribe(function (res) {
-                  if (_this162.typeOfMedium.executionEnable) {
-                    _this162.executionList = res.responseData.data;
+                  if (_this164.typeOfMedium.executionEnable) {
+                    _this164.executionList = res.responseData.data;
                   } else {
                     if (res.responseData.data.length === 0) {
-                      _this162.sweetAlertService.customErrorMessage("The selected type of medium has no execution.");
+                      _this164.sweetAlertService.customErrorMessage("The selected type of medium has no execution.");
                     } else {
-                      _this162.applicationSingleMedia.mediumExecution = res.responseData.data[0];
+                      _this164.applicationSingleMedia.mediumExecution = res.responseData.data[0];
                     }
                   }
 
-                  _this162.emitSingleMediaChanges();
+                  _this164.emitSingleMediaChanges();
                 }, function (err) {});
               }
 
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].dialects).subscribe(function (res) {
-                _this162.dialectList = res.responseData.data;
+                _this164.dialectList = res.responseData.data;
               }, function (err) {});
             }
           }, {
             key: "removeTypeOfDocument",
             value: function removeTypeOfDocument(index) {
-              var _this163 = this;
+              var _this165 = this;
 
               var keepValues = [];
               sweetalert2__WEBPACK_IMPORTED_MODULE_8___default.a.fire({
@@ -38578,14 +38595,14 @@
                 confirmButtonText: "Confirm"
               }).then(function (result) {
                 if (result.value) {
-                  _this163.supportiveDocumentList.forEach(function (element, key) {
+                  _this165.supportiveDocumentList.forEach(function (element, key) {
                     if (key !== index) {
                       keepValues.push(element);
                     }
                   });
 
-                  _this163.supportiveDocumentList = keepValues;
-                  _this163.dataSource.data = keepValues;
+                  _this165.supportiveDocumentList = keepValues;
+                  _this165.dataSource.data = keepValues;
                 }
               });
             }
@@ -38610,12 +38627,12 @@
           }, {
             key: "getTypeOfDocument",
             value: function getTypeOfDocument(res, index) {
-              var _this164 = this;
+              var _this166 = this;
 
               this.isUpdate = true;
               this.apiService.findById(_shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].typeOfDocument, res.typeOfDocument.id).subscribe(function (data) {
                 if (data) {
-                  _this164.typeOfDocument = data.responseData.data;
+                  _this166.typeOfDocument = data.responseData.data;
                 }
               });
               this.supportingDocument.typeOfDocument = res.typeOfDocument;
@@ -39136,13 +39153,13 @@
           }, {
             key: "getPerformanceMatricsList",
             value: function getPerformanceMatricsList(appFormReference) {
-              var _this165 = this;
+              var _this167 = this;
 
               this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_5__["ENDPOINTS"].performanceMetrics, appFormReference).subscribe(function (res) {
-                _this165.performanceMetricsList = res;
-                _this165.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this165.performanceMetricsList);
-                _this165.dataSource.paginator = _this165.paginator;
-                _this165.dataSource.sort = _this165.sort;
+                _this167.performanceMetricsList = res;
+                _this167.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](_this167.performanceMetricsList);
+                _this167.dataSource.paginator = _this167.paginator;
+                _this167.dataSource.sort = _this167.sort;
               });
             }
           }, {
