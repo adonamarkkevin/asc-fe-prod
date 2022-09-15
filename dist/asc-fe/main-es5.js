@@ -72,7 +72,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! E:\asc\asc-frontend\src\main.ts */
+      /*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\src\main.ts */
       "zUnb");
       /***/
     },
@@ -2623,7 +2623,7 @@
               this.apiService.findAll(_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].scheduleOfFeesS2Special).subscribe(function (res) {
                 _this2.s2SpecialCounter = res.length;
               });
-              this.apiService.findAll(_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].scheduleOfFeesMonitoring + '?hasPromissoryNote=true').subscribe(function (res) {
+              this.apiService.findAll(_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].scheduleOfFeesMonitoring + '?hasPromissoryNote=true&paymentStatus=FOR_PAYMENT').subscribe(function (res) {
                 _this2.accountsPayableCounter = res.totalItems;
               });
             }
@@ -5894,6 +5894,14 @@
 
               this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].paymentDetails + this.s1Application.id).subscribe(function (res) {
                 _this9.paymentDetails = res;
+
+                if (_this9.fromPayable) {
+                  _this9.paymentDetails.basicRate = +(_this9.s1Application.amount / 1.12).toFixed(2);
+                  _this9.paymentDetails.vat = _this9.s1Application.amount - +_this9.paymentDetails.basicRate.toFixed(2);
+                  _this9.paymentDetails.amountDue = _this9.paymentDetails.basicRate + _this9.paymentDetails.vat;
+                  return;
+                }
+
                 _this9.paymentDetails.vat = _this9.paymentDetails.vat.toFixed(2);
               });
             }
@@ -5976,6 +5984,12 @@
                     _this11.payment.appFormReference = s1Application.appFormReference;
                     _this11.payment.filename = obj.filename;
 
+                    if (_this11.fromPayable) {
+                      _this11.saveProofOfPaymentForPromissoryNote();
+
+                      return;
+                    }
+
                     _this11.saveProofOfPayment();
                   }, function (err) {
                     _this11.spinner.hide();
@@ -6030,6 +6044,47 @@
               });
             }
           }, {
+            key: "saveProofOfPaymentForPromissoryNote",
+            value: function saveProofOfPaymentForPromissoryNote() {
+              var _this13 = this;
+
+              this.spinner.show();
+              console.log('Saving payment...');
+              this.payment.id = 0;
+              this.payment.officialReceiptNo = '';
+              this.payment.paymentMethod = null;
+              console.log('PAYMENT : ', this.payment);
+              this.apiService.save("".concat(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].applicationFormPresentor, "payment-type-id/").concat(this.paymentType.id, "/account-payable/payment/submit"), this.payment).subscribe(function (res) {
+                console.log('SAVED STATUS: ', res);
+
+                if (res.responseData.data) {
+                  _this13.safeURLProofOfPayment = _this13.sanitizer.bypassSecurityTrustResourceUrl(res.responseData.data.fileURL);
+                  _this13.isSubmitted = true;
+
+                  _this13.sweetAlertService.customSuccessMessage('Proof of payment successfully submitted.');
+
+                  _this13.closeModal();
+                } else {
+                  _this13.sweetAlertService.customErrorMessage('Error saving payment.');
+                }
+
+                _this13.spinner.hide(); // this.previewDocument = true;
+
+
+                _this13.selectedFiles = undefined;
+
+                _this13.router.navigateByUrl('asc/page/application/single-application');
+              }, function (err) {
+                console.log(err);
+
+                _this13.sweetAlertService.error(err);
+
+                _this13.spinner.hide();
+              }, function () {
+                _this13.spinner.hide();
+              });
+            }
+          }, {
             key: "closeModal",
             value: function closeModal() {
               this.dialogRef.close();
@@ -6042,7 +6097,7 @@
           }, {
             key: "getApplicationSingleMedia",
             value: function getApplicationSingleMedia() {
-              var _this13 = this;
+              var _this14 = this;
 
               var _a;
 
@@ -6050,51 +6105,8 @@
                 var _a, _b, _c, _d;
 
                 if (res.responseData.data.length > 0) {
-                  _this13.applicationSingleMedia = res.responseData.data[0];
-                  _this13.typeOfMediumDisplay = "".concat((_c = (_b = (_a = _this13.applicationSingleMedia) === null || _a === void 0 ? void 0 : _a.mediumExecution) === null || _b === void 0 ? void 0 : _b.typeOfMedium) === null || _c === void 0 ? void 0 : _c.description, " (").concat((_d = _this13.applicationSingleMedia) === null || _d === void 0 ? void 0 : _d.sizeLength, ")");
-                } else {
-                  _this13.typeOfMediumDisplay = '';
-                }
-              }, function (err) {
-                _this13.typeOfMediumDisplay = '';
-              });
-            }
-          }, {
-            key: "getMultimediaStatic",
-            value: function getMultimediaStatic() {
-              var _this14 = this;
-
-              var _a;
-
-              this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].applicationMultimedia, "app-form-reference/".concat((_a = this.s1Application) === null || _a === void 0 ? void 0 : _a.appFormReference)).subscribe(function (res) {
-                if (res.responseData.data.length > 0) {
-                  var multimediaList = new Set(res.responseData.data.map(function (mappedList) {
-                    var _a;
-
-                    return "".concat((_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description, " (").concat(mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength, ")");
-                  }));
-                  _this14.typeOfMediumDisplay = '';
-                  var mediaCtrl = 1;
-
-                  var _iterator = _createForOfIteratorHelper(multimediaList),
-                      _step;
-
-                  try {
-                    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                      var media = _step.value;
-
-                      if (mediaCtrl !== multimediaList.size) {
-                        _this14.typeOfMediumDisplay += "".concat(media, ", ");
-                        mediaCtrl++;
-                      } else {
-                        _this14.typeOfMediumDisplay += media;
-                      }
-                    }
-                  } catch (err) {
-                    _iterator.e(err);
-                  } finally {
-                    _iterator.f();
-                  }
+                  _this14.applicationSingleMedia = res.responseData.data[0];
+                  _this14.typeOfMediumDisplay = "".concat((_c = (_b = (_a = _this14.applicationSingleMedia) === null || _a === void 0 ? void 0 : _a.mediumExecution) === null || _b === void 0 ? void 0 : _b.typeOfMedium) === null || _c === void 0 ? void 0 : _c.description, " (").concat((_d = _this14.applicationSingleMedia) === null || _d === void 0 ? void 0 : _d.sizeLength, ")");
                 } else {
                   _this14.typeOfMediumDisplay = '';
                 }
@@ -6103,8 +6115,8 @@
               });
             }
           }, {
-            key: "getMultimediaMoving",
-            value: function getMultimediaMoving() {
+            key: "getMultimediaStatic",
+            value: function getMultimediaStatic() {
               var _this15 = this;
 
               var _a;
@@ -6119,12 +6131,12 @@
                   _this15.typeOfMediumDisplay = '';
                   var mediaCtrl = 1;
 
-                  var _iterator2 = _createForOfIteratorHelper(multimediaList),
-                      _step2;
+                  var _iterator = _createForOfIteratorHelper(multimediaList),
+                      _step;
 
                   try {
-                    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                      var media = _step2.value;
+                    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                      var media = _step.value;
 
                       if (mediaCtrl !== multimediaList.size) {
                         _this15.typeOfMediumDisplay += "".concat(media, ", ");
@@ -6134,15 +6146,58 @@
                       }
                     }
                   } catch (err) {
-                    _iterator2.e(err);
+                    _iterator.e(err);
                   } finally {
-                    _iterator2.f();
+                    _iterator.f();
                   }
                 } else {
                   _this15.typeOfMediumDisplay = '';
                 }
               }, function (err) {
                 _this15.typeOfMediumDisplay = '';
+              });
+            }
+          }, {
+            key: "getMultimediaMoving",
+            value: function getMultimediaMoving() {
+              var _this16 = this;
+
+              var _a;
+
+              this.apiService.findByParam(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].applicationMultimedia, "app-form-reference/".concat((_a = this.s1Application) === null || _a === void 0 ? void 0 : _a.appFormReference)).subscribe(function (res) {
+                if (res.responseData.data.length > 0) {
+                  var multimediaList = new Set(res.responseData.data.map(function (mappedList) {
+                    var _a;
+
+                    return "".concat((_a = mappedList === null || mappedList === void 0 ? void 0 : mappedList.typeOfMedium) === null || _a === void 0 ? void 0 : _a.description, " (").concat(mappedList === null || mappedList === void 0 ? void 0 : mappedList.multimediaSizeLength, ")");
+                  }));
+                  _this16.typeOfMediumDisplay = '';
+                  var mediaCtrl = 1;
+
+                  var _iterator2 = _createForOfIteratorHelper(multimediaList),
+                      _step2;
+
+                  try {
+                    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                      var media = _step2.value;
+
+                      if (mediaCtrl !== multimediaList.size) {
+                        _this16.typeOfMediumDisplay += "".concat(media, ", ");
+                        mediaCtrl++;
+                      } else {
+                        _this16.typeOfMediumDisplay += media;
+                      }
+                    }
+                  } catch (err) {
+                    _iterator2.e(err);
+                  } finally {
+                    _iterator2.f();
+                  }
+                } else {
+                  _this16.typeOfMediumDisplay = '';
+                }
+              }, function (err) {
+                _this16.typeOfMediumDisplay = '';
               });
             }
           }]);
@@ -6878,7 +6933,7 @@
       var AppComponent = /*@__PURE__*/function () {
         var AppComponent = /*#__PURE__*/function () {
           function AppComponent(dataStorage, router, sweetAlertService, idle, keepalive) {
-            var _this16 = this;
+            var _this17 = this;
 
             _classCallCheck(this, AppComponent);
 
@@ -6904,17 +6959,17 @@
 
                 idle.setInterrupts(_ng_idle_core__WEBPACK_IMPORTED_MODULE_1__["DEFAULT_INTERRUPTSOURCES"]);
                 idle.onIdleEnd.subscribe(function () {
-                  _this16.reset();
+                  _this17.reset();
                 });
                 idle.onTimeout.subscribe(function () {
-                  _this16.sweetAlertService.sweetAlertMessage('info', 'Logout', 'You have been logged out due to inactivity.');
+                  _this17.sweetAlertService.sweetAlertMessage('info', 'Logout', 'You have been logged out due to inactivity.');
 
-                  _this16.timedOut = true;
+                  _this17.timedOut = true;
 
-                  _this16.router.navigate(['/']);
+                  _this17.router.navigate(['/']);
                 });
                 idle.onIdleStart.subscribe(function () {
-                  _this16.displayWarningForTimeout = true;
+                  _this17.displayWarningForTimeout = true;
                 });
                 idle.onTimeoutWarning.subscribe(function (countdown) {
                   dataStorage.setIdleCountdown(countdown);
@@ -6943,7 +6998,7 @@
                       if (result.dismiss === sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.DismissReason.timer) {
                         console.log('I was closed by the timer');
 
-                        _this16.sweetAlertService.sweetAlertMessage('info', 'Logout', 'You have been logged out due to inactivity.');
+                        _this17.sweetAlertService.sweetAlertMessage('info', 'Logout', 'You have been logged out due to inactivity.');
                       }
                     });
                   }
@@ -6951,10 +7006,10 @@
 
                 keepalive.interval(60);
                 keepalive.onPing.subscribe(function () {
-                  return _this16.lastPing = new Date();
+                  return _this17.lastPing = new Date();
                 });
 
-                _this16.reset();
+                _this17.reset();
               }
             });
           }
@@ -8602,7 +8657,7 @@
           _createClass(AnimateDigitService, [{
             key: "counterFunc",
             value: function counterFunc(endValue, durationMs, element) {
-              var _this17 = this;
+              var _this18 = this;
 
               var stepCount = Math.abs(durationMs / this.steps);
               var valueIncrement = (endValue - 0) / stepCount;
@@ -8618,7 +8673,7 @@
                 if (currentSinValue < Math.PI) {
                   window.requestAnimationFrame(step);
                 } else {
-                  element.nativeElement.textContent = _this17.numberWithCommas(endValue);
+                  element.nativeElement.textContent = _this18.numberWithCommas(endValue);
                 }
               };
 

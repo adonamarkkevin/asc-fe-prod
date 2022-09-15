@@ -24,7 +24,7 @@ class TypeOfDocument {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\asc\asc-frontend\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\Kevin Adona\Documents\Source Codes\asc-frontend\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -1410,7 +1410,7 @@ let LayoutComponent = /*@__PURE__*/ (() => {
             this.apiService.findAll(_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].scheduleOfFeesS2Special).subscribe((res) => {
                 this.s2SpecialCounter = res.length;
             });
-            this.apiService.findAll(_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].scheduleOfFeesMonitoring + '?hasPromissoryNote=true').subscribe((res) => {
+            this.apiService.findAll(_utils_constants__WEBPACK_IMPORTED_MODULE_3__["ENDPOINTS"].scheduleOfFeesMonitoring + '?hasPromissoryNote=true&paymentStatus=FOR_PAYMENT').subscribe((res) => {
                 this.accountsPayableCounter = res.totalItems;
             });
         }
@@ -3456,6 +3456,12 @@ let ModalSingleApplicationComponent = /*@__PURE__*/ (() => {
         getPaymentDetails() {
             this.apiService.findAll(_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].paymentDetails + this.s1Application.id).subscribe((res) => {
                 this.paymentDetails = res;
+                if (this.fromPayable) {
+                    this.paymentDetails.basicRate = +(this.s1Application.amount / 1.12).toFixed(2);
+                    this.paymentDetails.vat = this.s1Application.amount - +this.paymentDetails.basicRate.toFixed(2);
+                    this.paymentDetails.amountDue = this.paymentDetails.basicRate + this.paymentDetails.vat;
+                    return;
+                }
                 this.paymentDetails.vat = this.paymentDetails.vat.toFixed(2);
             });
         }
@@ -3519,6 +3525,10 @@ let ModalSingleApplicationComponent = /*@__PURE__*/ (() => {
                         this.payment.applicationForm = s1Application;
                         this.payment.appFormReference = s1Application.appFormReference;
                         this.payment.filename = obj.filename;
+                        if (this.fromPayable) {
+                            this.saveProofOfPaymentForPromissoryNote();
+                            return;
+                        }
                         this.saveProofOfPayment();
                     }, (err) => {
                         this.spinner.hide();
@@ -3538,6 +3548,37 @@ let ModalSingleApplicationComponent = /*@__PURE__*/ (() => {
             this.payment.paymentMethod = null;
             console.log('PAYMENT : ', this.payment);
             this.apiService.save(`${_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].applicationFormPresentor}payment-type-id/${this.paymentType.id}/payment/submit`, this.payment)
+                .subscribe((res) => {
+                console.log('SAVED STATUS: ', res);
+                if (res.responseData.data) {
+                    this.safeURLProofOfPayment = this.sanitizer.bypassSecurityTrustResourceUrl(res.responseData.data.fileURL);
+                    this.isSubmitted = true;
+                    this.sweetAlertService.customSuccessMessage('Proof of payment successfully submitted.');
+                    this.closeModal();
+                }
+                else {
+                    this.sweetAlertService.customErrorMessage('Error saving payment.');
+                }
+                this.spinner.hide();
+                // this.previewDocument = true;
+                this.selectedFiles = undefined;
+                this.router.navigateByUrl('asc/page/application/single-application');
+            }, (err) => {
+                console.log(err);
+                this.sweetAlertService.error(err);
+                this.spinner.hide();
+            }, () => {
+                this.spinner.hide();
+            });
+        }
+        saveProofOfPaymentForPromissoryNote() {
+            this.spinner.show();
+            console.log('Saving payment...');
+            this.payment.id = 0;
+            this.payment.officialReceiptNo = '';
+            this.payment.paymentMethod = null;
+            console.log('PAYMENT : ', this.payment);
+            this.apiService.save(`${_shared__WEBPACK_IMPORTED_MODULE_4__["ENDPOINTS"].applicationFormPresentor}payment-type-id/${this.paymentType.id}/account-payable/payment/submit`, this.payment)
                 .subscribe((res) => {
                 console.log('SAVED STATUS: ', res);
                 if (res.responseData.data) {

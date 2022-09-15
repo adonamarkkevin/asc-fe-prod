@@ -530,7 +530,7 @@
             key: "getEndpoint",
             value: function getEndpoint() {
               var endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].scheduleOfFeesMonitoring;
-              return "".concat(endpoint, "?hasPromissoryNote=true&page=").concat(this.pageNo + 1, "&size=").concat(this.pageSize);
+              return "".concat(endpoint, "?hasPromissoryNote=true&paymentStatus=FOR_PAYMENT&page=").concat(this.pageNo + 1, "&size=").concat(this.pageSize);
             }
           }]);
 

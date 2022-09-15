@@ -283,7 +283,7 @@ let AccountsPayableComponent = /*@__PURE__*/ (() => {
         }
         getEndpoint() {
             let endpoint = _shared__WEBPACK_IMPORTED_MODULE_2__["ENDPOINTS"].scheduleOfFeesMonitoring;
-            return `${endpoint}?hasPromissoryNote=true&page=${this.pageNo + 1}&size=${this.pageSize}`;
+            return `${endpoint}?hasPromissoryNote=true&paymentStatus=FOR_PAYMENT&page=${this.pageNo + 1}&size=${this.pageSize}`;
         }
     }
     AccountsPayableComponent.ɵfac = function AccountsPayableComponent_Factory(t) { return new (t || AccountsPayableComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services__WEBPACK_IMPORTED_MODULE_4__["ApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"])); };
