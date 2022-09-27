@@ -17087,6 +17087,12 @@
           }, {
             key: "setAsMultiple",
             value: function setAsMultiple() {
+              var _a, _b;
+
+              if (((_b = (_a = this.s1Application) === null || _a === void 0 ? void 0 : _a.applicationType) === null || _b === void 0 ? void 0 : _b.description) === 'Batch') {
+                return;
+              }
+
               this.isMultiple = !this.isMultiple;
               this.showNumberOfApplications = !this.showNumberOfApplications;
 
@@ -17096,6 +17102,30 @@
               } else {
                 this.setFormValidator('');
                 this.s1Application.formType = _shared__WEBPACK_IMPORTED_MODULE_4__["APPFORM_TYPE"].INDIVIDUAL;
+              }
+            }
+          }, {
+            key: "showMessage",
+            get: function get() {
+              var _a, _b;
+
+              if ((this.isMultiple || this.isSpecial) && ((_b = (_a = this.s1Application) === null || _a === void 0 ? void 0 : _a.applicationType) === null || _b === void 0 ? void 0 : _b.description) !== 'Batch') {
+                return true;
+              }
+
+              return false;
+            }
+          }, {
+            key: "autoValidate",
+            get: function get() {
+              var _a, _b;
+
+              if (this.isPresentation || !this.s1Application.applicationType) {
+                return true;
+              } else if (((_b = (_a = this.s1Application) === null || _a === void 0 ? void 0 : _a.applicationType) === null || _b === void 0 ? void 0 : _b.description) === 'Batch') {
+                return true;
+              } else {
+                return false;
               }
             }
           }, {
@@ -17336,7 +17366,7 @@
 
               _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-              _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.isPresentation || ctx.s1Application.applicationType === null || ctx.s1Application.applicationType === undefined)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](11, _c0, ctx.isPresentation || ctx.s1Application.applicationType === null || ctx.s1Application.applicationType === undefined ? "none" : ""));
+              _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx.autoValidate)("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](11, _c0, ctx.isPresentation || ctx.s1Application.applicationType === null || ctx.s1Application.applicationType === undefined ? "none" : ""));
 
               _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
 
